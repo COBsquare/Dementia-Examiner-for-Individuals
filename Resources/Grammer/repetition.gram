@@ -1,0 +1,6 @@
+#JSGF V1.0;
+
+
+
+grammar repetition;
+public <repetition> = ( no | ifs | ands | or | buts ) * ;

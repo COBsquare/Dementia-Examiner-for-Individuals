@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="Resources/Grammer"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/OpenCV"/>
+	<classpathentry kind="con" path="org.eclipse.fx.ide.jdt.core.JAVAFX_CONTAINER"/>
+	<classpathentry kind="lib" path="lib/ImageRecog/logback-classic-1.0.13.jar"/>
+	<classpathentry kind="lib" path="lib/ImageRecog/logback-core-1.1.2.jar"/>
+	<classpathentry kind="lib" path="lib/ImageRecog/neuroph-core-2.94.jar"/>
+	<classpathentry kind="lib" path="lib/ImageRecog/slf4j-api-1.7.5.jar"/>
+	<classpathentry kind="lib" path="lib/SpeechRecog/sphinx4-core-1.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/SpeechRecog/sphinx4-data-1.0.0.jar"/>
+	<classpathentry kind="lib" path="lib/SpeechRecog/sphinx4-scala-wrapper-1.0-20130327.183757-2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

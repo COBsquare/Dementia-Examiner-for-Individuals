@@ -1,0 +1,7 @@
+#JSGF V1.0;
+
+
+
+grammar spell;
+
+public <spell> = ( d. | l. | r. | o. | w. ) * ;

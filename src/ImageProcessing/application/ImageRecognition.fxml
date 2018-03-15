@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="599.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ImageProcessing.application.ImageRecognitionController">
+   <bottom>
+      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="771.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button fx:id="browse_image" alignment="CENTER" mnemonicParsing="false" onAction="#loadImage" text="Browse Image" textAlignment="CENTER">
+                           <HBox.margin>
+                              <Insets right="20.0" />
+                           </HBox.margin></Button>
+                        <Button fx:id="open_webcam" alignment="CENTER" mnemonicParsing="false" onAction="#startCamera" text="Open Webcam" />
+                     </children>
+                  </HBox>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="96.0" prefWidth="747.0">
+               <children>
+                  <Button fx:id="save_image" alignment="TOP_CENTER" layoutX="327.0" layoutY="36.0" mnemonicParsing="false" onAction="#saveImage" text="Save and Continue" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </bottom>
+   <center>
+      <ImageView fx:id="imageViewer" fitHeight="370.0" fitWidth="628.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <ComboBox fx:id="comboBox_type" prefWidth="150.0" promptText="Choose type" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </ComboBox>
+   </top>
+</BorderPane>
