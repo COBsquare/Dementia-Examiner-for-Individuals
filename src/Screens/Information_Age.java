@@ -10,7 +10,6 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 
 import java.awt.Font;
@@ -70,8 +69,6 @@ public class Information_Age {
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
-
-
 
 		JLabel lblNewLabel_1 = new JLabel("Age");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 30));

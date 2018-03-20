@@ -2,9 +2,9 @@ package ImageProcessing.Evaluation;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import org.neuroph.core.NeuralNetwork;
-import org.opencv.core.CvType;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Rect;
@@ -41,11 +41,15 @@ public final class Clock {
 		Rect[] numbers_hands = Find.AllBoundaryBoxes(frame);
 		System.out.println("Number of components in clockface: " + numbers_hands.length);
 
+		// Check the conditions
+		// 1. Deviation from the optimal circumference
+		// 2. Clock components' presentation
 		Boolean[] condition = {
 				Math.abs(circumference_optimal - circumference_real) <= 500,
 				numbers_hands.length > 12 };
 		String[] outcome = { "Clock face is presented", "Numbers and hands are presented" };
 
+		// Display the results
 		for (int i = 0; i < 2; i++) {
 			System.out.print("\n" + outcome[i]);
 			if (condition[i]) {
@@ -64,12 +68,31 @@ public final class Clock {
 	// Looks for their accurate locations on clock face
 	// Returns scoring of numbers (out of 4)
 	public static int evaluateNumbers(Mat frame, ImageView imageViewer) throws IOException {
-		
+		System.out.println("NUMBERS-------------------------------------");
+
+		// TODO Evaluation of spatial position of numbers
+
 		int numbers_score = 0;
+		int numbersPresent_score = 0;
+		int numbersSpatial_score = 0;
 
 		// Find all components inside the clock face
 		Rect[] clock_components = Find.AllBoundaryBoxes(frame);
 
+		/* Display components
+		Imgproc.cvtColor(frame, frame, Imgproc.COLOR_GRAY2BGR);
+		for(int i=0;i<clock_components.length;i++){
+			Imgproc.rectangle(frame, clock_components[i].tl(), clock_components[i].br(), new Scalar(250, 0, 0), 3);	
+		}
+		ImageRecognitionController.updateImageView(imageViewer, Utils.mat2Image(frame));
+		Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
+		*/
+		
+		// Load the saved network
+		NeuralNetwork<?> neuralNetwork = NeuralNetwork.createFromFile(
+				"Resources/NeuralNetwork/NeuralNetwork_Perceptron.nnet");
+
+		ArrayList<Integer> results = new ArrayList<Integer>();
 		// Crop every component we found from the clock face
 		// Test each and every component with giving them into ANN
 		for (int i = 0; i < clock_components.length; i++) {
@@ -88,40 +111,110 @@ public final class Clock {
 			// Create array to give network
 			double[] input = new double[256];
 
-			int idx=0;
-			for (int x = 0; x < 16; x++) {
-				for (int y = 0; y < 16; y++) {
-					if (component_resized.get(x, y)[0] == 255)
+			int idx = 0;
+			for (int col = 0; col < 16; col++) {
+				for (int row = 0; row < 16; row++) {
+					if (component_resized.get(row, col)[0] == 255)
 						input[idx] = 1;
 					else
 						input[idx] = 0;
-					
 					idx++;
+
 				}
 			}
-			
-			// Load the saved network
-			NeuralNetwork<?> neuralNetwork =NeuralNetwork.createFromFile("NeuralNetwork_Perceptron.nnet");
-			
+
 			// Test network
 			// Set network input
 			neuralNetwork.setInput(input);
-			
+
 			// Calculate network
 			neuralNetwork.calculate();
-					
+
 			// Get network output
 			double[] result = neuralNetwork.getOutput();
-			for(int j=0;j<result.length;j++){
-				System.out.print(result[j]+" ");
+			for (int j = 0; j < result.length; j++) {
+				// Check the output
+				if (result[j] == 1)
+					results.add(j);
 			}
-			System.out.println();
-		
+
 		}
 
+		// Find the number of occurance for all of the digits
+		Collections.sort(results);
+		double[] numberRep = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+		for (int i = 0; i < results.size(); i++) {
+			switch (results.get(i)) {
+			case 0:
+				numberRep[0]++;
+				break;
+			case 1:
+				numberRep[1]++;
+				break;
+			case 2:
+				numberRep[2]++;
+				break;
+			case 3:
+				numberRep[3]++;
+				break;
+			case 4:
+				numberRep[4]++;
+				break;
+			case 5:
+				numberRep[5]++;
+				break;
+			case 6:
+				numberRep[6]++;
+				break;
+			case 7:
+				numberRep[7]++;
+				break;
+			case 8:
+				numberRep[8]++;
+				break;
+			case 9:
+				numberRep[9]++;
+				break;
+			}
+		}
+
+		// Check number of occurance for all numbers
+		// 5 sample for 1 (1, 10, 11, 12)
+		// 2 sample for 2 (2, 12)
+		// 1 sample for others (3, 4, 5, 6, 7, 8, 9, 10)
+		for (int i = 0; i < numberRep.length; i++) {
+			if (i == 1) {
+				if (numberRep[i] >= 5)
+					numbersPresent_score++;
+			} else if (i == 2) {
+				if (numberRep[i] >= 2)
+					numbersPresent_score++;
+			} else if (numberRep[i] >= 1) {
+				numbersPresent_score++;
+			}
+		}
+
+		// Check the conditions
+		// 1. Presentation of numbers
+		// 2. Spatial arrangments of numbers
+
+		Boolean[] condition = { numbersPresent_score >= 15, numbersSpatial_score >= 12 };
+		String[] outcome = { "All numbers are presented", "Numbers are in correct spatial arrangements" };
+
 		// Display the results
-		System.out.println("NUMBERS-------------------------------------");
-		
+		for (int i = 0; i < 2; i++) {
+			System.out.print("\n" + outcome[i]);
+			if (condition[i]) {
+				numbers_score += 2;
+				System.out.print("	[SATISFIED]");
+			} else {
+				System.out.print("	[NOT SATISFIED]");
+			}
+		}
+
+		System.out.println("\nScore of clock face: " + numbers_score + " out of 4");
+
 		return numbers_score;
 
 	}
@@ -131,7 +224,9 @@ public final class Clock {
 	// Returns scoring of hands (out of 4)
 	public static int evaluateHands(Mat frame, ImageView imageViewer) {
 		System.out.println("CLOCK HANDS----------------------------------");
-
+		
+		// TODO Check for the errors
+		
 		int hands_score = 0;
 
 		Mat lines = Recognition.houghlineTransform(frame);
@@ -227,6 +322,7 @@ public final class Clock {
 				"Minute hand is longer than hour hand",
 				"They are in correct form" };
 
+		// Display the results
 		for (int i = 0; i < 4; i++) {
 			System.out.print("\n" + outcome[i]);
 			if (condition[i]) {
@@ -249,7 +345,7 @@ public final class Clock {
 		clockface = Find.LargestCircle(frame);
 
 		clock_score += Clock.evaluateClockface(frame, imageViewer);
-		clock_score += Clock.evaluateNumbers(frame, imageViewer);
+		//clock_score += Clock.evaluateNumbers(frame, imageViewer);
 		clock_score += Clock.evaluateHands(frame, imageViewer);
 
 		System.out.println("RESULT OF THE TEST--->>> " + clock_score + " out of 10");

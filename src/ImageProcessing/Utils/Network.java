@@ -16,7 +16,7 @@ public final class Network {
 	public static void train() throws IOException {
 
 		// Fetch the input data
-		BufferedReader in = new BufferedReader(new FileReader("numbers_data.txt"));
+		BufferedReader in = new BufferedReader(new FileReader("Resources/NeuralNetwork/numbers_data.txt"));
 
 		// Read the data and write them on arrayList
 		String line;
@@ -77,7 +77,7 @@ public final class Network {
 
 		// Save the trained network into file
 		System.out.println("Network is saved and ready to test."+d.toString());
-		neuralNetwork.save("NeuralNetwork_Perceptron.nnet_1");
+		neuralNetwork.save("Resources/NeuralNetwork/NeuralNetwork_Perceptron.nnet_1");
 
 	}
 
