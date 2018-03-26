@@ -45,6 +45,11 @@ public void StopRecogniton(){
 					StopRecogniton();
 					System.exit(0);
 				}
+				else if(speechWords.equals("pencil wristwatch")){
+					System.out.println(" You gained two points ");
+					StopRecogniton();
+					System.exit(0);
+				}
 		}
 
 	}
