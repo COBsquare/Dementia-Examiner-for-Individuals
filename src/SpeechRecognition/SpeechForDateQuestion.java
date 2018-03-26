@@ -1,8 +1,6 @@
 package SpeechRecognition;
 
 
-
-
 import java.io.IOException;
 import java.util.Date;
 import java.text.DateFormat;
