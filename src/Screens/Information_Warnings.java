@@ -14,10 +14,12 @@ import javax.swing.JTextField;
 
 
 import java.awt.Font;
+import java.awt.Color;
 
-public class TypeSelection {
+public class Information_Warnings {
 
 	private JFrame frame;
+	private JTextField textField;
 
 	
 	public class User {
@@ -35,7 +37,7 @@ public class TypeSelection {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TypeSelection window = new TypeSelection();
+					Information_Warnings window = new Information_Warnings();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +49,7 @@ public class TypeSelection {
 	/**
 	 * Create the application.
 	 */
-	public TypeSelection() {
+	public Information_Warnings() {
 		initialize();
 	}
 
@@ -70,52 +72,50 @@ public class TypeSelection {
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
+	
 
-
-
-		JLabel label = new JLabel("");
-		label.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		label.setBounds(292, 529, 728, 35);
-		frame.getContentPane().add(label);
-
+		JButton btnNext = new JButton("Next");
+		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnNext.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {	
+							
+				frame.dispose();
+				TutorialScreen_voice tut1 = new TutorialScreen_voice();
+				tut1.main(null);
+			}
+		});
+		btnNext.setBounds(1080, 598, 142, 54);
+		frame.getContentPane().add(btnNext);
 		
-
-		JButton btnLiterate = new JButton("Literate");
-		btnLiterate.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnLiterate.addActionListener(new ActionListener() {
-	        @Override
-	        public void actionPerformed(ActionEvent arg0) {
-	        	
-	            label.setText("The test will continue in litarate, press 'ARROW' to confirm.");
-	            
-	        }
-	    });
-		btnLiterate.setBounds(1035, 437, 236, 140);
-		frame.getContentPane().add(btnLiterate);
-		
-		JButton btnIlliterate = new JButton("Illiterate");
-		
-			btnIlliterate.addActionListener(new ActionListener() {
-		        @Override
-		        public void actionPerformed(ActionEvent arg0) {
-		            label.setText("The test will continue in illitarate, press 'ARROW' to confirm.");
-		        }
-		    });
-		btnIlliterate.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnIlliterate.setBounds(1035, 177, 236, 140);
-		frame.getContentPane().add(btnIlliterate);
-		
-		JLabel lblNewLabel_1 = new JLabel("This selection will affected the test.");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNewLabel_1.setBounds(393, 260, 401, 78);
-		frame.getContentPane().add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel(" Please select your educational status.");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNewLabel_2.setBounds(381, 349, 413, 78);
+		JLabel lblNewLabel_2 = new JLabel("Please take paper and pencil before starting the test.");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblNewLabel_2.setBounds(341, 305, 813, 46);
 		frame.getContentPane().add(lblNewLabel_2);
 		
-				
+		JLabel lblNewLabel_3 = new JLabel("It is suggested to use headphones during the test.");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblNewLabel_3.setBounds(363, 385, 813, 46);
+		frame.getContentPane().add(lblNewLabel_3);
+		
+
+		JButton btnBack = new JButton("Back");
+		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+				Information_Gender info4 = new Information_Gender();
+				info4.main(null);
+			}
+		});
+		btnBack.setBounds(158, 598, 142, 54);
+		frame.getContentPane().add(btnBack);
+		
+		JLabel lblWarnings = new JLabel("WARNINGS");
+		lblWarnings.setForeground(Color.RED);
+		lblWarnings.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 40));
+		lblWarnings.setBounds(575, 166, 247, 76);
+		frame.getContentPane().add(lblWarnings);
+		
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
 		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
@@ -140,19 +140,6 @@ public class TypeSelection {
 				}
 		});
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBounds(1120, 621, 159, 73);
-		btnNewButton.setIcon(new ImageIcon("Resources/Images/arrowRight.png"));
-		frame.getContentPane().add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				
-				frame.dispose();
-				Information_Name info = new Information_Name();
-				info.main(null);
-			}
-		});
 		
 	}
 }

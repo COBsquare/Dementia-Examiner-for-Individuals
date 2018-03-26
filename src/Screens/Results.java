@@ -4,13 +4,18 @@ import java.awt.Color;
 import java.awt.EventQueue;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import javax.swing.JList;
 
 public class Results {
 
@@ -155,12 +160,36 @@ String[] columnNames = {"MMSE Point", "Cognitive Impairment"};
 		Theader2.setFont(new Font("Tahome", Font.BOLD, 20)); // font name style size
         table_1.setFont(new Font("Tahome", Font.BOLD, 15));
 		
+        JButton btnHome = new JButton("");
+		btnHome.setBounds(1210, 27, 61, 60);
+		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
+		frame.getContentPane().add(btnHome);
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				frame.dispose();
+				Welcome welcome = new Welcome();
+				welcome.main(null);
+			}
+		});
+		
+		JButton btnClose = new JButton("");
+		btnClose.setBounds(1281, 27, 60, 60);
+		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
+		frame.getContentPane().add(btnClose);
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				System.exit(0);
+				}
+		});
 				
 		Button button = new Button("Export the PDF File");
 		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		button.setBounds(518, 551, 304, 74);
 		button.setBackground(new Color(0, 255, 255));
 		frame.getContentPane().add(button);
+		
+		
 	}
-
 }

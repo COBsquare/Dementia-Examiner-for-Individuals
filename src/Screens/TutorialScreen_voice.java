@@ -14,6 +14,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 
 public class TutorialScreen_voice {
@@ -67,7 +69,7 @@ public class TutorialScreen_voice {
 		btnReadTheQuestion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					File file = new File("C:/Users/BegumOzceylan/eclipse-workspace/DEfI-GUI/Resorces/Audios/Question4.wav");
+					File file = new File("C:/Users/BegumOzceylan/eclipse-workspace/DEfI-GUI/Resources/Audios/Question4.wav");
 					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
 					Clip clip = AudioSystem.getClip();
 			        clip.open(audioInputStream);
@@ -79,7 +81,14 @@ public class TutorialScreen_voice {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				
 
+			 					
+			
+			int answer = JOptionPane.showConfirmDialog(
+					null, "Did you hear the voice?", "Tutorial", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+				
+				System.out.println(answer);
 			}
 		});
 		btnReadTheQuestion.setBounds(798, 93, 169, 168);
@@ -114,23 +123,68 @@ public class TutorialScreen_voice {
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JLabel lblThisScreenTutorial = new JLabel("This screen tutorial for the test. ");
-		lblThisScreenTutorial.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblThisScreenTutorial.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblThisScreenTutorial.setBounds(75, 302, 405, 34);
 		frame.getContentPane().add(lblThisScreenTutorial);
 		
-		JLabel lblNewLabel_1 = new JLabel("In the test you should use microphone and speaker of the computer.");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(75, 347, 485, 48);
+		JLabel lblNewLabel_1 = new JLabel("In the test you should use microphone and");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel_1.setBounds(75, 347, 659, 48);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("For controlling speaker and microphone, ");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(75, 406, 456, 34);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel_2.setBounds(75, 440, 659, 34);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("please press the play button and follow the directions.");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_3.setBounds(75, 438, 405, 34);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel_3.setBounds(75, 473, 626, 34);
 		frame.getContentPane().add(lblNewLabel_3);
+		
+		JButton btnHome = new JButton("");
+		btnHome.setBounds(1210, 27, 61, 60);
+		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
+		frame.getContentPane().add(btnHome);
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				frame.dispose();
+				Welcome welcome = new Welcome();
+				welcome.main(null);
+			}
+		});
+		
+		JButton btnClose = new JButton("");
+		btnClose.setBounds(1281, 27, 60, 60);
+		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
+		frame.getContentPane().add(btnClose);
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				System.exit(0);
+				}
+		});
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+					
+				
+				frame.dispose();
+				Information_Warnings info5 = new Information_Warnings();
+				info5.main(null);
+				
+			
+			}
+		});
+		btnBack.setBounds(158, 598, 142, 54);
+		frame.getContentPane().add(btnBack);
+		
+		JLabel lblNewLabel_4 = new JLabel("speaker of the computer.");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel_4.setBounds(74, 385, 526, 34);
+		frame.getContentPane().add(lblNewLabel_4);
 	}
 }

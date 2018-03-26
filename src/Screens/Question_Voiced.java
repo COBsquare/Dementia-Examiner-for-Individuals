@@ -66,7 +66,7 @@ public class Question_Voiced {
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lblNewLabel.setBounds(53, 24, 307, 215);
+		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
 		
 		
@@ -120,14 +120,43 @@ public class Question_Voiced {
 		frame.getContentPane().add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("Please push the play button for listening the question.");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(53, 265, 401, 42);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(854, 162, 552, 42);
 		frame.getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Please push the microphone button for answering the question.");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(53, 347, 494, 31);
+		JLabel lblNewLabel_2 = new JLabel("Please push the microphone button ");
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_2.setBounds(934, 367, 353, 31);
 		frame.getContentPane().add(lblNewLabel_2);
+		
+		JButton btnHome = new JButton("");
+		btnHome.setBounds(1210, 27, 61, 60);
+		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
+		frame.getContentPane().add(btnHome);
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				frame.dispose();
+				Welcome welcome = new Welcome();
+				welcome.main(null);
+			}
+		});
+		
+		JButton btnClose = new JButton("");
+		btnClose.setBounds(1281, 27, 60, 60);
+		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
+		frame.getContentPane().add(btnClose);
+		
+		JLabel lblNewLabel_3 = new JLabel("for answering the question.");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		lblNewLabel_3.setBounds(971, 398, 329, 31);
+		frame.getContentPane().add(lblNewLabel_3);
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				System.exit(0);
+				}
+		});
 		
 
 

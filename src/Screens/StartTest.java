@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
-public class Completion {
+public class StartTest {
 
 	private JFrame frame;
 
@@ -22,7 +22,7 @@ public class Completion {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Completion window = new Completion();
+					StartTest window = new StartTest();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -34,7 +34,7 @@ public class Completion {
 	/**
 	 * Create the application.
 	 */
-	public Completion() {
+	public StartTest() {
 		initialize();
 	}
 
@@ -58,12 +58,12 @@ public class Completion {
 		frame.getContentPane().add(lblNewLabel1);
 		
 		
-		JLabel lblNewLabel = new JLabel("You have completed the test.");
-		lblNewLabel.setFont(new Font("Serif",Font.BOLD,30));
-		lblNewLabel.setBounds(523, 380, 376, 76);
+		JLabel lblNewLabel = new JLabel("If you are ready, please click the start the test button.");
+		lblNewLabel.setFont(new Font("Tahoma",Font.BOLD,30));
+		lblNewLabel.setBounds(306, 330, 902, 74);
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton viewResultsButton = new JButton("View Results");
+		JButton viewResultsButton = new JButton("START THE TEST");
 		viewResultsButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		viewResultsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -73,14 +73,11 @@ public class Completion {
 
 			}
 		});
-		viewResultsButton.setBackground(Color.RED);
-		viewResultsButton.setBounds(612, 533, 173, 60);
+		viewResultsButton.setBackground(Color.GREEN);
+		viewResultsButton.setBounds(570, 534, 237, 60);
 		frame.getContentPane().add(viewResultsButton);
 		
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("Resources/Images/tick.png"));
-		label.setBounds(566, 168, 284, 171);
-		frame.getContentPane().add(label);
+
 		
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);

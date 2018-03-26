@@ -72,18 +72,18 @@ public class TutorialScreen_cam {
 		
 		
 		JLabel lblThisScreenTutorial = new JLabel("This screen tutorial for the test. ");
-		lblThisScreenTutorial.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblThisScreenTutorial.setFont(new Font("Tahoma", Font.PLAIN, 25));
 		lblThisScreenTutorial.setBounds(75, 302, 405, 34);
 		frame.getContentPane().add(lblThisScreenTutorial);
 		
-		JLabel lblNewLabel_1 = new JLabel("In the test you should use load a photo or taking photo with computer' camera.");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(75, 347, 521, 48);
+		JLabel lblNewLabel_1 = new JLabel("In the test you should use load a photo or ");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel_1.setBounds(75, 347, 750, 58);
 		frame.getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("For controlling camera please press the camera button.");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(75, 406, 456, 34);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel_2.setBounds(75, 454, 750, 48);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JButton btnNewButton_1 = new JButton("Next");
@@ -97,5 +97,46 @@ public class TutorialScreen_cam {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton_1.setBounds(860, 500, 128, 48);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		JButton btnHome = new JButton("");
+		btnHome.setBounds(1210, 27, 61, 60);
+		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
+		frame.getContentPane().add(btnHome);
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				frame.dispose();
+				Welcome welcome = new Welcome();
+				welcome.main(null);
+			}
+		});
+		
+		JButton btnClose = new JButton("");
+		btnClose.setBounds(1281, 27, 60, 60);
+		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
+		frame.getContentPane().add(btnClose);
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				System.exit(0);
+				}
+		});
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				frame.dispose();
+				TutorialScreen_voice tut1 = new TutorialScreen_voice();
+				tut1.main(null);
+			}
+		});
+		btnBack.setBounds(158, 598, 142, 54);
+		frame.getContentPane().add(btnBack);
+		
+		JLabel lblNewLabel_3 = new JLabel("taking photo with computer's camera.");
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lblNewLabel_3.setBounds(75, 385, 458, 47);
+		frame.getContentPane().add(lblNewLabel_3);
 	}
 }

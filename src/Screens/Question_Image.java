@@ -86,7 +86,7 @@ public class Question_Image {
 			}
 		});
 		
-		btnReadTheQuestion.setBounds(614, 384, 175, 163);
+		btnReadTheQuestion.setBounds(618, 94, 169, 168);
 		frame.getContentPane().add(btnReadTheQuestion);
 		
 
@@ -102,7 +102,8 @@ public class Question_Image {
 		
 		
 		
-		btnNewButton.setBounds(614, 164, 175, 163);
+		
+		btnNewButton.setBounds(618, 349, 175, 163);
 		frame.getContentPane().add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Next");
@@ -117,6 +118,34 @@ public class Question_Image {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton_1.setBounds(638, 610, 128, 48);
 		frame.getContentPane().add(btnNewButton_1);
+		
+		JButton btnNewButton_2 = new JButton("");
+		btnNewButton_2.setIcon(new ImageIcon("Resources/Images/folder.png"));
+		btnNewButton_2.setBounds(887, 349, 175, 163);
+		frame.getContentPane().add(btnNewButton_2);
+		
+		JButton btnHome = new JButton("");
+		btnHome.setBounds(1210, 27, 61, 60);
+		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
+		frame.getContentPane().add(btnHome);
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				frame.dispose();
+				Welcome welcome = new Welcome();
+				welcome.main(null);
+			}
+		});
+		
+		JButton btnClose = new JButton("");
+		btnClose.setBounds(1281, 27, 60, 60);
+		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
+		frame.getContentPane().add(btnClose);
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				System.exit(0);
+				}
+		});
 	}
-
 }

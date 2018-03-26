@@ -57,18 +57,7 @@ public class Welcome {
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/logo.png"));
 		frame.getContentPane().add(lblNewLabel);
 		
-		JButton btnWelcome = new JButton("");
-		btnWelcome.setIcon(new ImageIcon("Resources/Images/arrowRight.png"));
-		btnWelcome.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
-				TypeSelection option = new TypeSelection();
-				option.main(null);
-			}
-		});
-		btnWelcome.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnWelcome.setBounds(1120, 621, 159, 73);
-		frame.getContentPane().add(btnWelcome);
+			
 		
 		JLabel lblDidYouKnow = new JLabel("Did you know?");
 		lblDidYouKnow.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -79,5 +68,18 @@ public class Welcome {
 		lblInThere.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblInThere.setBounds(400, 592, 627, 57);
 		frame.getContentPane().add(lblInThere);
+		
+		
+		JButton btnWelcome = new JButton("");
+		btnWelcome.setBounds(1120, 621, 159, 73);
+		btnWelcome.setIcon(new ImageIcon("Resources/Images/arrowRight.png"));
+		frame.getContentPane().add(btnWelcome);
+		btnWelcome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				TypeSelection option = new TypeSelection();
+				option.main(null);
+			}
+		});
+		
 	}
 }

@@ -74,7 +74,7 @@ public class Information_Profession {
 
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textField.setBounds(716, 432, 262, 46);
+		textField.setBounds(652, 438, 262, 46);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 
@@ -82,7 +82,7 @@ public class Information_Profession {
 
 		JLabel lblNewLabel_1 = new JLabel("Profession");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel_1.setBounds(420, 434, 302, 44);
+		lblNewLabel_1.setBounds(375, 434, 302, 44);
 		frame.getContentPane().add(lblNewLabel_1);
 
 		JButton btnNext = new JButton("Next");
@@ -90,22 +90,59 @@ public class Information_Profession {
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {	
 							
-				frame.dispose();
+				String gender = textField.getText();	
 				Information_Gender info4 = new Information_Gender();
 				info4.main(null);
 			}
 		});
-		btnNext.setBounds(610, 638, 142, 54);
+		btnNext.setBounds(1080, 598, 142, 54);
 		frame.getContentPane().add(btnNext);
 		
 		JLabel lblNewLabel_2 = new JLabel("This information is only for personalizing the document which is given at the end of the test.");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_2.setBounds(382, 250, 631, 46);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblNewLabel_2.setBounds(343, 253, 813, 46);
 		frame.getContentPane().add(lblNewLabel_2);
 		
 		JLabel lblNewLabel_3 = new JLabel("If you do not want to personalize the document, you can pass without filling it.");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_3.setBounds(409, 307, 594, 19);
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblNewLabel_3.setBounds(375, 303, 707, 33);
 		frame.getContentPane().add(lblNewLabel_3);
+		
+		JButton btnBack = new JButton("Back");
+		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				String profession = textField.getText();
+				frame.dispose();
+				Information_Age info2 = new Information_Age();
+				info2.main(null);
+			}
+		});
+		btnBack.setBounds(158, 598, 142, 54);
+		frame.getContentPane().add(btnBack);
+		
+		JButton btnHome = new JButton("");
+		btnHome.setBounds(1210, 27, 61, 60);
+		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
+		frame.getContentPane().add(btnHome);
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				frame.dispose();
+				Welcome welcome = new Welcome();
+				welcome.main(null);
+			}
+		});
+		
+		JButton btnClose = new JButton("");
+		btnClose.setBounds(1281, 27, 60, 60);
+		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
+		frame.getContentPane().add(btnClose);
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				System.exit(0);
+				}
+		});
 	}
 }
