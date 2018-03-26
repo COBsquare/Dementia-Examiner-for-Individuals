@@ -21,6 +21,8 @@ import java.awt.Font;
 public class TutorialScreen_voice {
 
 	private JFrame frame;
+	Clip clip;
+
 
 	/**
 	 * Launch the application.
@@ -66,12 +68,13 @@ public class TutorialScreen_voice {
 		JButton btnReadTheQuestion = new JButton("");
 		btnReadTheQuestion.setIcon(new ImageIcon("Resources/Images/play.png"));
 		btnReadTheQuestion.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		
 		btnReadTheQuestion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					File file = new File("C:/Users/BegumOzceylan/eclipse-workspace/DEfI-GUI/Resources/Audios/Question4.wav");
+					File file = new File("Resources/Questions/Repetition.wav");
 					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
-					Clip clip = AudioSystem.getClip();
+					clip = AudioSystem.getClip();
 			        clip.open(audioInputStream);
 			        clip.start();
 				} catch (UnsupportedAudioFileException | IOException e1) {
@@ -82,13 +85,12 @@ public class TutorialScreen_voice {
 					e1.printStackTrace();
 				}
 				
-
-			 					
 			
 			int answer = JOptionPane.showConfirmDialog(
-					null, "Did you hear the voice?", "Tutorial", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+					null, "Are you hearing the voice?", "Tutorial", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 				
 				System.out.println(answer);
+				clip.stop();
 			}
 		});
 		btnReadTheQuestion.setBounds(798, 93, 169, 168);
