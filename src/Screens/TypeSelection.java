@@ -83,13 +83,12 @@ public class TypeSelection {
 				label.setText("The test will continue in litarate, press 'ARROW' to confirm.");
 =======
 
-<<<<<<< HEAD
+
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBounds(1120, 621, 159, 73);
 		btnNewButton.setIcon(new ImageIcon("Resources/Images/arrowRight.png"));
 		JButton btnIlliterate = new JButton("Literate");
-=======
->>>>>>> 89258ae89434797d0965c63b84fb8b7f2d2f4474
+
 		JButton btnLiterate = new JButton("Illiterate");
 		btnLiterate.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnLiterate.addActionListener(new ActionListener() {

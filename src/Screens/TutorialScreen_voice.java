@@ -146,8 +146,6 @@ public class TutorialScreen_voice {
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
-				frame.dispose();
 				Welcome.main(null);
 			}
 		});
@@ -167,7 +165,6 @@ public class TutorialScreen_voice {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
 				Information_Gender.main(null);
 			}
 		});

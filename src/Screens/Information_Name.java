@@ -124,7 +124,6 @@ public class Information_Name {
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
 				Welcome.main(null);
 			}
 		});

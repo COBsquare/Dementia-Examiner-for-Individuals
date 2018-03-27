@@ -111,7 +111,11 @@ public class Information_Profession {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+<<<<<<< HEAD
 				frame.dispose();
+=======
+				// TODO Set user profession -> textField.getText();
+>>>>>>> origin/master
 				Information_Age.main(null);
 			}
 		});
@@ -124,7 +128,6 @@ public class Information_Profession {
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
 				Welcome.main(null);
 			}
 		});
