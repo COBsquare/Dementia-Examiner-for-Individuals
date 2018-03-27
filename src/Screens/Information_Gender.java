@@ -2,16 +2,11 @@ package Screens;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
-
 
 import java.awt.Font;
 
@@ -53,6 +48,7 @@ public class Information_Gender {
 	/**
 	 * Initialize the contents of the frame.
 	 */
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
@@ -88,9 +84,8 @@ public class Information_Gender {
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {	
-				String gender = comboBox.getSelectedItem().toString();			
-				Information_Warnings info5 = new Information_Warnings();
-				info5.main(null);
+				// TODO Set user gender -> comboBox.getSelectedItem().toString();	
+				Information_Warnings.main(null);
 			}
 		});
 		btnNext.setBounds(1080, 598, 142, 54);
@@ -110,11 +105,8 @@ public class Information_Gender {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
 				frame.dispose();
-				Information_Profession info3 = new Information_Profession();
-				info3.main(null);
+				Information_Profession.main(null);
 			}
 		});
 		btnBack.setBounds(158, 598, 142, 54);
@@ -126,10 +118,8 @@ public class Information_Gender {
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				frame.dispose();
-				Welcome welcome = new Welcome();
-				welcome.main(null);
+				Welcome.main(null);
 			}
 		});
 		

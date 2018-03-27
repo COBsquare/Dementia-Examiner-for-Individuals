@@ -68,8 +68,7 @@ public class Completion {
 		viewResultsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				 frame.dispose();
-				 Results result = new Results();
-				 result.main(null);
+				 Results.main(null);
 
 			}
 		});
@@ -90,8 +89,7 @@ public class Completion {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				frame.dispose();
-				Welcome welcome = new Welcome();
-				welcome.main(null);
+				Welcome.main(null);
 			}
 		});
 		

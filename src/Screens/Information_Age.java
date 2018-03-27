@@ -1,17 +1,13 @@
 package Screens;
+
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
-
 
 import java.awt.Font;
 
@@ -19,7 +15,6 @@ public class Information_Age {
 
 	private JFrame frame;
 
-	
 	public class User {
 		String name;
 		String surname;
@@ -28,6 +23,7 @@ public class Information_Age {
 		String profession;
 		String education;
 	}
+
 	/**
 	 * Launch the application.
 	 */
@@ -58,100 +54,87 @@ public class Information_Age {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
 		frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
-		
-		
+
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
 
-
-
 		JLabel lblNewLabel_1 = new JLabel("Age");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblNewLabel_1.setBounds(375, 434, 302, 44);
 		frame.getContentPane().add(lblNewLabel_1);
-		
 
-		String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
-		int year = Calendar.getInstance().get(Calendar.YEAR);
-		System.out.print("" + timeStamp);
+		JComboBox<Integer> comboBox = new JComboBox<Integer>();
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		comboBox.setBounds(652, 438, 262, 46);
+		frame.getContentPane().add(comboBox);
 
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		comboBox_1.setBounds(652, 438, 262, 46);
-		frame.getContentPane().add(comboBox_1);
-
-		for(int i=15; i<=130; i++ ){
-			comboBox_1.addItem(i);
+		for (int i = 15; i <= 130; i++) {
+			comboBox.addItem(i);
 		}
-
 
 		JButton btnNext = new JButton("Next");
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {	
-							
-				int age = (Integer)comboBox_1.getSelectedItem();
+			public void actionPerformed(ActionEvent arg0) {
+				int age = (Integer) comboBox.getSelectedItem();
 				System.out.println(age);
-				Information_Profession info3 = new Information_Profession();
-				info3.main(null);
+				Information_Profession.main(null);
 			}
 		});
 		btnNext.setBounds(1080, 598, 142, 54);
 		frame.getContentPane().add(btnNext);
-		
-		JLabel lblNewLabel_2 = new JLabel("This information is only for personalizing the document which is given at the end of the test.");
+
+		JLabel lblNewLabel_2 = new JLabel(
+				"This information is only for personalizing the document which is given at the end of the test.");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblNewLabel_2.setBounds(343, 253, 813, 46);
 		frame.getContentPane().add(lblNewLabel_2);
-		
-		JLabel lblNewLabel_3 = new JLabel("If you do not want to personalize the document, you can pass without filling it.");
+
+		JLabel lblNewLabel_3 = new JLabel(
+				"If you do not want to personalize the document, you can pass without filling it.");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblNewLabel_3.setBounds(375, 303, 707, 33);
 		frame.getContentPane().add(lblNewLabel_3);
-		
+
 		JButton btnBack = new JButton("Back");
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				frame.dispose();
-				Information_Name info1 = new Information_Name();
-				info1.main(null);
+				Information_Name.main(null);
 			}
 		});
 		btnBack.setBounds(158, 598, 142, 54);
 		frame.getContentPane().add(btnBack);
-		
+
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
 		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				frame.dispose();
-				Welcome welcome = new Welcome();
-				welcome.main(null);
+				Welcome.main(null);
 			}
 		});
-		
+
 		JButton btnClose = new JButton("");
 		btnClose.setBounds(1281, 27, 60, 60);
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
+
 				System.exit(0);
-				}
+			}
 		});
 	}
 }

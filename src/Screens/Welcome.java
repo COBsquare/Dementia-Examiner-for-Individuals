@@ -3,16 +3,17 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.Random;
 import java.awt.Color;
+=======
+>>>>>>> 8a7c25ea1f020a80998b781cd1c8d40ccb59382e
 
 public class Welcome {
 
@@ -58,9 +59,13 @@ public class Welcome {
 		lblNewLabel.setBounds(374, 28, 726, 493);
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/logo.png"));
 		frame.getContentPane().add(lblNewLabel);
+<<<<<<< HEAD
 
 
 
+=======
+		
+>>>>>>> 8a7c25ea1f020a80998b781cd1c8d40ccb59382e
 		JLabel lblDidYouKnow = new JLabel("Did you know?");
 		lblDidYouKnow.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblDidYouKnow.setBounds(623, 540, 352, 30);
@@ -84,16 +89,19 @@ public class Welcome {
 		lblInThere.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblInThere.setBounds(400, 592, 627, 67);
 		frame.getContentPane().add(lblInThere);
+<<<<<<< HEAD
 
 
+=======
+		
+>>>>>>> 8a7c25ea1f020a80998b781cd1c8d40ccb59382e
 		JButton btnWelcome = new JButton("");
 		btnWelcome.setBounds(1120, 621, 159, 73);
 		btnWelcome.setIcon(new ImageIcon("Resources/Images/arrowRight.png"));
 		frame.getContentPane().add(btnWelcome);
 		btnWelcome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TypeSelection option = new TypeSelection();
-				option.main(null);
+				TypeSelection.main(null);
 			}
 		});
 

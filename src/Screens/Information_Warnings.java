@@ -2,25 +2,16 @@ package Screens;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
-
-
 import java.awt.Font;
 import java.awt.Color;
 
 public class Information_Warnings {
 
 	private JFrame frame;
-	private JTextField textField;
-
 	
 	public class User {
 		String name;
@@ -80,8 +71,7 @@ public class Information_Warnings {
 			public void actionPerformed(ActionEvent arg0) {	
 							
 				frame.dispose();
-				TutorialScreen_voice tut1 = new TutorialScreen_voice();
-				tut1.main(null);
+				TutorialScreen_voice.main(null);
 			}
 		});
 		btnNext.setBounds(1080, 598, 142, 54);
@@ -103,8 +93,7 @@ public class Information_Warnings {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose();
-				Information_Gender info4 = new Information_Gender();
-				info4.main(null);
+				Information_Gender.main(null);
 			}
 		});
 		btnBack.setBounds(158, 598, 142, 54);
@@ -124,8 +113,7 @@ public class Information_Warnings {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				frame.dispose();
-				Welcome welcome = new Welcome();
-				welcome.main(null);
+				Welcome.main(null);
 			}
 		});
 		

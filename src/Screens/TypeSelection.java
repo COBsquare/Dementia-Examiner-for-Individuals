@@ -2,16 +2,10 @@ package Screens;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
-
 
 import java.awt.Font;
 
@@ -122,10 +116,8 @@ public class TypeSelection {
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				frame.dispose();
-				Welcome welcome = new Welcome();
-				welcome.main(null);
+				Welcome.main(null);
 			}
 		});
 		
@@ -146,11 +138,8 @@ public class TypeSelection {
 		frame.getContentPane().add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
-				
 				frame.dispose();
-				Information_Name info = new Information_Name();
-				info.main(null);
+				Information_Name.main(null);
 			}
 		});
 		
