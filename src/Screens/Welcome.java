@@ -8,11 +8,15 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+<<<<<<< HEAD
+import java.util.Random;
+=======
 
 import java.util.ArrayList;
 import java.util.Random;
 import java.awt.Color;
 
+>>>>>>> origin/master
 
 public class Welcome {
 
