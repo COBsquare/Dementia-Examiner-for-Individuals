@@ -1,3 +1,8 @@
+Tutorial------------------------------------
+SoundCheck. Can you hear my voice?
+
+
+
 LITERATE MMSE--------------------------------------------------------------------
 DATE
 1. Which year are we in?

@@ -72,7 +72,7 @@ public class TutorialScreen_voice {
 		btnReadTheQuestion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					File file = new File("Resources/Questions/Repetition.wav");
+					File file = new File("Resources/Questions/SoundCheck.wav");
 					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
 					clip = AudioSystem.getClip();
 					clip.open(audioInputStream);
