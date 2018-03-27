@@ -1,4 +1,5 @@
 package Screens;
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -73,13 +74,17 @@ public class TypeSelection {
 		frame.getContentPane().add(label);
 
 
-
+		JButton btnNewButton = new JButton("");
+		btnNewButton.setBounds(1120, 621, 159, 73);
+		btnNewButton.setIcon(new ImageIcon("Resources/Images/arrowRight.png"));
+		JButton btnIlliterate = new JButton("Literate");
 		JButton btnLiterate = new JButton("Illiterate");
 		btnLiterate.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnLiterate.addActionListener(new ActionListener() {
 	        @Override
 	        public void actionPerformed(ActionEvent arg0) {
-
+	        	btnNewButton.setVisible(true);
+	        	btnLiterate.setBackground(Color.GREEN);
 	            label.setText("The test will continue in litarate, press 'ARROW' to confirm.");
 
 	        }
@@ -87,11 +92,13 @@ public class TypeSelection {
 		btnLiterate.setBounds(1035, 437, 236, 140);
 		frame.getContentPane().add(btnLiterate);
 
-		JButton btnIlliterate = new JButton("Literate");
+
 
 			btnIlliterate.addActionListener(new ActionListener() {
 		        @Override
 		        public void actionPerformed(ActionEvent arg0) {
+		        	btnNewButton.setVisible(true);
+		        	btnIlliterate.setBackground(Color.GREEN);
 		            label.setText("The test will continue in illitarate, press 'ARROW' to confirm.");
 		        }
 		    });
@@ -116,7 +123,7 @@ public class TypeSelection {
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
+
 				Welcome.main(null);
 			}
 		});
@@ -132,13 +139,12 @@ public class TypeSelection {
 				}
 		});
 
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBounds(1120, 621, 159, 73);
-		btnNewButton.setIcon(new ImageIcon("Resources/Images/arrowRight.png"));
+
+		btnNewButton.setVisible(false);
 		frame.getContentPane().add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
+
 				Information_Name.main(null);
 			}
 		});
