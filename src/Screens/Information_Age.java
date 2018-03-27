@@ -83,8 +83,7 @@ public class Information_Age {
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				int age = (Integer) comboBox.getSelectedItem();
-				System.out.println(age);
+				App.User.setAge(String.valueOf(comboBox.getSelectedItem()));
 				Information_Profession.main(null);
 			}
 		});

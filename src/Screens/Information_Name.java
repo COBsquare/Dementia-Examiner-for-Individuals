@@ -85,7 +85,7 @@ public class Information_Name {
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {	
-				// TODO Set user name -> textField.getText();
+				App.User.setNameSurname(textField.getText());
 				Information_Age.main(null);
 			}
 		});

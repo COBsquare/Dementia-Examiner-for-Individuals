@@ -1,3 +1,5 @@
+package App;
+
 import Screens.Welcome;
 
 public class Main {

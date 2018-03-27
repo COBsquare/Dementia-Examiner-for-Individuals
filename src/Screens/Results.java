@@ -28,6 +28,7 @@ public class Results {
 				try {
 					Results window = new Results();
 					window.frame.setVisible(true);
+					App.User.displayInfo();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -86,6 +86,7 @@ public class Information_Profession {
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {	
+				App.User.setProfession(textField.getText());
 				Information_Gender.main(null);
 			}
 		});
@@ -106,7 +107,6 @@ public class Information_Profession {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Set user profession -> textField.getText();
 				frame.dispose();
 				Information_Age.main(null);
 			}

@@ -1,4 +1,5 @@
 package Screens;
+
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,7 +14,6 @@ public class TypeSelection {
 
 	private JFrame frame;
 
-
 	public class User {
 		String name;
 		String surname;
@@ -22,6 +22,7 @@ public class TypeSelection {
 		String profession;
 		String education;
 	}
+
 	/**
 	 * Launch the application.
 	 */
@@ -58,42 +59,38 @@ public class TypeSelection {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-
-
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
-
-
 
 		JLabel label = new JLabel("");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		label.setBounds(292, 529, 728, 35);
 		frame.getContentPane().add(label);
 
-
 		JButton btnLiterate = new JButton("Illiterate");
 		btnLiterate.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnLiterate.addActionListener(new ActionListener() {
-	        @Override
-	        public void actionPerformed(ActionEvent arg0) {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				App.User.setEducation("Illiterate");
+				label.setText("The test will continue in litarate, press 'ARROW' to confirm.");
 
-	            label.setText("The test will continue in litarate, press 'ARROW' to confirm.");
-
-	        }
-	    });
+			}
+		});
 		btnLiterate.setBounds(1035, 437, 236, 140);
 		frame.getContentPane().add(btnLiterate);
 
 		JButton btnIlliterate = new JButton("Literate");
 
-			btnIlliterate.addActionListener(new ActionListener() {
-		        @Override
-		        public void actionPerformed(ActionEvent arg0) {
-		            label.setText("The test will continue in illitarate, press 'ARROW' to confirm.");
-		        }
-		    });
+		btnIlliterate.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				App.User.setEducation("Literate");
+				label.setText("The test will continue in illitarate, press 'ARROW' to confirm.");
+			}
+		});
 		btnIlliterate.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnIlliterate.setBounds(1035, 177, 236, 140);
 		frame.getContentPane().add(btnIlliterate);
@@ -107,7 +104,6 @@ public class TypeSelection {
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 24));
 		lblNewLabel_2.setBounds(381, 349, 413, 78);
 		frame.getContentPane().add(lblNewLabel_2);
-
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -128,7 +124,7 @@ public class TypeSelection {
 			public void actionPerformed(ActionEvent arg0) {
 
 				System.exit(0);
-				}
+			}
 		});
 
 		JButton btnNewButton = new JButton("");
@@ -138,6 +134,7 @@ public class TypeSelection {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose();
+				
 				Information_Name.main(null);
 			}
 		});
