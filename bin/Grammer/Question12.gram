@@ -1,5 +1,0 @@
-#JSGF V1.0;
-
-
-
-grammar naming;public <naming> = ( wristwatch | pencil ) * ;
