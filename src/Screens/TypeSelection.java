@@ -73,7 +73,6 @@ public class TypeSelection {
 		frame.getContentPane().add(label);
 
 
-
 		JButton btnLiterate = new JButton("Illiterate");
 		btnLiterate.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnLiterate.addActionListener(new ActionListener() {
