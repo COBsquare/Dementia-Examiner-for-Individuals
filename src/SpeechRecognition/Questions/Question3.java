@@ -1,4 +1,4 @@
-package SpeechRecognition;
+package SpeechRecognition.Questions;
 
 
 import java.io.IOException;
@@ -16,20 +16,20 @@ import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
 
 
-public class SpeechForDateQuestion {
+public class Question3 {
 	public void StopRecogniton(){
 
 		recognizer.stopRecognition();
 	}
 	public static void main(String[] args) {
-		new SpeechForDateQuestion();
+		new Question3();
 	}
 
 	private LiveSpeechRecognizer recognizer;
 
 
 
-	public SpeechForDateQuestion() {
+	public Question3() {
 
 		Configuration configuration = new Configuration();
 		configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");

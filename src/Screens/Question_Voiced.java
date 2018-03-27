@@ -21,8 +21,6 @@ import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.Shape;
 
-
-
 public class Question_Voiced {
 
 	private JFrame frame;
