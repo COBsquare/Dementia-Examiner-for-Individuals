@@ -96,8 +96,6 @@ public class TutorialScreen_cam {
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
-				frame.dispose();
 				Welcome.main(null);
 			}
 		});
@@ -117,7 +115,6 @@ public class TutorialScreen_cam {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
 				TutorialScreen_voice.main(null);
 			}
 		});

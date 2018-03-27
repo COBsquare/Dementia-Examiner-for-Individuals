@@ -107,7 +107,6 @@ public class Information_Profession {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Set user profession -> textField.getText();
-				frame.dispose();
 				Information_Age.main(null);
 			}
 		});
@@ -120,7 +119,6 @@ public class Information_Profession {
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
 				Welcome.main(null);
 			}
 		});

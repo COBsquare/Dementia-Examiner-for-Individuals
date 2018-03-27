@@ -107,8 +107,6 @@ public class Information_Age {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
-				frame.dispose();
 				Information_Name.main(null);
 			}
 		});
@@ -121,7 +119,6 @@ public class Information_Age {
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
 				Welcome.main(null);
 			}
 		});

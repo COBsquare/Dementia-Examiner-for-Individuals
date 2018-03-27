@@ -2,4 +2,4 @@
 
 
 
-grammar numbers;public <numbers> = (one | two | three | four | five | six | seven | eight | nine | ten | eleven | twelve | thirteen | fourteen | fifteen | sixteen | seventeen | eighteen | nineteen| twenty | twentyone | twentytwo | twentythree | twentyfour | twentyfive | twentysix | twentyseven | twentyeight | twentynine | thirty | thirtyone ) * ;
+grammar day;public <day> = (Sunday | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday ) * ;
