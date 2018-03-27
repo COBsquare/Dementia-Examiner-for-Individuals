@@ -1,5 +1,4 @@
-
-package SpeechRecognition;
+package SpeechRecognition.Questions;
 
 //PROBLEMATIC
 
@@ -19,35 +18,32 @@ import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
 
 
-public class SpeechForMentalReversalQuestion {
+public class Question13 {
 	public void StopRecogniton(){
 
 		recognizer.stopRecognition();
 	}
 	public static void main(String[] args) {
-		new SpeechForMentalReversalQuestion();
+		new Question13();
 	}
 
 	private LiveSpeechRecognizer recognizer;
 
 
 
-	public SpeechForMentalReversalQuestion() {
+	public Question13() {
 
 		Configuration configuration = new Configuration();
 		configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
 		configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
 		configuration.setGrammarPath("resource:/Grammer");
-		configuration.setGrammarName("mentalreversal");
-
+		configuration.setGrammarName("repetition");
 		String answer;
 
 		configuration.setUseGrammar(true);
-		System.out.println("START SPEAKING");
 		try {
 			recognizer = new LiveSpeechRecognizer(configuration);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		recognizer.startRecognition(true);
@@ -56,16 +52,13 @@ public class SpeechForMentalReversalQuestion {
 		while((Result = recognizer.getResult()) != null){
 			String speechWords = Result.getHypothesis();
 			System.out.println(" The result from the speech is " + speechWords);
-				answer = "ninetythree eightysix seventynine seventytwo sixtyfive";
+				answer = "no ifs ands or buts";
 				if(speechWords.equals(answer)){
-					System.out.println("You gained five points");
+					System.out.println("You gained one point");
 					StopRecogniton();
 					System.exit(0);
 				}
 		}
-
-
-
 	}
 
 }

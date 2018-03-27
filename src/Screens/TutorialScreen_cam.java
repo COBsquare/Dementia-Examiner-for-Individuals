@@ -94,6 +94,7 @@ public class TutorialScreen_cam {
 
 			}
 		});
+		
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton_1.setBounds(860, 500, 128, 48);
 		frame.getContentPane().add(btnNewButton_1);

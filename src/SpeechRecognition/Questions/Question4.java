@@ -1,4 +1,4 @@
-package SpeechRecognition;
+package SpeechRecognition.Questions;
 
 
 
@@ -18,20 +18,20 @@ import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
 
 
-public class SpeechForDayQuestion {
+public class Question4 {
 	public void StopRecogniton(){
 
 		recognizer.stopRecognition();
 	}
 	public static void main(String[] args) {
-		new SpeechForDayQuestion();
+		new Question4();
 	}
 
 	private LiveSpeechRecognizer recognizer;
 
 
 
-	public SpeechForDayQuestion() {
+	public Question4() {
 
 		Configuration configuration = new Configuration();
 		configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");

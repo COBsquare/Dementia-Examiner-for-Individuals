@@ -1,5 +1,5 @@
 
-package SpeechRecognition;
+package SpeechRecognition.Questions;
 
 import java.io.IOException;
 import java.util.Date;
@@ -16,20 +16,20 @@ import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
 
 
-public class SpeechForSeasonQuestion {
+public class Question2 {
 	public void StopRecogniton(){
 
 		recognizer.stopRecognition();
 	}
 	public static void main(String[] args) {
-		new SpeechForSeasonQuestion();
+		new Question2();
 	}
 
 	private LiveSpeechRecognizer recognizer;
 
 
 
-	public SpeechForSeasonQuestion() {
+	public Question2() {
 		Configuration configuration = new Configuration();
 		configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
 		configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
