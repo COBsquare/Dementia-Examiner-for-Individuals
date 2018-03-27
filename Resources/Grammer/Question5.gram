@@ -1,5 +1,0 @@
-#JSGF V1.0;
-
-
-
-grammar months;public <months> = ( january | february | march | april | may | june | july | august | september | october | november | december ) * ;
