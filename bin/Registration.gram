@@ -1,5 +1,0 @@
-#JSGF V1.0;
-
-
-
-grammar objects;public <objects> = (ball | car | man) * ;

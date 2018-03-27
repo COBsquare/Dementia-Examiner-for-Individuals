@@ -1,5 +1,0 @@
-#JSGF V1.0;
-
-
-
-grammar mentalreversal;public <mentalreversal> = ( one | two | three | four | five | six | seven | eight | nine | hundred | ninty | eighty | seventy ) * ;
