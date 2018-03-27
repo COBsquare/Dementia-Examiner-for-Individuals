@@ -85,12 +85,9 @@ public class Information_Profession {
 		JButton btnNext = new JButton("Next");
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
-<<<<<<< HEAD
 			public void actionPerformed(ActionEvent arg0) {	
 				App.User.setProfession(textField.getText());
-=======
-			public void actionPerformed(ActionEvent arg0) {
->>>>>>> origin/master
+
 				Information_Gender.main(null);
 			}
 		});
@@ -111,11 +108,7 @@ public class Information_Profession {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-<<<<<<< HEAD
 				frame.dispose();
-=======
-				// TODO Set user profession -> textField.getText();
->>>>>>> origin/master
 				Information_Age.main(null);
 			}
 		});

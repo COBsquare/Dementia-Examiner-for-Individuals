@@ -1,9 +1,6 @@
 package Screens;
-<<<<<<< HEAD
 
-=======
 import java.awt.Color;
->>>>>>> origin/master
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -73,17 +70,6 @@ public class TypeSelection {
 		label.setBounds(292, 529, 728, 35);
 		frame.getContentPane().add(label);
 
-<<<<<<< HEAD
-		JButton btnLiterate = new JButton("Illiterate");
-		btnLiterate.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnLiterate.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				App.User.setEducation("Illiterate");
-				label.setText("The test will continue in litarate, press 'ARROW' to confirm.");
-=======
-
-
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setBounds(1120, 621, 159, 73);
 		btnNewButton.setIcon(new ImageIcon("Resources/Images/arrowRight.png"));
@@ -97,7 +83,6 @@ public class TypeSelection {
 	        	btnNewButton.setVisible(true);
 	        	btnLiterate.setBackground(Color.GREEN);
 	            label.setText("The test will continue in litarate, press 'ARROW' to confirm.");
->>>>>>> origin/master
 
 			}
 		});
@@ -106,7 +91,6 @@ public class TypeSelection {
 
 
 
-<<<<<<< HEAD
 		btnIlliterate.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -114,7 +98,6 @@ public class TypeSelection {
 				label.setText("The test will continue in illitarate, press 'ARROW' to confirm.");
 			}
 		});
-=======
 			btnIlliterate.addActionListener(new ActionListener() {
 		        @Override
 		        public void actionPerformed(ActionEvent arg0) {
@@ -123,7 +106,7 @@ public class TypeSelection {
 		            label.setText("The test will continue in illitarate, press 'ARROW' to confirm.");
 		        }
 		    });
->>>>>>> origin/master
+			
 		btnIlliterate.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnIlliterate.setBounds(1035, 177, 236, 140);
 		frame.getContentPane().add(btnIlliterate);
@@ -165,12 +148,7 @@ public class TypeSelection {
 		frame.getContentPane().add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-<<<<<<< HEAD
 				frame.dispose();
-				
-=======
-
->>>>>>> origin/master
 				Information_Name.main(null);
 			}
 		});
