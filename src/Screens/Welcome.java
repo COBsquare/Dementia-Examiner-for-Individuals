@@ -3,14 +3,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.Color;
 
 public class Welcome {
 
@@ -57,8 +54,6 @@ public class Welcome {
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/logo.png"));
 		frame.getContentPane().add(lblNewLabel);
 		
-			
-		
 		JLabel lblDidYouKnow = new JLabel("Did you know?");
 		lblDidYouKnow.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblDidYouKnow.setBounds(623, 540, 352, 30);
@@ -69,15 +64,13 @@ public class Welcome {
 		lblInThere.setBounds(400, 592, 627, 57);
 		frame.getContentPane().add(lblInThere);
 		
-		
 		JButton btnWelcome = new JButton("");
 		btnWelcome.setBounds(1120, 621, 159, 73);
 		btnWelcome.setIcon(new ImageIcon("Resources/Images/arrowRight.png"));
 		frame.getContentPane().add(btnWelcome);
 		btnWelcome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TypeSelection option = new TypeSelection();
-				option.main(null);
+				TypeSelection.main(null);
 			}
 		});
 		

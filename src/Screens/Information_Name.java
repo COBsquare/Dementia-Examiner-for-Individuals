@@ -2,12 +2,8 @@ package Screens;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -89,10 +85,8 @@ public class Information_Name {
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {	
-				String name = textField.getText();			
-				
-				Information_Age info2 = new Information_Age();
-				info2.main(null);
+				// TODO Set user name -> textField.getText();
+				Information_Age.main(null);
 			}
 		});
 		btnNext.setBounds(1080, 598, 142, 54);
@@ -114,11 +108,9 @@ public class Information_Name {
 		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
+			public void actionPerformed(ActionEvent arg0) {				
 				frame.dispose();
-				Welcome welcome = new Welcome();
-				welcome.main(null);
+				Welcome.main(null);
 			}
 		});
 		

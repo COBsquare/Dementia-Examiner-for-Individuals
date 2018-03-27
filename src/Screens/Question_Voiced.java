@@ -1,10 +1,8 @@
 package Screens;
 
-import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Ellipse2D;
 import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.AudioInputStream;
@@ -12,14 +10,12 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.Rectangle;
-import java.awt.Shape;
+
 
 public class Question_Voiced {
 
@@ -108,8 +104,8 @@ public class Question_Voiced {
 		JButton btnNewButton_1 = new JButton("Next");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Question_Image image = new Question_Image();
-				image.main(null);
+				// TODO Next question should come up
+				Question_Image.main(null);
 
 			}
 		});
@@ -133,10 +129,8 @@ public class Question_Voiced {
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				frame.dispose();
-				Welcome welcome = new Welcome();
-				welcome.main(null);
+				Welcome.main(null);
 			}
 		});
 		
@@ -156,9 +150,6 @@ public class Question_Voiced {
 				}
 		});
 		
-
-
-	
 	}
 }
 

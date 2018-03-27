@@ -2,14 +2,6 @@ package Screens;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -89,8 +81,7 @@ public class TutorialScreen_cam {
 		JButton btnNewButton_1 = new JButton("Next");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Question_Voiced question = new Question_Voiced();
-				question.main(null);
+				Question_Voiced.main(null);
 
 			}
 		});
@@ -107,8 +98,7 @@ public class TutorialScreen_cam {
 			public void actionPerformed(ActionEvent arg0) {
 				
 				frame.dispose();
-				Welcome welcome = new Welcome();
-				welcome.main(null);
+				Welcome.main(null);
 			}
 		});
 		
@@ -128,8 +118,7 @@ public class TutorialScreen_cam {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose();
-				TutorialScreen_voice tut1 = new TutorialScreen_voice();
-				tut1.main(null);
+				TutorialScreen_voice.main(null);
 			}
 		});
 		btnBack.setBounds(158, 598, 142, 54);

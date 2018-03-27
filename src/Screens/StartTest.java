@@ -51,13 +51,11 @@ public class StartTest {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
-		
 		JLabel lblNewLabel1 = new JLabel("");
 		lblNewLabel1.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lblNewLabel1.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel1);
-		
-		
+			
 		JLabel lblNewLabel = new JLabel("If you are ready, please click the start the test button.");
 		lblNewLabel.setFont(new Font("Tahoma",Font.BOLD,30));
 		lblNewLabel.setBounds(306, 330, 902, 74);
@@ -68,16 +66,12 @@ public class StartTest {
 		viewResultsButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				 frame.dispose();
-				 Results result = new Results();
-				 result.main(null);
-
+				 Results.main(null);
 			}
 		});
 		viewResultsButton.setBackground(Color.GREEN);
 		viewResultsButton.setBounds(570, 534, 237, 60);
 		frame.getContentPane().add(viewResultsButton);
-		
-
 		
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -85,10 +79,8 @@ public class StartTest {
 		frame.getContentPane().add(btnHome);
 		btnHome.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				frame.dispose();
-				Welcome welcome = new Welcome();
-				welcome.main(null);
+				Welcome.main(null);
 			}
 		});
 		
