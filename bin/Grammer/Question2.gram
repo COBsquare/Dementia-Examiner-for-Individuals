@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+
+
+grammar seasons;public <seasons> = (summer | spring | winter | autumn) * ;
