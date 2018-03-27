@@ -168,7 +168,7 @@ public class TutorialScreen_voice {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				frame.dispose();
-				Information_Warnings.main(null);
+				Information_Gender.main(null);
 			}
 		});
 		btnBack.setBounds(158, 598, 142, 54);

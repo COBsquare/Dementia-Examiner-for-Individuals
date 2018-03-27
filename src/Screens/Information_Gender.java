@@ -15,6 +15,10 @@ public class Information_Gender {
 
 	private JFrame frame;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 	public class User {
 		String name;
 		String gender;
@@ -60,6 +64,11 @@ public class Information_Gender {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/master
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lblNewLabel.setBounds(59, 27, 307, 215);
@@ -70,7 +79,12 @@ public class Information_Gender {
 		lblNewLabel_1.setBounds(375, 434, 302, 44);
 		frame.getContentPane().add(lblNewLabel_1);
 
+<<<<<<< HEAD
 		String[] Gender = { "Female", "Male", "Not Specified" };
+=======
+
+		String[] Gender = {"Female", "Male", "Not Specified" };
+>>>>>>> origin/master
 		JComboBox comboBox = new JComboBox(Gender);
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		comboBox.setBounds(652, 438, 262, 46);
@@ -80,21 +94,34 @@ public class Information_Gender {
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+<<<<<<< HEAD
 				App.User.setGender(comboBox.getSelectedItem().toString());
 				Information_Warnings.main(null);
+=======
+				// TODO Set user gender -> comboBox.getSelectedItem().toString();
+				TutorialScreen_voice.main(null);
+>>>>>>> origin/master
 			}
 		});
 		btnNext.setBounds(1080, 598, 142, 54);
 		frame.getContentPane().add(btnNext);
 
+<<<<<<< HEAD
 		JLabel lblNewLabel_2 = new JLabel(
 				"This information is only for personalizing the document which is given at the end of the test.");
+=======
+		JLabel lblNewLabel_2 = new JLabel("This information is only for personalizing the document which is given at the end of the test.");
+>>>>>>> origin/master
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblNewLabel_2.setBounds(343, 253, 813, 46);
 		frame.getContentPane().add(lblNewLabel_2);
 
+<<<<<<< HEAD
 		JLabel lblNewLabel_3 = new JLabel(
 				"If you do not want to personalize the document, you can pass without filling it.");
+=======
+		JLabel lblNewLabel_3 = new JLabel("If you do not want to personalize the document, you can pass without filling it.");
+>>>>>>> origin/master
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblNewLabel_3.setBounds(375, 303, 707, 33);
 		frame.getContentPane().add(lblNewLabel_3);
