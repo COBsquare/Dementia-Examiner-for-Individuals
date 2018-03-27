@@ -28,6 +28,7 @@ public void StopRecogniton(){
 		configuration.setGrammarName("Registration");
 
 		configuration.setUseGrammar(true);
+		configuration.setSampleRate(8000);
 		try {
 			recognizer = new LiveSpeechRecognizer(configuration);
 		} catch (IOException e) {
