@@ -14,13 +14,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import SpeechRecognition.SpeechRecorder;
+
 import java.awt.Font;
 
 
 public class Question_Voiced {
 
 	private JFrame frame;
-
+	int click;
 	/**
 	 * Launch the application.
 	 */
@@ -84,17 +87,19 @@ public class Question_Voiced {
 		});
 		btnReadTheQuestion.setBounds(618, 94, 169, 168);
 		frame.getContentPane().add(btnReadTheQuestion);
-		JLabel lblYouSaid = new JLabel("What you say will appear here ");
-		lblYouSaid.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblYouSaid.setBounds(575, 540, 329, 69);
-		frame.getContentPane().add(lblYouSaid);
+
 
 		JButton btnNewButton = new JButton();
+		SpeechRecorder sc = new SpeechRecorder();
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//SpeechRecognizer sc = new SpeechRecognizer();
-				//sc.main(null);
-
+				click++;
+				if (click == 1) {
+					sc.startMic();
+				} else if (click == 2) {
+					click = 0;
+					sc.stopMic("Question4"); // sorular cagrýlacak ve queston [i] gibi sorularýn cevaplarý kaydedilecek
+				}
 			}
 		});
 		btnNewButton.setIcon(new ImageIcon("Resources/Images/microphone.png"));

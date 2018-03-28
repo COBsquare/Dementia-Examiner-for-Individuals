@@ -2,4 +2,4 @@
 
 
 
-grammar naming;public <naming> = ( wristwatch | pencil ) * ;
+grammar Question12;public <Question12> = ( wristwatch | pencil ) * ;

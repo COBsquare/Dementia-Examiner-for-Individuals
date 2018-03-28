@@ -2,4 +2,4 @@
 
 
 
-grammar seasons;public <seasons> = (summer | spring | winter | autumn) * ;
+grammar Question2;public <Question2> = (summer | spring | winter | autumn) * ;

@@ -17,12 +17,16 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
+import SpeechRecognition.SpeechRecorder;
+
+
 import java.awt.Font;
 
 public class TutorialScreen_voice {
 
 	private JFrame frame;
 	Clip clip;
+	int click = 0;
 
 	/**
 	 * Launch the application.
@@ -98,13 +102,21 @@ public class TutorialScreen_voice {
 		frame.getContentPane().add(lblYouSaid);
 
 		JButton btnNewButton = new JButton("");
+		SpeechRecorder sc = new SpeechRecorder();
+
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//SpeechRecognizer sc = new SpeechRecognizer();
-				//sc.main(null);
+				click++;
+				if (click == 1) {
+					sc.startMic();
 
+				} else if (click == 2) {
+					click = 0;
+					sc.stopMic("tutorial");
+				}
 			}
 		});
+
 		btnNewButton.setIcon(new ImageIcon("Resources/Images/microphone.png"));
 		btnNewButton.setBounds(798, 327, 169, 168);
 		frame.getContentPane().add(btnNewButton);

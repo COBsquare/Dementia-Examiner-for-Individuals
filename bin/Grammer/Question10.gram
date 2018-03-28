@@ -2,4 +2,4 @@
 
 
 
-grammar mentalreversal;public <mentalreversal> = ( one | two | three | four | five | six | seven | eight | nine | hundred | ninty | eighty | seventy ) * ;
+grammar Question10;public <Question10> = ( one | two | three | four | five | six | seven | eight | nine | hundred | ninty | eighty | seventy ) * ;

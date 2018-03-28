@@ -2,5 +2,5 @@
 
 
 
-grammar repetition;
-public <repetition> = ( no | ifs | ands | or | buts ) * ;
+grammar Question13;
+public <Question13> = ( no | ifs | ands | or | buts ) * ;

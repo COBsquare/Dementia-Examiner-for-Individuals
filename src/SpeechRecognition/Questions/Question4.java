@@ -3,6 +3,7 @@ package SpeechRecognition.Questions;
 
 
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Date;
 import java.text.DateFormat;
@@ -16,6 +17,7 @@ import java.util.Locale;
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
+import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 
 
 public class Question4 {
@@ -23,7 +25,7 @@ public class Question4 {
 
 		recognizer.stopRecognition();
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		new Question4();
 	}
 
@@ -31,13 +33,13 @@ public class Question4 {
 
 
 
-	public Question4() {
+	public Question4() throws IOException {
 
 		Configuration configuration = new Configuration();
 		configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
 		configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
 		configuration.setGrammarPath("resource:/Grammer");
-		configuration.setGrammarName("numbers");
+		configuration.setGrammarName("Question4");
 		Date date = new Date();
 		LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 		int year  = localDate.getYear();
@@ -48,281 +50,79 @@ public class Question4 {
 		System.out.println("" + month);
 		System.out.println("" + day);
 
+		String dateString = String.format("%d-%d-%d", year, month, day);
+
+		// Then get the day of week from the Date based on specific locale.
+		String dayOfWeek = new SimpleDateFormat("EEEE", Locale.ENGLISH).format(date);
+
+		System.out.println(dayOfWeek);
 
 
 
 		configuration.setUseGrammar(true);
-		try {
-			recognizer = new LiveSpeechRecognizer(configuration);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		recognizer.startRecognition(true);
+		StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(configuration);
+		recognizer.startRecognition(new FileInputStream("Resources/Answers/Question4.wav"));
 		SpeechResult Result = recognizer.getResult();
-
-		while((Result = recognizer.getResult()) != null){
+		System.out.println(Result.getHypothesis());
 			String speechWords = Result.getHypothesis();
 			System.out.println(" The result from the speech is " + speechWords);
-			if(day==1){
-				answer = "one";
+			if(dayOfWeek=="Sunday"){
+				answer = "Sunday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 					StopRecogniton();
 					System.exit(0);
 				}
 		}
-			if(day==2){
-				answer = "two";
+			if(dayOfWeek=="Monday"){
+				answer = "Monday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 					StopRecogniton();
 					System.exit(0);
 				}
 		}
-			if(day==3){
-				answer = "three";
+			if(dayOfWeek=="Tuesday"){
+				answer = "Tuesday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 					StopRecogniton();
 					System.exit(0);
 				}
 		}
-			if(day==4){
-				answer = "four";
+			if(dayOfWeek=="Wednesday"){
+				answer = "Wednesday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 					StopRecogniton();
 					System.exit(0);
 				}
 		}
-			if(day==5){
-				answer = "five";
+			if(dayOfWeek=="Thursday"){
+				answer = "Thursday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 					StopRecogniton();
 					System.exit(0);
 				}
 		}
-			if(day==6){
-				answer = "six";
+			if(dayOfWeek=="Friday"){
+				answer = "Friday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 					StopRecogniton();
 					System.exit(0);
 				}
 		}
-			if(day==7){
-				answer = "seven";
+			if(dayOfWeek=="Saturday"){
+				answer = "Saturday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 					StopRecogniton();
 					System.exit(0);
 				}
 		}
-			if(day==8){
-				answer = "eight";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==9){
-				answer = "nine";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==10){
-				answer = "ten";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==11){
-				answer = "eleven";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==12){
-				answer = "twelve";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==13){
-				answer = "thirteen";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==14){
-				answer = "fourteen";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==15){
-				answer = "fifteen";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==16){
-				answer = "sixteen";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==17){
-				answer = "seventeen";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==18){
-				answer = "eighteen";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==19){
-				answer = "nineteen";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==20){
-				answer = "twenty";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==21){
-				answer = "twentyone";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==22){
-				answer = "twentytwo";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==23){
-				answer = "twentythree";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==24){
-				answer = "twentyfour";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==25){
-				answer = "twentyfive";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==26){
-				answer = "twentysix";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==27){
-				answer = "twentyseven";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==28){
-				answer = "twentyeight";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==29){
-				answer = "twentynine";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==30){
-				answer = "thirty";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==23){
-				answer = "twentythree";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-			if(day==31){
-				answer = "thirtyone";
-				if(speechWords.equals(answer)){
-					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
-				}
-		}
-
 
 	}
 
-}
 }
