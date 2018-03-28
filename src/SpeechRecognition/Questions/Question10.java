@@ -1,6 +1,8 @@
 
 package SpeechRecognition.Questions;
 
+import java.io.FileInputStream;
+
 //PROBLEMATIC
 
 
@@ -17,6 +19,7 @@ import java.util.Locale;
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
+import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 
 
 public class Question10 {
@@ -24,7 +27,7 @@ public class Question10 {
 
 		recognizer.stopRecognition();
 	}
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		new Question10();
 	}
 
@@ -32,28 +35,21 @@ public class Question10 {
 
 
 
-	public Question10() {
+	public Question10() throws IOException {
 
 		Configuration configuration = new Configuration();
 		configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
 		configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
 		configuration.setGrammarPath("resource:/Grammer");
-		configuration.setGrammarName("mentalreversal");
+		configuration.setGrammarName("Question10");
 
 		String answer;
 
 		configuration.setUseGrammar(true);
-		System.out.println("START SPEAKING");
-		try {
-			recognizer = new LiveSpeechRecognizer(configuration);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		recognizer.startRecognition(true);
+		StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(configuration);
+		recognizer.startRecognition(new FileInputStream("Resources/Answers/Question3.wav"));
 		SpeechResult Result = recognizer.getResult();
-
-		while((Result = recognizer.getResult()) != null){
+		System.out.println(Result.getHypothesis());
 			String speechWords = Result.getHypothesis();
 			System.out.println(" The result from the speech is " + speechWords);
 				answer = "ninetythree eightysix seventynine seventytwo sixtyfive";
@@ -68,4 +64,4 @@ public class Question10 {
 
 	}
 
-}
+

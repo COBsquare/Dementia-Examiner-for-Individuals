@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.Random;
 
 public class Welcome {
@@ -83,7 +84,16 @@ public class Welcome {
 		btnWelcome.setBounds(1120, 621, 159, 73);
 		btnWelcome.setIcon(new ImageIcon("Resources/Images/arrowRight.png"));
 		frame.getContentPane().add(btnWelcome);
+		frame.getRootPane().setDefaultButton( btnWelcome );
+
+
 		btnWelcome.addActionListener(new ActionListener() {
+			public void keyPressed(KeyEvent e) {
+			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
+
+			    }
+
+			}
 			public void actionPerformed(ActionEvent arg0) {
 				TypeSelection.main(null);
 			}

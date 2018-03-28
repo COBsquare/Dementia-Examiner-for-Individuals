@@ -2,4 +2,4 @@
 
 
 
-grammar objects;public <objects> = (ball | car | man) * ;
+grammar Question9;public <Question9> = (ball | car | man) * ;
