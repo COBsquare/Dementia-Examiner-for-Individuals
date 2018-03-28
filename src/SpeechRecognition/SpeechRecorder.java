@@ -21,10 +21,8 @@ public class SpeechRecorder {
 		Utterance u = mic.getUtterance();
 
 		try {
-			//u.save("Resources/"+"q1.wav", AudioFileFormat.Type.WAVE);
 			u.save("Resources/Answers/"+ questionName + ".wav", AudioFileFormat.Type.WAVE);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
