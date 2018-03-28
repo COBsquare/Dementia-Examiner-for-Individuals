@@ -86,7 +86,7 @@ public class TypeSelection {
 
 			}
 		});
-		
+
 		btnIlliterate.setBounds(1035, 437, 236, 140);
 		frame.getContentPane().add(btnIlliterate);
 
@@ -141,7 +141,6 @@ public class TypeSelection {
 		frame.getContentPane().add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
 				Information_Name.main(null);
 			}
 		});

@@ -85,7 +85,7 @@ public class Information_Profession {
 		JButton btnNext = new JButton("Next");
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {	
+			public void actionPerformed(ActionEvent arg0) {
 				App.User.setProfession(textField.getText());
 
 				Information_Gender.main(null);
@@ -108,7 +108,6 @@ public class Information_Profession {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				frame.dispose();
 				Information_Age.main(null);
 			}
 		});
