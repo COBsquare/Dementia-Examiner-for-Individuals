@@ -79,15 +79,6 @@ public final class Clock {
 		// Find all components inside the clock face
 		Rect[] clock_components = Find.AllBoundaryBoxes(frame);
 
-		/* Display components
-		Imgproc.cvtColor(frame, frame, Imgproc.COLOR_GRAY2BGR);
-		for(int i=0;i<clock_components.length;i++){
-			Imgproc.rectangle(frame, clock_components[i].tl(), clock_components[i].br(), new Scalar(250, 0, 0), 3);	
-		}
-		ImageRecognitionController.updateImageView(imageViewer, Utils.mat2Image(frame));
-		Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
-		*/
-		
 		// Load the saved network
 		NeuralNetwork<?> neuralNetwork = NeuralNetwork.createFromFile(
 				"Resources/NeuralNetwork/NeuralNetwork_Perceptron.nnet");
@@ -98,12 +89,11 @@ public final class Clock {
 		for (int i = 0; i < clock_components.length; i++) {
 
 			Mat component = new Mat(frame, clock_components[i]);
-			Mat component_resized = new Mat();
-			Size size = new Size(16, 16);
 
 			// Resize the component
 			// Convert it into 16x16 matrix
-			Imgproc.resize(component, component_resized, size);
+			Mat component_resized = new Mat();
+			Imgproc.resize(component, component_resized, new Size(16, 16));
 
 			// Check the matrix for the values
 			// 0 pixel  =0 
@@ -114,12 +104,11 @@ public final class Clock {
 			int idx = 0;
 			for (int col = 0; col < 16; col++) {
 				for (int row = 0; row < 16; row++) {
-					if (component_resized.get(row, col)[0] == 255)
+					if (component_resized.get(col, row)[0] == 255)
 						input[idx] = 1;
 					else
 						input[idx] = 0;
 					idx++;
-
 				}
 			}
 
@@ -131,10 +120,11 @@ public final class Clock {
 			neuralNetwork.calculate();
 
 			// Get network output
-			double[] result = neuralNetwork.getOutput();
-			for (int j = 0; j < result.length; j++) {
+			// Add components result to list
+			double[] output = neuralNetwork.getOutput();
+			for (int j = 0; j < output.length; j++) {
 				// Check the output
-				if (result[j] == 1)
+				if (output[j] == 1)
 					results.add(j);
 			}
 
@@ -179,27 +169,64 @@ public final class Clock {
 			}
 		}
 
+		System.out.println("# of digits for each:");
+		for (int i = 0; i < numberRep.length; i++) {
+			System.out.println(i + ": " + numberRep[i]);
+		}
+
 		// Check number of occurance for all numbers
 		// 5 sample for 1 (1, 10, 11, 12)
 		// 2 sample for 2 (2, 12)
-		// 1 sample for others (3, 4, 5, 6, 7, 8, 9, 10)
+		// 1 sample for others (3, 4, 5, 6, 7, 8, 9)
 		for (int i = 0; i < numberRep.length; i++) {
 			if (i == 1) {
-				if (numberRep[i] >= 5)
+				if (numberRep[1] >= 5)
 					numbersPresent_score++;
 			} else if (i == 2) {
-				if (numberRep[i] >= 2)
+				if (numberRep[2] >= 2)
 					numbersPresent_score++;
 			} else if (numberRep[i] >= 1) {
 				numbersPresent_score++;
 			}
 		}
 
+		// Spatial arrangments of numbers
+		// Divide the clock into 4 pieces from its center
+		double[] pieces = { 0, 0, 0, 0 };
+
+		for (int i = 0; i < clock_components.length; i++) {
+			double x = clock_components[i].x;
+			double y= clock_components[i].y;
+
+			if (x < frame.width() / 2 && y < frame.height() / 2) {
+				pieces[0]++;
+				
+			} else if (x < frame.width() / 2 && y > frame.height() / 2) {
+				pieces[1]++;
+
+			} else if (x > frame.width() / 2 && y < frame.height() / 2) {
+				pieces[2]++;
+
+			} else if (x > frame.width() / 2 && y > frame.height() / 2) {
+				pieces[3]++;
+
+			}
+			
+		}
+		
+		// Check that every piece has at least 4 components
+		for(int i=0;i<4;i++){
+			System.out.println(pieces[i]);
+			if(pieces[i]>=10)
+				numbersSpatial_score++;
+			
+		}
+		
 		// Check the conditions
 		// 1. Presentation of numbers
 		// 2. Spatial arrangments of numbers
 
-		Boolean[] condition = { numbersPresent_score >= 15, numbersSpatial_score >= 12 };
+		Boolean[] condition = { numbersPresent_score >= 15, numbersSpatial_score >= 3 };
 		String[] outcome = { "All numbers are presented", "Numbers are in correct spatial arrangements" };
 
 		// Display the results
@@ -224,9 +251,9 @@ public final class Clock {
 	// Returns scoring of hands (out of 4)
 	public static int evaluateHands(Mat frame, ImageView imageViewer) {
 		System.out.println("CLOCK HANDS----------------------------------");
-		
+
 		// TODO Check for the errors
-		
+
 		int hands_score = 0;
 
 		Mat lines = Recognition.houghlineTransform(frame);
@@ -344,9 +371,9 @@ public final class Clock {
 		// Find the circle's features
 		clockface = Find.LargestCircle(frame);
 
-		clock_score += Clock.evaluateClockface(frame, imageViewer);
-		//clock_score += Clock.evaluateNumbers(frame, imageViewer);
-		clock_score += Clock.evaluateHands(frame, imageViewer);
+		//clock_score += Clock.evaluateClockface(frame, imageViewer);
+		clock_score += Clock.evaluateNumbers(frame, imageViewer);
+		//clock_score += Clock.evaluateHands(frame, imageViewer);
 
 		System.out.println("RESULT OF THE TEST--->>> " + clock_score + " out of 10");
 		return clock_score;

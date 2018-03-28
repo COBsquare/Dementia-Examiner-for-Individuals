@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -9,9 +10,14 @@
 
 <BorderPane prefHeight="599.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ImageProcessing.application.ImageRecognitionController">
    <bottom>
-      <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+      <SplitPane dividerPositions="0.5, 0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+            <Label text="You can add your drawing by browsing or using your webcam">
+               <font>
+                  <Font name="Arial Italic" size="15.0" />
+               </font>
+            </Label>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="77.0" prefWidth="769.0">
                <children>
                   <HBox alignment="CENTER" prefHeight="100.0" prefWidth="771.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-2.0" AnchorPane.topAnchor="0.0">
                      <children>
@@ -24,22 +30,31 @@
                   </HBox>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="96.0" prefWidth="747.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="99.0" prefWidth="769.0">
                <children>
-                  <Button fx:id="save_image" alignment="TOP_CENTER" layoutX="327.0" layoutY="36.0" mnemonicParsing="false" onAction="#saveImage" text="Save and Continue" />
+                  <Button fx:id="save_image" alignment="TOP_CENTER" layoutX="327.0" layoutY="36.0" mnemonicParsing="false" onAction="#saveImage" text="Save and Continue">
+                     <font>
+                        <Font name="System Bold Italic" size="12.0" />
+                     </font></Button>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </AnchorPane>
         </items>
       </SplitPane>
    </bottom>
    <center>
-      <ImageView fx:id="imageViewer" fitHeight="370.0" fitWidth="628.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+      <ImageView fx:id="imageViewer" disable="true" fitHeight="370.0" fitWidth="628.0" pickOnBounds="true" preserveRatio="true" visible="false" BorderPane.alignment="CENTER" />
    </center>
    <top>
-      <ComboBox fx:id="comboBox_type" prefWidth="150.0" promptText="Choose type" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets top="20.0" />
-         </BorderPane.margin>
-      </ComboBox>
+      <Label graphicTextGap="8.0" text="Your drawing picture will be shown here after you add." textAlignment="JUSTIFY" textOverrun="WORD_ELLIPSIS" underline="true" BorderPane.alignment="CENTER">
+         <padding>
+            <Insets top="25.0" />
+         </padding>
+         <font>
+            <Font name="Arial Bold Italic" size="22.0" />
+         </font>
+      </Label>
    </top>
 </BorderPane>

@@ -21,7 +21,6 @@ import ImageProcessing.Utils.Recognition;
 import ImageProcessing.Utils.Utils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -37,8 +36,6 @@ public class ImageRecognitionController {
 	private Button open_webcam;
 	@FXML
 	private Button save_image;
-	@FXML
-	private ComboBox<String> comboBox_type;
 
 	// Variables for image browser
 	private FileChooser fileChooser;
@@ -57,6 +54,12 @@ public class ImageRecognitionController {
 	int LIT_POLY_SCORE;
 	int ILL_POLY_SCORE;
 
+	static String drawingType;
+
+	public static void setDrawingType(String type) {
+		drawingType = type;
+	}
+
 	protected void init() {
 		this.fileChooser = new FileChooser();
 		this.image = null;
@@ -66,11 +69,11 @@ public class ImageRecognitionController {
 		this.capture = new VideoCapture();
 		this.catch_frame = new Mat();
 
-		comboBox_type.getItems().addAll("Clock Drawing", "Literate Polygon", "Illiterate Polygon");
-
 		CLOCK_SCORE = 0;
 		LIT_POLY_SCORE = 0;
 		ILL_POLY_SCORE = 0;
+		
+		drawingType="Clock Drawing";
 
 	}
 
@@ -83,6 +86,7 @@ public class ImageRecognitionController {
 			// read the image in color
 			this.image = Imgcodecs.imread(file.getAbsolutePath(), Imgcodecs.CV_LOAD_IMAGE_COLOR);
 			// show the image
+			imageViewer.setVisible(true);
 			ImageRecognitionController.updateImageView(imageViewer, Utils.mat2Image(this.image));
 			// set a fixed width
 			this.imageViewer.setFitWidth(600);
@@ -128,6 +132,7 @@ public class ImageRecognitionController {
 						Mat frame = grabFrame();
 
 						//Show the frame
+						imageViewer.setVisible(true);
 						updateImageView(imageViewer, Utils.mat2Image(frame));
 						catch_frame = frame;
 					}
@@ -201,35 +206,30 @@ public class ImageRecognitionController {
 	// Keep current image and start processing
 	@FXML
 	protected void saveImage() throws IOException {
+
 		if (image != null) {
 			try {
 				Imgproc.cvtColor(image, image, Imgproc.COLOR_BGR2GRAY);
 			} catch (Exception e) {
 				image = null;
-				JOptionPane.showMessageDialog(null, "Please first choose type then browse or capture your image.",
-						"Info: " + "No Type", JOptionPane.INFORMATION_MESSAGE);
 			}
 
 			Mat frame_figure = Recognition.getFigure(image);
 
-			if (comboBox_type.getValue() == "Clock Drawing") {
+			if (drawingType == "Clock Drawing") {
 
 				CLOCK_SCORE = Clock.evaluateClock(frame_figure, imageViewer);
 
-			} else if (comboBox_type.getValue() == "Literate Polygon") {
+			} else if (drawingType == "Literate Polygon") {
 
 				LIT_POLY_SCORE = Polygon.evaluatePolygon_Literate(frame_figure, imageViewer);
 
-			} else if (comboBox_type.getValue() == "Illiterate Polygon") {
+			} else if (drawingType == "Illiterate Polygon") {
 
 				ILL_POLY_SCORE = Polygon.evaluatePolygon_Illiterate(frame_figure, imageViewer);
 
-			} else {
-				JOptionPane.showMessageDialog(null, "Please choose type to process your image.", "Info: " + "No type",
-						JOptionPane.INFORMATION_MESSAGE);
-				Imgproc.cvtColor(image, image, Imgproc.COLOR_GRAY2BGR);
-
 			}
+
 		} else {
 			JOptionPane.showMessageDialog(null, "Please browse or capture image to process.", "Info: " + "No image",
 					JOptionPane.INFORMATION_MESSAGE);
