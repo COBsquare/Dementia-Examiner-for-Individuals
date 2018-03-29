@@ -15,12 +15,6 @@ public class Question9 {
 		new Question9();
 	}
 
-	private LiveSpeechRecognizer recognizer;
-
-public void StopRecogniton(){
-
-		recognizer.stopRecognition();
-	}
 
 	public Question9() throws IOException {
 		Configuration configuration = new Configuration();
@@ -38,88 +32,71 @@ public void StopRecogniton(){
 			System.out.println(" The result from the speech is " + speechWords);
 				if(speechWords.equals("ball car man")){
 					System.out.println(" You gained three points ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("ball man car")){
 					System.out.println(" You gained three points ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("man ball car")){
 					System.out.println(" You gained three points ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("man car ball")){
 					System.out.println(" You gained three points ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("car man ball")){
 					System.out.println(" You gained three points ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("car ball man")){
 					System.out.println(" You gained three points ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("ball car")){
 					System.out.println(" You gained two points ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("ball")){
 					System.out.println(" You gained one point ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("car")){
 					System.out.println(" You gained one point ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("ball")){
 					System.out.println(" You gained one point ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("man")){
 					System.out.println(" You gained one point ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("ball")){
 					System.out.println(" You gained one point ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("car man")){
 					System.out.println(" You gained two points ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("man car")){
 					System.out.println(" You gained two points ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("car ball")){
 					System.out.println(" You gained two points ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("ball man")){
 					System.out.println(" You gained two points ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 				else if(speechWords.equals("man ball")){
 					System.out.println(" You gained two points ");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 		}
 

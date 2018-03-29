@@ -21,10 +21,6 @@ import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 
 
 public class Question4 {
-	public void StopRecogniton(){
-
-		recognizer.stopRecognition();
-	}
 	public static void main(String[] args) throws IOException {
 		new Question4();
 	}
@@ -70,56 +66,42 @@ public class Question4 {
 				answer = "Sunday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
 				}
 		}
 			if(dayOfWeek=="Monday"){
 				answer = "Monday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
 				}
 		}
 			if(dayOfWeek=="Tuesday"){
 				answer = "Tuesday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
 				}
 		}
 			if(dayOfWeek=="Wednesday"){
 				answer = "Wednesday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
 				}
 		}
 			if(dayOfWeek=="Thursday"){
 				answer = "Thursday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
 				}
 		}
 			if(dayOfWeek=="Friday"){
 				answer = "Friday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
 				}
 		}
 			if(dayOfWeek=="Saturday"){
 				answer = "Saturday";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
 				}
 		}
 

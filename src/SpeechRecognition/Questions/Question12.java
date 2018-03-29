@@ -15,13 +15,6 @@ public class Question12 {
 		new Question12();
 	}
 
-	private LiveSpeechRecognizer recognizer;
-
-public void StopRecogniton(){
-
-		recognizer.stopRecognition();
-	}
-
 	public Question12() throws IOException {
 		Configuration configuration = new Configuration();
 		configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
@@ -38,13 +31,9 @@ public void StopRecogniton(){
 			System.out.println(" The result from the speech is " + speechWords);
 				if(speechWords.equals("wristwatch pencil")){
 					System.out.println(" You gained two points ");
-					StopRecogniton();
-					System.exit(0);
 				}
 				else if(speechWords.equals("pencil wristwatch")){
 					System.out.println(" You gained two points ");
-					StopRecogniton();
-					System.exit(0);
 				}
 		}
 

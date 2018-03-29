@@ -14,6 +14,10 @@ public class SpeechRecorder {
 	public void startMic(){
 				mic.initialize();
 				mic.startRecording();
+				mic.getAudioFormat();
+				mic.getUtterance();
+				System.out.println("Audio Format is" + mic.getAudioFormat());
+				
 	}
 
 	public void stopMic(String questionName){
