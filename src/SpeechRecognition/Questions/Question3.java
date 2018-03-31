@@ -4,16 +4,9 @@ package SpeechRecognition.Questions;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
 import edu.cmu.sphinx.api.Configuration;
-import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
 import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 
@@ -101,13 +94,13 @@ public class Question3 {
 				}
 		}
 			if(day==9 && month==1){
-				answer = "january fourth";
+				answer = "january ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 				}
 		}
 			if(day==10 && month==1){
-				answer = "january fifth";
+				answer = "january tenth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 				}
@@ -321,7 +314,7 @@ public class Question3 {
 				}
 		}
 			if(day==9 && month==2){
-				answer = "february fourth";
+				answer = "february ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -329,7 +322,7 @@ public class Question3 {
 				}
 		}
 			if(day==10 && month==2){
-				answer = "february fifth";
+				answer = "february tenth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 

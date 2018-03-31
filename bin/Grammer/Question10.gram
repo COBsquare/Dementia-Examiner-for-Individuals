@@ -2,4 +2,4 @@
 
 
 
-grammar Question10;public <Question10> = ( hundred | ninty | eighty | seventy | sixty | one | two | three | four | five | six | seven | eight | nine ) * ;
+grammar Question10;public <Question10> = ( ninety three eighty six seventy nine seventy two sixty five ) * ;

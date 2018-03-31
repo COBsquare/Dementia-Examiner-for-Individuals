@@ -8,13 +8,13 @@ import edu.cmu.sphinx.api.SpeechResult;
 import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 
 
-public class Question9 {
+public class Question11 {
 	public static void main(String[] args) throws IOException {
-		new Question9();
+		new Question11();
 	}
 
 
-	public Question9() throws IOException {
+	public Question11() throws IOException {
 		Configuration configuration = new Configuration();
 		configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
 		configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
@@ -23,7 +23,7 @@ public class Question9 {
 
 		configuration.setUseGrammar(true);
 		StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(configuration);
-		recognizer.startRecognition(new FileInputStream("Resources/Answers/Question9.wav"));
+		recognizer.startRecognition(new FileInputStream("Resources/Answers/Question11.wav"));
 		SpeechResult Result = recognizer.getResult();
 		System.out.println(Result.getHypothesis());
 			String speechWords = Result.getHypothesis();

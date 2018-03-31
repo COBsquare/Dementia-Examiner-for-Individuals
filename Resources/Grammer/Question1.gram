@@ -2,4 +2,4 @@
 
 
 
-grammar Question1;public <Question1> = (zero | one | two | three | four | five | six | seven | eight | nine | ten | eleven | twelve | thirteen | fourteen | fifteen | sixteen | seventeen | eighteen | nineteen| twenty | thirty | thousand | and ) * ;
+grammar Question1;public <Question1> = (zero | one | two | three | four | five | six | seven | eight | nine | ten | eleven | twelve | thirteen | fourteen | fifteen | sixteen | seventeen | eighteen | nineteen| twenty | thirty | thousand | and | two thousand and eighteen | two thousand and nineteen ) * ;
