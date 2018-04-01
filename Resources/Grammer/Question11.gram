@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+
+
+grammar Question11;public <Question11> = ( ball car man | ball man car | car ball man | car man ball | man car ball | man ball car) * ;

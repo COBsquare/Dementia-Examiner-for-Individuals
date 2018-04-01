@@ -6,33 +6,15 @@ import java.io.FileInputStream;
 
 
 import java.io.IOException;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
 import edu.cmu.sphinx.api.Configuration;
-import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
 import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 
 
 public class Question13 {
-	public void StopRecogniton(){
-
-		recognizer.stopRecognition();
-	}
 	public static void main(String[] args) throws IOException {
 		new Question13();
 	}
-
-	private LiveSpeechRecognizer recognizer;
-
-
 
 	public Question13() throws IOException {
 
@@ -45,7 +27,7 @@ public class Question13 {
 
 		configuration.setUseGrammar(true);
 		StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(configuration);
-		recognizer.startRecognition(new FileInputStream("Resources/Answers/Question3.wav"));
+		recognizer.startRecognition(new FileInputStream("Resources/Answers/Question13.wav"));
 		SpeechResult Result = recognizer.getResult();
 		System.out.println(Result.getHypothesis());
 			String speechWords = Result.getHypothesis();
@@ -53,8 +35,6 @@ public class Question13 {
 				answer = "no ifs ands or buts";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
 				}
 		}
 	}

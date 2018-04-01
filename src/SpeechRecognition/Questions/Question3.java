@@ -4,16 +4,9 @@ package SpeechRecognition.Questions;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
 import edu.cmu.sphinx.api.Configuration;
-import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
 import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 
@@ -101,13 +94,13 @@ public class Question3 {
 				}
 		}
 			if(day==9 && month==1){
-				answer = "january fourth";
+				answer = "january ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 				}
 		}
 			if(day==10 && month==1){
-				answer = "january fifth";
+				answer = "january tenth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 				}
@@ -167,25 +160,25 @@ public class Question3 {
 				}
 		}
 			if(day==20 && month==1){
-				answer = "january twenty";
+				answer = "january twentieth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 				}
 		}
 			if(day==21 && month==1){
-				answer = "january twenty first";
+				answer = "january twentieth first";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 				}
 		}
 			if(day==22 && month==1){
-				answer = "january twenty second";
+				answer = "january twentieth second";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 				}
 		}
 			if(day==23 && month==1){
-				answer = "january twenty third";
+				answer = "january twentieth third";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -193,7 +186,7 @@ public class Question3 {
 				}
 		}
 			if(day==24 && month==1){
-				answer = "january twenty fourth";
+				answer = "january twentieth fourth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 					;
@@ -201,7 +194,7 @@ public class Question3 {
 				}
 		}
 			if(day==25 && month==1){
-				answer = "january twenty fifth";
+				answer = "january twentieth fifth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -209,7 +202,7 @@ public class Question3 {
 				}
 		}
 			if(day==26 && month==1){
-				answer = "january twenty sixth";
+				answer = "january twentieth sixth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -217,7 +210,7 @@ public class Question3 {
 				}
 		}
 			if(day==27 && month==1){
-				answer = "january twenty seventh";
+				answer = "january twentieth seventh";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -225,7 +218,7 @@ public class Question3 {
 				}
 		}
 			if(day==28 && month==1){
-				answer = "january twenty eighth";
+				answer = "january twentieth eighth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -233,7 +226,7 @@ public class Question3 {
 				}
 		}
 			if(day==29 && month==1){
-				answer = "january twenty ninth";
+				answer = "january twentieth ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -321,7 +314,7 @@ public class Question3 {
 				}
 		}
 			if(day==9 && month==2){
-				answer = "february fourth";
+				answer = "february ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -329,7 +322,7 @@ public class Question3 {
 				}
 		}
 			if(day==10 && month==2){
-				answer = "february fifth";
+				answer = "february tenth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -409,7 +402,7 @@ public class Question3 {
 				}
 		}
 			if(day==20 && month==2){
-				answer = "february twenty";
+				answer = "february twentieth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -417,7 +410,7 @@ public class Question3 {
 				}
 		}
 			if(day==21 && month==2){
-				answer = "february twenty first";
+				answer = "february twentieth first";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -425,7 +418,7 @@ public class Question3 {
 				}
 		}
 			if(day==22 && month==2){
-				answer = "february twenty second";
+				answer = "february twentieth second";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -433,7 +426,7 @@ public class Question3 {
 				}
 		}
 			if(day==23 && month==2){
-				answer = "febraury twenty third";
+				answer = "febraury twentieth third";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -441,7 +434,7 @@ public class Question3 {
 				}
 		}
 			if(day==24 && month==2){
-				answer = "february twenty fourth";
+				answer = "february twentieth fourth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -449,7 +442,7 @@ public class Question3 {
 				}
 		}
 			if(day==25 && month==2){
-				answer = "february twenty fifth";
+				answer = "february twentieth fifth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -457,7 +450,7 @@ public class Question3 {
 				}
 		}
 			if(day==26 && month==2){
-				answer = "february twenty sixth";
+				answer = "february twentieth sixth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -465,7 +458,7 @@ public class Question3 {
 				}
 		}
 			if(day==27 && month==2){
-				answer = "february twenty seventh";
+				answer = "february twentieth seventh";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -473,7 +466,7 @@ public class Question3 {
 				}
 		}
 			if(day==28 && month==2){
-				answer = "february twenty eighth";
+				answer = "february twentieth eighth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -481,7 +474,7 @@ public class Question3 {
 				}
 		}
 			if(day==29 && month==2){
-				answer = "february twenty ninth";
+				answer = "february twentieth ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -641,7 +634,7 @@ public class Question3 {
 				}
 		}
 			if(day==20 && month==3){
-				answer = "march twenty";
+				answer = "march twentieth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -649,7 +642,7 @@ public class Question3 {
 				}
 		}
 			if(day==21 && month==3){
-				answer = "march twenty first";
+				answer = "march twentieth first";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -657,7 +650,7 @@ public class Question3 {
 				}
 		}
 			if(day==22 && month==3){
-				answer = "march twenty second";
+				answer = "march twentieth second";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -665,7 +658,7 @@ public class Question3 {
 				}
 		}
 			if(day==23 && month==3){
-				answer = "march twenty third";
+				answer = "march twentieth third";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -673,7 +666,7 @@ public class Question3 {
 				}
 		}
 			if(day==24 && month==3){
-				answer = "march twenty fourth";
+				answer = "march twentieth fourth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -681,7 +674,7 @@ public class Question3 {
 				}
 		}
 			if(day==25 && month==3){
-				answer = "march twenty fifth";
+				answer = "march twentieth fifth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -689,7 +682,7 @@ public class Question3 {
 				}
 		}
 			if(day==26 && month==3){
-				answer = "march twenty sixth";
+				answer = "march twentieth sixth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -697,7 +690,7 @@ public class Question3 {
 				}
 		}
 			if(day==27 && month==3){
-				answer = "march twenty seventh";
+				answer = "march twentieth seventh";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -705,7 +698,7 @@ public class Question3 {
 				}
 		}
 			if(day==28 && month==3){
-				answer = "march twenty eighth";
+				answer = "march twentieth eighth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -713,7 +706,7 @@ public class Question3 {
 				}
 		}
 			if(day==29 && month==3){
-				answer = "march twenty ninth";
+				answer = "march twentieth ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -889,7 +882,7 @@ public class Question3 {
 				}
 		}
 			if(day==20 && month==4){
-				answer = "april twenty";
+				answer = "april twentieth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -897,7 +890,7 @@ public class Question3 {
 				}
 		}
 			if(day==21 && month==4){
-				answer = "april twenty first";
+				answer = "april twentieth first";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -905,7 +898,7 @@ public class Question3 {
 				}
 		}
 			if(day==22 && month==4){
-				answer = "april twenty second";
+				answer = "april twentieth second";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -913,7 +906,7 @@ public class Question3 {
 				}
 		}
 			if(day==23 && month==4){
-				answer = "april twenty third";
+				answer = "april twentieth third";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -921,7 +914,7 @@ public class Question3 {
 				}
 		}
 			if(day==24 && month==4){
-				answer = "april twenty fourth";
+				answer = "april twentieth fourth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -929,7 +922,7 @@ public class Question3 {
 				}
 		}
 			if(day==25 && month==4){
-				answer = "april twenty fifth";
+				answer = "april twentieth fifth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -937,7 +930,7 @@ public class Question3 {
 				}
 		}
 			if(day==26 && month==4){
-				answer = "april twenty sixth";
+				answer = "april twentieth sixth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -945,7 +938,7 @@ public class Question3 {
 				}
 		}
 			if(day==27 && month==4){
-				answer = "april twenty seventh";
+				answer = "april twentieth seventh";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -953,7 +946,7 @@ public class Question3 {
 				}
 		}
 			if(day==28 && month==4){
-				answer = "april twenty eighth";
+				answer = "april twentieth eighth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -961,7 +954,7 @@ public class Question3 {
 				}
 		}
 			if(day==29 && month==4){
-				answer = "april twenty ninth";
+				answer = "april twentieth ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1129,7 +1122,7 @@ public class Question3 {
 				}
 		}
 			if(day==20 && month==5){
-				answer = "may twenty";
+				answer = "may twentieth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1137,7 +1130,7 @@ public class Question3 {
 				}
 		}
 			if(day==21 && month==5){
-				answer = "may twenty first";
+				answer = "may twentieth first";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1145,7 +1138,7 @@ public class Question3 {
 				}
 		}
 			if(day==22 && month==5){
-				answer = "may twenty second";
+				answer = "may twentieth second";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1153,7 +1146,7 @@ public class Question3 {
 				}
 		}
 			if(day==23 && month==5){
-				answer = "may twenty third";
+				answer = "may twentieth third";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1161,7 +1154,7 @@ public class Question3 {
 				}
 		}
 			if(day==24 && month==5){
-				answer = "may twenty fourth";
+				answer = "may twentieth fourth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1169,7 +1162,7 @@ public class Question3 {
 				}
 		}
 			if(day==25 && month==5){
-				answer = "may twenty fifth";
+				answer = "may twentieth fifth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1177,7 +1170,7 @@ public class Question3 {
 				}
 		}
 			if(day==26 && month==5){
-				answer = "may twenty sixth";
+				answer = "may twentieth sixth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1185,7 +1178,7 @@ public class Question3 {
 				}
 		}
 			if(day==27 && month==5){
-				answer = "may twenty seventh";
+				answer = "may twentieth seventh";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1193,7 +1186,7 @@ public class Question3 {
 				}
 		}
 			if(day==28 && month==5){
-				answer = "may twenty eighth";
+				answer = "may twentieth eighth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1201,7 +1194,7 @@ public class Question3 {
 				}
 		}
 			if(day==29 && month==5){
-				answer = "may twenty ninth";
+				answer = "may twentieth ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1377,7 +1370,7 @@ public class Question3 {
 				}
 		}
 			if(day==20 && month==6){
-				answer = "june twenty";
+				answer = "june twentieth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1385,7 +1378,7 @@ public class Question3 {
 				}
 		}
 			if(day==21 && month==6){
-				answer = "june twenty first";
+				answer = "june twentieth first";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1393,7 +1386,7 @@ public class Question3 {
 				}
 		}
 			if(day==22 && month==6){
-				answer = "june twenty second";
+				answer = "june twentieth second";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1401,7 +1394,7 @@ public class Question3 {
 				}
 		}
 			if(day==23 && month==6){
-				answer = "june twenty third";
+				answer = "june twentieth third";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1409,7 +1402,7 @@ public class Question3 {
 				}
 		}
 			if(day==24 && month==6){
-				answer = "june twenty fourth";
+				answer = "june twentieth fourth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1417,7 +1410,7 @@ public class Question3 {
 				}
 		}
 			if(day==25 && month==6){
-				answer = "june twenty fifth";
+				answer = "june twentieth fifth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1425,7 +1418,7 @@ public class Question3 {
 				}
 		}
 			if(day==26 && month==6){
-				answer = "june twenty sixth";
+				answer = "june twentieth sixth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1433,7 +1426,7 @@ public class Question3 {
 				}
 		}
 			if(day==27 && month==6){
-				answer = "june twenty seventh";
+				answer = "june twentieth seventh";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1441,7 +1434,7 @@ public class Question3 {
 				}
 		}
 			if(day==28 && month==6){
-				answer = "june twenty eighth";
+				answer = "june twentieth eighth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1449,7 +1442,7 @@ public class Question3 {
 				}
 		}
 			if(day==29 && month==6){
-				answer = "june twenty ninth";
+				answer = "june twentieth ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1618,7 +1611,7 @@ public class Question3 {
 				}
 		}
 			if(day==20 && month==7){
-				answer = "july twenty";
+				answer = "july twentieth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1626,7 +1619,7 @@ public class Question3 {
 				}
 		}
 			if(day==21 && month==7){
-				answer = "july twenty first";
+				answer = "july twentieth first";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1634,7 +1627,7 @@ public class Question3 {
 				}
 		}
 			if(day==22 && month==7){
-				answer = "july twenty second";
+				answer = "july twentieth second";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1642,7 +1635,7 @@ public class Question3 {
 				}
 		}
 			if(day==23 && month==7){
-				answer = "july twenty third";
+				answer = "july twentieth third";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1650,7 +1643,7 @@ public class Question3 {
 				}
 		}
 			if(day==24 && month==7){
-				answer = "july twenty fourth";
+				answer = "july twentieth fourth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1658,7 +1651,7 @@ public class Question3 {
 				}
 		}
 			if(day==25 && month==7){
-				answer = "july twenty fifth";
+				answer = "july twentieth fifth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1666,7 +1659,7 @@ public class Question3 {
 				}
 		}
 			if(day==26 && month==7){
-				answer = "july twenty sixth";
+				answer = "july twentieth sixth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1674,7 +1667,7 @@ public class Question3 {
 				}
 		}
 			if(day==27 && month==7){
-				answer = "july twenty seventh";
+				answer = "july twentieth seventh";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1682,7 +1675,7 @@ public class Question3 {
 				}
 		}
 			if(day==28 && month==7){
-				answer = "july twenty eighth";
+				answer = "july twentieth eighth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1690,7 +1683,7 @@ public class Question3 {
 				}
 		}
 			if(day==29 && month==7){
-				answer = "july twenty ninth";
+				answer = "july twentieth ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1867,7 +1860,7 @@ public class Question3 {
 				}
 		}
 			if(day==20 && month==8){
-				answer = "august twenty";
+				answer = "august twentieth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1875,7 +1868,7 @@ public class Question3 {
 				}
 		}
 			if(day==21 && month==8){
-				answer = "august twenty first";
+				answer = "august twentieth first";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1883,7 +1876,7 @@ public class Question3 {
 				}
 		}
 			if(day==22 && month==8){
-				answer = "august twenty second";
+				answer = "august twentieth second";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1891,7 +1884,7 @@ public class Question3 {
 				}
 		}
 			if(day==23 && month==8){
-				answer = "august twenty third";
+				answer = "august twentieth third";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1899,7 +1892,7 @@ public class Question3 {
 				}
 		}
 			if(day==24 && month==8){
-				answer = "august twenty fourth";
+				answer = "august twentieth fourth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1907,7 +1900,7 @@ public class Question3 {
 				}
 		}
 			if(day==25 && month==8){
-				answer = "august twenty fifth";
+				answer = "august twentieth fifth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1915,7 +1908,7 @@ public class Question3 {
 				}
 		}
 			if(day==26 && month==8){
-				answer = "august twenty sixth";
+				answer = "august twentieth sixth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1923,7 +1916,7 @@ public class Question3 {
 				}
 		}
 			if(day==27 && month==8){
-				answer = "august twenty seventh";
+				answer = "august twentieth seventh";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1931,7 +1924,7 @@ public class Question3 {
 				}
 		}
 			if(day==28 && month==8){
-				answer = "august twenty eighth";
+				answer = "august twentieth eighth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -1939,7 +1932,7 @@ public class Question3 {
 				}
 		}
 			if(day==29 && month==8){
-				answer = "august twenty ninth";
+				answer = "august twentieth ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2108,7 +2101,7 @@ public class Question3 {
 				}
 		}
 			if(day==20 && month==9){
-				answer = "september twenty";
+				answer = "september twentieth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2116,7 +2109,7 @@ public class Question3 {
 				}
 		}
 			if(day==21 && month==9){
-				answer = "september twenty first";
+				answer = "september twentieth first";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2124,7 +2117,7 @@ public class Question3 {
 				}
 		}
 			if(day==22 && month==9){
-				answer = "september twenty second";
+				answer = "september twentieth second";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2132,7 +2125,7 @@ public class Question3 {
 				}
 		}
 			if(day==23 && month==9){
-				answer = "september twenty third";
+				answer = "september twentieth third";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2140,7 +2133,7 @@ public class Question3 {
 				}
 		}
 			if(day==24 && month==9){
-				answer = "september twenty fourth";
+				answer = "september twentieth fourth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2148,7 +2141,7 @@ public class Question3 {
 				}
 		}
 			if(day==25 && month==9){
-				answer = "september twenty fifth";
+				answer = "september twentieth fifth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2156,7 +2149,7 @@ public class Question3 {
 				}
 		}
 			if(day==26 && month==9){
-				answer = "september twenty sixth";
+				answer = "september twentieth sixth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2164,7 +2157,7 @@ public class Question3 {
 				}
 		}
 			if(day==27 && month==9){
-				answer = "september twenty seventh";
+				answer = "september twentieth seventh";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2172,7 +2165,7 @@ public class Question3 {
 				}
 		}
 			if(day==28 && month==9){
-				answer = "september twenty eighth";
+				answer = "september twentieth eighth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2180,7 +2173,7 @@ public class Question3 {
 				}
 		}
 			if(day==29 && month==9){
-				answer = "september twenty ninth";
+				answer = "september twentieth ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2348,7 +2341,7 @@ public class Question3 {
 				}
 		}
 			if(day==20 && month==10){
-				answer = "october twenty";
+				answer = "october twentieth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2356,7 +2349,7 @@ public class Question3 {
 				}
 		}
 			if(day==21 && month==10){
-				answer = "october twenty first";
+				answer = "october twentieth first";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2364,7 +2357,7 @@ public class Question3 {
 				}
 		}
 			if(day==22 && month==10){
-				answer = "october twenty second";
+				answer = "october twentieth second";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2372,7 +2365,7 @@ public class Question3 {
 				}
 		}
 			if(day==23 && month==10){
-				answer = "october twenty third";
+				answer = "october twentieth third";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2380,7 +2373,7 @@ public class Question3 {
 				}
 		}
 			if(day==24 && month==10){
-				answer = "october twenty fourth";
+				answer = "october twentieth fourth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2388,7 +2381,7 @@ public class Question3 {
 				}
 		}
 			if(day==25 && month==10){
-				answer = "october twenty fifth";
+				answer = "october twentieth fifth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2396,7 +2389,7 @@ public class Question3 {
 				}
 		}
 			if(day==26 && month==10){
-				answer = "october twenty sixth";
+				answer = "october twentieth sixth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2404,7 +2397,7 @@ public class Question3 {
 				}
 		}
 			if(day==27 && month==10){
-				answer = "october twenty seventh";
+				answer = "october twentieth seventh";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2412,7 +2405,7 @@ public class Question3 {
 				}
 		}
 			if(day==28 && month==10){
-				answer = "october twenty eighth";
+				answer = "october twentieth eighth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2420,7 +2413,7 @@ public class Question3 {
 				}
 		}
 			if(day==29 && month==10){
-				answer = "october twenty ninth";
+				answer = "october twentieth ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2596,7 +2589,7 @@ public class Question3 {
 				}
 		}
 			if(day==20 && month==11){
-				answer = "november twenty";
+				answer = "november twentieth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2604,7 +2597,7 @@ public class Question3 {
 				}
 		}
 			if(day==21 && month==11){
-				answer = "november twenty first";
+				answer = "november twentieth first";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2612,7 +2605,7 @@ public class Question3 {
 				}
 		}
 			if(day==22 && month==11){
-				answer = "november twenty second";
+				answer = "november twentieth second";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2620,7 +2613,7 @@ public class Question3 {
 				}
 		}
 			if(day==23 && month==11){
-				answer = "november twenty third";
+				answer = "november twentieth third";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2628,7 +2621,7 @@ public class Question3 {
 				}
 		}
 			if(day==24 && month==11){
-				answer = "november twenty fourth";
+				answer = "november twentieth fourth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2636,7 +2629,7 @@ public class Question3 {
 				}
 		}
 			if(day==25 && month==11){
-				answer = "november twenty fifth";
+				answer = "november twentieth fifth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2644,7 +2637,7 @@ public class Question3 {
 				}
 		}
 			if(day==26 && month==11){
-				answer = "november twenty sixth";
+				answer = "november twentieth sixth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2652,7 +2645,7 @@ public class Question3 {
 				}
 		}
 			if(day==27 && month==11){
-				answer = "november twenty seventh";
+				answer = "november twentieth seventh";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2660,7 +2653,7 @@ public class Question3 {
 				}
 		}
 			if(day==28 && month==11){
-				answer = "november twenty eighth";
+				answer = "november twentieth eighth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2668,7 +2661,7 @@ public class Question3 {
 				}
 		}
 			if(day==29 && month==11){
-				answer = "november twenty ninth";
+				answer = "november twentieth ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2837,7 +2830,7 @@ public class Question3 {
 				}
 		}
 			if(day==20 && month==12){
-				answer = "december twenty";
+				answer = "december twentieth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2845,7 +2838,7 @@ public class Question3 {
 				}
 		}
 			if(day==21 && month==12){
-				answer = "december twenty first";
+				answer = "december twentieth first";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2853,7 +2846,7 @@ public class Question3 {
 				}
 		}
 			if(day==22 && month==12){
-				answer = "december twenty second";
+				answer = "december twentieth second";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2861,7 +2854,7 @@ public class Question3 {
 				}
 		}
 			if(day==23 && month==12){
-				answer = "december twenty third";
+				answer = "december twentieth third";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2869,7 +2862,7 @@ public class Question3 {
 				}
 		}
 			if(day==24 && month==12){
-				answer = "december twenty fourth";
+				answer = "december twentieth fourth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2877,7 +2870,7 @@ public class Question3 {
 				}
 		}
 			if(day==25 && month==12){
-				answer = "december twenty fifth";
+				answer = "december twentieth fifth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2885,7 +2878,7 @@ public class Question3 {
 				}
 		}
 			if(day==26 && month==12){
-				answer = "december twenty sixth";
+				answer = "december twentieth sixth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2893,7 +2886,7 @@ public class Question3 {
 				}
 		}
 			if(day==27 && month==12){
-				answer = "december twenty seventh";
+				answer = "december twentieth seventh";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2901,7 +2894,7 @@ public class Question3 {
 				}
 		}
 			if(day==28 && month==12){
-				answer = "december twenty eighth";
+				answer = "december twentieth eighth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 
@@ -2909,7 +2902,7 @@ public class Question3 {
 				}
 		}
 			if(day==29 && month==12){
-				answer = "december twenty ninth";
+				answer = "december twentieth ninth";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
 

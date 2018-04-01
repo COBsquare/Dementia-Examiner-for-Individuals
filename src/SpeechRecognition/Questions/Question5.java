@@ -4,30 +4,18 @@ package SpeechRecognition.Questions;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.Locale;
 import edu.cmu.sphinx.api.Configuration;
-import edu.cmu.sphinx.api.LiveSpeechRecognizer;
 import edu.cmu.sphinx.api.SpeechResult;
 import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 
 
 public class Question5 {
-	public void StopRecogniton(){
-
-		recognizer.stopRecognition();
-	}
 	public static void main(String[] args) throws IOException {
 		new Question5();
 	}
 
-	private LiveSpeechRecognizer recognizer;
 
 
 
@@ -59,96 +47,84 @@ public class Question5 {
 				answer = "january";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 		}
 			else if(month==2){
 				answer = "february";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 		}
 			else if(month==3){
 				answer = "march";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 		}
 			else if(month==4){
 				answer = "april";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 		}
 			else if(month==5){
 				answer = "may";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 		}
 			else if(month==6){
 				answer = "june";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 		}
 			else if(month==7){
 				answer = "july";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 		}
 			else if(month==8){
 				answer = "august";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 		}
 			else if(month==9){
 				answer = "september";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 		}
 			else if(month==10){
 				answer = "october";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 		}
 			else if(month==11){
 				answer = "november";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 		}
 			else if(month==12){
 				answer = "december";
 				if(speechWords.equals(answer)){
 					System.out.println("You gained one point");
-					StopRecogniton();
-					System.exit(0);
+
 				}
 
 			}
