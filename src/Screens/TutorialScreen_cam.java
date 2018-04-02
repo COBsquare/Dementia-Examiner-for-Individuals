@@ -2,6 +2,8 @@ package Screens;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -80,6 +82,12 @@ public class TutorialScreen_cam {
 
 		JButton btnNewButton_1 = new JButton("Next");
 		btnNewButton_1.addActionListener(new ActionListener() {
+			public void keyPressed(KeyEvent e) {
+			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
+
+			    }
+
+			}
 			public void actionPerformed(ActionEvent e) {
 				Information_Warnings.main(null);
 
@@ -89,6 +97,8 @@ public class TutorialScreen_cam {
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton_1.setBounds(860, 500, 128, 48);
 		frame.getContentPane().add(btnNewButton_1);
+		frame.getRootPane().setDefaultButton( btnNewButton_1 );
+
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);

@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -157,13 +159,21 @@ public class TypeSelection {
 
 		btnNewButton.setVisible(false);
 		frame.getContentPane().add(btnNewButton);
+		
+		
 		btnNewButton.addActionListener(new ActionListener() {
+			public void keyPressed(KeyEvent e) {
+			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
+			    	
+			    }
+
+			}
 
 			public void actionPerformed(ActionEvent arg0) {
 
 				Information_Name.main(null);
 			}
 		});
-
+		
 	}
 }

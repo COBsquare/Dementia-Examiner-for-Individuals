@@ -2,6 +2,8 @@ package Screens;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -68,12 +70,19 @@ public class Information_Warnings {
 		JButton btnNext = new JButton("Next");
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
+			public void keyPressed(KeyEvent e) {
+			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
+
+			    }
+
+			}
 			public void actionPerformed(ActionEvent arg0) {
 				Question_Voiced.main(null);
 			}
 		});
 		btnNext.setBounds(1080, 598, 142, 54);
 		frame.getContentPane().add(btnNext);
+		frame.getRootPane().setDefaultButton( btnNext );
 
 		JLabel lblNewLabel_2 = new JLabel("Please take paper and pencil before starting the test.");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 30));

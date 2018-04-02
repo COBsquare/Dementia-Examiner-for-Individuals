@@ -90,7 +90,7 @@ public class Results {
 
 		JTableHeader Theader = table.getTableHeader();
 
-		Theader.setBackground(Color.CYAN); // change the Background color
+		Theader.setBackground(Color.GRAY); // change the Background color
 		Theader.setForeground(Color.BLACK); // change the Foreground
 
 		Theader.setFont(new Font("Tahome", Font.BOLD, 20)); // font name style size
@@ -135,7 +135,7 @@ public class Results {
 
 		JTableHeader Theader2 = table.getTableHeader();
 
-		Theader2.setBackground(Color.CYAN); // change the Background color
+		Theader2.setBackground(Color.GRAY); // change the Background color
 		Theader2.setForeground(Color.BLACK); // change the Foreground
 
 		Theader2.setFont(new Font("Tahome", Font.BOLD, 20)); // font name style size
@@ -165,7 +165,6 @@ public class Results {
 		Button button = new Button("Export the PDF File");
 		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		button.setBounds(518, 551, 304, 74);
-		button.setBackground(new Color(0, 255, 255));
 		frame.getContentPane().add(button);
 	}
 }

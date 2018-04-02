@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -64,6 +65,12 @@ public class StartTest {
 		JButton viewResultsButton = new JButton("START THE TEST");
 		viewResultsButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		viewResultsButton.addActionListener(new ActionListener() {
+			public void keyPressed(KeyEvent e) {
+			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
+
+			    }
+
+			}
 			public void actionPerformed(ActionEvent arg0) {
 				 Results.main(null);
 			}
@@ -71,6 +78,7 @@ public class StartTest {
 		viewResultsButton.setBackground(Color.GREEN);
 		viewResultsButton.setBounds(570, 534, 237, 60);
 		frame.getContentPane().add(viewResultsButton);
+		frame.getRootPane().setDefaultButton( viewResultsButton );
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);

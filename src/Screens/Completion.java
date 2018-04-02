@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -67,6 +68,12 @@ public class Completion {
 		viewResultsButton.setForeground(Color.WHITE);
 		viewResultsButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		viewResultsButton.addActionListener(new ActionListener() {
+			public void keyPressed(KeyEvent e) {
+			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
+
+			    }
+
+			}
 			public void actionPerformed(ActionEvent arg0) {
 				 Results.main(null);
 
@@ -75,6 +82,7 @@ public class Completion {
 		viewResultsButton.setBackground(Color.RED);
 		viewResultsButton.setBounds(612, 533, 173, 60);
 		frame.getContentPane().add(viewResultsButton);
+		frame.getRootPane().setDefaultButton( viewResultsButton );
 
 		JLabel label = new JLabel("");
 		label.setIcon(new ImageIcon("Resources/Images/tick.png"));

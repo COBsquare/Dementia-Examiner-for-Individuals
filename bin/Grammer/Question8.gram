@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+
+
+grammar Question8;public <Question8> = (north | south | east | west) * ;

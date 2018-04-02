@@ -3,6 +3,7 @@ package Screens;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 import javax.sound.sampled.AudioInputStream;
@@ -18,12 +19,15 @@ import javax.swing.JLabel;
 import SpeechRecognition.SpeechRecorder;
 
 import java.awt.Font;
+import javax.swing.JTextField;
+import java.awt.Color;
 
 
 public class Question_Voiced {
 
 	private JFrame frame;
 	int click;
+	private JTextField textField;
 	/**
 	 * Launch the application.
 	 */
@@ -54,17 +58,44 @@ public class Question_Voiced {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
-		frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
+		//frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
+		
+		int t=0;
+		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
+
+		JLabel lblNewLabel_1 = new JLabel("");		
+		lblNewLabel_1.setBounds(971, 94, 215, 215);
+		lblNewLabel_1.setVisible(false);
+		frame.getContentPane().add(lblNewLabel_1);
+
+		JLabel lblNewLabel_2 = new JLabel("");		
+		lblNewLabel_2.setBounds(971, 367, 215, 215);
+		lblNewLabel_2.setVisible(false);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		JButton btnNewButton_2 = new JButton("Button");
+		btnNewButton_2.setBackground(new Color(50, 205, 50));
+		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnNewButton_2.setBounds(264, 274, 179, 48);
+		btnNewButton_2.setVisible(false);
+		frame.getContentPane().add(btnNewButton_2);
+		
+		
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		textField.setBounds(480, 547, 494, 48);
+		textField.setVisible(false);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
 
 
 		JButton btnReadTheQuestion = new JButton();
@@ -105,28 +136,42 @@ public class Question_Voiced {
 		btnNewButton.setIcon(new ImageIcon("Resources/Images/microphone.png"));
 		btnNewButton.setBounds(618, 324, 169, 168);
 		frame.getContentPane().add(btnNewButton);
-
+		frame.getRootPane().setDefaultButton( btnNewButton );
+		
 		JButton btnNewButton_1 = new JButton("Next");
 		btnNewButton_1.addActionListener(new ActionListener() {
+			public void keyPressed(KeyEvent e) {
+			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
+
+			    }
+
+			}
 			public void actionPerformed(ActionEvent e) {
 				// TODO Next question should come up
 				Question_Image.main(null);
+				
+					if(t==8){
+						lblNewLabel_1.setIcon(new ImageIcon("Resources/Images/map.png"));
+						lblNewLabel_1.setVisible(true);
+					} else if (t==12) {
+						lblNewLabel_1.setIcon(new ImageIcon("Resources/Images/wristwatch.png"));						
+						lblNewLabel_2.setIcon(new ImageIcon("Resources/Images/pencil.png"));
+						lblNewLabel_1.setVisible(true);
+						lblNewLabel_2.setVisible(true);
+					} else if(t==15) {
+						textField.setVisible(true);
+						btnNewButton_2.setVisible(true);
+					} else if(t==18) {
+						textField.setVisible(true);
+					}
 
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton_1.setBounds(637, 642, 128, 48);
 		frame.getContentPane().add(btnNewButton_1);
+		frame.getRootPane().setDefaultButton( btnNewButton_1 );
 
-		JLabel lblNewLabel_1 = new JLabel("Please push the play button for listening the question.");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_1.setBounds(854, 162, 552, 42);
-		frame.getContentPane().add(lblNewLabel_1);
-
-		JLabel lblNewLabel_2 = new JLabel("Please push the microphone button ");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_2.setBounds(934, 367, 353, 31);
-		frame.getContentPane().add(lblNewLabel_2);
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -142,11 +187,9 @@ public class Question_Voiced {
 		btnClose.setBounds(1281, 27, 60, 60);
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
-
-		JLabel lblNewLabel_3 = new JLabel("for answering the question.");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		lblNewLabel_3.setBounds(971, 398, 329, 31);
-		frame.getContentPane().add(lblNewLabel_3);
+		
+		
+		
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 

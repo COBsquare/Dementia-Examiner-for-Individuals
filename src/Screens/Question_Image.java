@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -16,6 +17,10 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import ImageProcessing.application.Main;
+
+
 
 public class Question_Image {
 
@@ -92,14 +97,21 @@ public class Question_Image {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Start camera options pop up
+				Main.main(null);
 			}
 		});
 
 		btnNewButton.setBounds(618, 349, 175, 163);
 		frame.getContentPane().add(btnNewButton);
-
+		frame.getRootPane().setDefaultButton( btnNewButton );
 		JButton btnNewButton_1 = new JButton("Next");
 		btnNewButton_1.addActionListener(new ActionListener() {
+			public void keyPressed(KeyEvent e) {
+			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
+
+			    }
+
+			}
 			public void actionPerformed(ActionEvent e) {
 				Completion.main(null);
 
@@ -110,10 +122,7 @@ public class Question_Image {
 		btnNewButton_1.setBounds(638, 610, 128, 48);
 		frame.getContentPane().add(btnNewButton_1);
 
-		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.setIcon(new ImageIcon("Resources/Images/folder.png"));
-		btnNewButton_2.setBounds(887, 349, 175, 163);
-		frame.getContentPane().add(btnNewButton_2);
+		
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -130,6 +139,7 @@ public class Question_Image {
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
 		btnClose.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
 
 				System.exit(0);
