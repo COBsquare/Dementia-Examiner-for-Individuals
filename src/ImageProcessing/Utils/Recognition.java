@@ -74,7 +74,6 @@ public final class Recognition {
 		
 		//System.out.println("Peak Value & Index: " + histogram.get(peak, 0)[0] + "-" + peak);
 
-		
 		// Find left most peak point for threshold (Local maximum)
 		int tol = 0;
 		double value = max_value;

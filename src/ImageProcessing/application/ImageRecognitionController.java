@@ -72,8 +72,8 @@ public class ImageRecognitionController {
 		CLOCK_SCORE = 0;
 		LIT_POLY_SCORE = 0;
 		ILL_POLY_SCORE = 0;
-		
-		drawingType="Clock Drawing";
+
+		drawingType = "Clock Drawing";
 
 	}
 
@@ -206,6 +206,10 @@ public class ImageRecognitionController {
 	// Keep current image and start processing
 	@FXML
 	protected void saveImage() throws IOException {
+		// Clear the console
+		for (int i = 0; i < 100; i++) {
+			System.out.println("");
+		}
 
 		if (image != null) {
 			try {

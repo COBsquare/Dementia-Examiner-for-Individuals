@@ -70,8 +70,6 @@ public final class Clock {
 	public static int evaluateNumbers(Mat frame, ImageView imageViewer) throws IOException {
 		System.out.println("NUMBERS-------------------------------------");
 
-		// TODO Evaluation of spatial position of numbers
-
 		int numbers_score = 0;
 		int numbersPresent_score = 0;
 		int numbersSpatial_score = 0;
@@ -83,7 +81,9 @@ public final class Clock {
 		NeuralNetwork<?> neuralNetwork = NeuralNetwork.createFromFile(
 				"Resources/NeuralNetwork/NeuralNetwork_Perceptron.nnet");
 
-		ArrayList<Integer> results = new ArrayList<Integer>();
+		ArrayList<Integer> numbers_labels = new ArrayList<Integer>();
+		ArrayList<Rect> numbers_rects = new ArrayList<Rect>();
+
 		// Crop every component we found from the clock face
 		// Test each and every component with giving them into ANN
 		for (int i = 0; i < clock_components.length; i++) {
@@ -96,15 +96,15 @@ public final class Clock {
 			Imgproc.resize(component, component_resized, new Size(16, 16));
 
 			// Check the matrix for the values
-			// 0 pixel  =0 
-			// pixel>0  =1
+			// 0 pixel (white) =0 
+			// pixel<100 (black) =1
 			// Create array to give network
 			double[] input = new double[256];
 
 			int idx = 0;
 			for (int col = 0; col < 16; col++) {
 				for (int row = 0; row < 16; row++) {
-					if (component_resized.get(col, row)[0] == 255)
+					if (component_resized.get(row, col)[0] < 100)
 						input[idx] = 1;
 					else
 						input[idx] = 0;
@@ -124,60 +124,41 @@ public final class Clock {
 			double[] output = neuralNetwork.getOutput();
 			for (int j = 0; j < output.length; j++) {
 				// Check the output
-				if (output[j] == 1)
-					results.add(j);
+				if (output[j] == 1) {
+					numbers_labels.add(j);
+					numbers_rects.add(clock_components[i]);
+				}
 			}
 
 		}
 
+		// numbersPresent_score------------------------------------------------------------------
 		// Find the number of occurance for all of the digits
-		Collections.sort(results);
+		Collections.sort(numbers_labels);
 		double[] numberRep = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-		for (int i = 0; i < results.size(); i++) {
-			switch (results.get(i)) {
-			case 0:
-				numberRep[0]++;
-				break;
-			case 1:
-				numberRep[1]++;
-				break;
-			case 2:
-				numberRep[2]++;
-				break;
-			case 3:
-				numberRep[3]++;
-				break;
-			case 4:
-				numberRep[4]++;
-				break;
-			case 5:
-				numberRep[5]++;
-				break;
-			case 6:
-				numberRep[6]++;
-				break;
-			case 7:
-				numberRep[7]++;
-				break;
-			case 8:
-				numberRep[8]++;
-				break;
-			case 9:
-				numberRep[9]++;
-				break;
+		for (int i = 0; i < numbers_labels.size(); i++) {
+			for (int j = 0; j < 10; j++) {
+				if (numbers_labels.get(i) == j) {
+					numberRep[j]++;
+					break;
+				}
 			}
 		}
 
+		/*
+		// Display the count
 		System.out.println("# of digits for each:");
 		for (int i = 0; i < numberRep.length; i++) {
 			System.out.println(i + ": " + numberRep[i]);
 		}
+		*/
 
-		// Check number of occurance for all numbers
-		// 5 sample for 1 (1, 10, 11, 12)
-		// 2 sample for 2 (2, 12)
-		// 1 sample for others (3, 4, 5, 6, 7, 8, 9)
+		// Check number of occurrence for all numbers
+		// 5 samples for 1 (1, 10, 11, 12)
+		// 2 samples for 2 (2, 12)
+		// 1 sample for each of others (3, 4, 5, 6, 7, 8, 9)
+		// It is expected that score should be at least 9
 		for (int i = 0; i < numberRep.length; i++) {
 			if (i == 1) {
 				if (numberRep[1] >= 5)
@@ -190,17 +171,20 @@ public final class Clock {
 			}
 		}
 
+		// numbersSpatial_score-------------------------------------------------------------------
+
 		// Spatial arrangments of numbers
-		// Divide the clock into 4 pieces from its center
+		// Divide the clock into 4 region from its center
 		double[] pieces = { 0, 0, 0, 0 };
 
 		for (int i = 0; i < clock_components.length; i++) {
 			double x = clock_components[i].x;
-			double y= clock_components[i].y;
+			double y = clock_components[i].y;
 
+			// Count the number of components for each region
 			if (x < frame.width() / 2 && y < frame.height() / 2) {
 				pieces[0]++;
-				
+
 			} else if (x < frame.width() / 2 && y > frame.height() / 2) {
 				pieces[1]++;
 
@@ -211,22 +195,74 @@ public final class Clock {
 				pieces[3]++;
 
 			}
-			
+
 		}
-		
-		// Check that every piece has at least 4 components
-		for(int i=0;i<4;i++){
-			System.out.println(pieces[i]);
-			if(pieces[i]>=10)
+
+		// Check that every region has at least 4 components
+		// Max score should be 4 in this stage
+		for (int i = 0; i < 4; i++) {
+			//System.out.println((i + 1) + ". region has " + pieces[i] + " components");
+			if (pieces[i] >= 5)
 				numbersSpatial_score++;
-			
+
 		}
-		
-		// Check the conditions
+
+		// In addition to component in regions, 
+		// It should be looked for the distances and the angles of digits by clock center
+		ArrayList<Double> numbers_angles = new ArrayList<Double>();
+		for (int i = 0; i < numbers_rects.size(); i++) {
+			double x = numbers_rects.get(i).x;
+			double y = numbers_rects.get(i).y + numbers_rects.get(i).height;
+
+			double distance = Math.hypot(clockface.center.x - x, clockface.center.y - y);
+
+			// It is expected that digits should be presented 
+			// on the outer region of the clock face
+			if (distance >= clockface.radius * 70 / 100) {
+				// TODO Do something idk
+			}
+
+			double angle = Math.toDegrees(Math.atan2(clockface.center.y - y, clockface.center.x - x));
+			if (angle < 0) {
+				angle += 360;
+			}
+			numbers_angles.add(angle);
+
+		}
+
+		Collections.sort(numbers_angles);
+
+		// For 12 digits, we have 360/12 angles for each digit
+		// It is expected that in every 30 degree, at least 1 digit should be presented
+		double[] anglesRep = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+		int index = 0;
+
+		int order = 0;
+		for (double intvl = 30; intvl < 390; intvl += 30) {
+			while (index < numbers_angles.size()) {
+				if (numbers_angles.get(index) > intvl - 30 && numbers_angles.get(index) < intvl) {
+					anglesRep[order]++;
+					index++;
+				} else {
+					break;
+				}
+			}
+			order++;
+		}
+
+		// Total score can be 12 here for the spatial score
+		for (int i = 0; i < anglesRep.length; i++) {
+			if (anglesRep[i] >= 1) {
+				numbersSpatial_score++;
+			}
+		}
+
+		// Check the conditions for final evaluation----------------------------------------------
 		// 1. Presentation of numbers
 		// 2. Spatial arrangments of numbers
 
-		Boolean[] condition = { numbersPresent_score >= 15, numbersSpatial_score >= 3 };
+		// TODO values in conditions can be changed
+		Boolean[] condition = { numbersPresent_score >= 7, numbersSpatial_score >= 10 };
 		String[] outcome = { "All numbers are presented", "Numbers are in correct spatial arrangements" };
 
 		// Display the results
@@ -252,8 +288,7 @@ public final class Clock {
 	public static int evaluateHands(Mat frame, ImageView imageViewer) {
 		System.out.println("CLOCK HANDS----------------------------------");
 
-		// TODO Check for the errors
-
+		// TODO Function should be reviewed because of the errors
 		int hands_score = 0;
 
 		Mat lines = Recognition.houghlineTransform(frame);
@@ -371,9 +406,9 @@ public final class Clock {
 		// Find the circle's features
 		clockface = Find.LargestCircle(frame);
 
-		//clock_score += Clock.evaluateClockface(frame, imageViewer);
+		clock_score += Clock.evaluateClockface(frame, imageViewer);
 		clock_score += Clock.evaluateNumbers(frame, imageViewer);
-		//clock_score += Clock.evaluateHands(frame, imageViewer);
+		clock_score += Clock.evaluateHands(frame, imageViewer);
 
 		System.out.println("RESULT OF THE TEST--->>> " + clock_score + " out of 10");
 		return clock_score;
