@@ -73,9 +73,10 @@ public class TypeSelection {
 		label.setBounds(292, 529, 728, 35);
 		frame.getContentPane().add(label);
 
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setBounds(1120, 621, 159, 73);
-		btnNewButton.setIcon(new ImageIcon("Resources/Images/arrowRight.png"));
+		JButton btnNewButton = new JButton("Next");
+		btnNewButton.setBounds(1080, 598, 142, 54);
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		
 
 		JButton btnIlliterate = new JButton("Illiterate");
 		JButton btnLiterate = new JButton("Literate");
@@ -88,7 +89,7 @@ public class TypeSelection {
 				App.User.setEducation("Illiterate");
 				btnNewButton.setVisible(true);
 				btnIlliterate.setBackground(Color.GREEN);
-				label.setText("The test will continue in illitarate, press 'ARROW' to confirm.");
+				label.setText("The test will continue in illitarate, press 'NEXT' to confirm.");
 				}
 				else if(click==2){
 					btnIlliterate.setBackground(null);
@@ -112,7 +113,7 @@ public class TypeSelection {
 					App.User.setEducation("Literate");
 					btnNewButton.setVisible(true);
 					btnLiterate.setBackground(Color.GREEN);
-					label.setText("The test will continue in litarate, press 'ARROW' to confirm.");
+					label.setText("The test will continue in litarate, press 'NEXT' to confirm.");
 				}
 				else if(click==2){
 					btnLiterate.setBackground(null);

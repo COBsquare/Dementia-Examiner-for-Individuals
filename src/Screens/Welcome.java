@@ -80,9 +80,9 @@ public class Welcome {
 		lblInThere.setBounds(400, 592, 627, 67);
 		frame.getContentPane().add(lblInThere);
 
-		JButton btnWelcome = new JButton("");
-		btnWelcome.setBounds(1120, 621, 159, 73);
-		btnWelcome.setIcon(new ImageIcon("Resources/Images/arrowRight.png"));
+		JButton btnWelcome = new JButton("Next");
+		btnWelcome.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnWelcome.setBounds(1080, 598, 142, 54);
 		frame.getContentPane().add(btnWelcome);
 		frame.getRootPane().setDefaultButton( btnWelcome );
 

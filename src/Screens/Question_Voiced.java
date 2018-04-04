@@ -58,7 +58,7 @@ public class Question_Voiced {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
-		//frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
+		frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
 		frame.setVisible(true);
@@ -123,6 +123,7 @@ public class Question_Voiced {
 		JButton btnNewButton = new JButton();
 		SpeechRecorder sc = new SpeechRecorder();
 		btnNewButton.addActionListener(new ActionListener() {
+		
 			public void actionPerformed(ActionEvent e) {
 				click++;
 				if (click == 1) {

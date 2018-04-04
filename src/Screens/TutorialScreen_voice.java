@@ -180,7 +180,7 @@ public class TutorialScreen_voice {
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton_1.setBounds(817, 663, 128, 48);
+		btnNewButton_1.setBounds(1080, 598, 142, 54);
 		frame.getContentPane().add(btnNewButton_1);
 		frame.getRootPane().setDefaultButton( btnNewButton_1 );
 	

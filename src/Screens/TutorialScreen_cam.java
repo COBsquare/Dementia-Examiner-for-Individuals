@@ -56,12 +56,12 @@ public class TutorialScreen_cam {
 		frame.getContentPane().add(lblNewLabel);
 		JLabel lblYouSaid = new JLabel("If you do not use your computer's camera, you can pass without doing it. ");
 		lblYouSaid.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblYouSaid.setBounds(640, 615, 614, 58);
+		lblYouSaid.setBounds(639, 108, 614, 58);
 		frame.getContentPane().add(lblYouSaid);
 
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setIcon(new ImageIcon("Resources/Images/camera.png"));
-		btnNewButton.setBounds(835, 204, 169, 168);
+		btnNewButton.setBounds(835, 264, 169, 168);
 		frame.getContentPane().add(btnNewButton);
 
 
@@ -95,7 +95,7 @@ public class TutorialScreen_cam {
 		});
 
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton_1.setBounds(860, 500, 128, 48);
+		btnNewButton_1.setBounds(1080, 598, 142, 54);
 		frame.getContentPane().add(btnNewButton_1);
 		frame.getRootPane().setDefaultButton( btnNewButton_1 );
 

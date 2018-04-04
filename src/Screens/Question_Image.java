@@ -100,10 +100,14 @@ public class Question_Image {
 				Main.main(null);
 			}
 		});
-
-		btnNewButton.setBounds(618, 349, 175, 163);
+		
+		
+		
+		btnNewButton.setBounds(618, 324, 169, 168);
 		frame.getContentPane().add(btnNewButton);
 		frame.getRootPane().setDefaultButton( btnNewButton );
+		
+		
 		JButton btnNewButton_1 = new JButton("Next");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void keyPressed(KeyEvent e) {
@@ -119,8 +123,9 @@ public class Question_Image {
 		});
 
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton_1.setBounds(638, 610, 128, 48);
+		btnNewButton_1.setBounds(638, 642, 128, 48);
 		frame.getContentPane().add(btnNewButton_1);
+		frame.getRootPane().setDefaultButton( btnNewButton_1 );
 
 		
 
