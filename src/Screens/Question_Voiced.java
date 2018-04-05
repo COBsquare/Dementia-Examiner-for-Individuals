@@ -130,7 +130,7 @@ public class Question_Voiced {
 					sc.startMic();
 				} else if (click == 2) {
 					click = 0;
-					sc.stopMic("Question20"); // sorular cagrýlacak ve queston [i] gibi sorularýn cevaplarý kaydedilecek
+					sc.stopMic("Question11"); // sorular cagrýlacak ve queston [i] gibi sorularýn cevaplarý kaydedilecek
 				}
 			}
 		});
