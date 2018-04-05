@@ -81,46 +81,66 @@ public class TypeSelection {
 		JButton btnIlliterate = new JButton("Illiterate");
 		JButton btnLiterate = new JButton("Literate");
 		btnIlliterate.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnIlliterate.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				click++;
+		btnIlliterate.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mousePressed(java.awt.event.MouseEvent evt)
+	        {
+	            	click++;
 				if(click==1){
 				App.User.setEducation("Illiterate");
 				btnNewButton.setVisible(true);
 				btnIlliterate.setBackground(Color.GREEN);
 				label.setText("The test will continue in illitarate, press 'NEXT' to confirm.");
+				btnLiterate.setEnabled(false);
 				}
-				else if(click==2){
+				else if((click%2)==0){
 					btnIlliterate.setBackground(null);
+					label.setVisible(false);
+					btnLiterate.setEnabled(true);
+					
+				}else {
+					App.User.setEducation("Illiterate");
+					btnNewButton.setVisible(true);
+					btnIlliterate.setBackground(Color.GREEN);
+					label.setVisible(true);
+					label.setText("The test will continue in illitarate, press 'NEXT' to confirm.");
+					btnLiterate.setEnabled(false);
+				}
+	        }
+	    });
+	
+		btnIlliterate.setBounds(1035, 396, 236, 140);
+		frame.getContentPane().add(btnIlliterate);
+		
+		
+		btnLiterate.addMouseListener(new java.awt.event.MouseAdapter() {
+			public void mousePressed(java.awt.event.MouseEvent evt)
+	        {
+	            	click++;
+				if(click==1){
+				App.User.setEducation("Literate");
+				btnNewButton.setVisible(true);
+				btnLiterate.setBackground(Color.GREEN);
+				label.setText("The test will continue in litarate, press 'NEXT' to confirm.");
+				btnIlliterate.setEnabled(false);
+				}
+				else if((click % 2)==0){
+					btnLiterate.setBackground(null);
+					label.setVisible(false);
+					btnIlliterate.setEnabled(true);
 
 				}
-
-			    }
-
-		});
-
-		btnIlliterate.setBounds(1035, 437, 236, 140);
-		frame.getContentPane().add(btnIlliterate);
-
-
-		btnLiterate.addActionListener(new ActionListener() {
-			@Override
-
-			public void actionPerformed(ActionEvent arg0) {
-				click++;
-				if(click==1){
-					App.User.setEducation("Literate");
+				else {
+					App.User.setEducation("Illiterate");
 					btnNewButton.setVisible(true);
 					btnLiterate.setBackground(Color.GREEN);
+					label.setVisible(true);
 					label.setText("The test will continue in litarate, press 'NEXT' to confirm.");
+					btnIlliterate.setEnabled(false);
 				}
-				else if(click==2){
-					btnLiterate.setBackground(null);
-				}
+	        }
+	    });
 
-			}
-		});
+
 
 		btnLiterate.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnLiterate.setBounds(1035, 177, 236, 140);
