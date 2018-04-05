@@ -13,5 +13,6 @@
 	<classpathentry kind="lib" path="lib/SpeechRecog/sphinx4-data-1.0.0.jar"/>
 	<classpathentry kind="lib" path="lib/SpeechRecog/sphinx4-scala-wrapper-1.0-20130327.183757-2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/OpenCV"/>
+	<classpathentry kind="lib" path="lib/PDF/itextpdf-5.5.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
