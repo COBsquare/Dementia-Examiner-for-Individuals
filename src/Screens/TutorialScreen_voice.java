@@ -144,23 +144,34 @@ public class TutorialScreen_voice {
 
 		JButton btnNewButton = new JButton("");
 		SpeechRecorder sc = new SpeechRecorder();
-
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				click++;
+		btnNewButton.addMouseListener(new java.awt.event.MouseAdapter(){
+			public void mousePressed(java.awt.event.MouseEvent evt) {
+				
+			
 				if (click == 1) {
+					click++;
 					sc.startMic();
-					lblNewLabel_5.setVisible(true);
+					lblNewLabel_3.setText("        Please say apple");
 					lblNewLabel_1.setVisible(false);
-					lblNewLabel_3.setVisible(false);
+					btnNewButton.setIcon(new ImageIcon("Resources/Images/record.png"));
 
-				} else if (click == 2) {
-					click = 0;
-					sc.stopMic("tutorial");
+				} else if ((click% 2)==0) {  
+					lblNewLabel_3.setVisible(false);
+					lblNewLabel_1.setVisible(false);
+					lblNewLabel_5.setVisible(true);
+					btnNewButton.setIcon(new ImageIcon("Resources/Images/checkmark.png"));
+				
+				} else {
+					click=0;
+					sc.stopMic("tutorial");									
+					
 					
 				}
+				
+				
 			}
 		});
+	
 
 		btnNewButton.setIcon(new ImageIcon("Resources/Images/microphone.png"));
 		btnNewButton.setBounds(798, 327, 169, 168);
