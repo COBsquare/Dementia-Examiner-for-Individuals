@@ -196,7 +196,7 @@ public final class Polygon {
 		for (int i = 0; i < 4; i++) {
 			// Find the biggest of two edges
 			// And define a ratio which is acceptable 
-			double big = Find.Max(edgeTwins[i][0], edgeTwins[i][1]);
+			double big = Math.max(edgeTwins[i][0], edgeTwins[i][1]);
 			double ratio = big * 20 / 100;
 
 			if (ratio >= Math.abs(edgeTwins[i][0] - edgeTwins[i][1])) {
@@ -433,7 +433,7 @@ public final class Polygon {
 		for (int i = 0; i < 5; i++) {
 			// Find the biggest of two edges
 			// And define a ratio which is acceptable 
-			double big = Find.Max(edgeTwins[i][0], edgeTwins[i][1]);
+			double big = Math.max(edgeTwins[i][0], edgeTwins[i][1]);
 			double ratio = big * 20 / 100;
 
 			if (ratio >= Math.abs(edgeTwins[i][0] - edgeTwins[i][1])) {

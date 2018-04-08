@@ -155,24 +155,6 @@ public final class Find {
 		return new CCircle(radius[index], center[index]);
 	}
 
-	public static double Max(double a, double b) {
-		if (a > b)
-			return a;
-		else if (a < b)
-			return b;
-		else
-			return a;
-	}
-
-	public static double Min(double a, double b) {
-		if (a < b)
-			return a;
-		else if (a > b)
-			return b;
-		else
-			return a;
-	}
-
 	public static double Angle(CLine line) {
 		double angle = Math.toDegrees(Math.atan2(line.start.y - line.end.y, line.start.x - line.end.x));
 		if (angle < 0) {

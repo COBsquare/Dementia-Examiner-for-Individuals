@@ -11,13 +11,30 @@ public class CLine {
 		this.start = start;
 		this.end = end;
 	}
-	
-	public CLine(){
-		start=new Point();
-		end=new Point();
+
+	public CLine() {
+		start = new Point();
+		end = new Point();
 	}
 
-	public double lengthOfLine(){
+	public double lengthOfLine() {
 		return Math.hypot(start.x - end.x, start.y - end.y);
 	}
+
+	public final Point getStart() {
+		return start;
+	}
+
+	public final void setStart(Point start) {
+		this.start = start;
+	}
+
+	public final Point getEnd() {
+		return end;
+	}
+
+	public final void setEnd(Point end) {
+		this.end = end;
+	}
+
 }
