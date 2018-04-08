@@ -6,6 +6,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 import javax.sound.sampled.AudioInputStream;
@@ -20,7 +22,9 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import SpeechRecognition.SpeechRecorder;
-
+import edu.cmu.sphinx.api.Configuration;
+import edu.cmu.sphinx.api.SpeechResult;
+import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 
 import java.awt.Font;
 
@@ -29,6 +33,7 @@ public class TutorialScreen_voice {
 	private JFrame frame;
 	Clip clip;
 	int click = 0;
+	StreamSpeechRecognizer recognizer;
 
 	/**
 	 * Launch the application.
@@ -70,32 +75,32 @@ public class TutorialScreen_voice {
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("Click the microphone button for recording");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel_1.setBounds(993, 350, 351, 48);
 		lblNewLabel_1.setVisible(false);
 		frame.getContentPane().add(lblNewLabel_1);
-		
+
 
 		JLabel lblNewLabel_2 = new JLabel("Click the play button for listening to voice.");
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel_2.setBounds(993, 130, 340, 54);
 		lblNewLabel_2.setVisible(false);
 		frame.getContentPane().add(lblNewLabel_2);
-				
+
 		JLabel lblNewLabel_3 = new JLabel("the voice and click again to finish.");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel_3.setBounds(1030, 388, 327, 35);
 		lblNewLabel_3.setVisible(false);
 		frame.getContentPane().add(lblNewLabel_3);
-		
+
 		JLabel lblNewLabel_4 = new JLabel("");
 		lblNewLabel_4.setBounds(1111, 130, 73, 73);
 		lblNewLabel_4.setIcon(new ImageIcon("Resources/Images/greenticksmall.png"));
 		lblNewLabel_4.setVisible(false);
 		frame.getContentPane().add(lblNewLabel_4);
-		
+
 		JLabel lblNewLabel_5 = new JLabel("");
 		lblNewLabel_5.setBounds(1111, 350, 73, 73);
 		lblNewLabel_5.setIcon(new ImageIcon("Resources/Images/greenticksmall.png"));
@@ -105,7 +110,7 @@ public class TutorialScreen_voice {
 		JButton btnReadTheQuestion = new JButton("");
 		btnReadTheQuestion.setIcon(new ImageIcon("Resources/Images/play.png"));
 		btnReadTheQuestion.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		
+
 		btnReadTheQuestion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
@@ -119,23 +124,23 @@ public class TutorialScreen_voice {
 				} catch (LineUnavailableException e1) {
 					e1.printStackTrace();
 				}
-				
-				
-			
-				
+
+
+
+
 				int answer = JOptionPane.showConfirmDialog(null, "Are you hearing the voice?", "Tutorial",
 						JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
 
 				System.out.println(answer);
 				clip.stop();
-				
+
 				if(answer==0){
-					
+
 					lblNewLabel_1.setVisible(true);
 					lblNewLabel_3.setVisible(true);
 					lblNewLabel_4.setVisible(true);
 					lblNewLabel_2.setVisible(false);
-					
+
 				}
 			}
 		});
@@ -146,8 +151,8 @@ public class TutorialScreen_voice {
 		SpeechRecorder sc = new SpeechRecorder();
 		btnNewButton.addMouseListener(new java.awt.event.MouseAdapter(){
 			public void mousePressed(java.awt.event.MouseEvent evt) {
-				
-			
+
+
 				if (click == 1) {
 					click++;
 					sc.startMic();
@@ -155,28 +160,26 @@ public class TutorialScreen_voice {
 					lblNewLabel_1.setVisible(false);
 					btnNewButton.setIcon(new ImageIcon("Resources/Images/record.png"));
 
-				} else if ((click% 2)==0) {  
+				} else if ((click% 2)==0) {
 					lblNewLabel_3.setVisible(false);
 					lblNewLabel_1.setVisible(false);
 					lblNewLabel_5.setVisible(true);
 					btnNewButton.setIcon(new ImageIcon("Resources/Images/checkmark.png"));
-				
+
 				} else {
 					click=0;
-					sc.stopMic("tutorial");									
-					
-					
+					System.out.print("Test");
+					sc.stopMic("tutorial");
+
 				}
-				
-				
 			}
 		});
-	
+
 
 		btnNewButton.setIcon(new ImageIcon("Resources/Images/microphone.png"));
 		btnNewButton.setBounds(798, 327, 169, 168);
 		frame.getContentPane().add(btnNewButton);
-		
+
 		JButton btnNewButton_1 = new JButton("Next");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void keyPressed(KeyEvent e) {
@@ -194,7 +197,7 @@ public class TutorialScreen_voice {
 		btnNewButton_1.setBounds(1080, 598, 142, 54);
 		frame.getContentPane().add(btnNewButton_1);
 		frame.getRootPane().setDefaultButton( btnNewButton_1 );
-	
+
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -226,30 +229,30 @@ public class TutorialScreen_voice {
 		});
 		btnBack.setBounds(158, 598, 142, 54);
 		frame.getContentPane().add(btnBack);
-		
+
 		JButton btnStartTheTutorial = new JButton("Start the Tutorial");
 		btnStartTheTutorial.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnStartTheTutorial.setBounds(119, 388, 228, 48);
 		frame.getContentPane().add(btnStartTheTutorial);
-		
-	
-		
-		
+
+
+
+
 		btnStartTheTutorial.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				click++;
 				if(click==1){
 				lblNewLabel_2.setVisible(true);
-				
+
 				}
-				
+
 			    }
 
 		});
-  
 
-		
-		
+
+
+
 	}
 }

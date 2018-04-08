@@ -8,26 +8,29 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Logger;
-
-
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.SpeechResult;
 import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 
-public class EvaluationofLiterate {
-	String answerToQuestion1="two thousand and eighteen";
-	String answerToQuestion2;
-	String answerToQuestion3;
-	String answerToQuestion4;
-	String answerToQuestion5;
-	String answerToQuestion8="north";
-	String answerToQuestion9;
-	String answerToQuestion10="ninety three eighty six seventy nine seventy two sixty five";
-	String answerToQuestion11;
-	String answerToQuestion12;
-	String answerToQuestion13="no ifs ands or buts";
-	String answerToQuestion14="paper";
-	int scoreFromSpeech=0;
+
+
+public class Evaluation {
+	public String answerToQuestion1="two thousand and eighteen";
+	public String answerToQuestion2;
+	public String answerToQuestion3;
+	public String answerToQuestion4;
+	public String answerToQuestion5;
+	public String answerToQuestion8="north";
+	public String answerToQuestion9;
+	public String answerToQuestion10="ninety three eighty six seventy nine seventy two sixty five";
+	public String answerToQuestion11;
+	public String answerToQuestion12;
+	public String answerToQuestion13="no ifs ands or buts";
+	public String answerToQuestion14="paper";
+	public String answerToQuestion20="sunday is preceded by saturday saturday is preceded by friday";
+	public String answerToQuestion21 = "i would have gone if he had gone";
+	public int scoreFromSpeech=0;
+	Configuration configuration = new Configuration();
 	Date date = new Date();
 	LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 	int year  = localDate.getYear();
@@ -44,15 +47,18 @@ public class EvaluationofLiterate {
 		  }
 	}
 
-	public void EvaluationofQuestion1() throws IOException{
+
+	public void speechUsages(){
+		configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
+		configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
+		configuration.setGrammarPath("resource:/Grammer");
+	}
+	public void EvaluationofQuestion1(String grammerNumber) throws IOException{
 		disableLogMessages();
-		Configuration configuration1 = new Configuration();
-		configuration1.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-		configuration1.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-		configuration1.setGrammarPath("resource:/Grammer");
-		configuration1.setGrammarName("Question1");
-		configuration1.setUseGrammar(true);
-		StreamSpeechRecognizer recognizer1 = new StreamSpeechRecognizer(configuration1);
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer1 = new StreamSpeechRecognizer(configuration);
 		recognizer1.startRecognition(new FileInputStream("Resources/Answers/Question1.wav"));
 		SpeechResult Result1 = recognizer1.getResult();
 		String speechWords1 = Result1.getHypothesis();
@@ -63,15 +69,14 @@ public class EvaluationofLiterate {
 		}
 		System.out.println(" The answer to question 1 is " + speechWords1);
 	}
-	public void EvaluationofQuestion2() throws IOException{
+
+
+	public void EvaluationofQuestion2(String grammerNumber) throws IOException{
 		    disableLogMessages();
-		    Configuration configuration2 = new Configuration();
-			configuration2.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-			configuration2.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-			configuration2.setGrammarPath("resource:/Grammer");
-			configuration2.setGrammarName("Question2");
-			configuration2.setUseGrammar(true);
-			StreamSpeechRecognizer recognizer2 = new StreamSpeechRecognizer(configuration2);
+		    speechUsages();
+			configuration.setGrammarName(grammerNumber);
+			configuration.setUseGrammar(true);
+			StreamSpeechRecognizer recognizer2 = new StreamSpeechRecognizer(configuration);
 			recognizer2.startRecognition(new FileInputStream("Resources/Answers/Question2.wav"));
 			SpeechResult Result2 = recognizer2.getResult();
 			String speechWords2 = Result2.getHypothesis();
@@ -105,20 +110,12 @@ public class EvaluationofLiterate {
 		}
 			System.out.println(" The answer to question 2 is " + speechWords2);
 	}
-	public void EvaluationofQuestion3() throws IOException{
-		Logger cmRootLogger = Logger.getLogger("default.config");
-		  cmRootLogger.setLevel(java.util.logging.Level.OFF);
-		  String conFile = System.getProperty("java.util.logging.config.file");
-		  if (conFile == null) {
-		        System.setProperty("java.util.logging.config.file", "ignoreAllSphinx4LoggingOutput");
-		  }
-		Configuration configuration3 = new Configuration();
-		configuration3.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-		configuration3.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-		configuration3.setGrammarPath("resource:/Grammer");
-		configuration3.setGrammarName("Question3");
-		configuration3.setUseGrammar(true);
-		StreamSpeechRecognizer recognizer3 = new StreamSpeechRecognizer(configuration3);
+	public void EvaluationofQuestion3(String grammerNumber) throws IOException{
+		disableLogMessages();
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer3 = new StreamSpeechRecognizer(configuration);
 		recognizer3.startRecognition(new FileInputStream("Resources/Answers/Question3.wav"));
 		SpeechResult Result3 = recognizer3.getResult();
 		String speechWords3 = Result3.getHypothesis();
@@ -2684,15 +2681,12 @@ public class EvaluationofLiterate {
 	}
 		System.out.println(" The result to question 3 is " + speechWords3);
 	}
-	public void EvaluationofQuestion4() throws IOException{
+	public void EvaluationofQuestion4(String grammerNumber) throws IOException{
 		disableLogMessages();
-		Configuration configuration4 = new Configuration();
-		configuration4.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-		configuration4.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-		configuration4.setGrammarPath("resource:/Grammer");
-		configuration4.setGrammarName("Question4");
-		configuration4.setUseGrammar(true);
-		StreamSpeechRecognizer recognizer4 = new StreamSpeechRecognizer(configuration4);
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer4 = new StreamSpeechRecognizer(configuration);
 		recognizer4.startRecognition(new FileInputStream("Resources/Answers/Question4.wav"));
 		SpeechResult Result4 = recognizer4.getResult();
 		String speechWords4 = Result4.getHypothesis();
@@ -2747,15 +2741,12 @@ public class EvaluationofLiterate {
 	}
 		System.out.println(" The result to question 4 is " + speechWords4);
 	}
-	public void EvaluationofQuestion5() throws IOException{
+	public void EvaluationofQuestion5(String grammerNumber) throws IOException{
 		disableLogMessages();
-		Configuration configuration5 = new Configuration();
-		configuration5.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-		configuration5.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-		configuration5.setGrammarPath("resource:/Grammer");
-		configuration5.setGrammarName("Question5");
-		configuration5.setUseGrammar(true);
-		StreamSpeechRecognizer recognizer5 = new StreamSpeechRecognizer(configuration5);
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer5 = new StreamSpeechRecognizer(configuration);
 		recognizer5.startRecognition(new FileInputStream("Resources/Answers/Question5.wav"));
 		SpeechResult Result5 = recognizer5.getResult();
 		String speechWords5 = Result5.getHypothesis();
@@ -2846,15 +2837,12 @@ public class EvaluationofLiterate {
 		}
 		System.out.println(" The result to question 5 is " + speechWords5);
 	}
-	public void EvaluationofQuestion8() throws IOException{
+	public void EvaluationofQuestion8(String grammerNumber) throws IOException{
 		disableLogMessages();
-		Configuration configuration8 = new Configuration();
-		configuration8.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-		configuration8.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-		configuration8.setGrammarPath("resource:/Grammer");
-		configuration8.setGrammarName("Question8");
-		configuration8.setUseGrammar(true);
-		StreamSpeechRecognizer recognizer8 = new StreamSpeechRecognizer(configuration8);
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer8 = new StreamSpeechRecognizer(configuration);
 		recognizer8.startRecognition(new FileInputStream("Resources/Answers/Question8.wav"));
 		SpeechResult Result8 = recognizer8.getResult();
 		String speechWords8 = Result8.getHypothesis();
@@ -2864,15 +2852,12 @@ public class EvaluationofLiterate {
 		}
 		System.out.println(" The result to question 8 is " + speechWords8);
 	}
-	public void EvaluationofQuestion9() throws IOException{
+	public void EvaluationofQuestion9(String grammerNumber) throws IOException{
 		disableLogMessages();
-		Configuration configuration9 = new Configuration();
-		configuration9.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-		configuration9.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-		configuration9.setGrammarPath("resource:/Grammer");
-		configuration9.setGrammarName("Question9");
-		configuration9.setUseGrammar(true);
-		StreamSpeechRecognizer recognizer9 = new StreamSpeechRecognizer(configuration9);
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer9 = new StreamSpeechRecognizer(configuration);
 		recognizer9.startRecognition(new FileInputStream("Resources/Answers/Question9.wav"));
 		SpeechResult Result9 = recognizer9.getResult();
 		String speechWords9 = Result9.getHypothesis();
@@ -2902,15 +2887,12 @@ public class EvaluationofLiterate {
 		}
 		System.out.println(" The result to question 9 is " + speechWords9);
 	}
-	public void EvaluationofQuestion10() throws IOException{
+	public void EvaluationofQuestion10(String grammerNumber) throws IOException{
 		disableLogMessages();
-		Configuration configuration10 = new Configuration();
-		configuration10.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-		configuration10.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-		configuration10.setGrammarPath("resource:/Grammer");
-		configuration10.setGrammarName("Question10");
-		configuration10.setUseGrammar(true);
-		StreamSpeechRecognizer recognizer10 = new StreamSpeechRecognizer(configuration10);
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer10 = new StreamSpeechRecognizer(configuration);
 		recognizer10.startRecognition(new FileInputStream("Resources/Answers/Question10.wav"));
 		SpeechResult Result10 = recognizer10.getResult();
 		String speechWords10 = Result10.getHypothesis();
@@ -2920,15 +2902,12 @@ public class EvaluationofLiterate {
 		}
 		System.out.println(" The result to question 10 is " + speechWords10);
 	}
-	public void EvaluationofQuestion11() throws IOException{
+	public void EvaluationofQuestion11(String grammerNumber) throws IOException{
 		disableLogMessages();
-		Configuration configuration11 = new Configuration();
-		configuration11.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-		configuration11.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-		configuration11.setGrammarPath("resource:/Grammer");
-		configuration11.setGrammarName("Question11");
-		configuration11.setUseGrammar(true);
-		StreamSpeechRecognizer recognizer11 = new StreamSpeechRecognizer(configuration11);
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer11 = new StreamSpeechRecognizer(configuration);
 		recognizer11.startRecognition(new FileInputStream("Resources/Answers/Question11.wav"));
 		SpeechResult Result11 = recognizer11.getResult();
 		String speechWords11 = Result11.getHypothesis();
@@ -2958,15 +2937,12 @@ public class EvaluationofLiterate {
 		}
 		System.out.println(" The result to question 11 is " + speechWords11);
 	}
-	public void EvaluationofQuestion12() throws IOException{
+	public void EvaluationofQuestion12(String grammerNumber) throws IOException{
 		disableLogMessages();
-		Configuration configuration12 = new Configuration();
-		configuration12.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-		configuration12.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-		configuration12.setGrammarPath("resource:/Grammer");
-		configuration12.setGrammarName("Question12");
-		configuration12.setUseGrammar(true);
-		StreamSpeechRecognizer recognizer12 = new StreamSpeechRecognizer(configuration12);
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer12 = new StreamSpeechRecognizer(configuration);
 		recognizer12.startRecognition(new FileInputStream("Resources/Answers/Question12.wav"));
 		SpeechResult Result12 = recognizer12.getResult();
 		String speechWords12 = Result12.getHypothesis();
@@ -2988,15 +2964,12 @@ public class EvaluationofLiterate {
 		}
 		System.out.println(" The result to question 12 is " + speechWords12);
 	}
-	public void EvaluationofQuestion13() throws IOException{
+	public void EvaluationofQuestion13(String grammerNumber) throws IOException{
 		disableLogMessages();
-		Configuration configuration13 = new Configuration();
-		configuration13.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-		configuration13.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-		configuration13.setGrammarPath("resource:/Grammer");
-		configuration13.setGrammarName("Question13");
-		configuration13.setUseGrammar(true);
-		StreamSpeechRecognizer recognizer13 = new StreamSpeechRecognizer(configuration13);
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer13 = new StreamSpeechRecognizer(configuration);
 		recognizer13.startRecognition(new FileInputStream("Resources/Answers/Question13.wav"));
 		SpeechResult Result13 = recognizer13.getResult();
 		String speechWords13 = Result13.getHypothesis();
@@ -3006,15 +2979,12 @@ public class EvaluationofLiterate {
 		}
 		System.out.println(" The result to question 13 is " + speechWords13);
 	}
-	public void EvaluationofQuestion14() throws IOException{
+	public void EvaluationofQuestion14(String grammerNumber) throws IOException{
 		disableLogMessages();
-		Configuration configuration14 = new Configuration();
-		configuration14.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
-		configuration14.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
-		configuration14.setGrammarPath("resource:/Grammer");
-		configuration14.setGrammarName("Question14");
-		configuration14.setUseGrammar(true);
-		StreamSpeechRecognizer recognizer14 = new StreamSpeechRecognizer(configuration14);
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer14 = new StreamSpeechRecognizer(configuration);
 		recognizer14.startRecognition(new FileInputStream("Resources/Answers/Question14.wav"));
 		SpeechResult Result14 = recognizer14.getResult();
 		String speechWords14 = Result14.getHypothesis();
@@ -3024,50 +2994,96 @@ public class EvaluationofLiterate {
 		}
 		System.out.println(" The result to question 14 is " + speechWords14);
 	}
-	public EvaluationofLiterate() throws IOException{
-/*
-		EvaluationofQuestion1();
-		EvaluationofQuestion2();
-		EvaluationofQuestion3();
-		EvaluationofQuestion4();
-		EvaluationofQuestion5();
-		EvaluationofQuestion8();
-		EvaluationofQuestion9();
-		EvaluationofQuestion10();
-		EvaluationofQuestion11();
-		EvaluationofQuestion12();
-		EvaluationofQuestion13();
-		EvaluationofQuestion14();
-		*/
+	public void EvaluationofQuestion20(String grammerNumber) throws IOException {
+		disableLogMessages();
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer20 = new StreamSpeechRecognizer(configuration);
+		recognizer20.startRecognition(new FileInputStream("Resources/Answers/Question20.wav"));
+		SpeechResult Result20 = recognizer20.getResult();
+		String speechWords20 = Result20.getHypothesis();
+		if (speechWords20.equals(answerToQuestion20)) {
+			System.out.println("You gained five points from question 20");
+			scoreFromSpeech = scoreFromSpeech + 5;
+		}
+		System.out.println(" The result to question 20 is " + speechWords20);
+	}
+	public void EvaluationofQuestion21(String grammerNumber) throws IOException {
+		disableLogMessages();
+		speechUsages();
+		configuration.setGrammarName(grammerNumber);
+		configuration.setUseGrammar(true);
+		StreamSpeechRecognizer recognizer21 = new StreamSpeechRecognizer(configuration);
+		recognizer21.startRecognition(new FileInputStream("Resources/Answers/Question21.wav"));
+		SpeechResult Result21 = recognizer21.getResult();
+		String speechWords21 = Result21.getHypothesis();
+		if (speechWords21.equals(answerToQuestion21)) {
+			System.out.println("You gained one point from question 21");
+			scoreFromSpeech++;
+		}
+		System.out.println(" The result to question 21 is " + speechWords21);
+	}
+	public void EvaluationofLiterate() throws IOException{
+
+		EvaluationofQuestion1("Question1");
+		EvaluationofQuestion2("Question2");
+		EvaluationofQuestion3("Question3");
+		EvaluationofQuestion4("Question4");
+		EvaluationofQuestion5("Question5");
+		EvaluationofQuestion8("Question8");
+		EvaluationofQuestion9("Question9");
+		EvaluationofQuestion10("Question10");
+		EvaluationofQuestion11("Question11");
+		EvaluationofQuestion12("Question12");
+		EvaluationofQuestion13("Question13");
+		EvaluationofQuestion14("Question14");
 		System.out.println("The score from speech is " + scoreFromSpeech);
 
+	}
+	public void EvaluationofIlliterate() throws IOException{
+		EvaluationofQuestion1("Question1");
+		EvaluationofQuestion2("Question2");
+		EvaluationofQuestion3("Question3");
+		EvaluationofQuestion4("Question4");
+		EvaluationofQuestion5("Question5");
+		EvaluationofQuestion8("Question8");
+		EvaluationofQuestion9("Question9");
+		EvaluationofQuestion11("Question11");
+		EvaluationofQuestion12("Question12");
+		EvaluationofQuestion14("Question14");
+		EvaluationofQuestion20("Question20");
+		EvaluationofQuestion21("Question21");
+		System.out.println("The score from speech is " + scoreFromSpeech);
 	}
 	public int getScoreFromSpeech() {
 		return scoreFromSpeech;
 	}
 
-	public void setScoreFromSpeech(int scoreFromSpeech) {
-		this.scoreFromSpeech = scoreFromSpeech;
-	}
-
 	public String getAnswerToQuestion1() {
 		return answerToQuestion1;
 	}
+
 	public String getAnswerToQuestion2() {
 		return answerToQuestion2;
 	}
+
 	public String getAnswerToQuestion3() {
 		return answerToQuestion3;
 	}
+
 	public String getAnswerToQuestion4() {
 		return answerToQuestion4;
 	}
+
 	public String getAnswerToQuestion5() {
 		return answerToQuestion5;
 	}
+
 	public String getAnswerToQuestion8() {
 		return answerToQuestion8;
 	}
+
 	public String getAnswerToQuestion9() {
 		return answerToQuestion9;
 	}
@@ -3077,6 +3093,7 @@ public class EvaluationofLiterate {
 	public String getAnswerToQuestion11() {
 		return answerToQuestion11;
 	}
+
 	public String getAnswerToQuestion12() {
 		return answerToQuestion12;
 	}
@@ -3086,7 +3103,79 @@ public class EvaluationofLiterate {
 	public String getAnswerToQuestion14() {
 		return answerToQuestion14;
 	}
-	public static void main(String[] args) throws IOException {
-		new EvaluationofLiterate();
+	public String getAnswerToQuestion20() {
+		return answerToQuestion20;
 	}
+	public String getAnswerToQuestion21() {
+		return answerToQuestion21;
+	}
+	public void setAnswerToQuestion1(String answerToQuestion1) {
+		this.answerToQuestion1 = answerToQuestion1;
+	}
+
+
+	public void setAnswerToQuestion2(String answerToQuestion2) {
+		this.answerToQuestion2 = answerToQuestion2;
+	}
+
+
+	public void setAnswerToQuestion3(String answerToQuestion3) {
+		this.answerToQuestion3 = answerToQuestion3;
+	}
+
+
+	public void setAnswerToQuestion4(String answerToQuestion4) {
+		this.answerToQuestion4 = answerToQuestion4;
+	}
+
+
+	public void setAnswerToQuestion5(String answerToQuestion5) {
+		this.answerToQuestion5 = answerToQuestion5;
+	}
+
+
+	public void setAnswerToQuestion8(String answerToQuestion8) {
+		this.answerToQuestion8 = answerToQuestion8;
+	}
+
+
+	public void setAnswerToQuestion9(String answerToQuestion9) {
+		this.answerToQuestion9 = answerToQuestion9;
+	}
+
+
+	public void setAnswerToQuestion10(String answerToQuestion10) {
+		this.answerToQuestion10 = answerToQuestion10;
+	}
+
+
+	public void setAnswerToQuestion11(String answerToQuestion11) {
+		this.answerToQuestion11 = answerToQuestion11;
+	}
+
+
+	public void setAnswerToQuestion12(String answerToQuestion12) {
+		this.answerToQuestion12 = answerToQuestion12;
+	}
+
+
+	public void setAnswerToQuestion13(String answerToQuestion13) {
+		this.answerToQuestion13 = answerToQuestion13;
+	}
+
+
+	public void setAnswerToQuestion14(String answerToQuestion14) {
+		this.answerToQuestion14 = answerToQuestion14;
+	}
+
+
+	public void setAnswerToQuestion20(String answerToQuestion20) {
+		this.answerToQuestion20 = answerToQuestion20;
+	}
+
+
+	public void setAnswerToQuestion21(String answerToQuestion21) {
+		this.answerToQuestion21 = answerToQuestion21;
+	}
+
 }
