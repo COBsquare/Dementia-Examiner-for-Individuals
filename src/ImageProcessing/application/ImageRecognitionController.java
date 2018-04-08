@@ -59,6 +59,10 @@ public class ImageRecognitionController {
 	public static void setDrawingType(String type) {
 		drawingType = type;
 	}
+	
+	public static String getDrawingType() {
+		return drawingType;
+	}
 
 	protected void init() {
 		this.fileChooser = new FileChooser();
@@ -241,4 +245,30 @@ public class ImageRecognitionController {
 
 	}
 
+	
+	public final int getCLOCK_SCORE() {
+		return CLOCK_SCORE;
+	}
+
+	public final void setCLOCK_SCORE(int cLOCK_SCORE) {
+		CLOCK_SCORE = cLOCK_SCORE;
+	}
+
+	public final int getLIT_POLY_SCORE() {
+		return LIT_POLY_SCORE;
+	}
+
+	public final void setLIT_POLY_SCORE(int lIT_POLY_SCORE) {
+		LIT_POLY_SCORE = lIT_POLY_SCORE;
+	}
+
+	public final int getILL_POLY_SCORE() {
+		return ILL_POLY_SCORE;
+	}
+
+	public final void setILL_POLY_SCORE(int iLL_POLY_SCORE) {
+		ILL_POLY_SCORE = iLL_POLY_SCORE;
+	}
+
+	
 }

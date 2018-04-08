@@ -7,10 +7,43 @@ import org.opencv.core.Point;
 
 import ImageProcessing.Models.CCircle;
 import ImageProcessing.Models.CLine;
+import ImageProcessing.application.ImageRecognitionController;
 
-public class ImageProcessing_Models_Tests {
+public class ImageProcessing_TestCases {
 
-	// CCircle class test cases
+	// "ImageRecognitionController" class test cases
+	@Test
+	public void test_setgetDrawingType() {
+		ImageRecognitionController.setDrawingType("Clock Drawing");
+
+		assertTrue(ImageRecognitionController.getDrawingType() == "Clock Drawing");
+	}
+
+	@Test
+	public void test_setgetClockScore() {
+		ImageRecognitionController contr = new ImageRecognitionController();
+		contr.setCLOCK_SCORE(10);
+
+		assertTrue(contr.getCLOCK_SCORE() == 10);
+	}
+
+	@Test
+	public void test_setgetPolyIlliterateScore() {
+		ImageRecognitionController contr = new ImageRecognitionController();
+		contr.setILL_POLY_SCORE(5);
+
+		assertTrue(contr.getILL_POLY_SCORE() == 5);
+	}
+
+	@Test
+	public void test_setgetPolyLiterateScore() {
+		ImageRecognitionController contr = new ImageRecognitionController();
+		contr.setLIT_POLY_SCORE(3);
+
+		assertTrue(contr.getLIT_POLY_SCORE() == 3);
+	}
+
+	// "CCircle" class test cases
 	@Test
 	public void test_CCirleConst() {
 		CCircle circle = new CCircle();
@@ -58,7 +91,7 @@ public class ImageProcessing_Models_Tests {
 		assertTrue(circle.getCenter().x == 1 && circle.getCenter().y == 2);
 	}
 
-	// CLine class test cases
+	// "CLine" class test cases
 	@Test
 	public void test_ClineConst() {
 		CLine line = new CLine();
@@ -108,6 +141,33 @@ public class ImageProcessing_Models_Tests {
 		CLine line = new CLine(new Point(0, 0), new Point(0, 4));
 
 		assertTrue(line.lengthOfLine() == 4);
+	}
+
+	// "Clock" class test cases
+	@Test
+	public void test_evaluateClockFace() {
+	}
+
+	@Test
+	public void test_evaluateNumbers() {
+	}
+
+	@Test
+	public void test_evaluateHands() {
+	}
+
+	@Test
+	public void test_evaluateClock() {
+	}
+
+	// "Polygon" class test cases
+	@Test
+	public void test_evaluatePolyIlliterate() {
+
+	}
+
+	@Test
+	public void test_evaluatePolyLiterate() {
 	}
 
 }
