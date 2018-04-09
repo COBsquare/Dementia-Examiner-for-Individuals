@@ -10,10 +10,10 @@ import ImageProcessing.Utils.Recognition;
 import javafx.scene.image.ImageView;
 
 public final class Polygon {
+	static int edges_score = 0;
 
 	// Evaluate the illiterate polygon which is a square
 	public static int evaluatePolygon_Illiterate(Mat frame, ImageView imageViewer) {
-		int edges_score = 0;
 
 		Mat lines = new Mat();
 		lines = Recognition.houghlineTransform(frame);
@@ -219,7 +219,6 @@ public final class Polygon {
 
 	// Evaluate the literate polygon which is a pentagon
 	public static int evaluatePolygon_Literate(Mat frame, ImageView imageViewer) {
-		int edges_score = 0;
 
 		Mat lines = new Mat();
 		lines = Recognition.houghlineTransform(frame);
@@ -469,6 +468,14 @@ public final class Polygon {
 
 		}
 
+	}
+
+	public static final int getEdges_score() {
+		return edges_score;
+	}
+
+	public static final void setEdges_score(int edges_score) {
+		Polygon.edges_score = edges_score;
 	}
 
 }

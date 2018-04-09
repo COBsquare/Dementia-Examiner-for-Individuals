@@ -19,14 +19,15 @@ import ImageProcessing.Utils.Recognition;
 import javafx.scene.image.ImageView;
 
 public final class Clock {
-	public static CCircle clockface;
+	static CCircle clockface;
+	static int clockface_score = 0;
+	static int numbers_score = 0;
+	static int hands_score = 0;
 
 	// Checking clockface for the numbers, hands, and its circular orientation
 	// Return scoring of clockface (out of 2)
 	public static int evaluateClockface(Mat frame, ImageView imageViewer) {
 		System.out.println("CLOCK FACE----------------------------------");
-
-		int clockface_score = 0;
 
 		// Compare optimal circumference with the real one 
 		// Evaluate the clockface depending on the deviation
@@ -70,7 +71,6 @@ public final class Clock {
 	public static int evaluateNumbers(Mat frame, ImageView imageViewer) throws IOException {
 		System.out.println("NUMBERS-------------------------------------");
 
-		int numbers_score = 0;
 		int numbersPresent_score = 0;
 		int numbersSpatial_score = 0;
 
@@ -289,7 +289,6 @@ public final class Clock {
 		System.out.println("CLOCK HANDS----------------------------------");
 
 		// TODO Function should be reviewed because of the errors
-		int hands_score = 0;
 
 		Mat lines = Recognition.houghlineTransform(frame);
 
@@ -413,4 +412,39 @@ public final class Clock {
 		System.out.println("RESULT OF THE TEST--->>> " + clock_score + " out of 10");
 		return clock_score;
 	}
+
+	
+	
+	public static final CCircle getClockface() {
+		return clockface;
+	}
+
+	public static final void setClockface(CCircle clockface) {
+		Clock.clockface = clockface;
+	}
+
+	public static final int getClockface_score() {
+		return clockface_score;
+	}
+
+	public static final void setClockface_score(int clockface_score) {
+		Clock.clockface_score = clockface_score;
+	}
+
+	public static final int getNumbers_score() {
+		return numbers_score;
+	}
+
+	public static final void setNumbers_score(int numbers_score) {
+		Clock.numbers_score = numbers_score;
+	}
+
+	public static final int getHands_score() {
+		return hands_score;
+	}
+
+	public static final void setHands_score(int hands_score) {
+		Clock.hands_score = hands_score;
+	}
+
 }

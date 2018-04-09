@@ -85,8 +85,7 @@ public class ImageProcessing_TestCases {
 	@Test
 	public void test_getCenter() {
 		CCircle circle = new CCircle();
-		circle.center.x = 1;
-		circle.center.y = 2;
+		circle.setCenter(new Point(1,2));
 
 		assertTrue(circle.getCenter().x == 1 && circle.getCenter().y == 2);
 	}
@@ -133,7 +132,7 @@ public class ImageProcessing_TestCases {
 	public void test_getEnd() {
 		CLine line = new CLine(new Point(1, 1), new Point(2, 2));
 
-		assertTrue(line.getEnd().x == 1 && line.getEnd().y == 1);
+		assertTrue(line.getEnd().x == 2 && line.getEnd().y == 2);
 	}
 
 	@Test
@@ -145,29 +144,38 @@ public class ImageProcessing_TestCases {
 
 	// "Clock" class test cases
 	@Test
-	public void test_evaluateClockFace() {
-	}
+	public void test_setgetClockface() {
+		ImageProcessing.Evaluation.Clock.setClockface(new CCircle(1, new Point(2, 3)));
 
-	@Test
-	public void test_evaluateNumbers() {
+		assertTrue(ImageProcessing.Evaluation.Clock.getClockface().radius == 1 && ImageProcessing.Evaluation.Clock
+				.getClockface().center.x == 2);
 	}
-
 	@Test
-	public void test_evaluateHands() {
+	public void test_setgetClockfaceScore() {
+		ImageProcessing.Evaluation.Clock.setClockface_score(2);
+
+		assertTrue(ImageProcessing.Evaluation.Clock.getClockface_score() == 2);
 	}
-
 	@Test
-	public void test_evaluateClock() {
+	public void test_setgetNumbersScore() {
+		ImageProcessing.Evaluation.Clock.setNumbers_score(4);
+
+		assertTrue(ImageProcessing.Evaluation.Clock.getNumbers_score() == 4);
+	}
+	@Test
+	public void test_setgetHandsScore() {
+		ImageProcessing.Evaluation.Clock.setHands_score(3);
+
+		assertTrue(ImageProcessing.Evaluation.Clock.getHands_score() == 3);
 	}
 
 	// "Polygon" class test cases
 	@Test
-	public void test_evaluatePolyIlliterate() {
+	public void test_setgetEdgesScore() {
+		ImageProcessing.Evaluation.Polygon.setEdges_score(13);
 
+		assertTrue(ImageProcessing.Evaluation.Polygon.getEdges_score()==13);
 	}
 
-	@Test
-	public void test_evaluatePolyLiterate() {
-	}
-
+	
 }
