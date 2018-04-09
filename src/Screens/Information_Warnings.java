@@ -15,14 +15,6 @@ public class Information_Warnings {
 
 	private JFrame frame;
 
-	public class User {
-		String name;
-		String surname;
-		String gender;
-		int age;
-		String profession;
-		String education;
-	}
 	/**
 	 * Launch the application.
 	 */

@@ -3,18 +3,18 @@ package App;
 import java.util.ArrayList;
 
 public final class User {
-	
+
 	private static boolean speakerCheck;
 	private static boolean micCheck;
 	private static boolean webcamCheck;
 
 	private static String education;
-	private static String nameSurname="Not entered";
-	private static String age="Not entered";
-	private static String gender="Not entered";
-	private static String profession="Not entered";
+	private static String nameSurname = "Not entered";
+	private static String age = "Not entered";
+	private static String gender = "Not entered";
+	private static String profession = "Not entered";
 
-	private static ArrayList<String> answers=new ArrayList<String>();
+	private static ArrayList<String> answers = new ArrayList<String>();
 
 	public static boolean isSpeakerCheck() {
 		return speakerCheck;
@@ -80,27 +80,25 @@ public final class User {
 		profession = prof;
 	}
 
-	public static ArrayList<String> getAnswers() {
-		return answers;
+	public static String getAnswers(int index) {
+		return answers.get(index);
 	}
 
 	public static void setAnswers(ArrayList<String> a) {
 		answers = a;
 	}
-	
 
-	public static void addAnswer(String answer){
+	public static void addAnswer(String answer) {
 		answers.add(answer);
 	}
-	
-	public static void displayInfo(){
+
+	public static void displayInfo() {
 		System.out.println("User Info-----------------");
-		System.out.println("Name Surname: "+ App.User.getNameSurname());
-		System.out.println("Age: "+App.User.getAge());
-		System.out.println("Gender: "+App.User.getGender());
-		System.out.println("Profession: "+App.User.getProfession());
-		System.out.println("Education: "+App.User.getEducation());
+		System.out.println("Name Surname: " + App.User.getNameSurname());
+		System.out.println("Age: " + App.User.getAge());
+		System.out.println("Gender: " + App.User.getGender());
+		System.out.println("Profession: " + App.User.getProfession());
+		System.out.println("Education: " + App.User.getEducation());
 	}
-	
-	
+
 }

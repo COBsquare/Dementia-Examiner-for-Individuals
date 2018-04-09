@@ -18,7 +18,6 @@ public class ImageProcessing_TestCases {
 
 		assertTrue(ImageRecognitionController.getDrawingType() == "Clock Drawing");
 	}
-
 	@Test
 	public void test_setgetClockScore() {
 		ImageRecognitionController contr = new ImageRecognitionController();
@@ -26,7 +25,6 @@ public class ImageProcessing_TestCases {
 
 		assertTrue(contr.getCLOCK_SCORE() == 10);
 	}
-
 	@Test
 	public void test_setgetPolyIlliterateScore() {
 		ImageRecognitionController contr = new ImageRecognitionController();
@@ -34,7 +32,6 @@ public class ImageProcessing_TestCases {
 
 		assertTrue(contr.getILL_POLY_SCORE() == 5);
 	}
-
 	@Test
 	public void test_setgetPolyLiterateScore() {
 		ImageRecognitionController contr = new ImageRecognitionController();
@@ -50,14 +47,12 @@ public class ImageProcessing_TestCases {
 
 		assertTrue(circle != null);
 	}
-
 	@Test
 	public void test_CCirleConstParam() {
 		CCircle circle = new CCircle(3, new Point(1, 2));
 
 		assertTrue(circle.radius == 3 && circle.center.x == 1 && circle.center.y == 2);
 	}
-
 	@Test
 	public void test_setRadius() {
 		CCircle circle = new CCircle();
@@ -65,7 +60,6 @@ public class ImageProcessing_TestCases {
 
 		assertTrue(circle.radius == 10);
 	}
-
 	@Test
 	public void test_getRadius() {
 		CCircle circle = new CCircle();
@@ -73,7 +67,6 @@ public class ImageProcessing_TestCases {
 
 		assertTrue(circle.getRadius() == 10);
 	}
-
 	@Test
 	public void test_setCenter() {
 		CCircle circle = new CCircle();
@@ -81,7 +74,6 @@ public class ImageProcessing_TestCases {
 
 		assertTrue(circle.center.x == 4 && circle.center.y == 5);
 	}
-
 	@Test
 	public void test_getCenter() {
 		CCircle circle = new CCircle();
@@ -97,14 +89,12 @@ public class ImageProcessing_TestCases {
 
 		assertTrue(line != null);
 	}
-
 	@Test
 	public void test_ClineConstParam() {
 		CLine line = new CLine(new Point(1, 2), new Point(3, 4));
 
 		assertTrue(line.start.x == 1 && line.start.y == 2 && line.end.x == 3 && line.end.y == 4);
 	}
-
 	@Test
 	public void test_setStart() {
 		CLine line = new CLine();
@@ -112,14 +102,12 @@ public class ImageProcessing_TestCases {
 
 		assertTrue(line.start.x == 3 && line.start.y == 5);
 	}
-
 	@Test
 	public void test_getStart() {
 		CLine line = new CLine(new Point(1, 1), new Point(2, 2));
 
 		assertTrue(line.getStart().x == 1 && line.getStart().y == 1);
 	}
-
 	@Test
 	public void test_setEnd() {
 		CLine line = new CLine();
@@ -127,14 +115,12 @@ public class ImageProcessing_TestCases {
 
 		assertTrue(line.end.x == 8 && line.end.y == 9);
 	}
-
 	@Test
 	public void test_getEnd() {
 		CLine line = new CLine(new Point(1, 1), new Point(2, 2));
 
 		assertTrue(line.getEnd().x == 2 && line.getEnd().y == 2);
 	}
-
 	@Test
 	public void test_lengthOfLine() {
 		CLine line = new CLine(new Point(0, 0), new Point(0, 4));
