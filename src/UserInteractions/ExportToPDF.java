@@ -53,13 +53,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
-public class PDF_Export {
+public class ExportToPDF {
 	public static final String DEST = "Resources/SamplePDF.pdf";
 
 	public static void main(String[] args) throws IOException, DocumentException {
 		File file = new File(DEST);
 		file.getParentFile().mkdirs();
-		new PDF_Export().createPdf(DEST);
+		new ExportToPDF().createPdf(DEST);
 	}
 
 	public void createPdf(String dest) throws IOException, DocumentException, MalformedURLException, IOException {
