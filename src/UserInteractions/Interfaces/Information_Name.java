@@ -17,15 +17,6 @@ public class Information_Name {
 	private JFrame frame;
 	private JTextField textField;
 
-
-	public class User {
-		String name;
-		String surname;
-		String gender;
-		int age;
-		String profession;
-		String education;
-	}
 	/**
 	 * Launch the application.
 	 */

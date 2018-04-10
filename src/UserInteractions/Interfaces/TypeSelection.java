@@ -18,15 +18,6 @@ public class TypeSelection {
 	private JFrame frame;
 	int click=0;
 
-	public class User {
-		String name;
-		String surname;
-		String gender;
-		int age;
-		String profession;
-		String education;
-	}
-
 	/**
 	 * Launch the application.
 	 */

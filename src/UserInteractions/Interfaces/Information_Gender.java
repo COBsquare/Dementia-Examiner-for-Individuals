@@ -17,14 +17,6 @@ public class Information_Gender {
 
 	private JFrame frame;
 
-	public class User {
-		String name;
-		String gender;
-		int age;
-		String profession;
-
-	}
-
 	/**
 	 * Launch the application.
 	 */
