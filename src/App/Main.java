@@ -1,6 +1,6 @@
 package App;
 
-import Screens.Welcome;
+import UserInteractions.Interfaces.Welcome;
 
 public class Main {
 

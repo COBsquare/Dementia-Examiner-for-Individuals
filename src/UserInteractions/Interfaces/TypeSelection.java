@@ -1,4 +1,4 @@
-package Screens;
+package UserInteractions.Interfaces;
 
 import java.awt.Color;
 import java.awt.EventQueue;

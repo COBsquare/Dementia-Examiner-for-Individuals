@@ -1,4 +1,4 @@
-package Screens;
+package UserInteractions.Interfaces;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -13,16 +13,17 @@ import javax.swing.JLabel;
 
 import java.awt.Font;
 
-public class Information_Gender {
+public class Information_Age {
 
 	private JFrame frame;
 
 	public class User {
 		String name;
+		String surname;
 		String gender;
 		int age;
 		String profession;
-
+		String education;
 	}
 
 	/**
@@ -32,7 +33,7 @@ public class Information_Gender {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Information_Gender window = new Information_Gender();
+					Information_Age window = new Information_Age();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,14 +45,13 @@ public class Information_Gender {
 	/**
 	 * Create the application.
 	 */
-	public Information_Gender() {
+	public Information_Age() {
 		initialize();
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
@@ -67,17 +67,19 @@ public class Information_Gender {
 		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("Gender");
+		JLabel lblNewLabel_1 = new JLabel("Age");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblNewLabel_1.setBounds(375, 434, 302, 44);
 		frame.getContentPane().add(lblNewLabel_1);
 
-		String[] Gender = { "Female", "Male", "Not Specified" };
-
-		JComboBox comboBox = new JComboBox(Gender);
+		JComboBox<Integer> comboBox = new JComboBox<Integer>();
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		comboBox.setBounds(652, 438, 262, 46);
 		frame.getContentPane().add(comboBox);
+
+		for (int i = 15; i <= 130; i++) {
+			comboBox.addItem(i);
+		}
 
 		JButton btnNext = new JButton("Next");
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -89,8 +91,8 @@ public class Information_Gender {
 
 			}
 			public void actionPerformed(ActionEvent arg0) {
-				App.User.setGender(comboBox.getSelectedItem().toString());
-				TutorialScreen_voice.main(null);
+				App.User.setAge(String.valueOf(comboBox.getSelectedItem()));
+				Information_Profession.main(null);
 			}
 		});
 		btnNext.setBounds(1080, 598, 142, 54);
@@ -99,7 +101,6 @@ public class Information_Gender {
 
 		JLabel lblNewLabel_2 = new JLabel(
 				"This information is only for personalizing the document which is given at the end of the test.");
-
 		lblNewLabel_2.setFont(new Font("Tahoma", Font.ITALIC, 18));
 		lblNewLabel_2.setBounds(343, 253, 813, 46);
 		frame.getContentPane().add(lblNewLabel_2);
@@ -114,10 +115,9 @@ public class Information_Gender {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Information_Profession.main(null);
+				Information_Name.main(null);
 			}
 		});
-
 		btnBack.setBounds(158, 598, 142, 54);
 		frame.getContentPane().add(btnBack);
 

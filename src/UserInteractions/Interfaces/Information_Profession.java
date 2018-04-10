@@ -1,4 +1,4 @@
-package Screens;
+package UserInteractions.Interfaces;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,10 +10,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-
 import java.awt.Font;
 
-public class Information_Name {
+public class Information_Profession {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -34,7 +33,7 @@ public class Information_Name {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Information_Name window = new Information_Name();
+					Information_Profession window = new Information_Profession();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,7 +45,7 @@ public class Information_Name {
 	/**
 	 * Create the application.
 	 */
-	public Information_Name() {
+	public Information_Profession() {
 		initialize();
 	}
 
@@ -78,7 +77,7 @@ public class Information_Name {
 
 
 
-		JLabel lblNewLabel_1 = new JLabel("Name Surname");
+		JLabel lblNewLabel_1 = new JLabel("Profession");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lblNewLabel_1.setBounds(375, 434, 302, 44);
 		frame.getContentPane().add(lblNewLabel_1);
@@ -92,10 +91,11 @@ public class Information_Name {
 			    }
 
 			}
-			public void actionPerformed(ActionEvent arg0) {	
-				App.User.setNameSurname(textField.getText());
+			public void actionPerformed(ActionEvent arg0) {
+				
+				App.User.setProfession(textField.getText());
 
-				Information_Age.main(null);
+				Information_Gender.main(null);
 			}
 		});
 		btnNext.setBounds(1080, 598, 142, 54);
@@ -116,7 +116,7 @@ public class Information_Name {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				TypeSelection.main(null);
+				Information_Age.main(null);
 			}
 		});
 		btnBack.setBounds(158, 598, 142, 54);
@@ -142,7 +142,5 @@ public class Information_Name {
 				System.exit(0);
 				}
 		});
-
-
 	}
 }

@@ -1,4 +1,4 @@
-package Screens;
+package UserInteractions.Interfaces;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
-public class StartTest {
+public class Completion {
 
 	private JFrame frame;
 
@@ -23,7 +23,7 @@ public class StartTest {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					StartTest window = new StartTest();
+					Completion window = new Completion();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class StartTest {
 	/**
 	 * Create the application.
 	 */
-	public StartTest() {
+	public Completion() {
 		initialize();
 	}
 
@@ -52,17 +52,20 @@ public class StartTest {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
+
 		JLabel lblNewLabel1 = new JLabel("");
 		lblNewLabel1.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lblNewLabel1.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel1);
 
-		JLabel lblNewLabel = new JLabel("If you are ready, please click the start the test button.");
-		lblNewLabel.setFont(new Font("Tahoma",Font.BOLD,30));
-		lblNewLabel.setBounds(306, 330, 902, 74);
+
+		JLabel lblNewLabel = new JLabel("You have completed the test.");
+		lblNewLabel.setFont(new Font("Serif",Font.BOLD,30));
+		lblNewLabel.setBounds(523, 380, 376, 76);
 		frame.getContentPane().add(lblNewLabel);
 
-		JButton viewResultsButton = new JButton("START THE TEST");
+		JButton viewResultsButton = new JButton("View Results");
+		viewResultsButton.setForeground(Color.WHITE);
 		viewResultsButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		viewResultsButton.addActionListener(new ActionListener() {
 			public void keyPressed(KeyEvent e) {
@@ -73,12 +76,18 @@ public class StartTest {
 			}
 			public void actionPerformed(ActionEvent arg0) {
 				 Results.main(null);
+
 			}
 		});
-		viewResultsButton.setBackground(Color.GREEN);
-		viewResultsButton.setBounds(570, 534, 237, 60);
+		viewResultsButton.setBackground(Color.RED);
+		viewResultsButton.setBounds(612, 533, 173, 60);
 		frame.getContentPane().add(viewResultsButton);
 		frame.getRootPane().setDefaultButton( viewResultsButton );
+
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("Resources/Images/tick.png"));
+		label.setBounds(566, 168, 284, 171);
+		frame.getContentPane().add(label);
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -96,7 +105,6 @@ public class StartTest {
 		frame.getContentPane().add(btnClose);
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-
 				System.exit(0);
 				}
 		});

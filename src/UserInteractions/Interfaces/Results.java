@@ -1,4 +1,4 @@
-package Screens;
+package UserInteractions.Interfaces;
 
 import java.awt.Button;
 import java.awt.Color;

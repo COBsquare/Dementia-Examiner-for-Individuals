@@ -1,16 +1,28 @@
-package Screens;
+package UserInteractions.Interfaces;
+
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.File;
+import java.io.IOException;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
 
-public class TutorialScreen_cam {
+import ImageProcessing.application.Main;
+
+
+
+public class Question_Image {
 
 	private JFrame frame;
 
@@ -21,7 +33,7 @@ public class TutorialScreen_cam {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TutorialScreen_cam window = new TutorialScreen_cam();
+					Question_Image window = new Question_Image();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,7 +45,7 @@ public class TutorialScreen_cam {
 	/**
 	 * Create the application.
 	 */
-	public TutorialScreen_cam() {
+	public Question_Image() {
 		initialize();
 	}
 
@@ -54,32 +66,48 @@ public class TutorialScreen_cam {
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
-		JLabel lblYouSaid = new JLabel("If you do not use your computer's camera, you can pass without doing it. ");
-		lblYouSaid.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblYouSaid.setBounds(639, 108, 614, 58);
-		frame.getContentPane().add(lblYouSaid);
+
+		JButton btnReadTheQuestion = new JButton("");
+		btnReadTheQuestion.setIcon(new ImageIcon("Resources/Images/play.png"));
+		btnReadTheQuestion.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnReadTheQuestion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				try {
+					File file = new File(
+							"C:/Users/BegumOzceylan/eclipse-workspace/DEfI-GUI/Resorces/Audios/Question4.wav");
+					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
+					Clip clip = AudioSystem.getClip();
+					clip.open(audioInputStream);
+					clip.start();
+				} catch (UnsupportedAudioFileException | IOException e1) {
+					e1.printStackTrace();
+				} catch (LineUnavailableException e1) {
+					e1.printStackTrace();
+				}
+
+			}
+		});
+
+		btnReadTheQuestion.setBounds(618, 94, 169, 168);
+		frame.getContentPane().add(btnReadTheQuestion);
 
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setIcon(new ImageIcon("Resources/Images/camera.png"));
-		btnNewButton.setBounds(835, 264, 169, 168);
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				// TODO Start camera options pop up
+				Main.main(null);
+			}
+		});
+		
+		
+		
+		btnNewButton.setBounds(618, 324, 169, 168);
 		frame.getContentPane().add(btnNewButton);
-
-
-		JLabel lblThisScreenTutorial = new JLabel("This screen tutorial for the test. ");
-		lblThisScreenTutorial.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblThisScreenTutorial.setBounds(75, 302, 405, 34);
-		frame.getContentPane().add(lblThisScreenTutorial);
-
-		JLabel lblNewLabel_1 = new JLabel("In the test you should use load a photo or ");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_1.setBounds(75, 347, 750, 58);
-		frame.getContentPane().add(lblNewLabel_1);
-
-		JLabel lblNewLabel_2 = new JLabel("For controlling camera please press the camera button.");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_2.setBounds(75, 454, 750, 48);
-		frame.getContentPane().add(lblNewLabel_2);
-
+		frame.getRootPane().setDefaultButton( btnNewButton );
+		
+		
 		JButton btnNewButton_1 = new JButton("Next");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void keyPressed(KeyEvent e) {
@@ -89,16 +117,17 @@ public class TutorialScreen_cam {
 
 			}
 			public void actionPerformed(ActionEvent e) {
-				Information_Warnings.main(null);
+				Completion.main(null);
 
 			}
 		});
 
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton_1.setBounds(1080, 598, 142, 54);
+		btnNewButton_1.setBounds(638, 642, 128, 48);
 		frame.getContentPane().add(btnNewButton_1);
 		frame.getRootPane().setDefaultButton( btnNewButton_1 );
 
+		
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -115,25 +144,11 @@ public class TutorialScreen_cam {
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
 		btnClose.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
 
 				System.exit(0);
-				}
-		});
-
-		JButton btnBack = new JButton("Back");
-		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnBack.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				TutorialScreen_voice.main(null);
 			}
 		});
-		btnBack.setBounds(158, 598, 142, 54);
-		frame.getContentPane().add(btnBack);
-
-		JLabel lblNewLabel_3 = new JLabel("taking photo with computer's camera.");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_3.setBounds(75, 385, 458, 47);
-		frame.getContentPane().add(lblNewLabel_3);
 	}
 }
