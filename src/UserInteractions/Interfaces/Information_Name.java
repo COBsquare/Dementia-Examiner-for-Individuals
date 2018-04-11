@@ -53,7 +53,7 @@ public class Information_Name {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-
+		
 
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
@@ -85,7 +85,10 @@ public class Information_Name {
 			public void actionPerformed(ActionEvent arg0) {	
 				App.User.setNameSurname(textField.getText());
 
+				
 				Information_Age.main(null);
+				
+				
 			}
 		});
 		btnNext.setBounds(1080, 598, 142, 54);
@@ -106,7 +109,9 @@ public class Information_Name {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				TypeSelection.main(null);
+				
 			}
 		});
 		btnBack.setBounds(158, 598, 142, 54);
@@ -135,4 +140,6 @@ public class Information_Name {
 
 
 	}
+
+
 }

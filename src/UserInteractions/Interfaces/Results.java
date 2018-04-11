@@ -161,10 +161,11 @@ public class Results {
 				System.exit(0);
 			}
 		});
-
-		Button button = new Button("Export the PDF File");
-		button.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		button.setBounds(518, 551, 304, 74);
-		frame.getContentPane().add(button);
+		
+		JButton btnNewButton = new JButton("Export the PDF File");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnNewButton.setBounds(633, 588, 193, 60);
+		frame.getContentPane().add(btnNewButton);
+	
 	}
 }

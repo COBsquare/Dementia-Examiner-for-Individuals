@@ -1,4 +1,5 @@
 package UserInteractions.Interfaces;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -43,12 +44,13 @@ public class Welcome {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		
 		frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
 		frame.setBounds(100, 100, 1367, 769);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
 		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("");
@@ -95,7 +97,11 @@ public class Welcome {
 
 			}
 			public void actionPerformed(ActionEvent arg0) {
+				
 				TypeSelection.main(null);
+				
+				
+				
 			}
 		});
 
