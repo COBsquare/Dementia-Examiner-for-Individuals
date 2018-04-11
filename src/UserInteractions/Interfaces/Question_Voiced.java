@@ -61,7 +61,7 @@ public class Question_Voiced {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
-		//frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
+		frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
 		frame.setVisible(true);
@@ -102,7 +102,8 @@ public class Question_Voiced {
 		
 		JProgressBar progressBar = new JProgressBar();
 		progressBar.setBounds(537, 54, 339, 29);
-		progressBar.setMaximum(105);
+		progressBar.setMaximum(100);
+		progressBar.setValue(35);
 		frame.getContentPane().add(progressBar);
 		
 		
@@ -184,7 +185,7 @@ public class Question_Voiced {
 						textField.setVisible(true);
 					}
 					
-					progressBar.setValue(t);
+					
 			}
 		});
 		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
