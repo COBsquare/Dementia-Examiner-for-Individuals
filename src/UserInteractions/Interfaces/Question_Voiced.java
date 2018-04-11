@@ -64,32 +64,32 @@ public class Question_Voiced {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		int t=0;
-		
+
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
 
-		JLabel lblNewLabel_1 = new JLabel("");		
+		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setBounds(971, 94, 215, 215);
 		lblNewLabel_1.setVisible(false);
 		frame.getContentPane().add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("");		
+		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setBounds(971, 367, 215, 215);
 		lblNewLabel_2.setVisible(false);
 		frame.getContentPane().add(lblNewLabel_2);
-		
+
 		JButton btnNewButton_2 = new JButton("Button");
 		btnNewButton_2.setBackground(new Color(50, 205, 50));
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton_2.setBounds(264, 274, 179, 48);
 		btnNewButton_2.setVisible(false);
 		frame.getContentPane().add(btnNewButton_2);
-		
-		
+
+
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		textField.setBounds(480, 547, 494, 48);
@@ -103,7 +103,7 @@ public class Question_Voiced {
 		btnReadTheQuestion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					File file = new File("Resorces/Questions/Repetition.wav");
+					File file = new File("Resources/Questions/Repetition.wav");
 					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
 					Clip clip = AudioSystem.getClip();
 			        clip.open(audioInputStream);
@@ -123,7 +123,7 @@ public class Question_Voiced {
 		JButton btnNewButton = new JButton();
 		SpeechRecorder sc = new SpeechRecorder();
 		btnNewButton.addActionListener(new ActionListener() {
-		
+
 			public void actionPerformed(ActionEvent e) {
 				click++;
 				if (click == 1) {
@@ -138,7 +138,7 @@ public class Question_Voiced {
 		btnNewButton.setBounds(618, 324, 169, 168);
 		frame.getContentPane().add(btnNewButton);
 		frame.getRootPane().setDefaultButton( btnNewButton );
-		
+
 		JButton btnNewButton_1 = new JButton("Next");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void keyPressed(KeyEvent e) {
@@ -150,12 +150,12 @@ public class Question_Voiced {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Next question should come up
 				Question_Image.main(null);
-				
+
 					if(t==8){
 						lblNewLabel_1.setIcon(new ImageIcon("Resources/Images/map.png"));
 						lblNewLabel_1.setVisible(true);
 					} else if (t==12) {
-						lblNewLabel_1.setIcon(new ImageIcon("Resources/Images/wristwatch.png"));						
+						lblNewLabel_1.setIcon(new ImageIcon("Resources/Images/wristwatch.png"));
 						lblNewLabel_2.setIcon(new ImageIcon("Resources/Images/pencil.png"));
 						lblNewLabel_1.setVisible(true);
 						lblNewLabel_2.setVisible(true);
@@ -188,9 +188,9 @@ public class Question_Voiced {
 		btnClose.setBounds(1281, 27, 60, 60);
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
-		
-		
-		
+
+
+
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
