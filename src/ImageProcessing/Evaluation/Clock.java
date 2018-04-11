@@ -413,8 +413,6 @@ public final class Clock {
 		return clock_score;
 	}
 
-	
-	
 	public static final CCircle getClockface() {
 		return clockface;
 	}
