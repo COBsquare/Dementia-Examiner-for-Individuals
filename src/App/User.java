@@ -15,6 +15,7 @@ public final class User {
 	private static String profession = "Not entered";
 
 	private static ArrayList<String> answers = new ArrayList<String>();
+	private static ArrayList<Integer> score=new ArrayList<Integer>();
 
 	public static boolean isSpeakerCheck() {
 		return speakerCheck;
@@ -100,5 +101,20 @@ public final class User {
 		System.out.println("Profession: " + App.User.getProfession());
 		System.out.println("Education: " + App.User.getEducation());
 	}
+
+
+	public static ArrayList<Integer> getScore() {
+		return score;
+	}
+
+
+	public static void setScore(ArrayList<Integer> score) {
+		User.score = score;
+	}
+
+	public static void addScore(int scr) {
+		score.add(scr);
+	}
+
 
 }

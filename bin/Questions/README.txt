@@ -12,7 +12,7 @@ DATE
 5. Which month are we in?
 
 SPATIAL ORIENTATION
-6. 
+6.
 7.
 8. Could you tell me the direction of the school using compass above?
 
@@ -43,7 +43,7 @@ READ AND OBEY
 
 WRITING
 18. Make up and write a sentence about anything. This
-sentence must contain a noun and a verb. 
+sentence must contain a noun and a verb.
 
 COPYING TWO PENTAGONS
 19. Please copy this picture.
@@ -60,7 +60,7 @@ REGISTRATION
 13
 
 MENTAL REVERSAL
-20. Could you tell me the days of week in reverse order. For example: Sunday is preceded by Saturday
+20. Could you tell me the days of week in reverse order. For example: Sunday Saturday, please continue.
 
 RECALL
 11
@@ -73,7 +73,7 @@ REPETITION
 
 THREE-STAGE COMMAND
 14-15
-22. 
+22.
 
 COPYING TWO RECT.
 19
