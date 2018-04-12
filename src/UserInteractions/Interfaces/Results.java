@@ -92,30 +92,34 @@ public class Results {
 
 		String[] headers = { "Question", "Answer" };
 		
-		ArrayList<String> rows_answers = new ArrayList<String>();
-		ArrayList<String> rows_questions = new ArrayList<String>();
-		for (int i = 0; i < App.User.answers.size(); i++) {
-			rows_answers.add(App.User.getAnswers(i));
-		}
+		String[] questions;
+		String[] answers=new String[ App.User.answers.size() ];
+		App.User.answers.toArray( answers );
+
+		
+
+		int size1;
+		int size2=App.User.answers.size();
 		if (App.User.getEducation().equals("Literate")) {
-			for (int i = 0; i < App.User.questions_literate.length; i++) {
-				rows_questions.add(App.User.questions_literate[i]);
-			}
+			size1=App.User.questions_literate.length;
+			questions= new String[size1];
+			System.arraycopy( App.User.questions_literate, 0, questions, 0, App.User.questions_literate.length );
 
 		} else {
-			for (int i = 0; i < App.User.questions_illiterate.length; i++) {
-				rows_questions.add(App.User.questions_illiterate[i]);
-			}
+			size1=App.User.questions_illiterate.length;
+			questions= new String[size1];
+			System.arraycopy( App.User.questions_illiterate, 0, questions, 0, App.User.questions_illiterate.length );
+
 		}
 		
-		String[] rowsArray_answers = new String[ rows_answers.size() ];
-		rows_answers.toArray(rowsArray_answers);
+		String[][] rows=new String[size1][size2];
+		for(int i=0;i<size1;i++){
+			rows[i][0]=questions[i];
+		}
 		
-		String[] rowsArray_questions = new String[ rows_questions.size() ];
-		rows_questions.toArray(rowsArray_questions);
-		
-		//String[][] rows=new String[][];
-		//rowsArray_questions
+		for(int i=0;i<size2;i++){
+			rows[i][0]=answers[i];
+		}
 		
 		table = new JTable(rows, headers);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
