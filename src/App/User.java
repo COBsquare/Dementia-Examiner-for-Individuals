@@ -3,6 +3,8 @@ package App;
 import java.util.ArrayList;
 
 public final class User {
+	public static String[] questions_literate={};
+	public static String[] questions_illiterate={};
 
 	private static boolean speakerCheck;
 	private static boolean micCheck;
@@ -14,7 +16,7 @@ public final class User {
 	private static String gender = "Not entered";
 	private static String profession = "Not entered";
 
-	private static ArrayList<String> answers = new ArrayList<String>();
+	public static ArrayList<String> answers = new ArrayList<String>();
 	private static ArrayList<Integer> score=new ArrayList<Integer>();
 
 	public static boolean isSpeakerCheck() {

@@ -11,6 +11,8 @@ import javax.swing.JTable;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
@@ -27,7 +29,6 @@ public class Results {
 				try {
 					Results window = new Results();
 					window.frame.setVisible(true);
-					App.User.displayInfo();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -60,7 +61,6 @@ public class Results {
 		frame.getContentPane().add(lblNewLabel);
 
 		String[] columnNames = { "MMSE Point", "Cognitive Impairment" };
-
 		String[][] rowdata = {
 				{ "27-30", "Normal" },
 				{ "21-26", "Mild Cognitive Impairment" },
@@ -73,15 +73,10 @@ public class Results {
 		table.setColumnSelectionAllowed(true);
 		table.setFillsViewportHeight(true);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		table.setModel(new DefaultTableModel(new Object[][] {
-				{ "27-30", "Normal" },
-				{ "21-26", "Mild Cognitive Impairment" },
-				{ "11-20", "Moderate Cognitive Impairment" },
-				{ "0-10", "Severe Cognitive Impairment" }, }, new String[] { "MMSE Point", "Cognitive Impairment" }));
+
 		table.getColumnModel().getColumn(0).setPreferredWidth(250);
 		table.getColumnModel().getColumn(0).setMinWidth(250);
 		table.getColumnModel().getColumn(0).setMaxWidth(250);
-		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBounds(59, 324, 526, 99);
@@ -95,35 +90,35 @@ public class Results {
 		Theader.setFont(new Font("Tahome", Font.BOLD, 20)); // font name style size
 		table.setFont(new Font("Tahome", Font.BOLD, 15));
 
-		String[] headers = { "Question Number", "Answer" };
+		String[] headers = { "Question", "Answer" };
+		
+		ArrayList<String> rows_answers = new ArrayList<String>();
+		ArrayList<String> rows_questions = new ArrayList<String>();
+		for (int i = 0; i < App.User.answers.size(); i++) {
+			rows_answers.add(App.User.getAnswers(i));
+		}
+		if (App.User.getEducation().equals("Literate")) {
+			for (int i = 0; i < App.User.questions_literate.length; i++) {
+				rows_questions.add(App.User.questions_literate[i]);
+			}
 
-		String[][] rows = {
-				{ "Question1", "ABC" },
-				{ "Question2", "DEF" },
-				{ "Question3", "ABC" },
-				{ "Question4", "DEF" },
-				{ "Question5", "ABC" },
-				{ "Question6", "DEF" },
-				{ "Question7", "ABC" },
-				{ "Question8", "DEF" },
-				{ "Question9", "ABC" },
-				{ "Question10", "DEF" },
-				{ "Question11", "ABC" }, };
-
+		} else {
+			for (int i = 0; i < App.User.questions_illiterate.length; i++) {
+				rows_questions.add(App.User.questions_illiterate[i]);
+			}
+		}
+		
+		String[] rowsArray_answers = new String[ rows_answers.size() ];
+		rows_answers.toArray(rowsArray_answers);
+		
+		String[] rowsArray_questions = new String[ rows_questions.size() ];
+		rows_questions.toArray(rowsArray_questions);
+		
+		//String[][] rows=new String[][];
+		//rowsArray_questions
+		
 		table = new JTable(rows, headers);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		table.setModel(new DefaultTableModel(new Object[][] {
-				{ "Question1", "ABC" },
-				{ "Question2", "DEF" },
-				{ "Question3", "ABC" },
-				{ "Question4", "DEF" },
-				{ "Question5", "ABC" },
-				{ "Question6", "DEF" },
-				{ "Question7", "ABC" },
-				{ "Question8", "DEF" },
-				{ "Question9", "ABC" },
-				{ "Question10", "DEF" },
-				{ "Question11", "ABC" }, }, new String[] { "Question Number", "Answer" }));
 		table.setBounds(10, 124, 195, 173);
 		frame.getContentPane().add(table);
 
@@ -160,11 +155,16 @@ public class Results {
 				System.exit(0);
 			}
 		});
-		
+
 		JButton btnNewButton = new JButton("Export the PDF File");
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton.setBounds(633, 588, 193, 60);
 		frame.getContentPane().add(btnNewButton);
-	
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Export pdf class should be export
+
+			}
+		});
 	}
 }
