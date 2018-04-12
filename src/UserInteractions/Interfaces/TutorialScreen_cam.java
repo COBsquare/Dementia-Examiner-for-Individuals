@@ -83,6 +83,7 @@ public class TutorialScreen_cam {
 
 		JButton btnNewButton_1 = new JButton("Next");
 		btnNewButton_1.addActionListener(new ActionListener() {
+			@SuppressWarnings("unused")
 			public void keyPressed(KeyEvent e) {
 			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
 

@@ -65,6 +65,7 @@ public class StartTest {
 		JButton viewResultsButton = new JButton("START THE TEST");
 		viewResultsButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		viewResultsButton.addActionListener(new ActionListener() {
+			@SuppressWarnings("unused")
 			public void keyPressed(KeyEvent e) {
 			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
 
@@ -72,7 +73,7 @@ public class StartTest {
 
 			}
 			public void actionPerformed(ActionEvent arg0) {
-				 Results.main(null);
+				 Question_Voiced.main(null);
 			}
 		});
 		viewResultsButton.setBackground(Color.GREEN);

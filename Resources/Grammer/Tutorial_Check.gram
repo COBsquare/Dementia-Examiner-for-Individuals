@@ -1,5 +1,0 @@
-#JSGF V1.0;
-
-
-
-grammar Tutorial_Check;public <Tutorial_Check> = ( apple ) * ;

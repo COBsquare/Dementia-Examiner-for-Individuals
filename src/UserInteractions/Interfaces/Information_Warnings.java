@@ -63,6 +63,7 @@ public class Information_Warnings {
 		JButton btnNext = new JButton("Next");
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
+			@SuppressWarnings("unused")
 			public void keyPressed(KeyEvent e) {
 			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
 
@@ -70,7 +71,7 @@ public class Information_Warnings {
 
 			}
 			public void actionPerformed(ActionEvent arg0) {
-				Question_Voiced.main(null);
+				StartTest.main(null);
 			}
 		});
 		btnNext.setBounds(1080, 598, 142, 54);

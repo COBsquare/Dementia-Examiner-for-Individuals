@@ -246,7 +246,7 @@ public class Evaluation {
 		}
 	}
 
-	public void disableLogMessages() {
+	public static void disableLogMessages() {
 		Logger cmRootLogger = Logger.getLogger("default.config");
 		cmRootLogger.setLevel(java.util.logging.Level.OFF);
 		String conFile = System.getProperty("java.util.logging.config.file");
