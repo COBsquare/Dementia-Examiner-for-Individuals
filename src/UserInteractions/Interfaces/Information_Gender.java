@@ -83,7 +83,7 @@ public class Information_Gender {
 			}
 			public void actionPerformed(ActionEvent arg0) {
 				App.User.setGender(comboBox.getSelectedItem().toString());
-				TutorialScreen_voice.main(null);
+				Information_Warnings.main(null);
 			}
 		});
 		btnNext.setBounds(1080, 598, 142, 54);

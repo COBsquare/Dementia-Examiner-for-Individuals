@@ -56,7 +56,7 @@ public class Question_Image {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
-		frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
+		//frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
 		frame.setVisible(true);
@@ -89,7 +89,7 @@ public class Question_Image {
 			}
 		});
 
-		btnReadTheQuestion.setBounds(618, 94, 169, 168);
+		btnReadTheQuestion.setBounds(967, 94, 169, 168);
 		frame.getContentPane().add(btnReadTheQuestion);
 
 		JButton btnNewButton = new JButton("");
@@ -101,11 +101,26 @@ public class Question_Image {
 			}
 		});
 		
+
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setBounds(490, 187, 420, 309);
+		lblNewLabel_1.setVisible(false);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("");
+		lblNewLabel_2.setBounds(471, 187, 439, 243);
+		lblNewLabel_2.setVisible(false);
+		frame.getContentPane().add(lblNewLabel_2);
 		
 		
-		btnNewButton.setBounds(618, 324, 169, 168);
+		btnNewButton.setBounds(967, 324, 169, 168);
 		frame.getContentPane().add(btnNewButton);
 		frame.getRootPane().setDefaultButton( btnNewButton );
+		
+		JLabel lblNewLabel_4 = new JLabel("<html> Please click the play button for listening <br/> the question and please click the camera &nbsp;&nbsp;&nbsp;&nbsp; button to upload the image </html>");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lblNewLabel_4.setBounds(59, 397, 334, 95);
+		frame.getContentPane().add(lblNewLabel_4);
 		
 		
 		JButton btnNewButton_1 = new JButton("Next");
@@ -118,7 +133,9 @@ public class Question_Image {
 
 			}
 			public void actionPerformed(ActionEvent e) {
-				Completion.main(null);
+			
+					Completion.main(null);
+				
 
 			}
 		});
@@ -144,6 +161,8 @@ public class Question_Image {
 		btnClose.setBounds(1281, 27, 60, 60);
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
+		
+	
 		btnClose.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
@@ -151,5 +170,18 @@ public class Question_Image {
 				System.exit(0);
 			}
 		});
+		
+		
+		App.User.setEducation("Literate");
+		if(App.User.getEducation()=="Literate") {
+			lblNewLabel_2.setVisible(true);
+			lblNewLabel_2.setIcon(new ImageIcon("Resources/Images/polygon_literate.png"));
+			
+							
+		} else if(App.User.getEducation()=="Illiterate") {
+			lblNewLabel_1.setVisible(true);
+			lblNewLabel_1.setIcon(new ImageIcon("Resources/Images/polygon_illiterate.png"));
+			
+		}
 	}
 }

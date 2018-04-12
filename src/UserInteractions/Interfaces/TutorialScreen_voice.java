@@ -250,7 +250,7 @@ public class TutorialScreen_voice {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Information_Gender.main(null);
+				Information_Warnings.main(null);
 			}
 		});
 		btnBack.setBounds(158, 598, 142, 54);
