@@ -167,7 +167,7 @@ public class TutorialScreen_voice {
 					click++;
 					sc.startMic();
 					lblNewLabel_3.setVisible(true);
-					lblNewLabel_3.setText("        Please say 'pencil'");
+					lblNewLabel_3.setText("<html>Please say 'pencil'<br/>Click again to save your answer.</html>");
 					lblNewLabel_1.setVisible(false);
 					btnNewButton.setIcon(new ImageIcon("Resources/Images/record.png"));
 

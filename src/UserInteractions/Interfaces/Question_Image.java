@@ -19,6 +19,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import ImageProcessing.application.Main;
+import ImageProcessing.application.WebcamTestMain;
 
 
 
@@ -96,7 +97,7 @@ public class Question_Image {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main.main(null);
+				WebcamTestMain.main(null);
 			}
 		});
 		

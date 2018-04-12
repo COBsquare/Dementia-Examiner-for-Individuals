@@ -64,6 +64,12 @@ public class TutorialScreen_cam {
 		btnNewButton.setIcon(new ImageIcon("Resources/Images/camera.png"));
 		btnNewButton.setBounds(835, 264, 169, 168);
 		frame.getContentPane().add(btnNewButton);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+
 
 
 		JLabel lblThisScreenTutorial = new JLabel("This screen tutorial for the test. ");
