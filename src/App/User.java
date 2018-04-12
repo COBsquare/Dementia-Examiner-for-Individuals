@@ -3,7 +3,8 @@ package App;
 import java.util.ArrayList;
 
 public final class User {
-	public static String[] questions_literate={"Which year are we in?",
+	public static String[] questions_literate = {
+			"Which year are we in?",
 			"Which season are we in?",
 			"What is date today? Please give your answer like march twelfth.",
 			"What is the current day?",
@@ -21,9 +22,10 @@ public final class User {
 			"Can you type 'Hello World!' in the text box?",
 			"Please read this and do what it says.",
 			"Make up and write a sentence about anything. This sentence must contain a noun and a verb.",
-			"Please copy this picture."
-			};
-	public static String[] questions_illiterate={"Which year are we in?",
+			"Please copy this picture." };
+
+	public static String[] questions_illiterate = {
+			"Which year are we in?",
 			"Which season are we in?",
 			"What is date today? Please give your answer like march twelfth.",
 			"What is the current day?",
@@ -39,8 +41,7 @@ public final class User {
 			"Can you say 'paper'?",
 			"Can you press the 'green' button?",
 			"",
-			"Please copy this picture."
-			};
+			"Please copy this picture." };
 
 	private static boolean speakerCheck;
 	private static boolean micCheck;
@@ -53,7 +54,7 @@ public final class User {
 	private static String profession = "Not entered";
 
 	public static ArrayList<String> answers = new ArrayList<String>();
-	private static ArrayList<Integer> score=new ArrayList<Integer>();
+	private static ArrayList<Integer> score = new ArrayList<Integer>();
 
 	public static boolean isSpeakerCheck() {
 		return speakerCheck;
@@ -140,11 +141,9 @@ public final class User {
 		System.out.println("Education: " + App.User.getEducation());
 	}
 
-
 	public static ArrayList<Integer> getScore() {
 		return score;
 	}
-
 
 	public static void setScore(ArrayList<Integer> score) {
 		User.score = score;
@@ -153,6 +152,5 @@ public final class User {
 	public static void addScore(int scr) {
 		score.add(scr);
 	}
-
 
 }

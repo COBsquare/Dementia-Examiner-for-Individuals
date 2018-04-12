@@ -96,15 +96,13 @@ public class Results {
 		String[] answers=new String[ App.User.answers.size() ];
 		App.User.answers.toArray( answers );
 
-		
-
 		int size1;
 		int size2=App.User.answers.size();
+		App.User.setEducation("Literate");
 		if (App.User.getEducation().equals("Literate")) {
 			size1=App.User.questions_literate.length;
 			questions= new String[size1];
-			System.arraycopy( App.User.questions_literate, 0, questions, 0, App.User.questions_literate.length );
-
+			System.arraycopy( App.User.questions_literate, 0, questions, 0, size1);
 		} else {
 			size1=App.User.questions_illiterate.length;
 			questions= new String[size1];
@@ -120,6 +118,7 @@ public class Results {
 		for(int i=0;i<size2;i++){
 			rows[i][0]=answers[i];
 		}
+		// TODO ARRAY ISSUE IDK
 		
 		table = new JTable(rows, headers);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
