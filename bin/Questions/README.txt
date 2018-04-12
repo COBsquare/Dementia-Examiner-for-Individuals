@@ -57,7 +57,7 @@ SPATIAL ORIENTATION
 6-7-8
 
 REGISTRATION
-13
+9
 
 MENTAL REVERSAL
 20. Could you tell me the days of week in reverse order. For example: Sunday Saturday, please continue.

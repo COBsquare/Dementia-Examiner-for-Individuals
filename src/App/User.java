@@ -3,8 +3,44 @@ package App;
 import java.util.ArrayList;
 
 public final class User {
-	public static String[] questions_literate={};
-	public static String[] questions_illiterate={};
+	public static String[] questions_literate={"Which year are we in?",
+			"Which season are we in?",
+			"What is date today? Please give your answer like march twelfth.",
+			"What is the current day?",
+			"Which month are we in?",
+			"",
+			"",
+			"Could you tell me the direction of the school using compass above?",
+			"Now, I will name you three objects. After I tell you them. I would like you to repeat them one by one. Ball, car, man.",
+			"I would like you to count backward from hundred by sevens.",
+			"Earlier I told you the names of three things. Can you tell me what those were?",
+			"You can see two objects on the screen. Can you tell me the names of the objects?",
+			"Repeat the phrase: ‘No ifs, ands, or buts.’",
+			"Can you say 'paper'?",
+			"Can you press the 'green' button?",
+			"Can you type 'Hello World!' in the text box?",
+			"Please read this and do what it says.",
+			"Make up and write a sentence about anything. This sentence must contain a noun and a verb.",
+			"Please copy this picture."
+			};
+	public static String[] questions_illiterate={"Which year are we in?",
+			"Which season are we in?",
+			"What is date today? Please give your answer like march twelfth.",
+			"What is the current day?",
+			"Which month are we in?",
+			"",
+			"",
+			"Could you tell me the direction of the school using compass above?",
+			"Now, I will name you three objects. After I tell you them. I would like you to repeat them one by one. Ball, car, man.",
+			"Could you tell me the days of week in reverse order. For example: Sunday Saturday, please continue.",
+			"Earlier I told you the names of three things. Can you tell me what those were?",
+			"You can see two objects on the screen. Can you tell me the names of the objects?",
+			"Repeat the phrase: “I would have gone if he had gone”",
+			"Can you say 'paper'?",
+			"Can you press the 'green' button?",
+			"",
+			"Please copy this picture."
+			};
 
 	private static boolean speakerCheck;
 	private static boolean micCheck;
