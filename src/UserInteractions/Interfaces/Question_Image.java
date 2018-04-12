@@ -56,7 +56,7 @@ public class Question_Image {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
-		//frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
+		frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		frame.setUndecorated(true);
 		frame.setVisible(true);
