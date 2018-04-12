@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
+import ImageProcessing.application.WebcamTestMain;
+
 import java.awt.Font;
 
 public class TutorialScreen_cam {
@@ -66,7 +68,7 @@ public class TutorialScreen_cam {
 		frame.getContentPane().add(btnNewButton);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				WebcamTestMain.main(null);
 			}
 		});
 
