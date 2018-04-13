@@ -99,7 +99,7 @@ public class TutorialScreen_cam {
 
 			}
 			public void actionPerformed(ActionEvent e) {
-				Information_Warnings.main(null);
+				StartTest.main(null);
 
 			}
 		});
