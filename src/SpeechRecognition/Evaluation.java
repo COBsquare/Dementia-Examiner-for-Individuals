@@ -65,7 +65,7 @@ public class Evaluation {
 		User.addAnswer(speechWords);
 
 		if (question.equals("Question1")) {
-			if (speechWords.equals("two thousand and eighteen")) {
+			if (speechWords.equals("two thousand eighteen")) {
 				System.out.println("You gained one point from question 1");
 				scoreFromSpeech++;
 			}

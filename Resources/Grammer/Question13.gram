@@ -3,4 +3,4 @@
 
 
 grammar Question13;
-public <Question13> = ( no ifs ands or buts ) * ;
+public <Question13> = ( no ifs ands or buts ) ;

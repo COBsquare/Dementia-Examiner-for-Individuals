@@ -2,4 +2,4 @@
 
 
 
-grammar Question4;public <Question4> = (sunday | monday | tuesday | wednesday | thursday | friday | saturday ) * ;
+grammar Question4;public <Question4> = (sunday | monday | tuesday | wednesday | thursday | friday | saturday ) ;
