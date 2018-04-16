@@ -143,36 +143,10 @@ public class Question_Voiced {
 
 		btnReadTheQuestion.setBounds(618, 94, 169, 168);
 		frame.getContentPane().add(btnReadTheQuestion);
-
-		JButton btnNewButton = new JButton();
-
-		btnNewButton.addActionListener(new ActionListener() {
-
-			public void actionPerformed(ActionEvent e) {
-
-				click++;
-				if (click == 1) {
-					SpeechRecorder.startMic();
-					btnNewButton.setIcon(new ImageIcon("Resources/Images/record.png"));
-
-				} else if ((click % 2) == 0) {
-					btnNewButton.setIcon(new ImageIcon("Resources/Images/checkmark.png"));
-					SpeechRecorder.stopMic("Question" + Integer.toString(question));
-				} else {
-					click = 0;
-
-				}
-
-			}
-		});
-
-		btnNewButton.setIcon(new ImageIcon("Resources/Images/microphone.png"));
-		btnNewButton.setBounds(618, 324, 169, 168);
-		frame.getContentPane().add(btnNewButton);
-		frame.getRootPane().setDefaultButton(btnNewButton);
-
-		JButton btnNewButton_1 = new JButton("Next");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		
+		JButton btn_Next = new JButton("Next");
+		btn_Next.setVisible(false);
+		btn_Next.addActionListener(new ActionListener() {
 			@SuppressWarnings("unused")
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -192,11 +166,40 @@ public class Question_Voiced {
 			}
 		});
 
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton_1.setBounds(637, 642, 128, 48);
-		frame.getContentPane().add(btnNewButton_1);
-		frame.getRootPane().setDefaultButton(btnNewButton_1);
+		btn_Next.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btn_Next.setBounds(637, 642, 128, 48);
+		frame.getContentPane().add(btn_Next);
+		frame.getRootPane().setDefaultButton(btn_Next);
 
+
+		JButton btnNewButton = new JButton();
+		btnNewButton.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent e) {
+
+				click++;
+				if (click == 1) {
+					SpeechRecorder.startMic();
+					btnNewButton.setIcon(new ImageIcon("Resources/Images/record.png"));
+
+				} else if ((click % 2) == 0) {
+					btn_Next.setVisible(true);
+					btnNewButton.setIcon(new ImageIcon("Resources/Images/checkmark.png"));
+					SpeechRecorder.stopMic("Question" + Integer.toString(question));
+				} else {
+					click = 0;
+
+				}
+
+			}
+		});
+
+		btnNewButton.setIcon(new ImageIcon("Resources/Images/microphone.png"));
+		btnNewButton.setBounds(618, 324, 169, 168);
+		frame.getContentPane().add(btnNewButton);
+		frame.getRootPane().setDefaultButton(btnNewButton);
+
+	
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
 		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
@@ -207,10 +210,7 @@ public class Question_Voiced {
 			}
 		});
 
-		JButton btnClose = new JButton("");
-		btnClose.setBounds(1281, 27, 60, 60);
-		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
-		frame.getContentPane().add(btnClose);
+		
 
 		JLabel lblNewLabel_3 = new JLabel("Your progress is:");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -230,6 +230,7 @@ public class Question_Voiced {
 		JLabel lblNewLabel_6 = new JLabel("");
 		lblNewLabel_6.setBounds(956, 421, 230, 230);
 		lblNewLabel_6.setIcon(new ImageIcon("Resources/Images/compass.png"));
+		lblNewLabel_6.setVisible(false);
 		frame.getContentPane().add(lblNewLabel_6);
 
 		JLabel lblNewLabel_7 = new JLabel(" Question " + (order+1)+"/"+max);
@@ -239,7 +240,10 @@ public class Question_Voiced {
 		lblNewLabel_7.setBounds(59, 296, 203, 43);
 		frame.getContentPane().add(lblNewLabel_7);
 
-		lblNewLabel_6.setVisible(false);
+		JButton btnClose = new JButton("");
+		btnClose.setBounds(1281, 27, 60, 60);
+		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
+		frame.getContentPane().add(btnClose);
 
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

@@ -71,10 +71,10 @@ public class TutorialScreen_voice {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lblNewLabel.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lbl_logo = new JLabel("");
+		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lbl_logo.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lbl_logo);
 
 		JLabel lblNewLabel_1 = new JLabel("Click the microphone button for recording");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -109,6 +109,7 @@ public class TutorialScreen_voice {
 		JButton btnReadTheQuestion = new JButton("");
 		btnReadTheQuestion.setIcon(new ImageIcon("Resources/Images/play.png"));
 		btnReadTheQuestion.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnReadTheQuestion.setVisible(false);
 
 		btnReadTheQuestion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -120,6 +121,7 @@ public class TutorialScreen_voice {
 					clip.start();
 				} catch (UnsupportedAudioFileException | IOException e1) {
 					e1.printStackTrace();
+				
 				} catch (LineUnavailableException e1) {
 					e1.printStackTrace();
 				}
@@ -142,8 +144,14 @@ public class TutorialScreen_voice {
 		btnReadTheQuestion.setBounds(798, 93, 169, 168);
 		frame.getContentPane().add(btnReadTheQuestion);
 
-		JButton btnNewButton_1 = new JButton("Next");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btn_Next = new JButton("Next");
+		btn_Next.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btn_Next.setBounds(1080, 598, 142, 54);
+		frame.getContentPane().add(btn_Next);
+		frame.getRootPane().setDefaultButton(btn_Next);
+		btn_Next.setVisible(false);
+		
+		btn_Next.addActionListener(new ActionListener() {
 			@SuppressWarnings("unused")
 			public void keyPressed(KeyEvent e) {
 				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -158,8 +166,9 @@ public class TutorialScreen_voice {
 			}
 		});
 
-		JButton btnNewButton = new JButton("");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btn_microphone = new JButton("");
+		btn_microphone.setVisible(false);
+		btn_microphone.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				if (click == 1) {
@@ -168,7 +177,7 @@ public class TutorialScreen_voice {
 					lblNewLabel_3.setVisible(true);
 					lblNewLabel_3.setText("<html>Please say 'pencil'<br/>Click again to save your answer.</html>");
 					lblNewLabel_1.setVisible(false);
-					btnNewButton.setIcon(new ImageIcon("Resources/Images/record.png"));
+					btn_microphone.setIcon(new ImageIcon("Resources/Images/record.png"));
 
 				} else if ((click % 2) == 0) {
 					SpeechRecorder.stopMic("tutorial");
@@ -199,11 +208,11 @@ public class TutorialScreen_voice {
 
 					if (speechWords.equals("pencil")) {
 						lblNewLabel_5.setVisible(true);
-						btnNewButton.setIcon(new ImageIcon("Resources/Images/checkmark.png"));
-						btnNewButton_1.setVisible(true);
+						btn_microphone.setIcon(new ImageIcon("Resources/Images/checkmark.png"));
+						btn_Next.setVisible(true);
 					}else{
 				        JOptionPane.showMessageDialog(null,"Please try again.","Microphone check", JOptionPane.INFORMATION_MESSAGE);
-						btnNewButton.setIcon(new ImageIcon("Resources/Images/microphone.png"));
+				        btn_microphone.setIcon(new ImageIcon("Resources/Images/microphone.png"));
 						click=1;
 					}
 
@@ -214,15 +223,10 @@ public class TutorialScreen_voice {
 			}
 		});
 
-		btnNewButton.setIcon(new ImageIcon("Resources/Images/microphone.png"));
-		btnNewButton.setBounds(798, 327, 169, 168);
-		frame.getContentPane().add(btnNewButton);
+		btn_microphone.setIcon(new ImageIcon("Resources/Images/microphone.png"));
+		btn_microphone.setBounds(798, 327, 169, 168);
+		frame.getContentPane().add(btn_microphone);
 
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton_1.setBounds(1080, 598, 142, 54);
-		frame.getContentPane().add(btnNewButton_1);
-		frame.getRootPane().setDefaultButton(btnNewButton_1);
-		btnNewButton_1.setVisible(false);
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -254,12 +258,7 @@ public class TutorialScreen_voice {
 		});
 		btnBack.setBounds(158, 598, 142, 54);
 		frame.getContentPane().add(btnBack);
-
-		JButton btnStartTheTutorial = new JButton("Start the Tutorial");
-		btnStartTheTutorial.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnStartTheTutorial.setBounds(119, 388, 228, 48);
-		frame.getContentPane().add(btnStartTheTutorial);
-
+		
 		JLabel lblThisPage = new JLabel("This tutorial is checking your speakers");
 		lblThisPage.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblThisPage.setBounds(93, 299, 582, 41);
@@ -269,13 +268,19 @@ public class TutorialScreen_voice {
 		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblNewLabel_6.setBounds(119, 329, 312, 27);
 		frame.getContentPane().add(lblNewLabel_6);
-
+		
+		JButton btnStartTheTutorial = new JButton("Start the Tutorial");
+		btnStartTheTutorial.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnStartTheTutorial.setBounds(119, 388, 228, 48);
+		frame.getContentPane().add(btnStartTheTutorial);
 		btnStartTheTutorial.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				click++;
 				if (click == 1) {
 					lblNewLabel_2.setVisible(true);
+					btnReadTheQuestion.setVisible(true);
+					btn_microphone.setVisible(true);
 
 				}
 
