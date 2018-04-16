@@ -103,7 +103,7 @@ public class Question_Image {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				Main.main(null);;
 			}
 		});
 		
