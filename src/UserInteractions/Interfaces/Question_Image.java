@@ -1,7 +1,9 @@
 package UserInteractions.Interfaces;
 
+import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -13,10 +15,13 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 
 import ImageProcessing.application.Main;
 import ImageProcessing.application.WebcamTestMain;
@@ -26,6 +31,7 @@ import ImageProcessing.application.WebcamTestMain;
 public class Question_Image {
 
 	private JFrame frame;
+	int i=0;
 
 	/**
 	 * Launch the application.
@@ -162,6 +168,15 @@ public class Question_Image {
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
 		
+		JLabel lblNewLabel_7 = new JLabel("  Polygon Drawing");
+		lblNewLabel_7.setForeground(SystemColor.activeCaptionText);
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 24));
+		Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 2);
+		lblNewLabel_7.setBorder(new LineBorder(SystemColor.activeCaption, 2));
+		lblNewLabel_7.setBounds(59, 338, 307, 48);
+		frame.getContentPane().add(lblNewLabel_7);
+		lblNewLabel_7.setVisible(false);
+		
 	
 		btnClose.addActionListener(new ActionListener() {
 			
@@ -172,16 +187,25 @@ public class Question_Image {
 		});
 		
 		
-		App.User.setEducation("Literate");
-		if(App.User.getEducation()=="Literate") {
-			lblNewLabel_2.setVisible(true);
-			lblNewLabel_2.setIcon(new ImageIcon("Resources/Images/polygon_literate.png"));
+		
+		if (i==0 ) {
+			App.User.setEducation("Literate");
+			if(App.User.getEducation()=="Literate") {
+				lblNewLabel_2.setVisible(true);
+				lblNewLabel_7.setVisible(true);
+				lblNewLabel_2.setIcon(new ImageIcon("Resources/Images/polygon_literate.png"));
+				
+								
+			} else if(App.User.getEducation()=="Illiterate") {
+				lblNewLabel_7.setVisible(true);
+				lblNewLabel_1.setVisible(true);
+				lblNewLabel_1.setIcon(new ImageIcon("Resources/Images/polygon_illiterate.png"));
+				
+			}
 			
-							
-		} else if(App.User.getEducation()=="Illiterate") {
-			lblNewLabel_1.setVisible(true);
-			lblNewLabel_1.setIcon(new ImageIcon("Resources/Images/polygon_illiterate.png"));
-			
+		} else if (i==1) {
+			lblNewLabel_2.setText("The clock-drawing test is used for screening for cognitive impairment.");
+			lblNewLabel_7.setText(" Clock Drawing");
 		}
 	}
 }

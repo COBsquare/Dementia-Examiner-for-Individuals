@@ -14,6 +14,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -25,8 +26,12 @@ import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.JTextField;
+import javax.swing.border.Border;
+
 import java.awt.Color;
 import javax.swing.JProgressBar;
+import java.awt.SystemColor;
+import javax.swing.border.LineBorder;
 
 public class Question_Voiced {
 
@@ -102,7 +107,7 @@ public class Question_Voiced {
 		JButton btnNewButton_2 = new JButton("Button");
 		btnNewButton_2.setBackground(new Color(50, 205, 50));
 		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton_2.setBounds(150, 547, 179, 48);
+		btnNewButton_2.setBounds(156, 642, 179, 48);
 		btnNewButton_2.setVisible(false);
 		frame.getContentPane().add(btnNewButton_2);
 
@@ -115,7 +120,7 @@ public class Question_Voiced {
 		textField.setVisible(false);
 
 		JProgressBar progressBar = new JProgressBar();
-		progressBar.setBounds(59, 347, 339, 29);
+		progressBar.setBounds(59, 411, 339, 29);
 		progressBar.setMaximum(20);
 		progressBar.setValue(question);
 		frame.getContentPane().add(progressBar);
@@ -207,12 +212,12 @@ public class Question_Voiced {
 		
 		JLabel lblNewLabel_3 = new JLabel("Your progress is:");
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_3.setBounds(59, 293, 203, 43);
+		lblNewLabel_3.setBounds(59, 357, 203, 43);
 		frame.getContentPane().add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_4 = new JLabel("<html> Please click the play button for listening <br/>&nbsp;&nbsp; the question and please click the &nbsp;&nbsp;&nbsp;&nbsp;microphone button to answer </html>");
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblNewLabel_4.setBounds(59, 397, 339, 95);
+		lblNewLabel_4.setBounds(59, 451, 339, 95);
 		frame.getContentPane().add(lblNewLabel_4);
 		
 		JLabel lblNewLabel_5 = new JLabel("");
@@ -224,6 +229,15 @@ public class Question_Voiced {
 		lblNewLabel_6.setBounds(956, 421, 230, 230);
 		lblNewLabel_6.setIcon(new ImageIcon("Resources/Images/compass.png"));
 		frame.getContentPane().add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel(" Question " + (order+1));
+		lblNewLabel_7.setForeground(SystemColor.activeCaptionText);
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 24));
+		Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 2);
+		lblNewLabel_7.setBorder(new LineBorder(SystemColor.activeCaption, 2));
+		lblNewLabel_7.setBounds(59, 296, 203, 43);
+		frame.getContentPane().add(lblNewLabel_7);
+		
 		lblNewLabel_6.setVisible(false);
 		
 		btnClose.addActionListener(new ActionListener() {
