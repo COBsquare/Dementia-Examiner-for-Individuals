@@ -11,6 +11,8 @@ import javax.swing.JTable;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
 import javax.swing.table.JTableHeader;
 import App.User;
 
@@ -171,6 +173,11 @@ public class Results {
 		btnClose.setBounds(1281, 27, 60, 60);
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
+		
+		JLabel lbl_score = new JLabel("Your Score:"); // + test sonucu konulacak
+		lbl_score.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lbl_score.setBounds(996, 126, 275, 60);
+		frame.getContentPane().add(lbl_score);
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -178,15 +185,15 @@ public class Results {
 			}
 		});
 
-		JButton btnNewButton = new JButton("Export the PDF File");
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton.setBounds(633, 588, 193, 60);
-		frame.getContentPane().add(btnNewButton);
-		
-		btnClose.addActionListener(new ActionListener() {
+		JButton btnNext = new JButton("Next");
+		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnNext.setBounds(1080, 598, 142, 54);
+		frame.getContentPane().add(btnNext);
+		frame.getRootPane().setDefaultButton( btnNext );
+		btnNext.addActionListener(new ActionListener() {			
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Export pdf class should be export
-
+				
+				Results_Clock.main(null);
 			}
 		});
 	}
