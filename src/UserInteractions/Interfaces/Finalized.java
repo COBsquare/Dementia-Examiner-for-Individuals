@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 
-public class Completion {
+public class Finalized {
 
 	private JFrame frame;
 
@@ -23,7 +23,7 @@ public class Completion {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Completion window = new Completion();
+					Finalized window = new Finalized();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +35,7 @@ public class Completion {
 	/**
 	 * Create the application.
 	 */
-	public Completion() {
+	public Finalized() {
 		initialize();
 	}
 

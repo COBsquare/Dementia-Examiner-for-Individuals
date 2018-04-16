@@ -134,7 +134,7 @@ public class Question_Image {
 			}
 			public void actionPerformed(ActionEvent e) {
 			
-					Completion.main(null);
+					Finalized.main(null);
 				
 
 			}
