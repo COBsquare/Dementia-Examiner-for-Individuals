@@ -25,6 +25,7 @@ import javax.swing.border.LineBorder;
 
 import ImageProcessing.application.Main;
 import ImageProcessing.application.WebcamTestMain;
+import SpeechRecognition.SpeechRecorder;
 
 
 
@@ -32,6 +33,7 @@ public class Question_Image {
 
 	private JFrame frame;
 	int i=0;
+	int click=0;
 
 	/**
 	 * Launch the application.
@@ -95,42 +97,19 @@ public class Question_Image {
 			}
 		});
 
-		btnReadTheQuestion.setBounds(967, 94, 169, 168);
+		btnReadTheQuestion.setBounds(269, 342, 169, 168);
 		frame.getContentPane().add(btnReadTheQuestion);
-
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("Resources/Images/camera.png"));
-		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Main.main(null);;
-			}
-		});
+		
+		
+		JButton btn_Next = new JButton("Next");
+		btn_Next.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btn_Next.setBounds(1080, 598, 142, 54);
+		btn_Next.setVisible(false);
+		frame.getContentPane().add(btn_Next);
+		frame.getRootPane().setDefaultButton( btn_Next );
 		
 
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(490, 187, 420, 309);
-		lblNewLabel_1.setVisible(false);
-		frame.getContentPane().add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setBounds(471, 187, 439, 243);
-		lblNewLabel_2.setVisible(false);
-		frame.getContentPane().add(lblNewLabel_2);
-		
-		
-		btnNewButton.setBounds(967, 324, 169, 168);
-		frame.getContentPane().add(btnNewButton);
-		frame.getRootPane().setDefaultButton( btnNewButton );
-		
-		JLabel lblNewLabel_4 = new JLabel("<html> Please click the play button for listening <br/> the question and please click the camera &nbsp;&nbsp;&nbsp;&nbsp; button to upload the image </html>");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblNewLabel_4.setBounds(59, 397, 334, 95);
-		frame.getContentPane().add(lblNewLabel_4);
-		
-		
-		JButton btnNewButton_1 = new JButton("Next");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		btn_Next.addActionListener(new ActionListener() {
 			@SuppressWarnings("unused")
 			public void keyPressed(KeyEvent e) {
 			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
@@ -146,11 +125,52 @@ public class Question_Image {
 			}
 		});
 
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton_1.setBounds(638, 642, 128, 48);
-		frame.getContentPane().add(btnNewButton_1);
-		frame.getRootPane().setDefaultButton( btnNewButton_1 );
+		JButton btn_camera = new JButton("");
+		btn_camera.setIcon(new ImageIcon("Resources/Images/camera.png"));
+		btn_camera.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btn_camera.setBounds(595, 342, 169, 168);
+		frame.getContentPane().add(btn_camera);
+		frame.getRootPane().setDefaultButton( btn_camera );
+		btn_camera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				click++;
+				if (click == 1) {
+					Main.main(null);
+					btn_Next.setVisible(true);
+			
+				} else {
+					click = 0;
 
+				}
+
+			}
+			
+		});
+		
+
+		JLabel lbl_shapeilliterate = new JLabel("");
+		lbl_shapeilliterate.setBounds(854, 236, 420, 309);
+		lbl_shapeilliterate.setVisible(false);
+		frame.getContentPane().add(lbl_shapeilliterate);
+		
+		JLabel lbl_shapeliterate = new JLabel("");
+		lbl_shapeliterate.setBounds(854, 285, 439, 243);
+		lbl_shapeliterate.setVisible(false);
+		frame.getContentPane().add(lbl_shapeliterate);
+		
+		
+		
+		
+		JLabel lblNewLabel_4 = new JLabel("<html> Please click the play button for listening the question</html>");
+		lblNewLabel_4.setForeground(new Color(204, 51, 0));
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lblNewLabel_4.setBounds(269, 223, 211, 95);
+		frame.getContentPane().add(lblNewLabel_4);
+		
+
+
+		
 		
 
 		JButton btnHome = new JButton("");
@@ -173,8 +193,14 @@ public class Question_Image {
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 24));
 		Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 2);
 		lblNewLabel_7.setBorder(new LineBorder(SystemColor.activeCaption, 2));
-		lblNewLabel_7.setBounds(59, 338, 307, 48);
+		lblNewLabel_7.setBounds(364, 120, 251, 43);
 		frame.getContentPane().add(lblNewLabel_7);
+		
+		JLabel lbl_camerawarning = new JLabel("<html>Please click the camera button for uploading the drawing</html>");
+		lbl_camerawarning.setForeground(new Color(204, 51, 0));
+		lbl_camerawarning.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lbl_camerawarning.setBounds(594, 236, 203, 95);
+		frame.getContentPane().add(lbl_camerawarning);
 		lblNewLabel_7.setVisible(false);
 		
 	
@@ -191,21 +217,21 @@ public class Question_Image {
 		if (i==0 ) {
 			App.User.setEducation("Literate");
 			if(App.User.getEducation()=="Literate") {
-				lblNewLabel_2.setVisible(true);
+				lbl_shapeliterate.setVisible(true);
 				lblNewLabel_7.setVisible(true);
-				lblNewLabel_2.setIcon(new ImageIcon("Resources/Images/polygon_literate.png"));
+				lbl_shapeliterate.setIcon(new ImageIcon("Resources/Images/polygon_literate.png"));
 				
 								
 			} else if(App.User.getEducation()=="Illiterate") {
 				lblNewLabel_7.setVisible(true);
-				lblNewLabel_1.setVisible(true);
-				lblNewLabel_1.setIcon(new ImageIcon("Resources/Images/polygon_illiterate.png"));
+				lbl_shapeilliterate.setVisible(true);
+				lbl_shapeilliterate.setIcon(new ImageIcon("Resources/Images/polygon_illiterate.png"));
 				
 			}
 			
 		} else if (i==1) {
-			lblNewLabel_2.setText("The clock-drawing test is used for screening for cognitive impairment.");
-			lblNewLabel_2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+			lbl_shapeliterate.setText("The clock-drawing test is used for screening for cognitive impairment."); //solda cikacak muhtemelen duzenlenmeli
+			lbl_shapeliterate.setFont(new Font("Tahoma", Font.ITALIC, 18));
 			lblNewLabel_7.setText(" Clock Drawing");
 		}
 	}

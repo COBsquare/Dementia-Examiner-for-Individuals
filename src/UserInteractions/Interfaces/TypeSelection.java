@@ -54,8 +54,7 @@ public class TypeSelection {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame1 = new JFrame();
-		
+		frame1 = new JFrame();		
 		frame1.setBounds(100, 100, 1367, 769);
 		frame1.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
 		frame1.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -148,14 +147,14 @@ public class TypeSelection {
 		btnLiterate.setBounds(1035, 177, 236, 140);
 		frame1.getContentPane().add(btnLiterate);
 
-		JLabel lblNewLabel_1 = new JLabel("This selection will affected the test.");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 24));
+		JLabel lblNewLabel_1 = new JLabel("This selection will affect the test.");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblNewLabel_1.setBounds(393, 260, 401, 78);
 		frame1.getContentPane().add(lblNewLabel_1);
 
 		JLabel lblNewLabel_2 = new JLabel(" Please select your educational status.");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 24));
-		lblNewLabel_2.setBounds(381, 349, 413, 78);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblNewLabel_2.setBounds(365, 349, 542, 101);
 		frame1.getContentPane().add(lblNewLabel_2);
 
 		JButton btnHome = new JButton("");

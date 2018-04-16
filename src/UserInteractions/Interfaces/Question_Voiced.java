@@ -27,6 +27,7 @@ import java.awt.Color;
 import javax.swing.JProgressBar;
 import java.awt.SystemColor;
 import javax.swing.border.LineBorder;
+import javax.swing.SwingConstants;
 
 public class Question_Voiced {
 
@@ -85,39 +86,41 @@ public class Question_Voiced {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lblNewLabel.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lbl_logo = new JLabel("");
+		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lbl_logo.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lbl_logo);
 
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setBounds(971, 94, 215, 215);
-		lblNewLabel_1.setVisible(false);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel lbl_watch = new JLabel("");
+		lbl_watch.setBounds(971, 94, 215, 215);
+		lbl_watch.setVisible(false);
+		frame.getContentPane().add(lbl_watch);
 
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setBounds(971, 307, 215, 215);
-		lblNewLabel_2.setIcon(new ImageIcon("Resources/Images/pencil.png"));
-		lblNewLabel_2.setVisible(false);
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel lbl_pencil = new JLabel("");
+		lbl_pencil.setBounds(971, 307, 215, 215);
+		lbl_pencil.setIcon(new ImageIcon("Resources/Images/pencil.png"));
+		lbl_pencil.setVisible(false);
+		frame.getContentPane().add(lbl_pencil);
 
-		JButton btnNewButton_2 = new JButton("Button");
-		btnNewButton_2.setBackground(new Color(50, 205, 50));
-		btnNewButton_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton_2.setBounds(156, 642, 179, 48);
-		btnNewButton_2.setVisible(false);
-		frame.getContentPane().add(btnNewButton_2);
+		JButton btn_clickbutton = new JButton("Button");
+		btn_clickbutton.setForeground(new Color(255, 255, 255));
+		btn_clickbutton.setBackground(new Color(199, 21, 133));
+		btn_clickbutton.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btn_clickbutton.setBounds(116, 440, 179, 48);
+		btn_clickbutton.setVisible(false);
+		frame.getContentPane().add(btn_clickbutton);
 
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		textField.setBounds(480, 547, 494, 48);
+		textField.setBounds(432, 542, 494, 48);
 		textField.setVisible(false);
 		frame.getContentPane().add(textField);
 		textField.setColumns(10);
 		textField.setVisible(false);
 
 		JProgressBar progressBar = new JProgressBar();
-		progressBar.setBounds(59, 411, 339, 29);
+		progressBar.setForeground(new Color(255, 0, 0));
+		progressBar.setBounds(764, 120, 339, 43);
 		progressBar.setMaximum(max-1);
 		progressBar.setValue(question);
 		frame.getContentPane().add(progressBar);
@@ -141,7 +144,7 @@ public class Question_Voiced {
 			}
 		});
 
-		btnReadTheQuestion.setBounds(618, 94, 169, 168);
+		btnReadTheQuestion.setBounds(420, 342, 169, 168);
 		frame.getContentPane().add(btnReadTheQuestion);
 		
 		JButton btn_Next = new JButton("Next");
@@ -167,24 +170,24 @@ public class Question_Voiced {
 		});
 
 		btn_Next.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btn_Next.setBounds(637, 642, 128, 48);
+		btn_Next.setBounds(614, 601, 128, 48);
 		frame.getContentPane().add(btn_Next);
 		frame.getRootPane().setDefaultButton(btn_Next);
 
 
-		JButton btnNewButton = new JButton();
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btn_microphone = new JButton();
+		btn_microphone.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 
 				click++;
 				if (click == 1) {
 					SpeechRecorder.startMic();
-					btnNewButton.setIcon(new ImageIcon("Resources/Images/record.png"));
+					btn_microphone.setIcon(new ImageIcon("Resources/Images/record.png"));
 
 				} else if ((click % 2) == 0) {
 					btn_Next.setVisible(true);
-					btnNewButton.setIcon(new ImageIcon("Resources/Images/checkmark.png"));
+					btn_microphone.setIcon(new ImageIcon("Resources/Images/checkmark.png"));
 					SpeechRecorder.stopMic("Question" + Integer.toString(question));
 				} else {
 					click = 0;
@@ -194,10 +197,10 @@ public class Question_Voiced {
 			}
 		});
 
-		btnNewButton.setIcon(new ImageIcon("Resources/Images/microphone.png"));
-		btnNewButton.setBounds(618, 324, 169, 168);
-		frame.getContentPane().add(btnNewButton);
-		frame.getRootPane().setDefaultButton(btnNewButton);
+		btn_microphone.setIcon(new ImageIcon("Resources/Images/microphone.png"));
+		btn_microphone.setBounds(757, 342, 169, 168);
+		frame.getContentPane().add(btn_microphone);
+		frame.getRootPane().setDefaultButton(btn_microphone);
 
 	
 		JButton btnHome = new JButton("");
@@ -213,37 +216,45 @@ public class Question_Voiced {
 		
 
 		JLabel lblNewLabel_3 = new JLabel("Your progress is:");
+		lblNewLabel_3.setForeground(new Color(204, 0, 0));
 		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_3.setBounds(59, 357, 203, 43);
+		lblNewLabel_3.setBounds(626, 120, 203, 43);
 		frame.getContentPane().add(lblNewLabel_3);
 
-		JLabel lblNewLabel_4 = new JLabel("<html> Please click the play button for listening <br/>&nbsp;&nbsp; the question and please click the &nbsp;&nbsp;&nbsp;&nbsp;microphone button to answer </html>");
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblNewLabel_4.setBounds(59, 451, 339, 95);
+		JLabel lblNewLabel_4 = new JLabel("<html> Please click the play button for listening the question</html>");
+		lblNewLabel_4.setForeground(new Color(204, 51, 0));
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lblNewLabel_4.setBounds(421, 194, 203, 137);
 		frame.getContentPane().add(lblNewLabel_4);
 
-		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setBounds(886, 94, 455, 316);
-		frame.getContentPane().add(lblNewLabel_5);
-		lblNewLabel_5.setVisible(false);
+		JLabel lbl_map = new JLabel("");
+		lbl_map.setBounds(886, 94, 455, 307);
+		frame.getContentPane().add(lbl_map);
+		lbl_map.setVisible(false);
 
-		JLabel lblNewLabel_6 = new JLabel("");
-		lblNewLabel_6.setBounds(956, 421, 230, 230);
-		lblNewLabel_6.setIcon(new ImageIcon("Resources/Images/compass.png"));
-		lblNewLabel_6.setVisible(false);
-		frame.getContentPane().add(lblNewLabel_6);
+		JLabel lbl_compass = new JLabel("");
+		lbl_compass.setBounds(956, 421, 230, 230);
+		lbl_compass.setIcon(new ImageIcon("Resources/Images/compass.png"));
+		lbl_compass.setVisible(false);
+		frame.getContentPane().add(lbl_compass);
 
-		JLabel lblNewLabel_7 = new JLabel(" Question " + (order+1)+"/"+max);
-		lblNewLabel_7.setForeground(SystemColor.activeCaptionText);
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblNewLabel_7.setBorder(new LineBorder(SystemColor.activeCaption, 2));
-		lblNewLabel_7.setBounds(59, 296, 203, 43);
-		frame.getContentPane().add(lblNewLabel_7);
+		JLabel lbl_numquestion = new JLabel(" Question " + (order+1)+"/"+max);
+		lbl_numquestion.setForeground(SystemColor.activeCaptionText);
+		lbl_numquestion.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lbl_numquestion.setBorder(new LineBorder(SystemColor.activeCaption, 2));
+		lbl_numquestion.setBounds(364, 120, 203, 43);
+		frame.getContentPane().add(lbl_numquestion);
 
 		JButton btnClose = new JButton("");
 		btnClose.setBounds(1281, 27, 60, 60);
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
+		
+		JLabel lblPleaseClickThe = new JLabel("<html>Please click the microphone button for answering, and click again for recording answer</html>");
+		lblPleaseClickThe.setForeground(new Color(204, 51, 0));
+		lblPleaseClickThe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lblPleaseClickThe.setBounds(757, 184, 215, 137);
+		frame.getContentPane().add(lblPleaseClickThe);
 
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -254,19 +265,19 @@ public class Question_Voiced {
 
 
 		if (question == 8) {
-			lblNewLabel_5.setVisible(true);
-			lblNewLabel_5.setIcon(new ImageIcon("Resources/Images/map.png"));
-			lblNewLabel_6.setVisible(true);
+			lbl_map.setVisible(true);
+			lbl_map.setIcon(new ImageIcon("Resources/Images/map.png")); //map degisecek
+			lbl_compass.setVisible(true);
 		} else if (question == 12) {
-			lblNewLabel_2.setVisible(true);
-			lblNewLabel_1.setIcon(new ImageIcon("Resources/Images/wristwatch.png"));
+			lbl_pencil.setVisible(true);
+			lbl_watch.setIcon(new ImageIcon("Resources/Images/wristwatch.png"));
 
-			lblNewLabel_1.setVisible(true);
+			lbl_watch.setVisible(true);
 
 		} else if (question == 15) {
 			lblNewLabel_4.setVisible(false);
 
-			btnNewButton_2.setVisible(true);
+			btn_clickbutton.setVisible(true);
 		} else if (question == 18) {
 			textField.setVisible(true);
 			App.User.addAnswer(textField.getText());

@@ -12,6 +12,7 @@ import javax.swing.JLabel;
 import ImageProcessing.application.WebcamTestMain;
 
 import java.awt.Font;
+import java.awt.Color;
 
 public class TutorialScreen_cam {
 
@@ -59,13 +60,14 @@ public class TutorialScreen_cam {
 		frame.getContentPane().add(lbl_logo);
 		
 		JLabel lblYouSaid = new JLabel("If you do not use your computer's camera, you can pass without doing it. ");
-		lblYouSaid.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblYouSaid.setBounds(639, 108, 614, 58);
+		lblYouSaid.setForeground(new Color(204, 51, 0));
+		lblYouSaid.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblYouSaid.setBounds(393, 493, 663, 58);
 		frame.getContentPane().add(lblYouSaid);
 
 		JButton btnCamera = new JButton("");
 		btnCamera.setIcon(new ImageIcon("Resources/Images/camera.png"));
-		btnCamera.setBounds(835, 264, 169, 168);
+		btnCamera.setBounds(589, 303, 169, 168);
 		frame.getContentPane().add(btnCamera);
 		btnCamera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -76,23 +78,27 @@ public class TutorialScreen_cam {
 
 
 		JLabel lblThisScreenTutorial = new JLabel("This screen tutorial for the test. ");
-		lblThisScreenTutorial.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblThisScreenTutorial.setBounds(75, 302, 405, 34);
+		lblThisScreenTutorial.setForeground(new Color(204, 51, 0));
+		lblThisScreenTutorial.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lblThisScreenTutorial.setBounds(518, 85, 405, 34);
 		frame.getContentPane().add(lblThisScreenTutorial);
 
 		JLabel lbl_loadphoto = new JLabel("In the test you should use load a photo or ");
-		lbl_loadphoto.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lbl_loadphoto.setBounds(75, 347, 750, 58);
+		lbl_loadphoto.setForeground(new Color(204, 51, 0));
+		lbl_loadphoto.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lbl_loadphoto.setBounds(467, 130, 750, 58);
 		frame.getContentPane().add(lbl_loadphoto);
 		
 		JLabel lbl_takingphoto = new JLabel("taking photo with computer's camera.");
-		lbl_takingphoto.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lbl_takingphoto.setBounds(75, 385, 458, 47);
+		lbl_takingphoto.setForeground(new Color(204, 51, 0));
+		lbl_takingphoto.setFont(new Font("Tahoma", Font.BOLD, 20));
+		lbl_takingphoto.setBounds(487, 164, 458, 47);
 		frame.getContentPane().add(lbl_takingphoto);
 
 		JLabel lbl_presscamera= new JLabel("For controlling camera please press the camera button.");
-		lbl_presscamera.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lbl_presscamera.setBounds(75, 454, 750, 48);
+		lbl_presscamera.setForeground(new Color(204, 51, 0));
+		lbl_presscamera.setFont(new Font("Tahoma", Font.BOLD, 22));
+		lbl_presscamera.setBounds(393, 213, 750, 48);
 		frame.getContentPane().add(lbl_presscamera);
 
 		JButton btnNext = new JButton("Next");
@@ -111,7 +117,7 @@ public class TutorialScreen_cam {
 		});
 
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNext.setBounds(1080, 598, 142, 54);
+		btnNext.setBounds(612, 601, 128, 48);
 		frame.getContentPane().add(btnNext);
 		frame.getRootPane().setDefaultButton( btnNext );
 

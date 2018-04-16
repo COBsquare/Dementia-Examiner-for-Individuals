@@ -27,6 +27,7 @@ import edu.cmu.sphinx.api.SpeechResult;
 import edu.cmu.sphinx.api.StreamSpeechRecognizer;
 
 import java.awt.Font;
+import java.awt.Color;
 
 public class TutorialScreen_voice {
 
@@ -76,32 +77,35 @@ public class TutorialScreen_voice {
 		lbl_logo.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lbl_logo);
 
-		JLabel lblNewLabel_1 = new JLabel("Click the microphone button for recording");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_1.setBounds(993, 350, 351, 48);
+		JLabel lblNewLabel_1 = new JLabel("<html>Click the microphone button for recording the voice and click again to finish.</html>");
+		lblNewLabel_1.setForeground(new Color(204, 51, 0));
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel_1.setBounds(741, 221, 262, 104);
 		lblNewLabel_1.setVisible(false);
 		frame.getContentPane().add(lblNewLabel_1);
 
-		JLabel lblNewLabel_2 = new JLabel("Click the play button for listening to voice.");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_2.setBounds(993, 130, 340, 54);
+		JLabel lblNewLabel_2 = new JLabel("<html>Click the play button for listening to voice.</html>");
+		lblNewLabel_2.setForeground(new Color(204, 51, 0));
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel_2.setBounds(414, 233, 204, 98);
 		lblNewLabel_2.setVisible(false);
 		frame.getContentPane().add(lblNewLabel_2);
 
-		JLabel lblNewLabel_3 = new JLabel("the voice and click again to finish.");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_3.setBounds(1030, 388, 327, 35);
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setForeground(new Color(204, 51, 0));
+		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel_3.setBounds(718, 251, 331, 67);
 		lblNewLabel_3.setVisible(false);
 		frame.getContentPane().add(lblNewLabel_3);
 
 		JLabel lblNewLabel_4 = new JLabel("");
-		lblNewLabel_4.setBounds(1111, 130, 73, 73);
+		lblNewLabel_4.setBounds(473, 237, 73, 73);
 		lblNewLabel_4.setIcon(new ImageIcon("Resources/Images/greenticksmall.png"));
 		lblNewLabel_4.setVisible(false);
 		frame.getContentPane().add(lblNewLabel_4);
 
 		JLabel lblNewLabel_5 = new JLabel("");
-		lblNewLabel_5.setBounds(1111, 350, 73, 73);
+		lblNewLabel_5.setBounds(813, 237, 73, 73);
 		lblNewLabel_5.setIcon(new ImageIcon("Resources/Images/greenticksmall.png"));
 		lblNewLabel_5.setVisible(false);
 		frame.getContentPane().add(lblNewLabel_5);
@@ -141,12 +145,12 @@ public class TutorialScreen_voice {
 				}
 			}
 		});
-		btnReadTheQuestion.setBounds(798, 93, 169, 168);
+		btnReadTheQuestion.setBounds(420, 342, 169, 168);
 		frame.getContentPane().add(btnReadTheQuestion);
 
 		JButton btn_Next = new JButton("Next");
 		btn_Next.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btn_Next.setBounds(1080, 598, 142, 54);
+		btn_Next.setBounds(614, 601, 128, 48);
 		frame.getContentPane().add(btn_Next);
 		frame.getRootPane().setDefaultButton(btn_Next);
 		btn_Next.setVisible(false);
@@ -224,7 +228,7 @@ public class TutorialScreen_voice {
 		});
 
 		btn_microphone.setIcon(new ImageIcon("Resources/Images/microphone.png"));
-		btn_microphone.setBounds(798, 327, 169, 168);
+		btn_microphone.setBounds(757, 342, 169, 168);
 		frame.getContentPane().add(btn_microphone);
 
 
@@ -260,18 +264,20 @@ public class TutorialScreen_voice {
 		frame.getContentPane().add(btnBack);
 		
 		JLabel lblThisPage = new JLabel("This tutorial is checking your speakers");
-		lblThisPage.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblThisPage.setBounds(93, 299, 582, 41);
+		lblThisPage.setForeground(new Color(204, 51, 0));
+		lblThisPage.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblThisPage.setBounds(516, 95, 582, 41);
 		frame.getContentPane().add(lblThisPage);
 
 		JLabel lblNewLabel_6 = new JLabel(" and microphone for the test.");
-		lblNewLabel_6.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		lblNewLabel_6.setBounds(119, 329, 312, 27);
+		lblNewLabel_6.setForeground(new Color(204, 51, 0));
+		lblNewLabel_6.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblNewLabel_6.setBounds(545, 129, 312, 27);
 		frame.getContentPane().add(lblNewLabel_6);
 		
 		JButton btnStartTheTutorial = new JButton("Start the Tutorial");
 		btnStartTheTutorial.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnStartTheTutorial.setBounds(119, 388, 228, 48);
+		btnStartTheTutorial.setBounds(569, 167, 228, 48);
 		frame.getContentPane().add(btnStartTheTutorial);
 		btnStartTheTutorial.addActionListener(new ActionListener() {
 			@Override
