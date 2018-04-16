@@ -15,6 +15,7 @@ import java.util.ArrayList;
 
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
+import App.User;
 
 public class Results {
 
@@ -90,45 +91,46 @@ public class Results {
 		Theader.setFont(new Font("Tahome", Font.BOLD, 20)); // font name style size
 		table.setFont(new Font("Tahome", Font.BOLD, 15));
 
-		String[] headers = { "Question", "Answer" };
-		
-		String[] questions;
-		String[] answers=new String[ App.User.answers.size() ];
-		App.User.answers.toArray( answers );
+		String[] MainHeaders = { "Question", "Answer"};
 
-		int size1;
-		int size2=App.User.answers.size();
+		// Set MainTable----------------------------------------------------------------------------
+		int size = 0;
+
+		String[] questions;
+		String[] answers = new String[User.answers.size()];
+		User.answers.toArray(answers);
+
 		App.User.setEducation("Literate");
 		if (App.User.getEducation().equals("Literate")) {
-			size1=App.User.questions_literate.length;
-			questions= new String[size1];
-			System.arraycopy( App.User.questions_literate, 0, questions, 0, size1);
+			questions = User.questions_literate.clone();
+			size = User.questions_literate.length;
 		} else {
-			size1=App.User.questions_illiterate.length;
-			questions= new String[size1];
-			System.arraycopy( App.User.questions_illiterate, 0, questions, 0, App.User.questions_illiterate.length );
+			questions = User.questions_illiterate.clone();
+			size = User.questions_illiterate.length;
+		}
 
+		String[][] MainRows = new String[size][size];
+		for (int i = 0; i < size; i++) {
+			MainRows[i][0] = questions[i];
+		}
+
+		for (int i = 0; i < size; i++) {
+			MainRows[i][1] = "deneme";
 		}
 		
-		String[][] rows=new String[size1][size2];
-		for(int i=0;i<size1;i++){
-			rows[i][0]=questions[i];
-		}
-		
-		for(int i=0;i<size2;i++){
-			rows[i][0]=answers[i];
-		}
-		// TODO ARRAY ISSUE IDK
-		
-		table = new JTable(rows, headers);
+		table = new JTable(MainRows, MainHeaders);
 		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		table.setBounds(10, 124, 195, 173);
 		frame.getContentPane().add(table);
-
+		
 		JScrollPane scrollPane_1 = new JScrollPane(table);
 		scrollPane_1.setToolTipText("");
 		scrollPane_1.setBounds(871, 268, 420, 183);
 		frame.getContentPane().add(scrollPane_1);
+		
+		// Set Evaluation Table-------------------------------------------------------------------
+		String[] EvalHeaders = { "Evaluation"};
+		String[][] EvalRows = new String[size][];
 
 		JTableHeader Theader2 = table.getTableHeader();
 
@@ -170,4 +172,5 @@ public class Results {
 			}
 		});
 	}
+
 }
