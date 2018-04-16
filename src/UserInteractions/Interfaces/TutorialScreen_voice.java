@@ -159,20 +159,19 @@ public class TutorialScreen_voice {
 		});
 
 		JButton btnNewButton = new JButton("");
-		SpeechRecorder sc = new SpeechRecorder();
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				if (click == 1) {
 					click++;
-					sc.startMic();
+					SpeechRecorder.startMic();
 					lblNewLabel_3.setVisible(true);
 					lblNewLabel_3.setText("<html>Please say 'pencil'<br/>Click again to save your answer.</html>");
 					lblNewLabel_1.setVisible(false);
 					btnNewButton.setIcon(new ImageIcon("Resources/Images/record.png"));
 
 				} else if ((click % 2) == 0) {
-					sc.stopMic("tutorial");
+					SpeechRecorder.stopMic("tutorial");
 					lblNewLabel_3.setVisible(false);
 					lblNewLabel_1.setVisible(false);
 
@@ -197,7 +196,7 @@ public class TutorialScreen_voice {
 					SpeechResult Result = recognizer.getResult();
 					String speechWords = Result.getHypothesis();
 					System.out.println(speechWords);
-					
+
 					if (speechWords.equals("pencil")) {
 						lblNewLabel_5.setVisible(true);
 						btnNewButton.setIcon(new ImageIcon("Resources/Images/checkmark.png"));
