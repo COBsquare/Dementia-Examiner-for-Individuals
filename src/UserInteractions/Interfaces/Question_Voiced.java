@@ -4,17 +4,14 @@ import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,10 +20,8 @@ import javax.swing.JLabel;
 import SpeechRecognition.SpeechRecorder;
 
 import java.awt.Font;
-import java.awt.Image;
 
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 
 import java.awt.Color;
 import javax.swing.JProgressBar;
@@ -36,19 +31,19 @@ import javax.swing.border.LineBorder;
 public class Question_Voiced {
 
 	private JFrame frame;
-	int click;
 	private JTextField textField;
 	static int orderLiterate[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
 	static int orderIlliterate[] = { 1, 2, 3, 4, 5, 6, 7, 8, 13, 20, 11, 12, 21, 14, 15, 22, 19 };
 	static int question = 1;
 	static int order = 0;
-	static int max=0;
+	static int max;
+	int click;
+
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -67,6 +62,7 @@ public class Question_Voiced {
 	public Question_Voiced() {
 		initialize();
 		
+		// As an example="Literate"
 		App.User.setEducation("Literate");
 		if(App.User.getEducation().equals("Literate")){
 			question=orderLiterate[order];
@@ -124,7 +120,7 @@ public class Question_Voiced {
 
 		JProgressBar progressBar = new JProgressBar();
 		progressBar.setBounds(59, 411, 339, 29);
-		progressBar.setMaximum(max);
+		progressBar.setMaximum(max-1);
 		progressBar.setValue(question);
 		frame.getContentPane().add(progressBar);
 
@@ -238,10 +234,9 @@ public class Question_Voiced {
 		lblNewLabel_6.setIcon(new ImageIcon("Resources/Images/compass.png"));
 		frame.getContentPane().add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_7 = new JLabel(" Question " + (order+1));
+		JLabel lblNewLabel_7 = new JLabel(" Question " + (order+1)+"/"+max);
 		lblNewLabel_7.setForeground(SystemColor.activeCaptionText);
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 24));
-		Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 2);
 		lblNewLabel_7.setBorder(new LineBorder(SystemColor.activeCaption, 2));
 		lblNewLabel_7.setBounds(59, 296, 203, 43);
 		frame.getContentPane().add(lblNewLabel_7);

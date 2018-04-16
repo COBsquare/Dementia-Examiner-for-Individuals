@@ -11,16 +11,12 @@ import javax.swing.JTable;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-
-import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import App.User;
 
 public class Results {
 
 	private JFrame frame;
-	private JTable table_1;
 
 	/**
 	 * Launch the application.
@@ -112,7 +108,7 @@ public class Results {
 
 		String[][] MainRows = new String[size][size];
 		for (int i = 0; i < size; i++) {
-			MainRows[i][0] = questions[i];
+			MainRows[i][0] = (i+1)+". "+questions[i];
 		}
 
 		for (int i = 0; i < size; i++) {
@@ -134,7 +130,6 @@ public class Results {
 		Theader_2.setForeground(Color.BLACK); // change the Foreground
 
 		Theader_2.setFont(new Font("Tahoma", Font.BOLD, 20)); // font name style size
-		table_answer.setFont(new Font("Tahoma", Font.BOLD, 15));
 
 		
 		// Set Evaluation Table-------------------------------------------------------------------
@@ -142,7 +137,7 @@ public class Results {
 		String[][] EvalRows = new String[size][size];
 		
 		for(int i=0;i<size;i++){
-			EvalRows[i][0]="Correct";
+			EvalRows[i][0]=(i+1)+". "+"Correct";
 		}
 		
 		JTable table_evaluation = new JTable(EvalRows,EvalHeader);
@@ -150,6 +145,10 @@ public class Results {
 		table_evaluation.setColumnSelectionAllowed(true);
 		table_evaluation.setFillsViewportHeight(true);
 		table_evaluation.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		
+		JScrollPane scrollPane_2 = new JScrollPane(table_evaluation);
+		scrollPane_2.setBounds(1058, 272, 166, 260);
+		frame.getContentPane().add(scrollPane_2);		
 	
 		JTableHeader Theader_3 = table_evaluation.getTableHeader();
 
@@ -157,7 +156,6 @@ public class Results {
 		Theader_3.setForeground(Color.BLACK); // change the Foreground
 
 		Theader_3.setFont(new Font("Tahome", Font.BOLD, 20)); // font name style size
-		table_evaluation.setFont(new Font("Tahome", Font.BOLD, 15));
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -185,14 +183,6 @@ public class Results {
 		btnNewButton.setBounds(633, 588, 193, 60);
 		frame.getContentPane().add(btnNewButton);
 		
-		JScrollPane scrollPane_2 = new JScrollPane();
-		scrollPane_2.setBounds(1058, 272, 166, 260);
-		frame.getContentPane().add(scrollPane_2);
-		
-		
-		
-		
-		scrollPane_2.setViewportView(table_1);
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Export pdf class should be export
