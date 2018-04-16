@@ -52,15 +52,15 @@ public class StartTest {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel1 = new JLabel("");
-		lblNewLabel1.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lblNewLabel1.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lblNewLabel1);
+		JLabel lbl_logo = new JLabel("");
+		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lbl_logo.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lbl_logo);
 
-		JLabel lblNewLabel = new JLabel("If you are ready, please click the start the test button.");
-		lblNewLabel.setFont(new Font("Tahoma",Font.BOLD,30));
-		lblNewLabel.setBounds(304, 418, 825, 75);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lbl_ready = new JLabel("If you are ready, please click the start the test button.");
+		lbl_ready.setFont(new Font("Tahoma",Font.BOLD,30));
+		lbl_ready.setBounds(304, 418, 825, 75);
+		frame.getContentPane().add(lbl_ready);
 
 		JButton viewResultsButton = new JButton("START THE TEST");
 		viewResultsButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -96,10 +96,10 @@ public class StartTest {
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
 		
-		JLabel lblNewLabel_1 = new JLabel("<html> This application includes Modified Mini-Mental State Examination test and clock-drawing <br/> test which are applied for seeking symptoms of dementia and its kind. Our application gives you to check your mental status by yourselves without any assistance </html>");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.ITALIC, 20));
-		lblNewLabel_1.setBounds(304, 267, 825, 126);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel lbl_mmse = new JLabel("<html> This application includes Modified Mini-Mental State Examination test and clock-drawing <br/> test which are applied for seeking symptoms of dementia and its kind. Our application gives you to check your mental status by yourselves without any assistance </html>");
+		lbl_mmse.setFont(new Font("Tahoma", Font.ITALIC, 20));
+		lbl_mmse.setBounds(304, 267, 825, 126);
+		frame.getContentPane().add(lbl_mmse);
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 

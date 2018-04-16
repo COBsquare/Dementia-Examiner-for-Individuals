@@ -54,10 +54,10 @@ public class Information_Warnings {
 
 
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lblNewLabel.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lbl_logo = new JLabel("");
+		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lbl_logo.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lbl_logo);
 
 
 		JButton btnNext = new JButton("Next");
@@ -78,15 +78,15 @@ public class Information_Warnings {
 		frame.getContentPane().add(btnNext);
 		frame.getRootPane().setDefaultButton( btnNext );
 
-		JLabel lblNewLabel_2 = new JLabel("Please take paper and pencil before starting the test.");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblNewLabel_2.setBounds(341, 305, 813, 46);
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel lbl_warning = new JLabel("Please take paper and pencil before starting the test.");
+		lbl_warning.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lbl_warning.setBounds(341, 305, 813, 46);
+		frame.getContentPane().add(lbl_warning);
 
-		JLabel lblNewLabel_3 = new JLabel("It is suggested to use headphones during the test.");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblNewLabel_3.setBounds(363, 385, 813, 46);
-		frame.getContentPane().add(lblNewLabel_3);
+		JLabel lbl_warning2 = new JLabel("It is suggested to use headphones during the test.");
+		lbl_warning2.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lbl_warning2.setBounds(363, 385, 813, 46);
+		frame.getContentPane().add(lbl_warning2);
 
 
 		JButton btnBack = new JButton("Back");

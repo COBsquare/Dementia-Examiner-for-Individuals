@@ -53,16 +53,16 @@ public class Finalized {
 		frame.getContentPane().setLayout(null);
 
 
-		JLabel lblNewLabel1 = new JLabel("");
-		lblNewLabel1.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lblNewLabel1.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lblNewLabel1);
+		JLabel lbl_logo = new JLabel("");
+		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lbl_logo.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lbl_logo);
 
 
-		JLabel lblNewLabel = new JLabel("You have completed the test.");
-		lblNewLabel.setFont(new Font("Serif",Font.BOLD,30));
-		lblNewLabel.setBounds(523, 380, 376, 76);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lbl_complete = new JLabel("You have completed the test.");
+		lbl_complete.setFont(new Font("Serif",Font.BOLD,30));
+		lbl_complete.setBounds(523, 380, 376, 76);
+		frame.getContentPane().add(lbl_complete);
 
 		JButton viewResultsButton = new JButton("View Results");
 		viewResultsButton.setForeground(Color.WHITE);
@@ -85,10 +85,10 @@ public class Finalized {
 		frame.getContentPane().add(viewResultsButton);
 		frame.getRootPane().setDefaultButton( viewResultsButton );
 
-		JLabel label = new JLabel("");
-		label.setIcon(new ImageIcon("Resources/Images/tick.png"));
-		label.setBounds(566, 168, 284, 171);
-		frame.getContentPane().add(label);
+		JLabel lbl_tick = new JLabel("");
+		lbl_tick.setIcon(new ImageIcon("Resources/Images/tick.png"));
+		lbl_tick.setBounds(566, 168, 284, 171);
+		frame.getContentPane().add(lbl_tick);
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);

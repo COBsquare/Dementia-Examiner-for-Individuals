@@ -53,20 +53,21 @@ public class TutorialScreen_cam {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lblNewLabel.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lbl_logo = new JLabel("");
+		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lbl_logo.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lbl_logo);
+		
 		JLabel lblYouSaid = new JLabel("If you do not use your computer's camera, you can pass without doing it. ");
 		lblYouSaid.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblYouSaid.setBounds(639, 108, 614, 58);
 		frame.getContentPane().add(lblYouSaid);
 
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("Resources/Images/camera.png"));
-		btnNewButton.setBounds(835, 264, 169, 168);
-		frame.getContentPane().add(btnNewButton);
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton btnCamera = new JButton("");
+		btnCamera.setIcon(new ImageIcon("Resources/Images/camera.png"));
+		btnCamera.setBounds(835, 264, 169, 168);
+		frame.getContentPane().add(btnCamera);
+		btnCamera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				WebcamTestMain.main(null);
 			}
@@ -79,18 +80,23 @@ public class TutorialScreen_cam {
 		lblThisScreenTutorial.setBounds(75, 302, 405, 34);
 		frame.getContentPane().add(lblThisScreenTutorial);
 
-		JLabel lblNewLabel_1 = new JLabel("In the test you should use load a photo or ");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_1.setBounds(75, 347, 750, 58);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel lbl_loadphoto = new JLabel("In the test you should use load a photo or ");
+		lbl_loadphoto.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lbl_loadphoto.setBounds(75, 347, 750, 58);
+		frame.getContentPane().add(lbl_loadphoto);
+		
+		JLabel lbl_takingphoto = new JLabel("taking photo with computer's camera.");
+		lbl_takingphoto.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lbl_takingphoto.setBounds(75, 385, 458, 47);
+		frame.getContentPane().add(lbl_takingphoto);
 
-		JLabel lblNewLabel_2 = new JLabel("For controlling camera please press the camera button.");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_2.setBounds(75, 454, 750, 48);
-		frame.getContentPane().add(lblNewLabel_2);
+		JLabel lbl_presscamera= new JLabel("For controlling camera please press the camera button.");
+		lbl_presscamera.setFont(new Font("Tahoma", Font.PLAIN, 25));
+		lbl_presscamera.setBounds(75, 454, 750, 48);
+		frame.getContentPane().add(lbl_presscamera);
 
-		JButton btnNewButton_1 = new JButton("Next");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JButton btnNext = new JButton("Next");
+		btnNext.addActionListener(new ActionListener() {
 			@SuppressWarnings("unused")
 			public void keyPressed(KeyEvent e) {
 			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
@@ -104,10 +110,10 @@ public class TutorialScreen_cam {
 			}
 		});
 
-		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNewButton_1.setBounds(1080, 598, 142, 54);
-		frame.getContentPane().add(btnNewButton_1);
-		frame.getRootPane().setDefaultButton( btnNewButton_1 );
+		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnNext.setBounds(1080, 598, 142, 54);
+		frame.getContentPane().add(btnNext);
+		frame.getRootPane().setDefaultButton( btnNext );
 
 
 		JButton btnHome = new JButton("");
@@ -141,9 +147,6 @@ public class TutorialScreen_cam {
 		btnBack.setBounds(158, 598, 142, 54);
 		frame.getContentPane().add(btnBack);
 
-		JLabel lblNewLabel_3 = new JLabel("taking photo with computer's camera.");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.PLAIN, 25));
-		lblNewLabel_3.setBounds(75, 385, 458, 47);
-		frame.getContentPane().add(lblNewLabel_3);
+	
 	}
 }

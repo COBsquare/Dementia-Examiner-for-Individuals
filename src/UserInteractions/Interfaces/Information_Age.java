@@ -53,15 +53,15 @@ public class Information_Age {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lblNewLabel.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lbl_logo = new JLabel("");
+		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lbl_logo.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lbl_logo);
 
-		JLabel lblNewLabel_1 = new JLabel("Age");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 30));
-		lblNewLabel_1.setBounds(375, 434, 302, 44);
-		frame.getContentPane().add(lblNewLabel_1);
+		JLabel lbl_age = new JLabel("Age");
+		lbl_age.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lbl_age.setBounds(375, 434, 302, 44);
+		frame.getContentPane().add(lbl_age);
 
 		JComboBox<Integer> comboBox = new JComboBox<Integer>();
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -91,17 +91,17 @@ public class Information_Age {
 		frame.getContentPane().add(btnNext);
 		frame.getRootPane().setDefaultButton( btnNext );
 
-		JLabel lblNewLabel_2 = new JLabel(
+		JLabel lbl_info = new JLabel(
 				"This information is only for personalizing the document which is given at the end of the test.");
-		lblNewLabel_2.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblNewLabel_2.setBounds(343, 253, 813, 46);
-		frame.getContentPane().add(lblNewLabel_2);
+		lbl_info.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lbl_info.setBounds(343, 253, 813, 46);
+		frame.getContentPane().add(lbl_info);
 
-		JLabel lblNewLabel_3 = new JLabel(
+		JLabel lbl_info2 = new JLabel(
 				"If you do not want to personalize the document, you can pass without filling it.");
-		lblNewLabel_3.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		lblNewLabel_3.setBounds(375, 303, 707, 33);
-		frame.getContentPane().add(lblNewLabel_3);
+		lbl_info2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lbl_info2.setBounds(375, 303, 707, 33);
+		frame.getContentPane().add(lbl_info2);
 
 		JButton btnBack = new JButton("Back");
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
