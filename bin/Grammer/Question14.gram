@@ -2,4 +2,4 @@
 
 
 
-grammar Question14;public <Question14> = ( paper ) * ;
+grammar Question14;public <Question14> = ( paper ) ;
