@@ -119,19 +119,32 @@ public class Results {
 			MainRows[i][1] = "deneme";
 		}
 		
-		table = new JTable(MainRows, MainHeaders);
-		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		table.setBounds(10, 124, 195, 173);
-		frame.getContentPane().add(table);
+		JTable table2 = new JTable(MainRows, MainHeaders);
+		table2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		table2.setBounds(10, 124, 195, 173);
+		frame.getContentPane().add(table2);
 		
-		JScrollPane scrollPane_1 = new JScrollPane(table);
+		JScrollPane scrollPane_1 = new JScrollPane(table2);
 		scrollPane_1.setToolTipText("");
 		scrollPane_1.setBounds(77, 272, 971, 260);
 		frame.getContentPane().add(scrollPane_1);
 		
 		// Set Evaluation Table-------------------------------------------------------------------
-		String[] EvalHeaders = { "Evaluation"};
-		String[][] EvalRows = new String[size][];
+		String[] EvalHeader = { "Evaluation"};
+		String[][] EvalRows = new String[size][size];
+		
+		for(int i=0;i<size;i++){
+			EvalRows[i][0]="Correct";
+		}
+		
+		table_1 = new JTable(EvalRows,EvalHeader);
+		table_1.setCellSelectionEnabled(true);
+		table_1.setColumnSelectionAllowed(true);
+		table_1.setFillsViewportHeight(true);
+		table_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+	
+		JTableHeader Theader3 = table_1.getTableHeader();
+
 
 		JTableHeader Theader2 = table.getTableHeader();
 
@@ -171,20 +184,7 @@ public class Results {
 		scrollPane_2.setBounds(1058, 272, 166, 260);
 		frame.getContentPane().add(scrollPane_2);
 		
-		table_1 = new JTable();
-		table_1.setCellSelectionEnabled(true);
-		table_1.setColumnSelectionAllowed(true);
-		table_1.setFillsViewportHeight(true);
-		table_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		table_1.setModel(new DefaultTableModel(
-			new Object[][] {
-			},
-			new String[] {
-				"Evalution"
-			}
-		));
-		JTableHeader Theader3 = table_1.getTableHeader();
-
+		
 		Theader3.setBackground(Color.GRAY); // change the Background color
 		Theader3.setForeground(Color.BLACK); // change the Foreground
 
