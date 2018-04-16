@@ -42,6 +42,7 @@ public class Question_Voiced {
 	static int orderIlliterate[] = { 1, 2, 3, 4, 5, 6, 7, 8, 13, 20, 11, 12, 21, 14, 15, 22, 19 };
 	static int question = 1;
 	static int order = 0;
+	static int max=0;
 
 	/**
 	 * Launch the application.
@@ -69,8 +70,10 @@ public class Question_Voiced {
 		App.User.setEducation("Literate");
 		if(App.User.getEducation().equals("Literate")){
 			question=orderLiterate[order];
+			max=orderLiterate.length;
 		}else if(App.User.getEducation().equals("Illiterate")){
 			question=orderIlliterate[order];
+			max=orderIlliterate.length;
 		}
 		
 	}
@@ -121,7 +124,7 @@ public class Question_Voiced {
 
 		JProgressBar progressBar = new JProgressBar();
 		progressBar.setBounds(59, 411, 339, 29);
-		progressBar.setMaximum(20);
+		progressBar.setMaximum(max);
 		progressBar.setValue(question);
 		frame.getContentPane().add(progressBar);
 
@@ -186,7 +189,12 @@ public class Question_Voiced {
 
 			public void actionPerformed(ActionEvent e) {
 				order++;
-				Question_Voiced.main(null);
+				if(order<max){
+					Question_Voiced.main(null);
+				}
+				else{
+					Question_Image.main(null);
+				}
 			}
 		});
 
