@@ -36,7 +36,7 @@ public class Question_Voiced {
 	static int orderIlliterate[] = { 1, 2, 3, 4, 5, 6, 7, 8, 13, 20, 11, 12, 21, 14, 15, 22, 19 };
 	static int question = 1;
 	static int order = 0;
-	static int max=0;
+	static int max;
 	int click;
 
 
@@ -120,7 +120,7 @@ public class Question_Voiced {
 
 		JProgressBar progressBar = new JProgressBar();
 		progressBar.setBounds(59, 411, 339, 29);
-		progressBar.setMaximum(max);
+		progressBar.setMaximum(max-1);
 		progressBar.setValue(question);
 		frame.getContentPane().add(progressBar);
 
@@ -234,7 +234,7 @@ public class Question_Voiced {
 		lblNewLabel_6.setIcon(new ImageIcon("Resources/Images/compass.png"));
 		frame.getContentPane().add(lblNewLabel_6);
 		
-		JLabel lblNewLabel_7 = new JLabel(" Question " + (order+1));
+		JLabel lblNewLabel_7 = new JLabel(" Question " + (order+1)+"/"+max);
 		lblNewLabel_7.setForeground(SystemColor.activeCaptionText);
 		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 24));
 		lblNewLabel_7.setBorder(new LineBorder(SystemColor.activeCaption, 2));
