@@ -70,27 +70,27 @@ public class Results {
 				{ "0-10", "Severe Cognitive Impairment" } };
 		frame.getContentPane().setLayout(null);
 
-		JTable table = new JTable(rowdata, columnNames);
-		table.setCellSelectionEnabled(true);
-		table.setColumnSelectionAllowed(true);
-		table.setFillsViewportHeight(true);
-		table.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		JTable table_point = new JTable(rowdata, columnNames);
+		table_point.setCellSelectionEnabled(true);
+		table_point.setColumnSelectionAllowed(true);
+		table_point.setFillsViewportHeight(true);
+		table_point.setFont(new Font("Tahoma", Font.PLAIN, 15));
 
-		table.getColumnModel().getColumn(0).setPreferredWidth(250);
-		table.getColumnModel().getColumn(0).setMinWidth(250);
-		table.getColumnModel().getColumn(0).setMaxWidth(250);
+		table_point.getColumnModel().getColumn(0).setPreferredWidth(250);
+		table_point.getColumnModel().getColumn(0).setMinWidth(250);
+		table_point.getColumnModel().getColumn(0).setMaxWidth(250);
 
-		JScrollPane scrollPane = new JScrollPane(table);
+		JScrollPane scrollPane = new JScrollPane(table_point);
 		scrollPane.setBounds(443, 89, 526, 99);
 		frame.getContentPane().add(scrollPane);
 
-		JTableHeader Theader = table.getTableHeader();
+		JTableHeader Theader = table_point.getTableHeader();
 
 		Theader.setBackground(Color.GRAY); // change the Background color
 		Theader.setForeground(Color.BLACK); // change the Foreground
 
-		Theader.setFont(new Font("Tahome", Font.BOLD, 20)); // font name style size
-		table.setFont(new Font("Tahome", Font.BOLD, 15));
+		Theader.setFont(new Font("Tahoma", Font.BOLD, 20)); // font name style size
+		table_point.setFont(new Font("Tahoma", Font.BOLD, 15));
 
 		String[] MainHeaders = { "Question", "Answer"};
 
@@ -119,15 +119,23 @@ public class Results {
 			MainRows[i][1] = "deneme";
 		}
 		
-		JTable table2 = new JTable(MainRows, MainHeaders);
-		table2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		table2.setBounds(10, 124, 195, 173);
-		frame.getContentPane().add(table2);
+		JTable table_answer = new JTable(MainRows, MainHeaders);
+		table_answer.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		table_answer.setBounds(10, 124, 195, 173);
+		frame.getContentPane().add(table_answer);
 		
-		JScrollPane scrollPane_1 = new JScrollPane(table2);
+		JScrollPane scrollPane_1 = new JScrollPane(table_answer);
 		scrollPane_1.setToolTipText("");
 		scrollPane_1.setBounds(77, 272, 971, 260);
 		frame.getContentPane().add(scrollPane_1);
+		
+		JTableHeader Theader_2 = table_answer.getTableHeader();
+		Theader_2.setBackground(Color.GRAY); // change the Background color
+		Theader_2.setForeground(Color.BLACK); // change the Foreground
+
+		Theader_2.setFont(new Font("Tahoma", Font.BOLD, 20)); // font name style size
+		table_answer.setFont(new Font("Tahoma", Font.BOLD, 15));
+
 		
 		// Set Evaluation Table-------------------------------------------------------------------
 		String[] EvalHeader = { "Evaluation"};
@@ -137,22 +145,19 @@ public class Results {
 			EvalRows[i][0]="Correct";
 		}
 		
-		table_1 = new JTable(EvalRows,EvalHeader);
-		table_1.setCellSelectionEnabled(true);
-		table_1.setColumnSelectionAllowed(true);
-		table_1.setFillsViewportHeight(true);
-		table_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		JTable table_evaluation = new JTable(EvalRows,EvalHeader);
+		table_evaluation.setCellSelectionEnabled(true);
+		table_evaluation.setColumnSelectionAllowed(true);
+		table_evaluation.setFillsViewportHeight(true);
+		table_evaluation.setFont(new Font("Tahoma", Font.PLAIN, 15));
 	
-		JTableHeader Theader3 = table_1.getTableHeader();
+		JTableHeader Theader_3 = table_evaluation.getTableHeader();
 
+		Theader_3.setBackground(Color.GRAY); // change the Background color
+		Theader_3.setForeground(Color.BLACK); // change the Foreground
 
-		JTableHeader Theader2 = table.getTableHeader();
-
-		Theader2.setBackground(Color.GRAY); // change the Background color
-		Theader2.setForeground(Color.BLACK); // change the Foreground
-
-		Theader2.setFont(new Font("Tahome", Font.BOLD, 20)); // font name style size
-		table.setFont(new Font("Tahome", Font.BOLD, 15));
+		Theader_3.setFont(new Font("Tahome", Font.BOLD, 20)); // font name style size
+		table_evaluation.setFont(new Font("Tahome", Font.BOLD, 15));
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -184,11 +189,6 @@ public class Results {
 		scrollPane_2.setBounds(1058, 272, 166, 260);
 		frame.getContentPane().add(scrollPane_2);
 		
-		
-		Theader3.setBackground(Color.GRAY); // change the Background color
-		Theader3.setForeground(Color.BLACK); // change the Foreground
-
-		Theader3.setFont(new Font("Tahome", Font.BOLD, 20)); // font name style size
 		
 		
 		

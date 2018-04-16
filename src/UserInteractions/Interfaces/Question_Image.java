@@ -205,6 +205,7 @@ public class Question_Image {
 			
 		} else if (i==1) {
 			lblNewLabel_2.setText("The clock-drawing test is used for screening for cognitive impairment.");
+			lblNewLabel_2.setFont(new Font("Tahoma", Font.ITALIC, 18));
 			lblNewLabel_7.setText(" Clock Drawing");
 		}
 	}
