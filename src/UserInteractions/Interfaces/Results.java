@@ -20,6 +20,7 @@ import App.User;
 public class Results {
 
 	private JFrame frame;
+	private JTable table_1;
 
 	/**
 	 * Launch the application.
@@ -80,7 +81,7 @@ public class Results {
 		table.getColumnModel().getColumn(0).setMaxWidth(250);
 
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.setBounds(59, 324, 526, 99);
+		scrollPane.setBounds(443, 89, 526, 99);
 		frame.getContentPane().add(scrollPane);
 
 		JTableHeader Theader = table.getTableHeader();
@@ -125,7 +126,7 @@ public class Results {
 		
 		JScrollPane scrollPane_1 = new JScrollPane(table);
 		scrollPane_1.setToolTipText("");
-		scrollPane_1.setBounds(871, 268, 420, 183);
+		scrollPane_1.setBounds(77, 272, 971, 260);
 		frame.getContentPane().add(scrollPane_1);
 		
 		// Set Evaluation Table-------------------------------------------------------------------
@@ -165,6 +166,33 @@ public class Results {
 		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNewButton.setBounds(633, 588, 193, 60);
 		frame.getContentPane().add(btnNewButton);
+		
+		JScrollPane scrollPane_2 = new JScrollPane();
+		scrollPane_2.setBounds(1058, 272, 166, 260);
+		frame.getContentPane().add(scrollPane_2);
+		
+		table_1 = new JTable();
+		table_1.setCellSelectionEnabled(true);
+		table_1.setColumnSelectionAllowed(true);
+		table_1.setFillsViewportHeight(true);
+		table_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		table_1.setModel(new DefaultTableModel(
+			new Object[][] {
+			},
+			new String[] {
+				"Evalution"
+			}
+		));
+		JTableHeader Theader3 = table_1.getTableHeader();
+
+		Theader3.setBackground(Color.GRAY); // change the Background color
+		Theader3.setForeground(Color.BLACK); // change the Foreground
+
+		Theader3.setFont(new Font("Tahome", Font.BOLD, 20)); // font name style size
+		
+		
+		
+		scrollPane_2.setViewportView(table_1);
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Export pdf class should be export
@@ -172,5 +200,4 @@ public class Results {
 			}
 		});
 	}
-
 }
