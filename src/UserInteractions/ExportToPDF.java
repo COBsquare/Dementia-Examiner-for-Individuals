@@ -22,7 +22,7 @@ import App.User;
 import UserInteractions.Interfaces.Results;
 
 public class ExportToPDF {
-	public static final String DEST = "Resources/SamplePDF.pdf";
+	public static final String DEST = System.getProperty("user.home") + "/Desktop"+ "/DEfI-Report.pdf";
 
 	public static void main(String[] args) throws IOException, DocumentException {
 		File file = new File(DEST);
@@ -149,10 +149,10 @@ public class ExportToPDF {
 
 		// Adding Examination results
 		document.add(new Paragraph("MMSE Results:"));
-		table = new PdfPTable(3);
 
 		// Setting the second table size and information's position
 		// Adding second paragraph
+		table = new PdfPTable(3);
 		table.setSpacingBefore(10);
 		table.setWidths(new int[] { 10, 10, 7 });
 		table.setWidthPercentage(100);
@@ -173,7 +173,7 @@ public class ExportToPDF {
 			table.addCell((i+1)+". "+Results.questions[i]);
 			table.addCell("answer");
 			//table.addCell(Results.answers[i]);
-			table.addCell("CORRECT");
+			table.addCell("You got "+"2"+ "out of"+"2");
 		}
 		
 		document.add(table);
@@ -190,7 +190,8 @@ public class ExportToPDF {
 		document.add(new Paragraph("Polygon Drawing:"));
 		document.add(new Paragraph(" "));
 
-		Image img3 = Image.getInstance("path will added");
+		// TODO Path will be changed
+		Image img3 = Image.getInstance("Resources/Samples/_polygon3.png");
 		img3.scaleToFit(200f, 200f);
 		img3.setAlignment(Image.MIDDLE);
 		document.add(img3);
@@ -198,7 +199,7 @@ public class ExportToPDF {
 		// Setting the first table size and information's position
 		table = new PdfPTable(2);
 		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 10, 10, 5 });
+		table.setWidths(new int[] { 10, 10});
 		table.setWidthPercentage(100);
 
 		// First table column names
@@ -230,14 +231,15 @@ public class ExportToPDF {
 		document.add(new Paragraph(" "));
 		document.add(new Paragraph("Clock Drawing:"));
 
-		Image img2 = Image.getInstance("Path will added");
+		// TODO Path will be changed
+		Image img2 = Image.getInstance("Resources/Samples/_clockSample2.jpg");
 		img2.scaleToFit(200f, 200f);
 		img2.setAlignment(Image.MIDDLE);
 		document.add(img2);
 
 		table = new PdfPTable(2);
 		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 10, 10, 5 });
+		table.setWidths(new int[] { 10, 10});
 		table.setWidthPercentage(100);
 
 		// Setting column informations
