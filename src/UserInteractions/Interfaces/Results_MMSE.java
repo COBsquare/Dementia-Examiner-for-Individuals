@@ -11,14 +11,16 @@ import javax.swing.JTable;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 
 import javax.swing.table.JTableHeader;
 import App.User;
 
-public class Results {
+public class Results_MMSE {
 
 	private JFrame frame;
+	public static int size;
+	public static String[] questions;
+	public static String[] answers;
 
 	/**
 	 * Launch the application.
@@ -27,7 +29,7 @@ public class Results {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Results window = new Results();
+					Results_MMSE window = new Results_MMSE();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +41,7 @@ public class Results {
 	/**
 	 * Create the application.
 	 */
-	public Results() {
+	public Results_MMSE() {
 		initialize();
 	}
 
@@ -93,10 +95,9 @@ public class Results {
 		String[] MainHeaders = { "Question", "Answer"};
 
 		// Set MainTable----------------------------------------------------------------------------
-		int size = 0;
+		size = 0;
 
-		String[] questions;
-		String[] answers = new String[User.answers.size()];
+		answers = new String[User.answers.size()];
 		User.answers.toArray(answers);
 
 		App.User.setEducation("Literate");
@@ -115,6 +116,7 @@ public class Results {
 
 		for (int i = 0; i < size; i++) {
 			MainRows[i][1] = "deneme";
+			MainRows[i][1] = answers[i];
 		}
 		
 		JTable table_answer = new JTable(MainRows, MainHeaders);

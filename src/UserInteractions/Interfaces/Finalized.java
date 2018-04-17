@@ -76,7 +76,7 @@ public class Finalized {
 
 			}
 			public void actionPerformed(ActionEvent arg0) {
-				 Results.main(null);
+				 Results_MMSE.main(null);
 
 			}
 		});

@@ -18,8 +18,11 @@ import java.net.MalformedURLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import App.User;
+import UserInteractions.Interfaces.Results_MMSE;
+
 public class ExportToPDF {
-	public static final String DEST = "Resources/SamplePDF.pdf";
+	public static final String DEST = System.getProperty("user.home") + "/Desktop"+ "/DEfI-Report.pdf";
 
 	public static void main(String[] args) throws IOException, DocumentException {
 		File file = new File(DEST);
@@ -39,13 +42,13 @@ public class ExportToPDF {
 		img.scaleToFit(300f, 225f);
 		img.setAlignment(Image.MIDDLE);
 		document.add(img);
-		System.out.println("Image loaded...");
 
 		// Adding date and time
 		SimpleDateFormat date = new SimpleDateFormat("dd / MM / Y");
 		SimpleDateFormat time = new SimpleDateFormat("HH:mm");
 		document.add(new Paragraph("DATE : " + date.format(thisDate) + "     TIME : " + time.format(thisDate)));
 		document.add(new Paragraph(" "));
+
 		// Adding first paragraph
 		document.add(new Paragraph("Personal Informations:"));
 
@@ -56,15 +59,15 @@ public class ExportToPDF {
 		table.setWidths(new int[] { 4, 4, 4, 4, 5 });
 		table.setWidthPercentage(100);
 
-		Font a = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD,
-				new BaseColor(/* Red */255, /* Green */255, 255/* Blue */));
+		Font font_boldTimes = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD, new BaseColor(/* Red */255,
+				/* Green */255, 255/* Blue */));
 
 		// First table column names
-		table.addCell(new Paragraph("Name", a));
-		table.addCell(new Paragraph("Age", a));
-		table.addCell(new Paragraph("Gender", a));
-		table.addCell(new Paragraph("Profession", a));
-		table.addCell(new Paragraph("Educational Status", a));
+		table.addCell(new Paragraph("Name", font_boldTimes));
+		table.addCell(new Paragraph("Age", font_boldTimes));
+		table.addCell(new Paragraph("Gender", font_boldTimes));
+		table.addCell(new Paragraph("Profession", font_boldTimes));
+		table.addCell(new Paragraph("Educational Status", font_boldTimes));
 
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
@@ -74,28 +77,28 @@ public class ExportToPDF {
 		}
 
 		// Setting personal informations
-		table.addCell("get(Name)");
-		table.addCell("get(Age)");
-		table.addCell("get(Gender)");
-		table.addCell("get(Profession)");
-		table.addCell("get(Educational Status)");
+		table.addCell(User.getNameSurname());
+		table.addCell(User.getAge());
+		table.addCell(User.getGender());
+		table.addCell(User.getProfession());
+		table.addCell(User.getEducation());
 		document.add(table);
 		table.setSpacingBefore(30);
 		document.add(new Paragraph(" "));
 
-		// deneme----
-		document.add(new Paragraph("GENERAL RESULTS"));
+		// Displays the examination results
+		document.add(new Paragraph("EXAMINATION RESULTS"));
 		table = new PdfPTable(3);
 		table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
 		table.setSpacingBefore(10);
 		table.setWidths(new int[] { 8, 8, 15 });
 		table.setWidthPercentage(100);
-
+		
 		// Setting column informations
 		table.getDefaultCell().setColspan(1);
-		table.addCell(new Paragraph("POLYGON SCORE", a));
-		table.addCell(new Paragraph("CLOCK SCORE", a));
-		table.addCell(new Paragraph("MMSE SCORE", a));
+		table.addCell(new Paragraph("MMSE Score", font_boldTimes));
+		table.addCell(new Paragraph("Polygon Score", font_boldTimes));
+		table.addCell(new Paragraph("Clock Score", font_boldTimes));
 
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
@@ -105,16 +108,15 @@ public class ExportToPDF {
 		}
 
 		// Setting column informations
-		table.addCell("get(number)");
+		table.addCell("");
 		table.addCell("get(number)");
 		table.addCell("get(number)");
 		document.add(table);
 		document.add(new Paragraph(" "));
-		// -----deneme son----
 
 		// Setting the second table size and information's position
 		// Adding second paragraph
-		document.add(new Paragraph("Information Table:"));
+		document.add(new Paragraph("Global Deterioration Scale:"));
 		table = new PdfPTable(2);
 		table.setSpacingBefore(10);
 		table.setWidths(new int[] { 10, 15 });
@@ -122,8 +124,8 @@ public class ExportToPDF {
 
 		// Setting column informations
 		table.getDefaultCell().setColspan(1);
-		table.addCell(new Paragraph("MMSE POINT", a));
-		table.addCell(new Paragraph("COGNITIVE IMPAIRMENT", a));
+		table.addCell(new Paragraph("MMSE POINT", font_boldTimes));
+		table.addCell(new Paragraph("COGNITIVE IMPAIRMENT", font_boldTimes));
 
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
@@ -145,19 +147,19 @@ public class ExportToPDF {
 		table.setSpacingBefore(30);
 		document.add(new Paragraph(" "));
 
-		// Adding third paragraph
-		document.add(new Paragraph("Results:"));
-		table = new PdfPTable(3);
+		// Adding Examination results
+		document.add(new Paragraph("MMSE Results:"));
 
 		// Setting the second table size and information's position
 		// Adding second paragraph
+		table = new PdfPTable(3);
 		table.setSpacingBefore(10);
 		table.setWidths(new int[] { 10, 10, 7 });
 		table.setWidthPercentage(100);
 		table.getDefaultCell().setColspan(1);
-		table.addCell(new Paragraph("QUESTION NUMBER", a));
-		table.addCell(new Paragraph("ANSWER", a));
-		table.addCell(new Paragraph("EVALUATION", a));
+		table.addCell(new Paragraph("Question", font_boldTimes));
+		table.addCell(new Paragraph("Your Answer", font_boldTimes));
+		table.addCell(new Paragraph("Evaluation", font_boldTimes));
 
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
@@ -165,47 +167,39 @@ public class ExportToPDF {
 		for (int j = 0; j < cells3.length; j++) {
 			cells3[j].setBackgroundColor(new BaseColor(/* Red */127, /* Green */162, 211/* Blue */));
 		}
-
+		
 		// Getting answers
-		for (int i = 1; i < 21; i++) {
-			table.addCell("Question Number:" + i);
-			table.addCell("Answer:" + i);
-			table.addCell("CORRECT / FALSE");
-			// -----------------
+		for (int i = 0; i < Results_MMSE.size; i++) {
+			table.addCell("question");
+			//table.addCell((i+1)+". "+Results.questions[i]);
+			table.addCell("answer");
+			//table.addCell(Results.answers[i]);
+			table.addCell("You got "+"2"+ "out of"+"2");
 		}
+		
 		document.add(table);
 		document.add(new Paragraph(" "));
 
-		// --------------------------------------------------------------------------------
-		// ----------------------SECOND
-		// PAGE-----------------------------------------------
-		// --------------------------------------------------------------------------------
-
-		// Adding date and time
-		SimpleDateFormat date2 = new SimpleDateFormat("dd / MM / Y");
-		SimpleDateFormat time2 = new SimpleDateFormat("HH:mm");
-		document.add(new Paragraph("DATE : " + date2.format(thisDate) + "     TIME : " + time2.format(thisDate)));
-
+		// SECOND PAGE---------------------------------------------------------------------
 		// Adding first paragraph
-		document.add(new Paragraph(" - POLYGON SHAPE - DRAWN BY USER"));
+		document.add(new Paragraph("Polygon Drawing:"));
 		document.add(new Paragraph(" "));
 
-		Image img3 = Image.getInstance("C:\\Users\\Durukan\\Desktop\\Images\\2.png");
+		// TODO Path will be changed
+		Image img3 = Image.getInstance("Resources/Samples/_polygon3.png");
 		img3.scaleToFit(200f, 200f);
 		img3.setAlignment(Image.MIDDLE);
 		document.add(img3);
-		System.out.println("Image loaded...");
 
 		// Setting the first table size and information's position
-		table = new PdfPTable(3);
+		table = new PdfPTable(2);
 		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 10, 10, 5 });
+		table.setWidths(new int[] { 10, 10});
 		table.setWidthPercentage(100);
 
 		// First table column names
-		table.addCell(new Paragraph("Drawing Criteria", a));
-		table.addCell(new Paragraph("Current Position", a));
-		table.addCell(new Paragraph("Result", a));
+		table.addCell(new Paragraph("Criteria", font_boldTimes));
+		table.addCell(new Paragraph("Evaluation", font_boldTimes));
 
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
@@ -218,38 +212,35 @@ public class ExportToPDF {
 		table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 		table.addCell("All edges were drawn correctly");
 		table.addCell("SATISFIED / NOT SATISFIED");
-		table.addCell("True / False");
 		table.addCell("Two points were intersected");
 		table.addCell("SATISFIED / NOT SATISFIED");
-		table.addCell("True / False");
 		table.addCell("Polygon drawing is correct");
 		table.addCell("SATISFIED / NOT SATISFIED");
-		table.addCell("True / False");
 		document.add(table);
 		table.setSpacingBefore(5);
+		// TODO Polygon function needed for the satisfaction return
 
 		// Setting the second table size and information's position
 		// Adding second paragraph
 		document.add(new Paragraph(" "));
 		document.add(new Paragraph(" "));
-		document.add(new Paragraph(" - CLOCK - DRAWN BY USER"));
+		document.add(new Paragraph("Clock Drawing:"));
 
-		Image img2 = Image.getInstance("C:\\Users\\Durukan\\Desktop\\Images\\Clock.jpg");
+		// TODO Path will be changed
+		Image img2 = Image.getInstance("Resources/Samples/_clockSample2.jpg");
 		img2.scaleToFit(200f, 200f);
 		img2.setAlignment(Image.MIDDLE);
 		document.add(img2);
-		System.out.println("Image 2 loaded...");
 
-		table = new PdfPTable(3);
+		table = new PdfPTable(2);
 		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 10, 10, 5 });
+		table.setWidths(new int[] { 10, 10});
 		table.setWidthPercentage(100);
 
 		// Setting column informations
 		table.getDefaultCell().setColspan(1);
-		table.addCell(new Paragraph("Drawing Criteria", a));
-		table.addCell(new Paragraph("Current Position", a));
-		table.addCell(new Paragraph("Result", a));
+		table.addCell(new Paragraph("Criteria", font_boldTimes));
+		table.addCell(new Paragraph("Evaluation", font_boldTimes));
 
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
@@ -262,27 +253,21 @@ public class ExportToPDF {
 		table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 		table.addCell("Clock face is presented");
 		table.addCell("SATISFIED / NOT SATISFIED");
-		table.addCell("True / False");
 		table.addCell("Numbers and hands are presented");
 		table.addCell("SATISFIED / NOT SATISFIED");
-		table.addCell("True / False");
 		table.addCell("Hour hand is in the correct place");
 		table.addCell("SATISFIED / NOT SATISFIED");
-		table.addCell("True / False");
 		table.addCell("Minute hand is in the correct place");
 		table.addCell("SATISFIED / NOT SATISFIED");
-		table.addCell("True / False");
 		table.addCell("Minute hand is longer than hour hand");
 		table.addCell("SATISFIED / NOT SATISFIED");
-		table.addCell("True / False");
 		table.addCell("They are in the correct form");
 		table.addCell("SATISFIED / NOT SATISFIED");
-		table.addCell("True / False");
 		document.add(table);
 		table.setSpacingBefore(5);
+		// TODO Clock function needed for the satisfaction return
 
 		document.close();
-		System.out.println("It's Done!..Please Refresh..");
 
 	}
 
