@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="599.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ImageProcessing.application.WebcamTestController">
+   <bottom>
+      <SplitPane dividerPositions="0.10101010101010101" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+        <items>
+            <Label text="Does the camera working?">
+               <font>
+                  <Font name="Arial Italic" size="15.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="771.0">
+               <children>
+                  <Button fx:id="btn_yes" alignment="CENTER" mnemonicParsing="false" onAction="#select_yes" text="YES" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btn_no" alignment="CENTER" mnemonicParsing="false" onAction="#select_no" text="NO" />
+               </children>
+            </HBox>
+        </items>
+      </SplitPane>
+   </bottom>
+   <center>
+      <ImageView fx:id="webcamViewer" disable="true" fitHeight="370.0" fitWidth="628.0" pickOnBounds="true" preserveRatio="true" visible="false" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

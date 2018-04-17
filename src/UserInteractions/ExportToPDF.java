@@ -34,13 +34,6 @@ public class ExportToPDF {
 		PdfWriter.getInstance(document, new FileOutputStream(dest));
 		document.open();
 
-		// Adding image and image setting
-		Image img = Image.getInstance("Resources/Images/Defi Logo.png");
-		img.scaleToFit(300f, 225f);
-		img.setAlignment(Image.MIDDLE);
-		document.add(img);
-		System.out.println("Image loaded...");
-
 		// Adding date and time
 		SimpleDateFormat date = new SimpleDateFormat("dd / MM / Y");
 		SimpleDateFormat time = new SimpleDateFormat("HH:mm");
@@ -116,16 +109,17 @@ public class ExportToPDF {
 
 		// Adding third paragraph
 		document.add(new Paragraph("Results:"));
-		table = new PdfPTable(2);
+		table = new PdfPTable(3);
 
 		// Setting the second table size and information's position
 		// Adding second paragraph
 		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 10, 15 });
+		table.setWidths(new int[] { 10, 10, 7 });
 		table.setWidthPercentage(100);
 		table.getDefaultCell().setColspan(1);
 		table.addCell(new Paragraph("QUESTION NUMBER", a));
 		table.addCell(new Paragraph("ANSWER", a));
+		table.addCell(new Paragraph("CORRECT / FALSE", a));
 
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
@@ -138,40 +132,48 @@ public class ExportToPDF {
 		for (int i = 1; i < 21; i++) {
 			table.addCell("Question Number:" + i);
 			table.addCell("Answer:" + i);
+			table.addCell("CORRECT / FALSE");
 			// -----------------
 		}
 		document.add(table);
 		document.add(new Paragraph(" "));
 
-		// --------------------------------------------------------------------------------
-		// ----------------------SECOND PAGE-----------------------------------------------
-		// --------------------------------------------------------------------------------
-
+		
+				
+		
+		//--------------------------------------------------------------------------------
+		//----------------------SECOND PAGE-----------------------------------------------
+		//--------------------------------------------------------------------------------
+	
+		
 		// Adding date and time
 		SimpleDateFormat date2 = new SimpleDateFormat("dd / MM / Y");
 		SimpleDateFormat time2 = new SimpleDateFormat("HH:mm");
 		document.add(new Paragraph("DATE : " + date2.format(thisDate) + "     TIME : " + time2.format(thisDate)));
-
+	
 		// Adding first paragraph
 		document.add(new Paragraph(" - POLYGON SHAPE - DRAWN BY USER"));
 		document.add(new Paragraph(" "));
-
+		
 		Image img3 = Image.getInstance("C:\\Users\\Durukan\\Desktop\\Images\\2.png");
 		img3.scaleToFit(200f, 200f);
-		img3.setAlignment(Image.LEFT);
+		img3.setAlignment(Image.MIDDLE);
 		document.add(img3);
 		System.out.println("Image loaded...");
-
+		
+		
 		// Setting the first table size and information's position
 		table = new PdfPTable(3);
 		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 10, 10, 5 });
+		table.setWidths(new int[] { 10, 10,5 });
 		table.setWidthPercentage(100);
+
 
 		// First table column names
 		table.addCell(new Paragraph("Drawing Criteria", a));
 		table.addCell(new Paragraph("Current Position", a));
 		table.addCell(new Paragraph("Result", a));
+
 
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
@@ -199,16 +201,16 @@ public class ExportToPDF {
 		document.add(new Paragraph(" "));
 		document.add(new Paragraph(" "));
 		document.add(new Paragraph(" - CLOCK - DRAWN BY USER"));
-
+		
 		Image img2 = Image.getInstance("C:\\Users\\Durukan\\Desktop\\Images\\Clock.jpg");
 		img2.scaleToFit(200f, 200f);
-		img2.setAlignment(Image.LEFT);
+		img2.setAlignment(Image.MIDDLE);
 		document.add(img2);
 		System.out.println("Image 2 loaded...");
-
+		
 		table = new PdfPTable(3);
 		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 10, 10, 5 });
+		table.setWidths(new int[] { 10, 10,5 });
 		table.setWidthPercentage(100);
 
 		// Setting column informations
@@ -216,6 +218,7 @@ public class ExportToPDF {
 		table.addCell(new Paragraph("Drawing Criteria", a));
 		table.addCell(new Paragraph("Current Position", a));
 		table.addCell(new Paragraph("Result", a));
+
 
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
@@ -247,6 +250,8 @@ public class ExportToPDF {
 		document.add(table);
 		table.setSpacingBefore(5);
 
+
+		
 		table = new PdfPTable(2);
 		table.setSpacingBefore(10);
 		table.setWidths(new int[] { 15, 15 });
@@ -267,12 +272,16 @@ public class ExportToPDF {
 		// Setting column informations
 		table.addCell("get(number)");
 		table.addCell("get(number)");
-
+		
 		document.add(table);
+		
 
+		
 		document.close();
 		System.out.println("It's Done!..Please Refresh..");
 
+	
 	}
+	
 
 }
