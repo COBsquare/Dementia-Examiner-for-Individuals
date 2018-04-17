@@ -110,7 +110,7 @@ public class Results_Clock {
 		frame.getContentPane().add(btnBack);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Results.main(null);
+				Results_MMSE.main(null);
 			}
 		});
 		

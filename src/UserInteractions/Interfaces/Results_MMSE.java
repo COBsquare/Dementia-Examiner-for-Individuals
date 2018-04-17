@@ -15,7 +15,7 @@ import java.awt.event.ActionListener;
 import javax.swing.table.JTableHeader;
 import App.User;
 
-public class Results {
+public class Results_MMSE {
 
 	private JFrame frame;
 	public static int size;
@@ -29,7 +29,7 @@ public class Results {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Results window = new Results();
+					Results_MMSE window = new Results_MMSE();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +41,7 @@ public class Results {
 	/**
 	 * Create the application.
 	 */
-	public Results() {
+	public Results_MMSE() {
 		initialize();
 	}
 

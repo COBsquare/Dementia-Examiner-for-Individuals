@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import App.User;
-import UserInteractions.Interfaces.Results;
+import UserInteractions.Interfaces.Results_MMSE;
 
 public class ExportToPDF {
 	public static final String DEST = System.getProperty("user.home") + "/Desktop"+ "/DEfI-Report.pdf";
@@ -169,7 +169,7 @@ public class ExportToPDF {
 		}
 		
 		// Getting answers
-		for (int i = 0; i < Results.size; i++) {
+		for (int i = 0; i < Results_MMSE.size; i++) {
 			table.addCell("question");
 			//table.addCell((i+1)+". "+Results.questions[i]);
 			table.addCell("answer");
