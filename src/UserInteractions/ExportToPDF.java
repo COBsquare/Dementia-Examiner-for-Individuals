@@ -34,11 +34,18 @@ public class ExportToPDF {
 		PdfWriter.getInstance(document, new FileOutputStream(dest));
 		document.open();
 
+		// Adding image and image setting
+		Image img = Image.getInstance("Resources/Images/Defi Logo.png");
+		img.scaleToFit(300f, 225f);
+		img.setAlignment(Image.MIDDLE);
+		document.add(img);
+		System.out.println("Image loaded...");
+
 		// Adding date and time
 		SimpleDateFormat date = new SimpleDateFormat("dd / MM / Y");
 		SimpleDateFormat time = new SimpleDateFormat("HH:mm");
 		document.add(new Paragraph("DATE : " + date.format(thisDate) + "     TIME : " + time.format(thisDate)));
-
+		document.add(new Paragraph(" "));
 		// Adding first paragraph
 		document.add(new Paragraph("Personal Informations:"));
 
@@ -63,7 +70,7 @@ public class ExportToPDF {
 		table.setHeaderRows(1);
 		PdfPCell[] cells = table.getRow(0).getCells();
 		for (int j = 0; j < cells.length; j++) {
-			cells[j].setBackgroundColor(BaseColor.BLUE);
+			cells[j].setBackgroundColor(new BaseColor(/* Red */127, /* Green */162, 211/* Blue */));
 		}
 
 		// Setting personal informations
@@ -74,6 +81,36 @@ public class ExportToPDF {
 		table.addCell("get(Educational Status)");
 		document.add(table);
 		table.setSpacingBefore(30);
+		document.add(new Paragraph(" "));
+
+		// deneme----
+		document.add(new Paragraph("GENERAL RESULTS"));
+		table = new PdfPTable(3);
+		table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+		table.setSpacingBefore(10);
+		table.setWidths(new int[] { 8, 8, 15 });
+		table.setWidthPercentage(100);
+
+		// Setting column informations
+		table.getDefaultCell().setColspan(1);
+		table.addCell(new Paragraph("POLYGON SCORE", a));
+		table.addCell(new Paragraph("CLOCK SCORE", a));
+		table.addCell(new Paragraph("MMSE SCORE", a));
+
+		// Painting to first row as a header to gray
+		table.setHeaderRows(1);
+		PdfPCell[] cellsresult = table.getRow(0).getCells();
+		for (int j = 0; j < cellsresult.length; j++) {
+			cellsresult[j].setBackgroundColor(new BaseColor(/* Red */127, /* Green */162, 211/* Blue */));
+		}
+
+		// Setting column informations
+		table.addCell("get(number)");
+		table.addCell("get(number)");
+		table.addCell("get(number)");
+		document.add(table);
+		document.add(new Paragraph(" "));
+		// -----deneme son----
 
 		// Setting the second table size and information's position
 		// Adding second paragraph
@@ -92,7 +129,7 @@ public class ExportToPDF {
 		table.setHeaderRows(1);
 		PdfPCell[] cells2 = table.getRow(0).getCells();
 		for (int j = 0; j < cells2.length; j++) {
-			cells2[j].setBackgroundColor(BaseColor.BLUE);
+			cells2[j].setBackgroundColor(new BaseColor(/* Red */127, /* Green */162, 211/* Blue */));
 		}
 
 		// Setting column informations
@@ -106,6 +143,7 @@ public class ExportToPDF {
 		table.addCell("Severe Cognitive Impairment");
 		document.add(table);
 		table.setSpacingBefore(30);
+		document.add(new Paragraph(" "));
 
 		// Adding third paragraph
 		document.add(new Paragraph("Results:"));
@@ -119,13 +157,13 @@ public class ExportToPDF {
 		table.getDefaultCell().setColspan(1);
 		table.addCell(new Paragraph("QUESTION NUMBER", a));
 		table.addCell(new Paragraph("ANSWER", a));
-		table.addCell(new Paragraph("CORRECT / FALSE", a));
+		table.addCell(new Paragraph("EVALUATION", a));
 
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
 		PdfPCell[] cells3 = table.getRow(0).getCells();
 		for (int j = 0; j < cells3.length; j++) {
-			cells3[j].setBackgroundColor(BaseColor.BLUE);
+			cells3[j].setBackgroundColor(new BaseColor(/* Red */127, /* Green */162, 211/* Blue */));
 		}
 
 		// Getting answers
@@ -138,48 +176,42 @@ public class ExportToPDF {
 		document.add(table);
 		document.add(new Paragraph(" "));
 
-		
-				
-		
-		//--------------------------------------------------------------------------------
-		//----------------------SECOND PAGE-----------------------------------------------
-		//--------------------------------------------------------------------------------
-	
-		
+		// --------------------------------------------------------------------------------
+		// ----------------------SECOND
+		// PAGE-----------------------------------------------
+		// --------------------------------------------------------------------------------
+
 		// Adding date and time
 		SimpleDateFormat date2 = new SimpleDateFormat("dd / MM / Y");
 		SimpleDateFormat time2 = new SimpleDateFormat("HH:mm");
 		document.add(new Paragraph("DATE : " + date2.format(thisDate) + "     TIME : " + time2.format(thisDate)));
-	
+
 		// Adding first paragraph
 		document.add(new Paragraph(" - POLYGON SHAPE - DRAWN BY USER"));
 		document.add(new Paragraph(" "));
-		
+
 		Image img3 = Image.getInstance("C:\\Users\\Durukan\\Desktop\\Images\\2.png");
 		img3.scaleToFit(200f, 200f);
 		img3.setAlignment(Image.MIDDLE);
 		document.add(img3);
 		System.out.println("Image loaded...");
-		
-		
+
 		// Setting the first table size and information's position
 		table = new PdfPTable(3);
 		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 10, 10,5 });
+		table.setWidths(new int[] { 10, 10, 5 });
 		table.setWidthPercentage(100);
-
 
 		// First table column names
 		table.addCell(new Paragraph("Drawing Criteria", a));
 		table.addCell(new Paragraph("Current Position", a));
 		table.addCell(new Paragraph("Result", a));
 
-
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
 		PdfPCell[] cellspolygon = table.getRow(0).getCells();
 		for (int j = 0; j < cellspolygon.length; j++) {
-			cellspolygon[j].setBackgroundColor(BaseColor.BLUE);
+			cellspolygon[j].setBackgroundColor(new BaseColor(/* Red */127, /* Green */162, 211/* Blue */));
 		}
 
 		// Setting personal informations
@@ -201,16 +233,16 @@ public class ExportToPDF {
 		document.add(new Paragraph(" "));
 		document.add(new Paragraph(" "));
 		document.add(new Paragraph(" - CLOCK - DRAWN BY USER"));
-		
+
 		Image img2 = Image.getInstance("C:\\Users\\Durukan\\Desktop\\Images\\Clock.jpg");
 		img2.scaleToFit(200f, 200f);
 		img2.setAlignment(Image.MIDDLE);
 		document.add(img2);
 		System.out.println("Image 2 loaded...");
-		
+
 		table = new PdfPTable(3);
 		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 10, 10,5 });
+		table.setWidths(new int[] { 10, 10, 5 });
 		table.setWidthPercentage(100);
 
 		// Setting column informations
@@ -219,12 +251,11 @@ public class ExportToPDF {
 		table.addCell(new Paragraph("Current Position", a));
 		table.addCell(new Paragraph("Result", a));
 
-
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
 		PdfPCell[] cellsclock = table.getRow(0).getCells();
 		for (int j = 0; j < cellsclock.length; j++) {
-			cellsclock[j].setBackgroundColor(BaseColor.BLUE);
+			cellsclock[j].setBackgroundColor(new BaseColor(/* Red */127, /* Green */162, 211/* Blue */));
 		}
 
 		// Setting personal informations
@@ -250,38 +281,9 @@ public class ExportToPDF {
 		document.add(table);
 		table.setSpacingBefore(5);
 
-
-		
-		table = new PdfPTable(2);
-		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 15, 15 });
-		table.setWidthPercentage(100);
-
-		// Setting column informations
-		table.getDefaultCell().setColspan(1);
-		table.addCell(new Paragraph("Polygon Result", a));
-		table.addCell(new Paragraph("Clock Result", a));
-
-		// Painting to first row as a header to gray
-		table.setHeaderRows(1);
-		PdfPCell[] cellsresult = table.getRow(0).getCells();
-		for (int j = 0; j < cellsresult.length; j++) {
-			cellsresult[j].setBackgroundColor(BaseColor.BLUE);
-		}
-
-		// Setting column informations
-		table.addCell("get(number)");
-		table.addCell("get(number)");
-		
-		document.add(table);
-		
-
-		
 		document.close();
 		System.out.println("It's Done!..Please Refresh..");
 
-	
 	}
-	
 
 }
