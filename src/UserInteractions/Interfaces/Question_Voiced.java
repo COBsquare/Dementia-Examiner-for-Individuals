@@ -39,6 +39,10 @@ public class Question_Voiced {
 	static int order = 0;
 	static int max;
 	int click;
+	/**
+	 * @wbp.nonvisual location=811,629
+	 */
+
 
 	/**
 	 * Launch the application.
@@ -86,6 +90,8 @@ public class Question_Voiced {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
+
+
 		JLabel lbl_logo = new JLabel("");
 		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lbl_logo.setBounds(59, 27, 307, 215);
@@ -101,6 +107,14 @@ public class Question_Voiced {
 		lbl_pencil.setIcon(new ImageIcon("Resources/Images/pencil.png"));
 		lbl_pencil.setVisible(false);
 		frame.getContentPane().add(lbl_pencil);
+
+		JLabel lbl_speechAnswer = new JLabel("Your speech answer is");
+		lbl_speechAnswer.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lbl_speechAnswer.setBounds(780, 590, 250, 100);
+		lbl_speechAnswer.setVisible(false);
+		frame.getContentPane().add(lbl_speechAnswer);
+
+
 
 		JButton btn_clickbutton = new JButton("Button");
 		btn_clickbutton.setForeground(new Color(255, 255, 255));
@@ -146,7 +160,7 @@ public class Question_Voiced {
 
 		btnReadTheQuestion.setBounds(420, 342, 169, 168);
 		frame.getContentPane().add(btnReadTheQuestion);
-		
+
 		JButton btn_Next = new JButton("Next");
 		btn_Next.setVisible(false);
 		btn_Next.addActionListener(new ActionListener() {
@@ -176,6 +190,7 @@ public class Question_Voiced {
 
 
 		JButton btn_microphone = new JButton();
+
 		btn_microphone.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -187,8 +202,22 @@ public class Question_Voiced {
 
 				} else if ((click % 2) == 0) {
 					btn_Next.setVisible(true);
-					btn_microphone.setIcon(new ImageIcon("Resources/Images/checkmark.png"));
+					btn_microphone.setIcon(new ImageIcon("Resources/Images/microphone.png"));
+					try {
+						lbl_speechAnswer.setVisible(true);
+						String temp = SpeechRecorder.getAnswersOfSpeech("Question" + Integer.toString(question));
+						if(temp.equals("")){
+							lbl_speechAnswer.setText("<html>No answer was given, click on microphone button to record again</html>");
+						}else{
+							lbl_speechAnswer.setText("<html>Your answer is " + temp + " click on microphone button to record again</html>");
+						}
+
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
 					SpeechRecorder.stopMic("Question" + Integer.toString(question));
+
 				} else {
 					click = 0;
 
@@ -202,7 +231,7 @@ public class Question_Voiced {
 		frame.getContentPane().add(btn_microphone);
 		frame.getRootPane().setDefaultButton(btn_microphone);
 
-	
+
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
 		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
@@ -213,7 +242,7 @@ public class Question_Voiced {
 			}
 		});
 
-		
+
 
 		JLabel lblNewLabel_3 = new JLabel("Your progress is:");
 		lblNewLabel_3.setForeground(new Color(204, 0, 0));
@@ -249,7 +278,7 @@ public class Question_Voiced {
 		btnClose.setBounds(1281, 27, 60, 60);
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
-		
+
 		JLabel lblPleaseClickThe = new JLabel("<html>Please click the microphone button for answering, and click again for recording answer</html>");
 		lblPleaseClickThe.setForeground(new Color(204, 51, 0));
 		lblPleaseClickThe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));

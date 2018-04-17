@@ -32,7 +32,7 @@ public class Evaluation {
 			"october", "november", "december" };
 	String[] daysOfWeek = { "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
 	String[] unrelatedObjects = { "ball", "car", "man" };
-
+	
 	public Evaluation(){
 		configuration.setAcousticModelPath("resource:/edu/cmu/sphinx/models/en-us/en-us");
 		configuration.setDictionaryPath("resource:/edu/cmu/sphinx/models/en-us/cmudict-en-us.dict");
