@@ -9,8 +9,6 @@ public final class User {
 			"What is date today? Please give your answer like march twelfth.",
 			"What is the current day?",
 			"Which month are we in?",
-			"",
-			"",
 			"Could you tell me the direction of the school using compass above?",
 			"Now, I will name you three objects. After I tell you them. I would like you to repeat them one by one. Ball, car, man.",
 			"I would like you to count backward from hundred by sevens.",
@@ -30,8 +28,6 @@ public final class User {
 			"What is date today? Please give your answer like march twelfth.",
 			"What is the current day?",
 			"Which month are we in?",
-			"",
-			"",
 			"Could you tell me the direction of the school using compass above?",
 			"Now, I will name you three objects. After I tell you them. I would like you to repeat them one by one. Ball, car, man.",
 			"Could you tell me the days of week in reverse order. For example: Sunday Saturday, please continue.",
@@ -40,19 +36,21 @@ public final class User {
 			"Repeat the phrase: “I would have gone if he had gone”",
 			"Can you say 'paper'?",
 			"Can you press the 'green' button?",
-			"",
 			"Please copy this picture." };
 
 	private static boolean speakerCheck;
 	private static boolean micCheck;
 	private static boolean webcamCheck;
-
-	private static String education;
+	
+	private static String education="Not yet entered";
 	private static String nameSurname = "Not entered";
 	private static String age = "Not entered";
 	private static String gender = "Not entered";
 	private static String profession = "Not entered";
 
+	public static int orderLiterate[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
+	public static int orderIlliterate[] = { 1, 2, 3, 4, 5, 6, 7, 18, 9, 10, 19, 12, 13,17};
+	
 	public static ArrayList<String> answers = new ArrayList<String>();
 	private static ArrayList<Integer> score = new ArrayList<Integer>();
 

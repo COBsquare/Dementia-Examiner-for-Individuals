@@ -1,5 +1,0 @@
-#JSGF V1.0;
-
-
-
-grammar Question14;public <Question14> = ( paper ) ;

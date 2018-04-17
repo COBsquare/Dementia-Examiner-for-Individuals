@@ -2,4 +2,4 @@
 
 
 
-grammar Question12;public <Question12> = ( wristwatch and pencil | wristwatch pencil | pencil and wristwatch | pencil wristwatch  ) ;
+grammar Question12;public <Question12> = ( paper ) ;

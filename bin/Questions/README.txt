@@ -1,8 +1,6 @@
 Tutorial----------------------------------------------------------------------
 SoundCheck. Can you hear my voice?
 
-
-
 LITERATE MMSE--------------------------------------------------------------------
 DATE
 1. Which year are we in?
@@ -12,41 +10,39 @@ DATE
 5. Which month are we in?
 
 SPATIAL ORIENTATION
-6.
-7.
-8. Could you tell me the direction of the school using compass above?
+6. Could you tell me the direction of the school using compass above?
 
 REGISTRATION
-9. Now, I will name you three objects. After I tell you them. I would like you to repeat them one by one. Ball, car, man.
+7. Now, I will name you three objects. After I tell you them. I would like you to repeat them one by one. Ball, car, man.
 
 MENTAL REVERSAL
-10. I would like you to count backward from hundred by sevens.
+8. I would like you to count backward from hundred by sevens.
 
 RECALL
-11. Earlier I told you the names of three things. Can you tell me
+9. Earlier I told you the names of three things. Can you tell me
 what those were?
 
 NAMING
-12. You can see two objects on the screen. Can you tell me the names of the objects?
+10. You can see two objects on the screen. Can you tell me the names of the objects?
 
 
 REPETITION
-13. Repeat the phrase: ‘No ifs, ands, or buts.’,
+11. Repeat the phrase: ‘No ifs, ands, or buts.’,
 
 THREE STAGE COMMAND
-14. Can you say "paper"?
-15. Can you press the "green" button?
-16. Can you type "Hello World!" in the text box?
+12. Can you say "paper"?
+13. Can you press the "green" button?
+14. Can you type "Hello World!" in the text box?
 
 READ AND OBEY
-17. Please read this and do what it says.
+15. Please read this and do what it says.
 
 WRITING
-18. Make up and write a sentence about anything. This
+16. Make up and write a sentence about anything. This
 sentence must contain a noun and a verb.
 
 COPYING TWO PENTAGONS
-19. Please copy this picture.
+17. Please copy this picture.
 
 ILLITERATE MMSE--------------------------------------------------------------
 
@@ -54,26 +50,29 @@ DATE
 1-2-3-4-5
 
 SPATIAL ORIENTATION
-6-7-8
+6
 
 REGISTRATION
-9
+7
 
 MENTAL REVERSAL
-20. Could you tell me the days of week in reverse order. For example: Sunday Saturday, please continue.
+18. Could you tell me the days of week in reverse order. For example: Sunday Saturday, please continue.
 
 RECALL
-11
+9
 
 NAMING
-12
+10
 
 REPETITION
-21. Repeat the phrase: “I would have gone if he had gone”
+19. Repeat the phrase: “I would have gone if he had gone”
 
 THREE-STAGE COMMAND
-14-15
-22.
+12-13
 
 COPYING TWO RECT.
-19
+17
+
+CLOCK-----------------------------------------------------------------------------
+20. Please draw an analog clock on a piece of paper that was suggested at the beginning. 
+Clock should show ten past eleven.

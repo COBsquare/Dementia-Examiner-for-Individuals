@@ -1,6 +1,0 @@
-#JSGF V1.0;
-
-
-
-grammar Question13;
-public <Question13> = ( no ifs ands or buts ) ;

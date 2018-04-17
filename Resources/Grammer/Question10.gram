@@ -2,4 +2,4 @@
 
 
 
-grammar Question10;public <Question10> = ( ninety three eighty six seventy nine seventy two sixty five ) ;
+grammar Question10;public <Question10> = ( wristwatch and pencil | chair pencil | pencil and chair | pencil chair  ) ;

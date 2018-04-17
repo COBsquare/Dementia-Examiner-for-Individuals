@@ -2,4 +2,4 @@
 
 
 
-grammar Question8;public <Question8> = (north | south | east | west) ;
+grammar Question8;public <Question8> = (  one hundred ninety three eighty six seventy nine seventy two sixty five  | ninety three eighty six seventy nine seventy two sixty five ) ;

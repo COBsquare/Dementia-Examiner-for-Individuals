@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+
+
+grammar Question6;public <Question6> = (north | south | east | west | northeast) ;

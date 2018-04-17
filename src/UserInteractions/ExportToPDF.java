@@ -180,7 +180,7 @@ public class ExportToPDF {
 		document.add(table);
 		document.add(new Paragraph(" "));
 
-		// SECOND PAGE---------------------------------------------------------------------
+		// SECOND PAGE------------------------------------------------------------------------
 		// Adding first paragraph
 		document.add(new Paragraph("Polygon Drawing:"));
 		document.add(new Paragraph(" "));
