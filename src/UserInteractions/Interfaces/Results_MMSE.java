@@ -14,6 +14,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.table.JTableHeader;
 import App.User;
+import SpeechRecognition.Evaluation;
 
 public class Results_MMSE {
 
@@ -141,7 +142,7 @@ public class Results_MMSE {
 		String[][] EvalRows = new String[size][size];
 		
 		for(int i=0;i<size;i++){
-			EvalRows[i][0]=(i+1)+". "+"Correct";
+			EvalRows[i][0]=(i+1)+Evaluation.scoring.get(i);
 		}
 		
 		JTable table_evaluation = new JTable(EvalRows,EvalHeader);

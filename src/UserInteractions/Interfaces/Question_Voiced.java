@@ -61,18 +61,19 @@ public class Question_Voiced {
 	 * Create the application.
 	 */
 	public Question_Voiced() {
-		initialize();
 
 		// As an example="Literate"
-		App.User.setEducation("Literate");
+		App.User.setEducation("Illiterate");
 
 		if (App.User.getEducation().equals("Literate")) {
 			question = User.orderLiterate[order];
-			max = User.orderLiterate.length;
+			max = User.orderLiterate.length - 2;
 		} else if (App.User.getEducation().equals("Illiterate")) {
 			question = User.orderIlliterate[order];
-			max = User.orderIlliterate.length;
+			max = User.orderIlliterate.length - 1;
 		}
+
+		initialize();
 
 	}
 
@@ -80,6 +81,7 @@ public class Question_Voiced {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
 		frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
@@ -156,7 +158,7 @@ public class Question_Voiced {
 				if (order < max) {
 					Question_Voiced.main(null);
 				} else {
-					Question_Image.main(null);
+					Question_Polygon.main(null);
 				}
 			}
 		});
@@ -241,27 +243,11 @@ public class Question_Voiced {
 		frame.getContentPane().add(lblPleaseClickThe);
 
 		// Additional stuff for the questions----------------------------------------------------
-		JLabel lbl_map = new JLabel("");
-		lbl_map.setBounds(886, 94, 455, 307);
-		frame.getContentPane().add(lbl_map);
-		lbl_map.setVisible(false);
-
-		JLabel lbl_compass = new JLabel("");
-		lbl_compass.setBounds(956, 421, 230, 230);
-		lbl_compass.setIcon(new ImageIcon("Resources/Images/compass.png"));
-		lbl_compass.setVisible(false);
-		frame.getContentPane().add(lbl_compass);
-
-		JLabel lbl_watch = new JLabel("");
-		lbl_watch.setBounds(971, 94, 215, 215);
-		lbl_watch.setVisible(false);
-		frame.getContentPane().add(lbl_watch);
-
-		JLabel lbl_pencil = new JLabel("");
-		lbl_pencil.setBounds(971, 307, 215, 215);
-		lbl_pencil.setIcon(new ImageIcon("Resources/Images/pencil.png"));
-		lbl_pencil.setVisible(false);
-		frame.getContentPane().add(lbl_pencil);
+		JLabel lbl = new JLabel("");
+		lbl.setBounds(886, 94, 455, 307);
+		frame.getContentPane().add(lbl);
+		lbl.setVisible(false);
+		frame.getContentPane().add(lbl);
 
 		textField = new JTextField();
 		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -278,25 +264,47 @@ public class Question_Voiced {
 		btn_clickbutton.setBounds(116, 440, 179, 48);
 		btn_clickbutton.setVisible(false);
 		frame.getContentPane().add(btn_clickbutton);
+		btn_clickbutton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(!User.answers.get(User.answers.size()-1).equals("Pressed"))
+					User.addAnswer("Pressed");
+			}
+		});
 
 		// For the specific questions
 		if (question == 6) {
-			lbl_map.setVisible(true);
-			lbl_map.setIcon(new ImageIcon("Resources/Images/map.png")); //map degisecek
-			lbl_compass.setVisible(true);
+			// TODO new image, yeri deðiþcek
+			lbl.setVisible(true);
+			lbl.setIcon(new ImageIcon("Resources/Images/map.png"));
+			lbl.setVisible(true);
 		} else if (question == 10) {
-			lbl_pencil.setVisible(true);
-			lbl_watch.setIcon(new ImageIcon("Resources/Images/wristwatch.png"));
-
-			lbl_watch.setVisible(true);
-
+			// TODO new image (chair,pencil), yeri deðiþcek
+			lbl.setVisible(true);
+			lbl.setIcon(new ImageIcon("Resources/Images/wristwatch.png"));
+			lbl.setVisible(true);
 		} else if (question == 13) {
 			lblNewLabel_4.setVisible(false);
-
 			btn_clickbutton.setVisible(true);
+			btn_microphone.setVisible(false);
+			btn_Next.setVisible(true);
+		} else if (question == 14) {
+			textField.setVisible(true);
+			App.User.addAnswer(textField.getText());
+			btn_microphone.setVisible(false);
+
+		} else if (question == 15) {
+			lbl.setForeground(new Color(204, 51, 0));
+			lbl.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+			lbl.setText("<html> Please do this calculation:<br>7 X 3</br>Type the answer down.</html>");
+			textField.setVisible(true);
+			App.User.addAnswer(textField.getText());
+			btn_microphone.setVisible(false);
+
 		} else if (question == 16) {
 			textField.setVisible(true);
 			App.User.addAnswer(textField.getText());
+			btn_microphone.setVisible(false);
+
 		}
 
 	}

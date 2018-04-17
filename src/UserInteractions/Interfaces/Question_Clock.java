@@ -15,25 +15,18 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-
 import ImageProcessing.application.Main;
-import ImageProcessing.application.WebcamTestMain;
-import SpeechRecognition.SpeechRecorder;
 
-
-
-public class Question_Image {
+public class Question_Clock {
 
 	private JFrame frame;
-	int i=0;
-	int click=0;
+	int i = 0;
+	int click = 0;
 
 	/**
 	 * Launch the application.
@@ -42,7 +35,7 @@ public class Question_Image {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Question_Image window = new Question_Image();
+					Question_Clock window = new Question_Clock();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -54,8 +47,10 @@ public class Question_Image {
 	/**
 	 * Create the application.
 	 */
-	public Question_Image() {
+	public Question_Clock() {
+
 		initialize();
+
 	}
 
 	/**
@@ -77,13 +72,14 @@ public class Question_Image {
 		frame.getContentPane().add(lblNewLabel);
 
 		JButton btnReadTheQuestion = new JButton("");
+		btnReadTheQuestion.setBounds(269, 342, 169, 168);
+		frame.getContentPane().add(btnReadTheQuestion);
 		btnReadTheQuestion.setIcon(new ImageIcon("Resources/Images/play.png"));
 		btnReadTheQuestion.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnReadTheQuestion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					File file = new File(
-							"C:/Users/BegumOzceylan/eclipse-workspace/DEfI-GUI/Resorces/Audios/Question4.wav");
+					File file = new File("Resources/Questions/" + Integer.toString(20) + ".wav");
 					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
 					Clip clip = AudioSystem.getClip();
 					clip.open(audioInputStream);
@@ -97,30 +93,26 @@ public class Question_Image {
 			}
 		});
 
-		btnReadTheQuestion.setBounds(269, 342, 169, 168);
-		frame.getContentPane().add(btnReadTheQuestion);
 		
-		
+
 		JButton btn_Next = new JButton("Next");
 		btn_Next.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_Next.setBounds(1080, 598, 142, 54);
 		btn_Next.setVisible(false);
 		frame.getContentPane().add(btn_Next);
-		frame.getRootPane().setDefaultButton( btn_Next );
-		
-
+		frame.getRootPane().setDefaultButton(btn_Next);
 		btn_Next.addActionListener(new ActionListener() {
 			@SuppressWarnings("unused")
 			public void keyPressed(KeyEvent e) {
-			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 
-			    }
+				}
 
 			}
+
 			public void actionPerformed(ActionEvent e) {
-			
-					Finalized.main(null);
-				
+
+				Finalized.main(null);
 
 			}
 		});
@@ -130,49 +122,62 @@ public class Question_Image {
 		btn_camera.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_camera.setBounds(595, 342, 169, 168);
 		frame.getContentPane().add(btn_camera);
-		frame.getRootPane().setDefaultButton( btn_camera );
+		frame.getRootPane().setDefaultButton(btn_camera);
 		btn_camera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				click++;
 				if (click == 1) {
+					// TODO Problem when call image class
 					Main.main(null);
 					btn_Next.setVisible(true);
-			
+
 				} else {
 					click = 0;
 
 				}
 
 			}
-			
-		});
-		
 
-		JLabel lbl_shapeilliterate = new JLabel("");
-		lbl_shapeilliterate.setBounds(854, 236, 420, 309);
-		lbl_shapeilliterate.setVisible(false);
-		frame.getContentPane().add(lbl_shapeilliterate);
-		
-		JLabel lbl_shapeliterate = new JLabel("");
-		lbl_shapeliterate.setBounds(854, 285, 439, 243);
-		lbl_shapeliterate.setVisible(false);
-		frame.getContentPane().add(lbl_shapeliterate);
-		
-		
-		
-		
-		JLabel lblNewLabel_4 = new JLabel("<html> Please click the play button for listening the question</html>");
+		});
+
+		JLabel lbl_image = new JLabel("");
+		lbl_image.setBounds(854, 285, 439, 243);
+		lbl_image.setVisible(true);
+		lbl_image.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		frame.getContentPane().add(lbl_image);
+		lbl_image.setText("<html>The clock-drawing test is used for screening for cognitive impairment.</html>");
+
+		JLabel lblNewLabel_4 = new JLabel("<html>Listen to question here!</html>");
 		lblNewLabel_4.setForeground(new Color(204, 51, 0));
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		lblNewLabel_4.setBounds(269, 223, 211, 95);
 		frame.getContentPane().add(lblNewLabel_4);
-		
 
+		JLabel lblNewLabel_7 = new JLabel("  Clock Drawing");
+		lblNewLabel_7.setForeground(SystemColor.activeCaptionText);
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblNewLabel_7.setBorder(new LineBorder(SystemColor.activeCaption, 2));
+		lblNewLabel_7.setBounds(364, 120, 251, 43);
+		lblNewLabel_7.setVisible(true);
+		frame.getContentPane().add(lblNewLabel_7);
 
-		
-		
+		JLabel lbl_camerawarning = new JLabel("<html>Click here to upload the drawing</html>");
+		lbl_camerawarning.setForeground(new Color(204, 51, 0));
+		lbl_camerawarning.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		lbl_camerawarning.setBounds(594, 236, 203, 95);
+		frame.getContentPane().add(lbl_camerawarning);
 
+		JButton btnClose = new JButton("");
+		btnClose.setBounds(1281, 27, 60, 60);
+		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
+		frame.getContentPane().add(btnClose);
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+			}
+		});
+		
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
 		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
@@ -183,56 +188,6 @@ public class Question_Image {
 			}
 		});
 
-		JButton btnClose = new JButton("");
-		btnClose.setBounds(1281, 27, 60, 60);
-		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
-		frame.getContentPane().add(btnClose);
 		
-		JLabel lblNewLabel_7 = new JLabel("  Polygon Drawing");
-		lblNewLabel_7.setForeground(SystemColor.activeCaptionText);
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 24));
-		Border border = BorderFactory.createLineBorder(Color.DARK_GRAY, 2);
-		lblNewLabel_7.setBorder(new LineBorder(SystemColor.activeCaption, 2));
-		lblNewLabel_7.setBounds(364, 120, 251, 43);
-		frame.getContentPane().add(lblNewLabel_7);
-		
-		JLabel lbl_camerawarning = new JLabel("<html>Please click the camera button for uploading the drawing</html>");
-		lbl_camerawarning.setForeground(new Color(204, 51, 0));
-		lbl_camerawarning.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		lbl_camerawarning.setBounds(594, 236, 203, 95);
-		frame.getContentPane().add(lbl_camerawarning);
-		lblNewLabel_7.setVisible(false);
-		
-	
-		btnClose.addActionListener(new ActionListener() {
-			
-			public void actionPerformed(ActionEvent arg0) {
-
-				System.exit(0);
-			}
-		});
-		
-		
-		
-		if (i==0 ) {
-			App.User.setEducation("Literate");
-			if(App.User.getEducation()=="Literate") {
-				lbl_shapeliterate.setVisible(true);
-				lblNewLabel_7.setVisible(true);
-				lbl_shapeliterate.setIcon(new ImageIcon("Resources/Images/polygon_literate.png"));
-				
-								
-			} else if(App.User.getEducation()=="Illiterate") {
-				lblNewLabel_7.setVisible(true);
-				lbl_shapeilliterate.setVisible(true);
-				lbl_shapeilliterate.setIcon(new ImageIcon("Resources/Images/polygon_illiterate.png"));
-				
-			}
-			
-		} else if (i==1) {
-			lbl_shapeliterate.setText("The clock-drawing test is used for screening for cognitive impairment."); //solda cikacak muhtemelen duzenlenmeli
-			lbl_shapeliterate.setFont(new Font("Tahoma", Font.ITALIC, 18));
-			lblNewLabel_7.setText(" Clock Drawing");
-		}
 	}
 }

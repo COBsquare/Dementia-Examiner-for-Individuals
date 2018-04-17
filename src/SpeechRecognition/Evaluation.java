@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 import java.util.logging.Logger;
@@ -66,11 +67,14 @@ public final class Evaluation {
 			"december" };
 	static String[] daysOfWeek = { "sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday" };
 	static String[] unrelatedObjects = { "ball", "car", "man" };
-
+	private static String speechWords;
+	public static ArrayList<String> scoring=new ArrayList<String>(); 
+	static int point=0;
+	
 	public void evaluationLiterate() throws IOException {
 
 		for (int i = 1; i < User.orderLiterate.length; i++) {
-			evaluate(User.orderLiterate[i], 3);
+			evaluate(User.orderLiterate[i], i);
 		}
 
 		User.addScore(getScoreFromSpeech());
@@ -85,14 +89,21 @@ public final class Evaluation {
 	}
 
 	public static void evaluate(int question, int order) throws IOException {
-		String speechWords = SpeechRecorder.getSavedAnswer(order);
+		
+		point=0;
+		if(order!=13 || order!=14 || order!=15 || order!=16){
+			speechWords = SpeechRecorder.getSavedAnswer(order);
+		}
 
 		if (question == 1) {
 			if (speechWords.equals("two thousand eighteen")) {
 				System.out.println("You gained one point from question 1");
+				point=1;
 				scoreFromSpeech++;
 			}
-			System.out.println(" The answer to question 1 is " + speechWords);
+			// TODO Do the same
+			scoring.add(point+" out of 1");
+
 		} else if (question == 2) {
 
 			if (month == 12 && month == 1 && month == 2) {
@@ -117,7 +128,7 @@ public final class Evaluation {
 				}
 			}
 
-			System.out.println(" The answer to question 2 is " + speechWords);
+			scoring.add(point+" out of 1");
 		}
 
 		else if (question == 3) {
@@ -163,15 +174,15 @@ public final class Evaluation {
 			System.out.println(" The result to question 5 is " + speechWords);
 		}
 
-		else if (question == 8) {
-			if (speechWords.equals("")) {
+		else if (question == 6) {
+			if (speechWords.equals("northeast") || speechWords.equals("east")) {
 				System.out.println("You gained one point from question 8 ");
 				scoreFromSpeech++;
 			}
-			System.out.println(" The result to question 8 is " + speechWords);
+			System.out.println(" The result to question 6 is " + speechWords);
 		}
 
-		else if (question == 9) {
+		else if (question == 7) {
 			for (int i = 0; i < 4; i++) {
 				if (i == 3) {
 					if (speechWords.equals("ball car man")) {
@@ -190,15 +201,16 @@ public final class Evaluation {
 
 		}
 
-		else if (question == 10) {
-			if (speechWords.equals("ninety three eighty six seventy nine seventy two sixty five")) {
+		else if (question == 8) {
+			if (speechWords.equals("ninety three eighty six seventy nine seventy two sixty five") || speechWords.equals(
+					"one hundred ninety three eighty six seventy nine seventy two sixty five")) {
 				System.out.println("You gained five points from question 10");
 				scoreFromSpeech = scoreFromSpeech + 5;
 			}
 			System.out.println(" The result to question 10 is " + speechWords);
 		}
 
-		else if (question == 11) {
+		else if (question == 9) {
 			for (int i = 0; i < 4; i++) {
 				if (i == 3) {
 					if (speechWords.equals("ball car man")) {
@@ -217,48 +229,63 @@ public final class Evaluation {
 
 		}
 
-		else if (question == 12) {
-			if (speechWords.equals("wristwatch pencil")) {
+		else if (question == 10) {
+			if (speechWords.equals("chair pencil")) {
 				System.out.println("You gained one point from question 12");
 				scoreFromSpeech++;
-			} else if (speechWords.equals("pencil wristwatch")) {
+			} else if (speechWords.equals("pencil chair")) {
 				System.out.println(" You gained one point from question 12");
 				scoreFromSpeech++;
-			} else if (speechWords.equals("pencil and wristwatch")) {
+			} else if (speechWords.equals("pencil and chair")) {
 				System.out.println(" You gained one point from question 12");
 				scoreFromSpeech++;
-			} else if (speechWords.equals("wristwatch and wristwatch")) {
+			} else if (speechWords.equals("chair and pencil")) {
 				System.out.println(" You gained one point from question 12 ");
 				scoreFromSpeech++;
 			}
-			System.out.println(" The result to question 12 is " + speechWords);
-		} else if (question == 13) {
+			System.out.println(" The result to question 10 is " + speechWords);
+		} else if (question == 11) {
 			if (speechWords.equals("no ifs ands or buts")) {
 				System.out.println("You gained one point from question 13");
 				scoreFromSpeech++;
 			}
 			System.out.println(" The result to question 13 is " + speechWords);
-		} else if (question == 14) {
+		} else if (question == 12) {
 			if (speechWords.equals("paper")) {
 				System.out.println("You gained one point from question 14");
 				scoreFromSpeech++;
 			}
 			System.out.println(" The result to question 14 is " + speechWords);
-		} else if (question == 20) {
+		} else if (question == 13) {
+			String temp = User.answers.get(order);
+			if (temp.equals("Pressed"))
+				scoreFromSpeech++;
+		} else if (question == 14) {
+			String temp = User.answers.get(order);
+			if (temp.equalsIgnoreCase("Hello World"))
+				scoreFromSpeech++;
+		} else if (question == 15) {
+			int temp = Integer.parseInt(User.answers.get(order));
+			if (temp == 21)
+				scoreFromSpeech++;
+		} else if (question == 16) {
+			String temp = User.answers.get(order);
+			if (!temp.equals(""))
+				scoreFromSpeech++;
+
+		} else if (question == 18) {
 			if (speechWords.equals("sunday saturday friday thursday wednesday tuesday monday") || speechWords.equals(
 					"sunday saturday friday thursday wednesday tuesday monday sunday")) {
 				System.out.println("You gained five points from question 20");
 				scoreFromSpeech = scoreFromSpeech + 5;
 			}
 			System.out.println(" The result to question 20 is " + speechWords);
-		} else if (question == 21) {
+		} else if (question == 19) {
 			if (speechWords.equals("i would have gone if he had gone")) {
 				System.out.println("You gained one point from question 21");
 				scoreFromSpeech++;
 			}
 			System.out.println(" The result to question 21 is " + speechWords);
-		} else {
-			System.out.println("FUCK");
 		}
 	}
 
@@ -315,4 +342,5 @@ public final class Evaluation {
 		return unrelatedObjects;
 	}
 
+	
 }
