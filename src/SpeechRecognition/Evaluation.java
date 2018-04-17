@@ -142,7 +142,7 @@ public final class Evaluation {
 					String check = months[i] + " " + days[j];
 					if (speechWords.equals(check)) {
 						if (day == j && month == i) {
-							System.out.println("You gained one point");
+							System.out.println("You gained one point from question 3");
 							point=1;
 							scoreFromSpeech++;
 						} else {
@@ -184,7 +184,7 @@ public final class Evaluation {
 
 		else if (question == 6) {
 			if (speechWords.equals("northeast") || speechWords.equals("east")) {
-				System.out.println("You gained one point from question 8 ");
+				System.out.println("You gained five points from question 6 ");
 				point=5;
 				scoreFromSpeech= scoreFromSpeech + 5;
 			}
@@ -196,20 +196,20 @@ public final class Evaluation {
 			for (int i = 0; i < 4; i++) {
 				if (i == 3) {
 					if (speechWords.equals("ball car man")) {
-						System.out.println(" You gained three points from question 9  ");
+						System.out.println(" You gained three points from question 7  ");
 						point=3;
 						scoreFromSpeech = scoreFromSpeech + 3;
 					}
 				} else {
 					if (speechWords.equals(unrelatedObjects[i])) {
-						System.out.println(" You gained one point from question 9  ");
+						System.out.println(" You gained one point from question 7  ");
 						point=1;
 						scoreFromSpeech++;
 					}
 				}
 			}
 			scoring.add(point+" out of 3");
-			System.out.println(" The result to question 9 is " + speechWords);
+			System.out.println(" The result to question 7 is " + speechWords);
 
 		}
 
@@ -221,20 +221,20 @@ public final class Evaluation {
 				scoreFromSpeech = scoreFromSpeech + 5;
 			}
 			scoring.add(point+" out of 5");
-			System.out.println(" The result to question 10 is " + speechWords);
+			System.out.println(" The result to question 8 is " + speechWords);
 		}
 
 		else if (question == 9) {
 			for (int i = 0; i < 4; i++) {
 				if (i == 3) {
 					if (speechWords.equals("ball car man")) {
-						System.out.println(" You gained three points from question 11  ");
+						System.out.println(" You gained three points from question 9  ");
 						point=3;
 						scoreFromSpeech = scoreFromSpeech + 3;
 					}
 				} else {
 					if (speechWords.equals(unrelatedObjects[i])) {
-						System.out.println(" You gained one point from question 11  ");
+						System.out.println(" You gained one point from question 9  ");
 						point=1;
 						scoreFromSpeech = scoreFromSpeech++;
 					}
@@ -242,25 +242,25 @@ public final class Evaluation {
 
 			}
 			scoring.add(point+" out of 3");
-			System.out.println(" The result to question 11 is " + speechWords);
+			System.out.println(" The result to question 9 is " + speechWords);
 
 		}
 
 		else if (question == 10) {
 			if (speechWords.equals("chair pencil")) {
-				System.out.println("You gained one point from question 12");
+				System.out.println("You gained one point from question 10");
 				point=1;
 				scoreFromSpeech++;
 			} else if (speechWords.equals("pencil chair")) {
-				System.out.println(" You gained one point from question 12");
+				System.out.println(" You gained one point from question 10");
 				point=1;
 				scoreFromSpeech++;
 			} else if (speechWords.equals("pencil and chair")) {
-				System.out.println(" You gained one point from question 12");
+				System.out.println(" You gained one point from question 10");
 				point=1;
 				scoreFromSpeech++;
 			} else if (speechWords.equals("chair and pencil")) {
-				System.out.println(" You gained one point from question 12 ");
+				System.out.println(" You gained one point from question 10 ");
 				point=1;
 				scoreFromSpeech++;
 			}
@@ -268,20 +268,20 @@ public final class Evaluation {
 			System.out.println(" The result to question 10 is " + speechWords);
 		} else if (question == 11) {
 			if (speechWords.equals("no ifs ands or buts")) {
-				System.out.println("You gained one point from question 13");
+				System.out.println("You gained one point from question 11");
 				point=1;
 				scoreFromSpeech++;
 			}
 			scoring.add(point+" out of 1");
-			System.out.println(" The result to question 13 is " + speechWords);
+			System.out.println(" The result to question 11 is " + speechWords);
 		} else if (question == 12) {
 			if (speechWords.equals("paper")) {
-				System.out.println("You gained one point from question 14");
+				System.out.println("You gained one point from question 11");
 				point=1;
 				scoreFromSpeech++;
 			}
 			scoring.add(point+" out of 1");
-			System.out.println(" The result to question 14 is " + speechWords);
+			System.out.println(" The result to question 12 is " + speechWords);
 		} else if (question == 13) {
 			String temp = User.answers.get(order);
 			if (temp.equals("Pressed")){
