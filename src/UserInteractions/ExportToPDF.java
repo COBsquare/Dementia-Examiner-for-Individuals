@@ -167,10 +167,11 @@ public class ExportToPDF {
 		for (int j = 0; j < cells3.length; j++) {
 			cells3[j].setBackgroundColor(new BaseColor(/* Red */127, /* Green */162, 211/* Blue */));
 		}
-
+		
 		// Getting answers
 		for (int i = 0; i < Results.size; i++) {
-			table.addCell((i+1)+". "+Results.questions[i]);
+			table.addCell("question");
+			//table.addCell((i+1)+". "+Results.questions[i]);
 			table.addCell("answer");
 			//table.addCell(Results.answers[i]);
 			table.addCell("You got "+"2"+ "out of"+"2");
@@ -180,12 +181,6 @@ public class ExportToPDF {
 		document.add(new Paragraph(" "));
 
 		// SECOND PAGE---------------------------------------------------------------------
-
-		// Adding date and time
-		SimpleDateFormat date2 = new SimpleDateFormat("dd / MM / Y");
-		SimpleDateFormat time2 = new SimpleDateFormat("HH:mm");
-		document.add(new Paragraph("DATE : " + date2.format(thisDate) + "     TIME : " + time2.format(thisDate)));
-
 		// Adding first paragraph
 		document.add(new Paragraph("Polygon Drawing:"));
 		document.add(new Paragraph(" "));
