@@ -244,7 +244,7 @@ public class Question_Voiced {
 
 		// Additional stuff for the questions----------------------------------------------------
 		JLabel lbl = new JLabel("");
-		lbl.setBounds(886, 94, 455, 307);
+		lbl.setBounds(44, 272, 358, 485);
 		frame.getContentPane().add(lbl);
 		lbl.setVisible(false);
 		frame.getContentPane().add(lbl);
@@ -280,7 +280,7 @@ public class Question_Voiced {
 		} else if (question == 10) {
 			// TODO new image (chair,pencil), yeri deðiþcek
 			lbl.setVisible(true);
-			lbl.setIcon(new ImageIcon("Resources/Images/wristwatch.png"));
+			lbl.setIcon(new ImageIcon("Resources/Images/chair.png"));
 			lbl.setVisible(true);
 		} else if (question == 13) {
 			lblNewLabel_4.setVisible(false);

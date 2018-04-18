@@ -1,0 +1,5 @@
+#JSGF V1.0;
+
+
+
+grammar Question18;public <Question18> = ( sunday saturday friday thursday wednesday tuesday monday | sunday saturday friday thursday wednesday tuesday monday sunday) ;

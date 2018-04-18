@@ -67,9 +67,11 @@ public class Information_Age {
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		comboBox.setBounds(652, 438, 262, 46);
 		frame.getContentPane().add(comboBox);
-
+		
+		
 		for (int i = 15; i <= 130; i++) {
 			comboBox.addItem(i);
+		
 		}
 
 		JButton btnNext = new JButton("Next");
