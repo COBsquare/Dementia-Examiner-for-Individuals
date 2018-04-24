@@ -10,7 +10,7 @@ DATE
 5. Which month are we in?
 
 SPATIAL ORIENTATION
-6. Could you tell me the direction of the school using compass above?
+6. In the map you are in the apartment complex. Could you please tell me the location of the city hall using compass below?
 
 REGISTRATION
 7. Now, I will name you three objects. After I tell you them. I would like you to repeat them one by one. Ball, car, man.
