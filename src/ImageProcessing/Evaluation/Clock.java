@@ -56,9 +56,9 @@ public final class Clock {
 			System.out.print("\n" + outcome[i]);
 			if (condition[i]) {
 				clockface_score++;
-				System.out.print("	[SATISFIED]");
+				User.answers_clock.add("SATISFIED");
 			} else {
-				System.out.print("	[NOT SATISFIED]");
+				User.answers_clock.add("NOT SATISFIED");
 			}
 		}
 
@@ -271,9 +271,9 @@ public final class Clock {
 			System.out.print("\n" + outcome[i]);
 			if (condition[i]) {
 				numbers_score += 2;
-				System.out.print("	[SATISFIED]");
+				User.answers_clock.add("SATISFIED");
 			} else {
-				System.out.print("	[NOT SATISFIED]");
+				User.answers_clock.add("NOT SATISFIED");
 			}
 		}
 
@@ -389,9 +389,9 @@ public final class Clock {
 			System.out.print("\n" + outcome[i]);
 			if (condition[i]) {
 				hands_score++;
-				System.out.print("	[SATISFIED]");
+				User.answers_clock.add("SATISFIED");
 			} else {
-				System.out.print("	[NOT SATISFIED]");
+				User.answers_clock.add("NOT SATISFIED");
 			}
 		}
 

@@ -11,8 +11,12 @@ import javax.swing.JTable;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import javax.swing.table.JTableHeader;
+import com.itextpdf.text.DocumentException;
+
 import App.User;
+import UserInteractions.ExportToPDF;
 
 public class Results_Clock {
 
@@ -59,19 +63,43 @@ public class Results_Clock {
 		frame.getContentPane().add(lblNewLabel);
 
 		String[] columnNames = { "Clock Drawing Criteria", "Score" };
-		int size=0;
-		String[][] rowData = new String[size][size];
+		String[][] rowdata = {
+				{ "CLOCK FACE",""},
+				{ "",""},
+				{ "Clock face is presented", "0" },
+				{ "Numbers and hands are presented", "0" },
+				
+				{ "NUMBERS",""},
+				{ "",""},
+				{ "All numbers are presented", "0" },
+				{ "Numbers are in correct spatial arrangements", "0" },
+				
+				{ "CLOCK HANDS",""},
+				{ "",""},
+				{ "Hour hand is in the correct place", "0" },
+				{ "Minute hand is in the correct place", "0" },
+				{ "Minute hand is longer than hour hand", "0" },
+				{ "They are in correct form", "0" },
+				
+				{ "",""},
+				{ "TOTAL POINT", "8 out of 10" }};
 		frame.getContentPane().setLayout(null);
-
-		JTable table_point = new JTable(rowData, columnNames);
+		
+		if(User.answers_clock.size()>0){
+			for(int i=0;i<User.answers_clock.size();i++){
+				rowdata[i][1]=User.answers_clock.get(i);
+			}
+		}
+		
+		//Integer.toString(User.getScore().get(2))+
+		JTable table_point = new JTable(rowdata, columnNames);
 		table_point.setCellSelectionEnabled(true);
 		table_point.setColumnSelectionAllowed(true);
 		table_point.setFillsViewportHeight(true);
 		table_point.setFont(new Font("Tahoma", Font.PLAIN, 15));
-	
 
 		JScrollPane scrollPane = new JScrollPane(table_point);
-		scrollPane.setBounds(710, 150, 573, 371);
+		scrollPane.setBounds(710, 150, 573, 300);
 		frame.getContentPane().add(scrollPane);
 
 		JTableHeader Theader = table_point.getTableHeader();
@@ -80,7 +108,6 @@ public class Results_Clock {
 
 		Theader.setFont(new Font("Tahoma", Font.BOLD, 20)); // font name style size
 		table_point.setFont(new Font("Tahoma", Font.BOLD, 15));
-
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -103,7 +130,6 @@ public class Results_Clock {
 			}
 		});
 
-			
 		JButton btnBack = new JButton("Back");
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.setBounds(158, 598, 142, 54);
@@ -113,23 +139,27 @@ public class Results_Clock {
 				Results_MMSE.main(null);
 			}
 		});
-		
-		
+
 		JLabel lbl_clock = new JLabel("");
 		lbl_clock.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lbl_clock.setIcon(new ImageIcon("Resources/Images/clock.jpg"));
+		lbl_clock.setIcon(new ImageIcon("Resources/Answers/user_clock.jpg"));
 		lbl_clock.setBounds(327, 199, 328, 279);
 		frame.getContentPane().add(lbl_clock);
-		
+
 		JButton btn_export = new JButton("Export the PDF File");
 		btn_export.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_export.setBounds(1038, 595, 193, 60);
 		frame.getContentPane().add(btn_export);
-		
+
 		btn_export.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Export pdf class should be export
-
+				try {
+					ExportToPDF.main(null);
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (DocumentException e) {
+					e.printStackTrace();
+				}
 			}
 		});
 	}

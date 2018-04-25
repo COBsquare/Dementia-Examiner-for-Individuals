@@ -11,10 +11,15 @@ import javax.swing.JTable;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.table.JTableHeader;
+
+import com.itextpdf.text.DocumentException;
+
 import App.User;
 import SpeechRecognition.Evaluation;
+import UserInteractions.ExportToPDF;
 
 public class Results_MMSE {
 
@@ -93,13 +98,13 @@ public class Results_MMSE {
 		Theader.setFont(new Font("Tahoma", Font.BOLD, 20)); // font name style size
 		table_point.setFont(new Font("Tahoma", Font.BOLD, 15));
 
-		String[] MainHeaders = { "Question", "Answer"};
+		String[] MainHeaders = { "Question", "Answer" };
 
 		// Set MainTable----------------------------------------------------------------------------
 		size = 0;
 
-		answers = new String[User.answers.size()];
-		User.answers.toArray(answers);
+		answers = new String[User.answers_mmse.size()];
+		User.answers_mmse.toArray(answers);
 
 		App.User.setEducation("Literate");
 		if (App.User.getEducation().equals("Literate")) {
@@ -112,49 +117,47 @@ public class Results_MMSE {
 
 		String[][] MainRows = new String[size][size];
 		for (int i = 0; i < size; i++) {
-			MainRows[i][0] = (i+1)+". "+questions[i];
+			MainRows[i][0] = (i + 1) + ". " + questions[i];
 		}
 
 		for (int i = 0; i < size; i++) {
-			MainRows[i][1] = "deneme";
 			MainRows[i][1] = answers[i];
 		}
-		
+
 		JTable table_answer = new JTable(MainRows, MainHeaders);
 		table_answer.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		table_answer.setBounds(10, 124, 195, 173);
 		frame.getContentPane().add(table_answer);
-		
+
 		JScrollPane scrollPane_1 = new JScrollPane(table_answer);
 		scrollPane_1.setToolTipText("");
 		scrollPane_1.setBounds(77, 272, 971, 260);
 		frame.getContentPane().add(scrollPane_1);
-		
+
 		JTableHeader Theader_2 = table_answer.getTableHeader();
 		Theader_2.setBackground(Color.GRAY); // change the Background color
 		Theader_2.setForeground(Color.BLACK); // change the Foreground
 
 		Theader_2.setFont(new Font("Tahoma", Font.BOLD, 20)); // font name style size
 
-		
 		// Set Evaluation Table-------------------------------------------------------------------
-		String[] EvalHeader = { "Evaluation"};
+		String[] EvalHeader = { "Evaluation" };
 		String[][] EvalRows = new String[size][size];
-		
-		for(int i=0;i<size;i++){
-			EvalRows[i][0]=(i+1)+Evaluation.scoring.get(i);
+
+		for (int i = 0; i < size; i++) {
+			EvalRows[i][0] = (i + 1) + Evaluation.scoring.get(i);
 		}
-		
-		JTable table_evaluation = new JTable(EvalRows,EvalHeader);
+
+		JTable table_evaluation = new JTable(EvalRows, EvalHeader);
 		table_evaluation.setCellSelectionEnabled(true);
 		table_evaluation.setColumnSelectionAllowed(true);
 		table_evaluation.setFillsViewportHeight(true);
 		table_evaluation.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		
+
 		JScrollPane scrollPane_2 = new JScrollPane(table_evaluation);
 		scrollPane_2.setBounds(1058, 272, 166, 260);
-		frame.getContentPane().add(scrollPane_2);		
-	
+		frame.getContentPane().add(scrollPane_2);
+
 		JTableHeader Theader_3 = table_evaluation.getTableHeader();
 
 		Theader_3.setBackground(Color.GRAY); // change the Background color
@@ -176,7 +179,7 @@ public class Results_MMSE {
 		btnClose.setBounds(1281, 27, 60, 60);
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
-		
+
 		JLabel lbl_score = new JLabel("Your Score:"); // + test sonucu konulacak
 		lbl_score.setFont(new Font("Tahoma", Font.BOLD, 30));
 		lbl_score.setBounds(996, 126, 275, 60);
@@ -192,12 +195,37 @@ public class Results_MMSE {
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.setBounds(1080, 598, 142, 54);
 		frame.getContentPane().add(btnNext);
-		frame.getRootPane().setDefaultButton( btnNext );
-		btnNext.addActionListener(new ActionListener() {			
+		frame.getRootPane().setDefaultButton(btnNext);
+		btnNext.setVisible(false);
+		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				
 				Results_Clock.main(null);
 			}
 		});
+
+		JButton btnExport = new JButton("Export results to PDF");
+		btnExport.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnExport.setBounds(1080, 598, 142, 54);
+		frame.getContentPane().add(btnExport);
+		frame.getRootPane().setDefaultButton(btnExport);
+		btnExport.setVisible(false);
+		btnExport.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					ExportToPDF.main(null);
+				} catch (IOException e) {
+					e.printStackTrace();
+				} catch (DocumentException e) {
+					e.printStackTrace();
+				}
+			}
+		});
+
+		if (User.getEducation().equals("Illiterate")) {
+			btnExport.setVisible(true);
+		} else {
+			btnNext.setVisible(true);
+		}
+
 	}
 }

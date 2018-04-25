@@ -51,8 +51,10 @@ public final class User {
 	public static int orderLiterate[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
 	public static int orderIlliterate[] = { 1, 2, 3, 4, 5, 6, 7, 18, 9, 10, 19, 12, 13,17};
 	
-	public static ArrayList<String> answers = new ArrayList<String>();
+	public static ArrayList<String> answers_mmse = new ArrayList<String>();
+	public static ArrayList<String> answers_clock = new ArrayList<String>();
 	private static ArrayList<Integer> score = new ArrayList<Integer>();
+
 
 	public static boolean isSpeakerCheck() {
 		return speakerCheck;
@@ -119,15 +121,15 @@ public final class User {
 	}
 
 	public static String getAnswers(int index) {
-		return answers.get(index);
+		return answers_mmse.get(index);
 	}
 
 	public static void setAnswers(ArrayList<String> a) {
-		answers = a;
+		answers_mmse = a;
 	}
 
 	public static void addAnswer(String answer) {
-		answers.add(answer);
+		answers_mmse.add(answer);
 	}
 
 	public static void displayInfo() {

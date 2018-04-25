@@ -185,8 +185,7 @@ public class ExportToPDF {
 		document.add(new Paragraph("Polygon Drawing:"));
 		document.add(new Paragraph(" "));
 
-		// TODO Path will be changed
-		Image img3 = Image.getInstance("Resources/Samples/_polygon3.png");
+		Image img3 = Image.getInstance("Resources/Answers/user_poly.jpg");
 		img3.scaleToFit(200f, 200f);
 		img3.setAlignment(Image.MIDDLE);
 		document.add(img3);
@@ -211,14 +210,12 @@ public class ExportToPDF {
 		// Setting personal informations
 		table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 		table.addCell("All edges were drawn correctly");
-		table.addCell("SATISFIED / NOT SATISFIED");
-		table.addCell("Two points were intersected");
-		table.addCell("SATISFIED / NOT SATISFIED");
+		table.addCell("");
 		table.addCell("Polygon drawing is correct");
-		table.addCell("SATISFIED / NOT SATISFIED");
+		table.addCell("");
+		table.addCell(User.answers_mmse.get(User.answers_mmse.size()-1));
 		document.add(table);
 		table.setSpacingBefore(5);
-		// TODO Polygon function needed for the satisfaction return
 
 		// Setting the second table size and information's position
 		// Adding second paragraph
@@ -226,8 +223,7 @@ public class ExportToPDF {
 		document.add(new Paragraph(" "));
 		document.add(new Paragraph("Clock Drawing:"));
 
-		// TODO Path will be changed
-		Image img2 = Image.getInstance("Resources/Samples/_clockSample2.jpg");
+		Image img2 = Image.getInstance("Resources/Answers/user_clock.jpg");
 		img2.scaleToFit(200f, 200f);
 		img2.setAlignment(Image.MIDDLE);
 		document.add(img2);
@@ -252,21 +248,26 @@ public class ExportToPDF {
 		// Setting personal informations
 		table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 		table.addCell("Clock face is presented");
-		table.addCell("SATISFIED / NOT SATISFIED");
+		table.addCell(User.answers_clock.get(0));
 		table.addCell("Numbers and hands are presented");
-		table.addCell("SATISFIED / NOT SATISFIED");
+		table.addCell(User.answers_clock.get(1));
+		
+		table.addCell("All numbers are presented");
+		table.addCell(User.answers_clock.get(2));
+		table.addCell("Numbers are in correct spatial arrangements");
+		table.addCell(User.answers_clock.get(3));
+	
 		table.addCell("Hour hand is in the correct place");
-		table.addCell("SATISFIED / NOT SATISFIED");
+		table.addCell(User.answers_clock.get(4));
 		table.addCell("Minute hand is in the correct place");
-		table.addCell("SATISFIED / NOT SATISFIED");
+		table.addCell(User.answers_clock.get(5));
 		table.addCell("Minute hand is longer than hour hand");
-		table.addCell("SATISFIED / NOT SATISFIED");
+		table.addCell(User.answers_clock.get(6));
 		table.addCell("They are in the correct form");
-		table.addCell("SATISFIED / NOT SATISFIED");
+		table.addCell(User.answers_clock.get(7));
 		document.add(table);
 		table.setSpacingBefore(5);
-		// TODO Clock function needed for the satisfaction return
-
+		
 		document.close();
 
 	}

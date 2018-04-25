@@ -61,9 +61,6 @@ public class Question_Voiced {
 	 * Create the application.
 	 */
 	public Question_Voiced() {
-
-		User.setEducation("Illiterate");
-
 		
 		if (App.User.getEducation().equals("Literate")) {
 			question = User.orderLiterate[order];
@@ -72,9 +69,6 @@ public class Question_Voiced {
 			question = User.orderIlliterate[order];
 			max = User.orderIlliterate.length - 1;
 		}
-
-		
-		
 
 		initialize();
 
@@ -147,14 +141,6 @@ public class Question_Voiced {
 		frame.getContentPane().add(btn_Next);
 		frame.getRootPane().setDefaultButton(btn_Next);
 		btn_Next.addActionListener(new ActionListener() {
-			@SuppressWarnings("unused")
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-
-				}
-
-			}
-
 			public void actionPerformed(ActionEvent e) {
 				order++;
 				User.addAnswer(userAnswer);
@@ -269,7 +255,7 @@ public class Question_Voiced {
 		frame.getContentPane().add(btn_clickbutton);
 		btn_clickbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!User.answers.get(User.answers.size()-1).equals("Pressed"))
+				if(!User.answers_mmse.get(User.answers_mmse.size()-1).equals("Pressed"))
 					User.addAnswer("Pressed");
 			}
 		});
@@ -294,6 +280,7 @@ public class Question_Voiced {
 			textField.setVisible(true);
 			App.User.addAnswer(textField.getText());
 			btn_microphone.setVisible(false);
+			btn_Next.setVisible(true);
 
 		} else if (question == 15) {
 			lbl.setForeground(new Color(204, 51, 0));
@@ -302,11 +289,14 @@ public class Question_Voiced {
 			textField.setVisible(true);
 			App.User.addAnswer(textField.getText());
 			btn_microphone.setVisible(false);
+			btn_Next.setVisible(true);
 
 		} else if (question == 16) {
 			textField.setVisible(true);
 			App.User.addAnswer(textField.getText());
 			btn_microphone.setVisible(false);
+			btn_Next.setVisible(true);
+
 
 		}
 

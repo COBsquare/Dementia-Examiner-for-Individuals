@@ -283,28 +283,28 @@ public final class Evaluation {
 			scoring.add(point+" out of 1");
 			System.out.println(" The result to question 12 is " + speechWords);
 		} else if (question == 13) {
-			String temp = User.answers.get(order);
+			String temp = User.answers_mmse.get(order);
 			if (temp.equals("Pressed")){
 				point=1;
 				scoreFromSpeech++;
 			}
 			scoring.add(point+" out of 1");
 		} else if (question == 14) {
-			String temp = User.answers.get(order);
+			String temp = User.answers_mmse.get(order);
 			if (temp.equalsIgnoreCase("Hello World")){
 				point=1;
 				scoreFromSpeech++;
 			}
 			scoring.add(point+" out of 1");
 		} else if (question == 15) {
-			int temp = Integer.parseInt(User.answers.get(order));
+			int temp = Integer.parseInt(User.answers_mmse.get(order));
 			if (temp == 21){
 				point=1;
 				scoreFromSpeech++;
 			}
 			scoring.add(point+" out of 1");
 		} else if (question == 16) {
-			String temp = User.answers.get(order);
+			String temp = User.answers_mmse.get(order);
 			if (!temp.equals("")){
 				point=1;
 				scoreFromSpeech++;

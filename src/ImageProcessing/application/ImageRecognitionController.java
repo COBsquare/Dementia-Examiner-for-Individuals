@@ -225,15 +225,18 @@ public class ImageRecognitionController {
 			Mat frame_figure = Recognition.getFigure(image);
 
 			if (drawingType == "Clock Drawing") {
-
+				
+				Imgcodecs.imwrite("Resources\\Answers\\user_clock.jpg", frame_figure);
 				CLOCK_SCORE = Clock.evaluateClock(frame_figure, imageViewer);
 
 			} else if (drawingType == "Literate Polygon") {
-
+				
+				Imgcodecs.imwrite("Resources\\Answers\\user_poly.jpg", frame_figure);
 				LIT_POLY_SCORE = Polygon.evaluatePolygon_Literate(frame_figure, imageViewer);
 
 			} else if (drawingType == "Illiterate Polygon") {
 
+				Imgcodecs.imwrite("Resources\\Answers\\user_poly.jpg", frame_figure);
 				ILL_POLY_SCORE = Polygon.evaluatePolygon_Illiterate(frame_figure, imageViewer);
 
 			}

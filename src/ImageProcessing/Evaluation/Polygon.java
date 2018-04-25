@@ -4,6 +4,7 @@ import org.opencv.core.Mat;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
 
+import App.User;
 import ImageProcessing.Models.CLine;
 import ImageProcessing.Utils.Find;
 import ImageProcessing.Utils.Recognition;
@@ -209,9 +210,11 @@ public final class Polygon {
 		if (edges_score >= 3) {
 			System.out.println("All edges were drawn correctly.");
 			System.out.println("Polygon drawing is correct.");
+			User.addAnswer("SATISFIED");
 			return 1;
 		} else {
 			System.out.println("Polygon drawing is not sufficient.");
+			User.addAnswer("NOT SATISFIED");
 			return 0;
 
 		}
@@ -461,9 +464,11 @@ public final class Polygon {
 			System.out.println("All edges were drawn correctly.");
 			System.out.println("Two points were intersected.");
 			System.out.println("Polygon drawing is correct.");
+			User.addAnswer("SATISFIED");
 			return 1;
 		} else {
 			System.out.println("Polygon drawing is not sufficient.");
+			User.addAnswer("NOT SATISFIED");
 			return 0;
 
 		}
