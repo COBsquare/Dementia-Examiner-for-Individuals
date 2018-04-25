@@ -22,6 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
 import App.User;
+import ImageProcessing.application.ImageRecognitionController;
 import ImageProcessing.application.Main;
 
 public class Question_Polygon {
@@ -52,10 +53,15 @@ public class Question_Polygon {
 	 */
 	public Question_Polygon() {
 
+		User.setEducation("Literate");
 		if (App.User.getEducation().equals("Literate")) {
 			image_path = "Resources/Images/polygon_literate.png";
+			ImageRecognitionController.setDrawingType("Literate Polygon");
+
 		} else if (App.User.getEducation().equals("Illiterate")) {
 			image_path = "Resources/Images/polygon_illiterate.png";
+			ImageRecognitionController.setDrawingType("Illiterate Polygon");
+
 		}
 
 		initialize();
@@ -136,7 +142,6 @@ public class Question_Polygon {
 		frame.getRootPane().setDefaultButton(btn_camera);
 		btn_camera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				Main.main(null);
 				btn_Next.setVisible(true);
 

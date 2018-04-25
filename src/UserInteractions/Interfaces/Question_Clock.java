@@ -20,6 +20,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
+
+import App.User;
+import ImageProcessing.application.ImageRecognitionController;
 import ImageProcessing.application.Main;
 
 public class Question_Clock {
@@ -48,7 +51,8 @@ public class Question_Clock {
 	 * Create the application.
 	 */
 	public Question_Clock() {
-
+		ImageRecognitionController.setDrawingType("Clock Drawing");
+		User.setEducation("Literate");
 		initialize();
 
 	}

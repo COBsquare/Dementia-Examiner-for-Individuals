@@ -120,8 +120,10 @@ public class Results_MMSE {
 			MainRows[i][0] = (i + 1) + ". " + questions[i];
 		}
 
+		
 		for (int i = 0; i < size; i++) {
-			MainRows[i][1] = answers[i];
+			MainRows[i][1] = "deneme";
+			//MainRows[i][1] = answers[i];
 		}
 
 		JTable table_answer = new JTable(MainRows, MainHeaders);
@@ -140,12 +142,14 @@ public class Results_MMSE {
 
 		Theader_2.setFont(new Font("Tahoma", Font.BOLD, 20)); // font name style size
 
+		
 		// Set Evaluation Table-------------------------------------------------------------------
 		String[] EvalHeader = { "Evaluation" };
 		String[][] EvalRows = new String[size][size];
 
 		for (int i = 0; i < size; i++) {
-			EvalRows[i][0] = (i + 1) + Evaluation.scoring.get(i);
+			EvalRows[i][0] = "0";
+			//EvalRows[i][0] = (i + 1) + Evaluation.scoring.get(i);
 		}
 
 		JTable table_evaluation = new JTable(EvalRows, EvalHeader);
