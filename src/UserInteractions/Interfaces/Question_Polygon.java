@@ -52,9 +52,6 @@ public class Question_Polygon {
 	 */
 	public Question_Polygon() {
 
-		// As an example="Literate"
-		App.User.setEducation("Literate");
-
 		if (App.User.getEducation().equals("Literate")) {
 			image_path = "Resources/Images/polygon_literate.png";
 		} else if (App.User.getEducation().equals("Illiterate")) {
@@ -140,15 +137,8 @@ public class Question_Polygon {
 		btn_camera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				click++;
-				if (click == 1) {
-					Main.main(null);
-					btn_Next.setVisible(true);
-
-				} else {
-					click = 0;
-
-				}
+				Main.main(null);
+				btn_Next.setVisible(true);
 
 			}
 
@@ -205,6 +195,6 @@ public class Question_Polygon {
 		lbl_shapeliterate.setVisible(true);
 		lblNewLabel_7.setVisible(true);
 		lbl_shapeliterate.setIcon(new ImageIcon(image_path));
-	
+
 	}
 }

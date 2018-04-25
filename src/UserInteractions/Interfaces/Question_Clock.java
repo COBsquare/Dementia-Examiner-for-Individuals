@@ -79,7 +79,7 @@ public class Question_Clock {
 		btnReadTheQuestion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					File file = new File("Resources/Questions/" + Integer.toString(20) + ".wav");
+					File file = new File("Resources/Questions/20.wav");
 					AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(file);
 					Clip clip = AudioSystem.getClip();
 					clip.open(audioInputStream);
@@ -94,7 +94,6 @@ public class Question_Clock {
 		});
 
 		
-
 		JButton btn_Next = new JButton("Next");
 		btn_Next.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_Next.setBounds(1080, 598, 142, 54);

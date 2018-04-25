@@ -62,9 +62,9 @@ public class Question_Voiced {
 	 */
 	public Question_Voiced() {
 
-		// As an example="Literate"
-		App.User.setEducation("Illiterate");
-
+		User.setEducation("Literate");
+		
+		/*
 		if (App.User.getEducation().equals("Literate")) {
 			question = User.orderLiterate[order];
 			max = User.orderLiterate.length - 2;
@@ -72,6 +72,9 @@ public class Question_Voiced {
 			question = User.orderIlliterate[order];
 			max = User.orderIlliterate.length - 1;
 		}
+*/
+		question = 8;
+		max = User.orderLiterate.length - 2;
 
 		initialize();
 

@@ -80,13 +80,13 @@ public class WebcamTestController {
 
 	@FXML
 	protected void select_yes() {
-		User.setMicCheck(true);
+		User.setWebcamCheck(true);
 		stage.close();
 	}
 
 	@FXML
 	protected void select_no() {
-		User.setMicCheck(false);
+		User.setWebcamCheck(false);
 		stage.close();
 	}
 

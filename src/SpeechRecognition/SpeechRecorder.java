@@ -48,6 +48,12 @@ public final class SpeechRecorder {
 		SpeechResult Result = recognizer.getResult();
 		String speechWords = Result.getHypothesis();
 
+		while ((Result = recognizer.getResult()) != null) {
+			speechWords=speechWords+" "+Result.getHypothesis();
+		}
+
+		recognizer.stopRecognition();
+
 		return speechWords;
 	}
 
