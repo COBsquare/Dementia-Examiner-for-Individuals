@@ -9,16 +9,12 @@ import javax.swing.JButton;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.util.Random;
 
 public class Welcome {
 
-	private JFrame frame;
+	public JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -32,19 +28,14 @@ public class Welcome {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
+
 	public Welcome() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	private void initialize() {
 		frame = new JFrame();
-		
 		frame.setContentPane(new JLabel(new ImageIcon("Resources/Images/background.png")));
 		frame.setBounds(100, 100, 1367, 769);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -52,11 +43,6 @@ public class Welcome {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setBounds(374, 28, 726, 493);
-		lblNewLabel.setIcon(new ImageIcon("Resources/Images/logo.png"));
-		frame.getContentPane().add(lblNewLabel);
 
 		JLabel lblDidYouKnow = new JLabel("Did you know?");
 		lblDidYouKnow.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -88,23 +74,16 @@ public class Welcome {
 		frame.getContentPane().add(btnWelcome);
 		frame.getRootPane().setDefaultButton( btnWelcome );
 
-
 		btnWelcome.addActionListener(new ActionListener() {
-			@SuppressWarnings("unused")
-			public void keyPressed(KeyEvent e) {
-			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
-
-			    }
-
-			}
 			public void actionPerformed(ActionEvent arg0) {
-				
 				TypeSelection.main(null);
-				
-				
-				
 			}
 		});
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setBounds(374, 28, 726, 493);
+		lblNewLabel.setIcon(new ImageIcon("Resources/Images/logo.png"));
+		frame.getContentPane().add(lblNewLabel);
 
 	}
 }

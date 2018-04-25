@@ -28,9 +28,6 @@ public class Results_MMSE {
 	public static String[] questions;
 	public static String[] answers;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,16 +41,10 @@ public class Results_MMSE {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public Results_MMSE() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 796);
@@ -62,11 +53,6 @@ public class Results_MMSE {
 		frame.setUndecorated(true);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lblNewLabel.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lblNewLabel);
 
 		String[] columnNames = { "MMSE Point", "Cognitive Impairment" };
 		String[][] rowdata = {
@@ -92,21 +78,17 @@ public class Results_MMSE {
 
 		JTableHeader Theader = table_point.getTableHeader();
 
-		Theader.setBackground(Color.GRAY); // change the Background color
-		Theader.setForeground(Color.BLACK); // change the Foreground
+		Theader.setBackground(Color.GRAY);
+		Theader.setForeground(Color.BLACK);
 
-		Theader.setFont(new Font("Tahoma", Font.BOLD, 20)); // font name style size
+		Theader.setFont(new Font("Tahoma", Font.BOLD, 20));
 		table_point.setFont(new Font("Tahoma", Font.BOLD, 15));
 
+		// Set MainTable----------------------------------------------------------------------------
 		String[] MainHeaders = { "Question", "Answer" };
 
-		// Set MainTable----------------------------------------------------------------------------
 		size = 0;
 
-		answers = new String[User.answers_mmse.size()];
-		User.answers_mmse.toArray(answers);
-
-		App.User.setEducation("Literate");
 		if (App.User.getEducation().equals("Literate")) {
 			questions = User.questions_literate.clone();
 			size = User.questions_literate.length;
@@ -120,10 +102,16 @@ public class Results_MMSE {
 			MainRows[i][0] = (i + 1) + ". " + questions[i];
 		}
 
-		
-		for (int i = 0; i < size; i++) {
-			MainRows[i][1] = "deneme";
-			//MainRows[i][1] = answers[i];
+		if (User.answers_mmse.size() > 0) {
+			answers = new String[User.answers_mmse.size()];
+			User.answers_mmse.toArray(answers);
+			for (int i = 0; i < size; i++) {
+				MainRows[i][1] = answers[i];
+			}
+		} else {
+			for (int i = 0; i < size; i++) {
+				MainRows[i][1] = "Not entered";
+			}
 		}
 
 		JTable table_answer = new JTable(MainRows, MainHeaders);
@@ -137,19 +125,23 @@ public class Results_MMSE {
 		frame.getContentPane().add(scrollPane_1);
 
 		JTableHeader Theader_2 = table_answer.getTableHeader();
-		Theader_2.setBackground(Color.GRAY); // change the Background color
-		Theader_2.setForeground(Color.BLACK); // change the Foreground
+		Theader_2.setBackground(Color.GRAY);
+		Theader_2.setForeground(Color.BLACK);
 
-		Theader_2.setFont(new Font("Tahoma", Font.BOLD, 20)); // font name style size
+		Theader_2.setFont(new Font("Tahoma", Font.BOLD, 20));
 
-		
 		// Set Evaluation Table-------------------------------------------------------------------
 		String[] EvalHeader = { "Evaluation" };
 		String[][] EvalRows = new String[size][size];
 
-		for (int i = 0; i < size; i++) {
-			EvalRows[i][0] = "0";
-			//EvalRows[i][0] = (i + 1) + Evaluation.scoring.get(i);
+		if (Evaluation.scoring.size() > 0) {
+			for (int i = 0; i < size; i++) {
+				EvalRows[i][0] = (i + 1) + Evaluation.scoring.get(i);
+			}
+		} else {
+			for (int i = 0; i < size; i++) {
+				EvalRows[i][0] = "Not evaluated";
+			}
 		}
 
 		JTable table_evaluation = new JTable(EvalRows, EvalHeader);
@@ -164,49 +156,17 @@ public class Results_MMSE {
 
 		JTableHeader Theader_3 = table_evaluation.getTableHeader();
 
-		Theader_3.setBackground(Color.GRAY); // change the Background color
-		Theader_3.setForeground(Color.BLACK); // change the Foreground
+		Theader_3.setBackground(Color.GRAY);
+		Theader_3.setForeground(Color.BLACK);
 
-		Theader_3.setFont(new Font("Tahome", Font.BOLD, 20)); // font name style size
+		Theader_3.setFont(new Font("Tahome", Font.BOLD, 20));
 
-		JButton btnHome = new JButton("");
-		btnHome.setBounds(1210, 27, 61, 60);
-		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
-		frame.getContentPane().add(btnHome);
-		btnHome.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Welcome.main(null);
-			}
-		});
-
-		JButton btnClose = new JButton("");
-		btnClose.setBounds(1281, 27, 60, 60);
-		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
-		frame.getContentPane().add(btnClose);
-
-		JLabel lbl_score = new JLabel("Your Score:"); // + test sonucu konulacak
+		// TODO Test result
+		JLabel lbl_score = new JLabel("Your Score:");
 		lbl_score.setFont(new Font("Tahoma", Font.BOLD, 30));
 		lbl_score.setBounds(996, 126, 275, 60);
 		frame.getContentPane().add(lbl_score);
-		btnClose.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-
-				System.exit(0);
-			}
-		});
-
-		JButton btnNext = new JButton("Next");
-		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnNext.setBounds(1080, 598, 142, 54);
-		frame.getContentPane().add(btnNext);
-		frame.getRootPane().setDefaultButton(btnNext);
-		btnNext.setVisible(false);
-		btnNext.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Results_Clock.main(null);
-			}
-		});
-
+		
 		JButton btnExport = new JButton("Export results to PDF");
 		btnExport.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnExport.setBounds(1080, 598, 142, 54);
@@ -225,11 +185,49 @@ public class Results_MMSE {
 			}
 		});
 
+		JButton btnNext = new JButton("Next");
+		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnNext.setBounds(1080, 598, 142, 54);
+		frame.getContentPane().add(btnNext);
+		frame.getRootPane().setDefaultButton(btnNext);
+		btnNext.setVisible(false);
+		btnNext.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Results_Clock.main(null);
+			}
+		});
+
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lblNewLabel.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lblNewLabel);
+
 		if (User.getEducation().equals("Illiterate")) {
 			btnExport.setVisible(true);
 		} else {
 			btnNext.setVisible(true);
 		}
+
+		JButton btnHome = new JButton("");
+		btnHome.setBounds(1210, 27, 61, 60);
+		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
+		frame.getContentPane().add(btnHome);
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Welcome.main(null);
+			}
+		});
+
+		JButton btnClose = new JButton("");
+		btnClose.setBounds(1281, 27, 60, 60);
+		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
+		frame.getContentPane().add(btnClose);
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				System.exit(0);
+			}
+		});
 
 	}
 }

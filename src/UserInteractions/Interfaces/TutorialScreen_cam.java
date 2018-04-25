@@ -2,8 +2,6 @@ package UserInteractions.Interfaces;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,9 +16,6 @@ public class TutorialScreen_cam {
 
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -34,16 +29,11 @@ public class TutorialScreen_cam {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public TutorialScreen_cam() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
@@ -103,13 +93,6 @@ public class TutorialScreen_cam {
 
 		JButton btnNext = new JButton("Next");
 		btnNext.addActionListener(new ActionListener() {
-			@SuppressWarnings("unused")
-			public void keyPressed(KeyEvent e) {
-			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
-
-			    }
-
-			}
 			public void actionPerformed(ActionEvent e) {
 				StartTest.main(null);
 

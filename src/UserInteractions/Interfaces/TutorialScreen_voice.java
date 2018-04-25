@@ -3,7 +3,6 @@ package UserInteractions.Interfaces;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -36,9 +35,6 @@ public class TutorialScreen_voice {
 	int click = 0;
 	StreamSpeechRecognizer recognizer;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -52,16 +48,11 @@ public class TutorialScreen_voice {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public TutorialScreen_voice() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
+
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
@@ -71,11 +62,6 @@ public class TutorialScreen_voice {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		JLabel lbl_logo = new JLabel("");
-		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lbl_logo.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lbl_logo);
 
 		JLabel lblNewLabel_1 = new JLabel("<html>Click the microphone button for recording the voice and click again to finish.</html>");
 		lblNewLabel_1.setForeground(new Color(204, 51, 0));
@@ -155,15 +141,7 @@ public class TutorialScreen_voice {
 		frame.getRootPane().setDefaultButton(btn_Next);
 		btn_Next.setVisible(false);
 		
-		btn_Next.addActionListener(new ActionListener() {
-			@SuppressWarnings("unused")
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-
-				}
-
-			}
-
+		btn_Next.addActionListener(new ActionListener() {		
 			public void actionPerformed(ActionEvent e) {
 				TutorialScreen_cam.main(null);
 
@@ -293,6 +271,11 @@ public class TutorialScreen_voice {
 			}
 
 		});
+		
+		JLabel lbl_logo = new JLabel("");
+		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lbl_logo.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lbl_logo);
 
 	}
 

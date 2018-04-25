@@ -3,10 +3,8 @@ package UserInteractions.Interfaces;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -40,10 +38,8 @@ public class Question_Voiced {
 	int click;
 
 	private String userAnswer;
-	private String message= "click on microphone button to record again";
-	/**
-	 * Launch the application.
-	 */
+	private String message = "click on microphone button to record again";
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -57,14 +53,11 @@ public class Question_Voiced {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public Question_Voiced() {
-		
+
 		if (App.User.getEducation().equals("Literate")) {
 			question = User.orderLiterate[order];
-			max = User.orderLiterate.length - 2;
+			max = User.orderLiterate.length - 1;
 		} else if (App.User.getEducation().equals("Illiterate")) {
 			question = User.orderIlliterate[order];
 			max = User.orderIlliterate.length - 1;
@@ -74,9 +67,6 @@ public class Question_Voiced {
 
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 
 		frame = new JFrame();
@@ -87,11 +77,6 @@ public class Question_Voiced {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		JLabel lbl_logo = new JLabel("");
-		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lbl_logo.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lbl_logo);
 
 		JLabel lblNewLabel_3 = new JLabel("Your progress:");
 		lblNewLabel_3.setForeground(new Color(204, 0, 0));
@@ -113,27 +98,6 @@ public class Question_Voiced {
 		lbl_numquestion.setBounds(364, 120, 203, 43);
 		frame.getContentPane().add(lbl_numquestion);
 
-		JButton btnHome = new JButton("");
-		btnHome.setBounds(1210, 27, 61, 60);
-		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
-		frame.getContentPane().add(btnHome);
-		btnHome.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				Welcome.main(null);
-			}
-		});
-
-		JButton btnClose = new JButton("");
-		btnClose.setBounds(1281, 27, 60, 60);
-		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
-		frame.getContentPane().add(btnClose);
-		btnClose.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-
-				System.exit(0);
-			}
-		});
-
 		JButton btn_Next = new JButton("Next");
 		btn_Next.setVisible(false);
 		btn_Next.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -151,6 +115,12 @@ public class Question_Voiced {
 				}
 			}
 		});
+		
+		JLabel lbl_speechAnswer = new JLabel("Your speech answer is");
+		lbl_speechAnswer.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lbl_speechAnswer.setBounds(780, 590, 250, 100);
+		lbl_speechAnswer.setVisible(false);
+		frame.getContentPane().add(lbl_speechAnswer);
 
 		JButton btnReadTheQuestion = new JButton();
 		btnReadTheQuestion.setBounds(420, 342, 169, 168);
@@ -173,19 +143,12 @@ public class Question_Voiced {
 			}
 		});
 
-		JLabel lbl_speechAnswer = new JLabel("Your speech answer is");
-		lbl_speechAnswer.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lbl_speechAnswer.setBounds(780, 590, 250, 100);
-		lbl_speechAnswer.setVisible(false);
-		frame.getContentPane().add(lbl_speechAnswer);
-
 		JButton btn_microphone = new JButton();
 		btn_microphone.setIcon(new ImageIcon("Resources/Images/microphone.png"));
 		btn_microphone.setBounds(757, 342, 169, 168);
 		frame.getContentPane().add(btn_microphone);
 		frame.getRootPane().setDefaultButton(btn_microphone);
 		btn_microphone.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent e) {
 
 				click++;
@@ -209,8 +172,8 @@ public class Question_Voiced {
 						lbl_speechAnswer.setText(
 								"<html>No answer was given, click on microphone button to record again</html>");
 					} else {
-						lbl_speechAnswer.setText(String.format("<html>Your answer is <font color='red'>%s</font>, %s</html>",
-						        userAnswer, message));
+						lbl_speechAnswer.setText(String.format(
+								"<html>Your answer:<br><font color='red'>%s</font><br>%s</html>", userAnswer, message));
 					}
 				}
 
@@ -255,19 +218,17 @@ public class Question_Voiced {
 		frame.getContentPane().add(btn_clickbutton);
 		btn_clickbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(!User.answers_mmse.get(User.answers_mmse.size()-1).equals("Pressed"))
+				if (!User.answers_mmse.get(User.answers_mmse.size() - 1).equals("Pressed"))
 					User.addAnswer("Pressed");
 			}
 		});
 
 		// For the specific questions
 		if (question == 6) {
-			// TODO new image, yeri deðiþcek
 			lbl.setVisible(true);
 			lbl.setIcon(new ImageIcon("Resources/Images/map.png"));
 			lbl.setVisible(true);
 		} else if (question == 10) {
-			// TODO new image (chair,pencil), yeri deðiþcek
 			lbl.setVisible(true);
 			lbl.setIcon(new ImageIcon("Resources/Images/chair.png"));
 			lbl.setVisible(true);
@@ -297,8 +258,33 @@ public class Question_Voiced {
 			btn_microphone.setVisible(false);
 			btn_Next.setVisible(true);
 
-
 		}
+
+		JLabel lbl_logo = new JLabel("");
+		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lbl_logo.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lbl_logo);
+
+		JButton btnHome = new JButton("");
+		btnHome.setBounds(1210, 27, 61, 60);
+		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
+		frame.getContentPane().add(btnHome);
+		btnHome.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Welcome.main(null);
+			}
+		});
+
+		JButton btnClose = new JButton("");
+		btnClose.setBounds(1281, 27, 60, 60);
+		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
+		frame.getContentPane().add(btnClose);
+		btnClose.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				System.exit(0);
+			}
+		});
 
 	}
 }

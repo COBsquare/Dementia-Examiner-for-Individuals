@@ -2,8 +2,6 @@ package UserInteractions.Interfaces;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -76,13 +74,6 @@ public class Information_Name {
 		JButton btnNext = new JButton("Next");
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
-			@SuppressWarnings("unused")
-			public void keyPressed(KeyEvent e) {
-			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
-
-			    }
-
-			}
 			public void actionPerformed(ActionEvent arg0) {	
 				App.User.setNameSurname(textField.getText());
 

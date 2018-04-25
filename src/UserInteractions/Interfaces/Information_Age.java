@@ -3,8 +3,6 @@ package UserInteractions.Interfaces;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -17,9 +15,6 @@ public class Information_Age {
 
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -33,16 +28,10 @@ public class Information_Age {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public Information_Age() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
@@ -53,45 +42,32 @@ public class Information_Age {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JLabel lbl_logo = new JLabel("");
-		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lbl_logo.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lbl_logo);
-
 		JLabel lbl_age = new JLabel("Age");
 		lbl_age.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		lbl_age.setBounds(375, 434, 302, 44);
 		frame.getContentPane().add(lbl_age);
 
-		JComboBox<Integer> comboBox = new JComboBox<Integer>();
+		JComboBox<String> comboBox = new JComboBox<String>();
 		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		comboBox.setBounds(652, 438, 262, 46);
 		frame.getContentPane().add(comboBox);
-		
-		
+
+		comboBox.addItem("Not specified");
 		for (int i = 15; i <= 130; i++) {
-			comboBox.addItem(i);
-		
+			comboBox.addItem(Integer.toString(i));
 		}
 
 		JButton btnNext = new JButton("Next");
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnNext.setBounds(1080, 598, 142, 54);
+		frame.getContentPane().add(btnNext);
+		frame.getRootPane().setDefaultButton(btnNext);
 		btnNext.addActionListener(new ActionListener() {
-			@SuppressWarnings("unused")
-			public void keyPressed(KeyEvent e) {
-			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
-
-			    }
-
-			}
 			public void actionPerformed(ActionEvent arg0) {
 				App.User.setAge(String.valueOf(comboBox.getSelectedItem()));
 				Information_Profession.main(null);
 			}
 		});
-		btnNext.setBounds(1080, 598, 142, 54);
-		frame.getContentPane().add(btnNext);
-		frame.getRootPane().setDefaultButton( btnNext );
 
 		JLabel lbl_info = new JLabel(
 				"This information is only for personalizing the document which is given at the end of the test.");
@@ -107,13 +83,13 @@ public class Information_Age {
 
 		JButton btnBack = new JButton("Back");
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnBack.setBounds(158, 598, 142, 54);
+		frame.getContentPane().add(btnBack);
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				Information_Name.main(null);
 			}
 		});
-		btnBack.setBounds(158, 598, 142, 54);
-		frame.getContentPane().add(btnBack);
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -135,7 +111,11 @@ public class Information_Age {
 				System.exit(0);
 			}
 		});
-	}
 
+		JLabel lbl_logo = new JLabel("");
+		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lbl_logo.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lbl_logo);
+	}
 
 }

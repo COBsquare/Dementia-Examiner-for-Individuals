@@ -50,9 +50,9 @@ public class ImageRecognitionController {
 	private Mat catch_frame;
 
 	// Variables for image processing operations
-	int CLOCK_SCORE;
-	int LIT_POLY_SCORE;
-	int ILL_POLY_SCORE;
+	public static int CLOCK_SCORE;
+	public int LIT_POLY_SCORE;
+	public int ILL_POLY_SCORE;
 
 	static String drawingType;
 
@@ -245,31 +245,32 @@ public class ImageRecognitionController {
 			JOptionPane.showMessageDialog(null, "Please browse or capture image to process.", "Info: " + "No image",
 					JOptionPane.INFORMATION_MESSAGE);
 		}
+		
 
 	}
 
 	
-	public final int getCLOCK_SCORE() {
+	public int getCLOCK_SCORE() {
 		return CLOCK_SCORE;
 	}
 
-	public final void setCLOCK_SCORE(int cLOCK_SCORE) {
+	public void setCLOCK_SCORE(int cLOCK_SCORE) {
 		CLOCK_SCORE = cLOCK_SCORE;
 	}
 
-	public final int getLIT_POLY_SCORE() {
+	public int getLIT_POLY_SCORE() {
 		return LIT_POLY_SCORE;
 	}
 
-	public final void setLIT_POLY_SCORE(int lIT_POLY_SCORE) {
+	public void setLIT_POLY_SCORE(int lIT_POLY_SCORE) {
 		LIT_POLY_SCORE = lIT_POLY_SCORE;
 	}
 
-	public final int getILL_POLY_SCORE() {
+	public int getILL_POLY_SCORE() {
 		return ILL_POLY_SCORE;
 	}
 
-	public final void setILL_POLY_SCORE(int iLL_POLY_SCORE) {
+	public void setILL_POLY_SCORE(int iLL_POLY_SCORE) {
 		ILL_POLY_SCORE = iLL_POLY_SCORE;
 	}
 

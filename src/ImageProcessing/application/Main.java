@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.fxml.FXMLLoader;
 
-public class Main extends Application {
+public final class Main extends Application {
 	private Stage primaryStage;
 
 	@Override

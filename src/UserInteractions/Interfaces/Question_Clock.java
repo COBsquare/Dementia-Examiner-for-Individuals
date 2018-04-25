@@ -6,7 +6,6 @@ import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import java.io.File;
 import java.io.IOException;
 
@@ -21,19 +20,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
-import App.User;
 import ImageProcessing.application.ImageRecognitionController;
 import ImageProcessing.application.Main;
 
 public class Question_Clock {
 
 	private JFrame frame;
-	int i = 0;
-	int click = 0;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -47,19 +40,11 @@ public class Question_Clock {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public Question_Clock() {
 		ImageRecognitionController.setDrawingType("Clock Drawing");
-		User.setEducation("Literate");
 		initialize();
-
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 769);
@@ -69,11 +54,6 @@ public class Question_Clock {
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lblNewLabel.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lblNewLabel);
 
 		JButton btnReadTheQuestion = new JButton("");
 		btnReadTheQuestion.setBounds(269, 342, 169, 168);
@@ -98,42 +78,36 @@ public class Question_Clock {
 		});
 
 		JButton btn_Next = new JButton("Next");
-		btn_Next.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_Next.setBounds(1080, 598, 142, 54);
 		btn_Next.setVisible(false);
 		frame.getContentPane().add(btn_Next);
 		frame.getRootPane().setDefaultButton(btn_Next);
 		btn_Next.addActionListener(new ActionListener() {
-			@SuppressWarnings("unused")
-			public void keyPressed(KeyEvent e) {
-				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-
-				}
-
-			}
-
 			public void actionPerformed(ActionEvent e) {
-
 				Finalized.main(null);
-
 			}
 		});
 
 		JButton btn_camera = new JButton("");
 		btn_camera.setIcon(new ImageIcon("Resources/Images/camera.png"));
-		btn_camera.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_camera.setBounds(595, 342, 169, 168);
 		frame.getContentPane().add(btn_camera);
 		frame.getRootPane().setDefaultButton(btn_camera);
 		btn_camera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
 				Main.main(null);
 				btn_Next.setVisible(true);
-
 			}
 
 		});
+
+		JLabel lblNewLabel_7 = new JLabel("  Clock Drawing");
+		lblNewLabel_7.setForeground(SystemColor.activeCaptionText);
+		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 24));
+		lblNewLabel_7.setBorder(new LineBorder(SystemColor.activeCaption, 2));
+		lblNewLabel_7.setBounds(364, 120, 251, 43);
+		lblNewLabel_7.setVisible(true);
+		frame.getContentPane().add(lblNewLabel_7);
 
 		JLabel lbl_image = new JLabel("");
 		lbl_image.setBounds(854, 285, 439, 243);
@@ -148,19 +122,16 @@ public class Question_Clock {
 		lblNewLabel_4.setBounds(269, 223, 211, 95);
 		frame.getContentPane().add(lblNewLabel_4);
 
-		JLabel lblNewLabel_7 = new JLabel("  Clock Drawing");
-		lblNewLabel_7.setForeground(SystemColor.activeCaptionText);
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblNewLabel_7.setBorder(new LineBorder(SystemColor.activeCaption, 2));
-		lblNewLabel_7.setBounds(364, 120, 251, 43);
-		lblNewLabel_7.setVisible(true);
-		frame.getContentPane().add(lblNewLabel_7);
-
 		JLabel lbl_camerawarning = new JLabel("<html>Click here to upload the drawing</html>");
 		lbl_camerawarning.setForeground(new Color(204, 51, 0));
 		lbl_camerawarning.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		lbl_camerawarning.setBounds(594, 236, 203, 95);
 		frame.getContentPane().add(lbl_camerawarning);
+
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lblNewLabel.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lblNewLabel);
 
 		JButton btnClose = new JButton("");
 		btnClose.setBounds(1281, 27, 60, 60);

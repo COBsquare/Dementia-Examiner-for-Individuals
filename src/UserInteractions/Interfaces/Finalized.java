@@ -1,24 +1,19 @@
 package UserInteractions.Interfaces;
+
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-
 public class Finalized {
 
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -32,16 +27,10 @@ public class Finalized {
 		});
 	}
 
-	/**
-	 * Create the application.
-	 */
 	public Finalized() {
 		initialize();
 	}
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 796);
@@ -52,38 +41,29 @@ public class Finalized {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
+		JButton viewResultsButton = new JButton("View Results");
+		viewResultsButton.setForeground(Color.WHITE);
+		viewResultsButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		viewResultsButton.setBackground(Color.RED);
+		viewResultsButton.setBounds(612, 533, 173, 60);
+		frame.getContentPane().add(viewResultsButton);
+		frame.getRootPane().setDefaultButton(viewResultsButton);
+		viewResultsButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Results_MMSE.main(null);
+
+			}
+		});
+
+		JLabel lbl_complete = new JLabel("You have completed the test.");
+		lbl_complete.setFont(new Font("Serif", Font.BOLD, 30));
+		lbl_complete.setBounds(523, 380, 376, 76);
+		frame.getContentPane().add(lbl_complete);
 
 		JLabel lbl_logo = new JLabel("");
 		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lbl_logo.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lbl_logo);
-
-
-		JLabel lbl_complete = new JLabel("You have completed the test.");
-		lbl_complete.setFont(new Font("Serif",Font.BOLD,30));
-		lbl_complete.setBounds(523, 380, 376, 76);
-		frame.getContentPane().add(lbl_complete);
-
-		JButton viewResultsButton = new JButton("View Results");
-		viewResultsButton.setForeground(Color.WHITE);
-		viewResultsButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		viewResultsButton.addActionListener(new ActionListener() {
-			@SuppressWarnings("unused")
-			public void keyPressed(KeyEvent e) {
-			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
-
-			    }
-
-			}
-			public void actionPerformed(ActionEvent arg0) {
-				 Results_MMSE.main(null);
-
-			}
-		});
-		viewResultsButton.setBackground(Color.RED);
-		viewResultsButton.setBounds(612, 533, 173, 60);
-		frame.getContentPane().add(viewResultsButton);
-		frame.getRootPane().setDefaultButton( viewResultsButton );
 
 		JLabel lbl_tick = new JLabel("");
 		lbl_tick.setIcon(new ImageIcon("Resources/Images/tick.png"));
@@ -107,7 +87,7 @@ public class Finalized {
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				System.exit(0);
-				}
+			}
 		});
 	}
 

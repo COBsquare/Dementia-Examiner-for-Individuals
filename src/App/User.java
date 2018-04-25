@@ -48,8 +48,8 @@ public final class User {
 	private static String gender = "Not entered";
 	private static String profession = "Not entered";
 
-	public static int orderLiterate[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17};
-	public static int orderIlliterate[] = { 1, 2, 3, 4, 5, 6, 7, 18, 9, 10, 19, 12, 13,17};
+	public static int orderLiterate[] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16};
+	public static int orderIlliterate[] = { 1, 2, 3, 4, 5, 6, 7, 18, 9, 10, 19, 12, 13};
 	
 	public static ArrayList<String> answers_mmse = new ArrayList<String>();
 	public static ArrayList<String> answers_clock = new ArrayList<String>();
