@@ -42,6 +42,7 @@ public class WebcamTestController {
 		this.webcamViewer.setFitWidth(600);
 		// preserve image ratio
 		this.webcamViewer.setPreserveRatio(true);
+		this.webcamViewer.setScaleX(-1);
 
 		if (!this.cameraActive) {
 			// start the video capture

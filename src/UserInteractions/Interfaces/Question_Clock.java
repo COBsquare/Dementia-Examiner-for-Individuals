@@ -93,7 +93,6 @@ public class Question_Clock {
 			}
 		});
 
-		
 		JButton btn_Next = new JButton("Next");
 		btn_Next.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btn_Next.setBounds(1080, 598, 142, 54);
@@ -125,16 +124,8 @@ public class Question_Clock {
 		btn_camera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
-				click++;
-				if (click == 1) {
-					// TODO Problem when call image class
-					Main.main(null);
-					btn_Next.setVisible(true);
-
-				} else {
-					click = 0;
-
-				}
+				Main.main(null);
+				btn_Next.setVisible(true);
 
 			}
 
@@ -176,7 +167,7 @@ public class Question_Clock {
 				System.exit(0);
 			}
 		});
-		
+
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
 		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
@@ -187,6 +178,5 @@ public class Question_Clock {
 			}
 		});
 
-		
 	}
 }
