@@ -40,7 +40,7 @@ public class Question_Voiced {
 	int click;
 
 	private String userAnswer;
-
+	private String message= "click on microphone button to record again";
 	/**
 	 * Launch the application.
 	 */
@@ -62,9 +62,9 @@ public class Question_Voiced {
 	 */
 	public Question_Voiced() {
 
-		User.setEducation("Literate");
+		User.setEducation("Illiterate");
+
 		
-		/*
 		if (App.User.getEducation().equals("Literate")) {
 			question = User.orderLiterate[order];
 			max = User.orderLiterate.length - 2;
@@ -72,9 +72,9 @@ public class Question_Voiced {
 			question = User.orderIlliterate[order];
 			max = User.orderIlliterate.length - 1;
 		}
-*/
-		question = 8;
-		max = User.orderLiterate.length - 2;
+
+		
+		
 
 		initialize();
 
@@ -223,8 +223,8 @@ public class Question_Voiced {
 						lbl_speechAnswer.setText(
 								"<html>No answer was given, click on microphone button to record again</html>");
 					} else {
-						lbl_speechAnswer.setText("<html>Your answer is " + userAnswer
-								+ ", click on microphone button to record again</html>");
+						lbl_speechAnswer.setText(String.format("<html>Your answer is <font color='red'>%s</font>, %s</html>",
+						        userAnswer, message));
 					}
 				}
 

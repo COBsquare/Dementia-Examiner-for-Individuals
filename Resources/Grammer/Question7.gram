@@ -2,4 +2,4 @@
 
 
 
-grammar Question7;public <Question7> = ( ball car man ) ;
+grammar Question7;public <Question7> = ( ball | car | man ) * ;
