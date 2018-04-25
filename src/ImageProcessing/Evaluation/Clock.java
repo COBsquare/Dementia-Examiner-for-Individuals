@@ -12,6 +12,7 @@ import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
 
+import App.User;
 import ImageProcessing.Models.CCircle;
 import ImageProcessing.Models.CLine;
 import ImageProcessing.Utils.Find;
@@ -410,6 +411,7 @@ public final class Clock {
 		clock_score += Clock.evaluateHands(frame, imageViewer);
 
 		System.out.println("RESULT OF THE TEST--->>> " + clock_score + " out of 10");
+		User.addScore(clock_score);
 		return clock_score;
 	}
 
