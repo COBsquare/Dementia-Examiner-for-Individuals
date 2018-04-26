@@ -237,7 +237,7 @@ public class Question_MMSE {
 		btn_clickbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				User.addAnswer_MMSE("Pressed");
-				JOptionPane.showConfirmDialog(null, "Please press NEXT button to continue", "Info",
+				JOptionPane.showMessageDialog(null, "Please press NEXT button to continue", "Info",
 						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});

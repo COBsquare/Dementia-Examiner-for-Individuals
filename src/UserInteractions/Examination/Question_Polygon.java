@@ -3,11 +3,15 @@ package UserInteractions.Examination;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+
+import javax.imageio.ImageIO;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -44,9 +48,8 @@ public class Question_Polygon {
 	}
 
 	public Question_Polygon() {
-		
-		User.setEducation("Literate");
 
+		
 		if (App.User.getEducation().equals("Literate")) {
 			image_path = "Resources/Images/polygon_literate.png";
 			ImageRecognitionController.setDrawingType("Literate Polygon");
@@ -123,12 +126,23 @@ public class Question_Polygon {
 
 		});
 
-		JLabel lbl_shapeliterate = new JLabel("");
-		lbl_shapeliterate.setBounds(854, 285, 439, 243);
-		lbl_shapeliterate.setVisible(false);
-		frame.getContentPane().add(lbl_shapeliterate);
-		lbl_shapeliterate.setVisible(true);
-		lbl_shapeliterate.setIcon(new ImageIcon(image_path));
+		JLabel lbl_polygon = new JLabel("");
+		lbl_polygon.setBounds(854, 285, 439, 243);
+		lbl_polygon.setVisible(true);
+		frame.getContentPane().add(lbl_polygon);
+		
+		BufferedImage img = null;
+		try {
+		    img = ImageIO.read(new File(image_path));
+		} catch (IOException e) {
+		    e.printStackTrace();
+		}
+		Image dimg = img.getScaledInstance(lbl_polygon.getWidth(), lbl_polygon.getHeight(),
+				Image.SCALE_SMOOTH);
+		
+		ImageIcon imageIcon = new ImageIcon(dimg);
+
+		lbl_polygon.setIcon(imageIcon);
 
 		JLabel lblNewLabel_4 = new JLabel("<html> Please click the play button for listening the question</html>");
 		lblNewLabel_4.setForeground(new Color(204, 51, 0));
@@ -176,4 +190,5 @@ public class Question_Polygon {
 		frame.getContentPane().add(lblNewLabel);
 
 	}
+
 }

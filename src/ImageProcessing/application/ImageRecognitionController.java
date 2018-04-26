@@ -51,8 +51,7 @@ public class ImageRecognitionController {
 	private Mat catch_frame;
 
 	static String drawingType;
-	String path=System.getProperty("user.home")+"\\DEfI\\";
-
+	String path = System.getProperty("user.home") + "\\DEfI\\";
 
 	public static void setDrawingType(String type) {
 		drawingType = type;
@@ -215,24 +214,24 @@ public class ImageRecognitionController {
 
 			Mat frame_figure = Recognition.getFigure(image);
 			double score;
-			
-			new File(System.getProperty("user.home")+"/DEfI").mkdirs();
-			
+
+			new File(System.getProperty("user.home") + "/DEfI").mkdirs();
+
 			if (drawingType == "Clock Drawing") {
 
-				Imgcodecs.imwrite(path+"user_clock.jpg", frame_figure);
+				Imgcodecs.imwrite(path + "user_clock.jpg", frame_figure);
 				score = Clock.evaluateClock(frame_figure, imageViewer);
 				User.setScore_clock(score);
 
 			} else if (drawingType == "Literate Polygon") {
 
-				Imgcodecs.imwrite(path+"user_poly.jpg", frame_figure);
+				Imgcodecs.imwrite(path + "user_poly.jpg", frame_figure);
 				score = Polygon.evaluatePolygon_Literate(frame_figure, imageViewer);
 				User.setScore_polygon(score);
 
 			} else if (drawingType == "Illiterate Polygon") {
 
-				Imgcodecs.imwrite(path+"user_poly.jpg", frame_figure);
+				Imgcodecs.imwrite(path + "user_poly.jpg", frame_figure);
 				score = Polygon.evaluatePolygon_Illiterate(frame_figure, imageViewer);
 				User.setScore_polygon(score);
 			}
@@ -243,7 +242,7 @@ public class ImageRecognitionController {
 		}
 
 		stage.close();
-		
+
 	}
 
 }

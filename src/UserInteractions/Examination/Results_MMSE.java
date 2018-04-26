@@ -180,7 +180,7 @@ public class Results_MMSE {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					ExportToPDF.main(null);
-					JOptionPane.showConfirmDialog(null, "Your report has been exported to your desktop", "Info",
+					JOptionPane.showMessageDialog(null, "Your report has been exported to your desktop", "Info",
 							JOptionPane.INFORMATION_MESSAGE);
 				} catch (IOException e) {
 					e.printStackTrace();

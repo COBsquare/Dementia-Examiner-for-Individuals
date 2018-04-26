@@ -88,7 +88,11 @@ public class ExportToPDF {
 
 		// Displays the examination results
 		document.add(new Paragraph("EXAMINATION RESULTS"));
-		table = new PdfPTable(3);
+		if(User.getEducation().equals("Literate")){
+			table = new PdfPTable(3);
+		}else{
+			table = new PdfPTable(2);
+		}
 		table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
 		table.setSpacingBefore(10);
 		table.setWidths(new int[] { 8, 8, 15 });
@@ -98,7 +102,9 @@ public class ExportToPDF {
 		table.getDefaultCell().setColspan(1);
 		table.addCell(new Paragraph("MMSE Score", font_boldTimes));
 		table.addCell(new Paragraph("Polygon Score", font_boldTimes));
-		table.addCell(new Paragraph("Clock Score", font_boldTimes));
+		if(User.getEducation().equals("Literate")){
+			table.addCell(new Paragraph("Clock Score", font_boldTimes));
+		}
 
 		// Painting to first row as a header to gray
 		table.setHeaderRows(1);
@@ -110,7 +116,9 @@ public class ExportToPDF {
 		// Setting column informations
 		table.addCell(Integer.toString(User.getScore_mmse()));
 		table.addCell(Double.toString(User.getScore_polygon()));
-		table.addCell(Double.toString(User.getScore_clock()));
+		if(User.getEducation().equals("Literate")){
+			table.addCell(Double.toString(User.getScore_clock()));
+		}
 		document.add(table);
 		document.add(new Paragraph(" "));
 

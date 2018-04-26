@@ -2,6 +2,8 @@ package UserInteractions.Examination;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -10,8 +12,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import javax.swing.table.JTableHeader;
 import com.itextpdf.text.DocumentException;
@@ -97,7 +102,7 @@ public class Results_Clock {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					ExportToPDF.main(null);
-					JOptionPane.showConfirmDialog(null, "Your report has been exported to your desktop", "Info",
+					JOptionPane.showMessageDialog(null, "Your report has been exported to your desktop", "Info",
 							JOptionPane.INFORMATION_MESSAGE);
 				} catch (IOException e) {
 					e.printStackTrace();
@@ -112,10 +117,19 @@ public class Results_Clock {
 		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
 
-		// TODO Resize the image
 		JLabel lbl_clock = new JLabel("");
 		lbl_clock.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lbl_clock.setIcon(new ImageIcon(System.getProperty("user.home") + "/DEfI/user_clock.jpg"));
+
+		BufferedImage img = null;
+		try {
+			img = ImageIO.read(new File(System.getProperty("user.home") + "/DEfI/user_clock.jpg"));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		Image dimg = img.getScaledInstance(lbl_clock.getWidth(), lbl_clock.getHeight(), Image.SCALE_SMOOTH);
+
+		ImageIcon imageIcon = new ImageIcon(dimg);
+		lbl_clock.setIcon(imageIcon);
 		lbl_clock.setBounds(327, 199, 328, 279);
 		frame.getContentPane().add(lbl_clock);
 
