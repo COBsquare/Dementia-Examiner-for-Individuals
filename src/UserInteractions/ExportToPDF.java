@@ -90,12 +90,15 @@ public class ExportToPDF {
 		document.add(new Paragraph("EXAMINATION RESULTS"));
 		if(User.getEducation().equals("Literate")){
 			table = new PdfPTable(3);
+			table.setWidths(new int[] { 8, 8, 15 });
+
 		}else{
 			table = new PdfPTable(2);
+			table.setWidths(new int[] { 8, 8 });
+
 		}
 		table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
 		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 8, 8, 15 });
 		table.setWidthPercentage(100);
 
 		// Setting column informations
