@@ -9,14 +9,14 @@ public final class User {
 			"What is date today? Please give your answer like march twelfth.",
 			"What is the current day?",
 			"Which month are we in?",
-			"Could you tell me the direction of the school using compass above?",
+			"In the map you are in the apartment complex. Could you please tell me the location of the city hall using compass below?",
 			"Now, I will name you three objects. After I tell you them. I would like you to repeat them one by one. Ball, car, man.",
-			"I would like you to count backward from hundred by sevens.",
+			"I would like you to count backward from hundred by sevens until sixty five.",
 			"Earlier I told you the names of three things. Can you tell me what those were?",
 			"You can see two objects on the screen. Can you tell me the names of the objects?",
 			"Repeat the phrase: ‘No ifs, ands, or buts.’",
 			"Can you say 'paper'?",
-			"Can you press the 'green' button?",
+			"Can you press the 'purple' button?",
 			"Can you type 'Hello World!' in the text box?",
 			"Please read this and do what it says.",
 			"Make up and write a sentence about anything. This sentence must contain a noun and a verb.",
@@ -35,7 +35,7 @@ public final class User {
 			"You can see two objects on the screen. Can you tell me the names of the objects?",
 			"Repeat the phrase: “I would have gone if he had gone”",
 			"Can you say 'paper'?",
-			"Can you press the 'green' button?",
+			"Can you press the 'purple' button?",
 			"Please copy this picture." };
 
 	private static boolean speakerCheck;
@@ -52,10 +52,12 @@ public final class User {
 	public static int orderIlliterate[] = { 1, 2, 3, 4, 5, 6, 7, 18, 9, 10, 19, 12, 13};
 	
 	public static ArrayList<String> answers_mmse = new ArrayList<String>();
+	public static ArrayList<String> evaluation_mmse = new ArrayList<String>();
 	public static ArrayList<String> answers_clock = new ArrayList<String>();
-	private static ArrayList<Integer> score_mmse = new ArrayList<Integer>();
+
 	private static double score_clock=0; 
 	private static double score_polygon=0; 
+	private static int score_mmse=0;
 
 	public static boolean isSpeakerCheck() {
 		return speakerCheck;
@@ -128,15 +130,6 @@ public final class User {
 	public static void addAnswer_MMSE(String answer) {
 		answers_mmse.add(answer);
 	}
-
-	public static ArrayList<Integer> getScore_MMSE() {
-		return score_mmse;
-	}
-
-	public static void addScore_MMSE(int scr) {
-		score_mmse.add(scr);
-	}
-
 	
 	public static final double getScore_clock() {
 		return score_clock;
@@ -155,6 +148,18 @@ public final class User {
 	
 	public static final void setScore_polygon(double score_polygon) {
 		User.score_polygon = score_polygon;
+	}
+
+	public static final int getScore_mmse() {
+		return score_mmse;
+	}
+
+	public static final void setScore_mmse(int score_mmse) {
+		User.score_mmse = score_mmse;
+	}
+	
+	public static void addEval(String eval){
+		evaluation_mmse.add(eval);
 	}
 	
 }
