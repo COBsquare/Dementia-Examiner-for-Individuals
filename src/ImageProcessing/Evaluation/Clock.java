@@ -8,10 +8,8 @@ import org.neuroph.core.NeuralNetwork;
 import org.opencv.core.Mat;
 import org.opencv.core.Point;
 import org.opencv.core.Rect;
-import org.opencv.core.Scalar;
 import org.opencv.core.Size;
 import org.opencv.imgproc.Imgproc;
-
 import App.User;
 import ImageProcessing.Models.CCircle;
 import ImageProcessing.Models.CLine;
@@ -27,7 +25,7 @@ public final class Clock {
 
 	// Checking clockface for the numbers, hands, and its circular orientation
 	// Return scoring of clockface (out of 2)
-	public static int evaluateClockface(Mat frame, ImageView imageViewer) {
+	public static int evaluateClockface(Mat frame) {
 		System.out.println("CLOCK FACE----------------------------------");
 
 		// Compare optimal circumference with the real one 
@@ -69,7 +67,7 @@ public final class Clock {
 	// Checking all numbers if they are presented 
 	// Looks for their accurate locations on clock face
 	// Returns scoring of numbers (out of 4)
-	public static int evaluateNumbers(Mat frame, ImageView imageViewer) throws IOException {
+	public static int evaluateNumbers(Mat frame) throws IOException {
 		System.out.println("NUMBERS-------------------------------------");
 
 		int numbersPresent_score = 0;
@@ -286,7 +284,7 @@ public final class Clock {
 	// Checking clock hands if they are presented
 	// Comparing their lengths and their angles in between
 	// Returns scoring of hands (out of 4)
-	public static int evaluateHands(Mat frame, ImageView imageViewer) {
+	public static int evaluateHands(Mat frame) {
 		System.out.println("CLOCK HANDS----------------------------------");
 
 		// TODO Function should be reviewed because of the errors
@@ -346,14 +344,6 @@ public final class Clock {
 			}
 		}
 
-		// Display the hands
-		if (imageViewer != null) {
-			Imgproc.cvtColor(frame, frame, Imgproc.COLOR_GRAY2BGR);
-			Recognition.display(frame, imageViewer, hour_hand, new Scalar(0, 0, 250));
-			Recognition.display(frame, imageViewer, minute_hand, new Scalar(0, 250, 0));
-			Imgproc.cvtColor(frame, frame, Imgproc.COLOR_BGR2GRAY);
-		}
-
 		// Calculate the angles of hands relative to the base of the image
 		// And also calculation of angle between the hands
 		double angle_hour = Math.atan2(hour_hand.start.y - hour_hand.end.y, hour_hand.start.x - hour_hand.end.x) * (180
@@ -406,12 +396,11 @@ public final class Clock {
 		// Find the circle's features
 		clockface = Find.LargestCircle(frame);
 
-		clock_score += Clock.evaluateClockface(frame, imageViewer);
-		clock_score += Clock.evaluateNumbers(frame, imageViewer);
-		clock_score += Clock.evaluateHands(frame, imageViewer);
+		clock_score += Clock.evaluateClockface(frame);
+		clock_score += Clock.evaluateNumbers(frame);
+		clock_score += Clock.evaluateHands(frame);
 
 		System.out.println("RESULT OF THE TEST--->>> " + clock_score + " out of 10");
-		User.addScore(clock_score);
 		return clock_score;
 	}
 

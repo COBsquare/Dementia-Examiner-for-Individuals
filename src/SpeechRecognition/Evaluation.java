@@ -77,7 +77,7 @@ public final class Evaluation {
 			evaluate(User.orderLiterate[i], i);
 		}
 
-		User.addScore(getScoreFromSpeech());
+		User.addScore_MMSE(getScoreFromSpeech());
 	}
 
 	public void evaluationIlliterate() throws IOException {
@@ -85,7 +85,7 @@ public final class Evaluation {
 			evaluate(User.orderIlliterate[i], i);
 		}
 
-		User.addScore(getScoreFromSpeech());
+		User.addScore_MMSE(getScoreFromSpeech());
 	}
 
 	public static void evaluate(int question, int order) throws IOException {

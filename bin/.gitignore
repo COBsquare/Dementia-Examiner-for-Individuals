@@ -1,10 +1,11 @@
-/UserInteractions/
 /Answers/
 /Grammer/
 /Images/
-/ImageProcessing/
-/App/
+/NeuralNetwork/
 /Questions/
-/SpeechRec/
-/UserAnswers/
+/App/
+/ImageProcessing/
+/Samples/
 /TestCases/
+/UserInteractions/
+/SpeechRecognition/

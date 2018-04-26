@@ -18,28 +18,7 @@ public class ImageProcessing_TestCases {
 
 		assertTrue(ImageRecognitionController.getDrawingType() == "Clock Drawing");
 	}
-	@Test
-	public void test_setgetClockScore() {
-		ImageRecognitionController contr = new ImageRecognitionController();
-		contr.setCLOCK_SCORE(10);
-
-		assertTrue(contr.getCLOCK_SCORE() == 10);
-	}
-	@Test
-	public void test_setgetPolyIlliterateScore() {
-		ImageRecognitionController contr = new ImageRecognitionController();
-		contr.setILL_POLY_SCORE(5);
-
-		assertTrue(contr.getILL_POLY_SCORE() == 5);
-	}
-	@Test
-	public void test_setgetPolyLiterateScore() {
-		ImageRecognitionController contr = new ImageRecognitionController();
-		contr.setLIT_POLY_SCORE(3);
-
-		assertTrue(contr.getLIT_POLY_SCORE() == 3);
-	}
-
+	
 	// "CCircle" class test cases
 	@Test
 	public void test_CCirleConst() {

@@ -107,7 +107,7 @@ public class Question_Voiced {
 		btn_Next.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				order++;
-				User.addAnswer(userAnswer);
+				User.addAnswer_MMSE(userAnswer);
 				if (order < max) {
 					Question_Voiced.main(null);
 				} else {
@@ -219,7 +219,7 @@ public class Question_Voiced {
 		btn_clickbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (!User.answers_mmse.get(User.answers_mmse.size() - 1).equals("Pressed"))
-					User.addAnswer("Pressed");
+					User.addAnswer_MMSE("Pressed");
 			}
 		});
 
@@ -239,7 +239,7 @@ public class Question_Voiced {
 			btn_Next.setVisible(true);
 		} else if (question == 14) {
 			textField.setVisible(true);
-			App.User.addAnswer(textField.getText());
+			App.User.addAnswer_MMSE(textField.getText());
 			btn_microphone.setVisible(false);
 			btn_Next.setVisible(true);
 
@@ -248,13 +248,13 @@ public class Question_Voiced {
 			lbl.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 			lbl.setText("<html> Please do this calculation:<br>7 X 3</br>Type the answer down.</html>");
 			textField.setVisible(true);
-			App.User.addAnswer(textField.getText());
+			App.User.addAnswer_MMSE(textField.getText());
 			btn_microphone.setVisible(false);
 			btn_Next.setVisible(true);
 
 		} else if (question == 16) {
 			textField.setVisible(true);
-			App.User.addAnswer(textField.getText());
+			App.User.addAnswer_MMSE(textField.getText());
 			btn_microphone.setVisible(false);
 			btn_Next.setVisible(true);
 

@@ -15,6 +15,7 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.videoio.VideoCapture;
 
+import App.User;
 import ImageProcessing.Evaluation.Clock;
 import ImageProcessing.Evaluation.Polygon;
 import ImageProcessing.Utils.Recognition;
@@ -49,17 +50,12 @@ public class ImageRecognitionController {
 	private ScheduledExecutorService timer;
 	private Mat catch_frame;
 
-	// Variables for image processing operations
-	public static int CLOCK_SCORE;
-	public int LIT_POLY_SCORE;
-	public int ILL_POLY_SCORE;
-
 	static String drawingType;
 
 	public static void setDrawingType(String type) {
 		drawingType = type;
 	}
-	
+
 	public static String getDrawingType() {
 		return drawingType;
 	}
@@ -72,13 +68,6 @@ public class ImageRecognitionController {
 		this.cameraActive = false;
 		this.capture = new VideoCapture();
 		this.catch_frame = new Mat();
-
-		CLOCK_SCORE = 0;
-		LIT_POLY_SCORE = 0;
-		ILL_POLY_SCORE = 0;
-
-		drawingType = "Clock Drawing";
-
 	}
 
 	// Browse image
@@ -223,21 +212,25 @@ public class ImageRecognitionController {
 			}
 
 			Mat frame_figure = Recognition.getFigure(image);
+			double score;
 
 			if (drawingType == "Clock Drawing") {
-				
+
 				Imgcodecs.imwrite("Resources\\Answers\\user_clock.jpg", frame_figure);
-				CLOCK_SCORE = Clock.evaluateClock(frame_figure, imageViewer);
+				score = Clock.evaluateClock(frame_figure, imageViewer);
+				User.setScore_clock(score);
 
 			} else if (drawingType == "Literate Polygon") {
-				
+
 				Imgcodecs.imwrite("Resources\\Answers\\user_poly.jpg", frame_figure);
-				LIT_POLY_SCORE = Polygon.evaluatePolygon_Literate(frame_figure, imageViewer);
+				score = Polygon.evaluatePolygon_Literate(frame_figure, imageViewer);
+				User.setScore_polygon(score);
 
 			} else if (drawingType == "Illiterate Polygon") {
 
 				Imgcodecs.imwrite("Resources\\Answers\\user_poly.jpg", frame_figure);
-				ILL_POLY_SCORE = Polygon.evaluatePolygon_Illiterate(frame_figure, imageViewer);
+				score = Polygon.evaluatePolygon_Illiterate(frame_figure, imageViewer);
+				User.setScore_polygon(score);
 
 			}
 
@@ -245,34 +238,9 @@ public class ImageRecognitionController {
 			JOptionPane.showMessageDialog(null, "Please browse or capture image to process.", "Info: " + "No image",
 					JOptionPane.INFORMATION_MESSAGE);
 		}
-		
+
+		//TODO Close the frame
 
 	}
 
-	
-	public int getCLOCK_SCORE() {
-		return CLOCK_SCORE;
-	}
-
-	public void setCLOCK_SCORE(int cLOCK_SCORE) {
-		CLOCK_SCORE = cLOCK_SCORE;
-	}
-
-	public int getLIT_POLY_SCORE() {
-		return LIT_POLY_SCORE;
-	}
-
-	public void setLIT_POLY_SCORE(int lIT_POLY_SCORE) {
-		LIT_POLY_SCORE = lIT_POLY_SCORE;
-	}
-
-	public int getILL_POLY_SCORE() {
-		return ILL_POLY_SCORE;
-	}
-
-	public void setILL_POLY_SCORE(int iLL_POLY_SCORE) {
-		ILL_POLY_SCORE = iLL_POLY_SCORE;
-	}
-
-	
 }

@@ -1,9 +1,6 @@
 package TestCases;
 
 import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-
 import org.junit.Test;
 
 public class App_TestCases {
@@ -58,30 +55,6 @@ public class App_TestCases {
 		App.User.setProfession("Student");
 
 		assertTrue(App.User.getProfession() == "Student");
-
-	}
-	@Test
-	public void test_setgetAnswers() {
-		ArrayList<String> answers = new ArrayList<String>();
-		answers.add("apple");
-		answers.add("orange");
-		answers.add("banana");
-
-		App.User.setAnswers(answers);
-
-		assertTrue(App.User.getAnswers(1) == "orange");
-	}
-	@Test
-	public void test_addAnswer() {
-		ArrayList<String> answers = new ArrayList<String>();
-		answers.add("apple");
-		answers.add("orange");
-		answers.add("banana");
-
-		App.User.setAnswers(answers);
-		App.User.addAnswer("strawberry");
-
-		assertTrue(App.User.getAnswers(3) == "strawberry");
 
 	}
 

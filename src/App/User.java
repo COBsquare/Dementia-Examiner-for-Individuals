@@ -53,8 +53,9 @@ public final class User {
 	
 	public static ArrayList<String> answers_mmse = new ArrayList<String>();
 	public static ArrayList<String> answers_clock = new ArrayList<String>();
-	private static ArrayList<Integer> score = new ArrayList<Integer>();
-
+	private static ArrayList<Integer> score_mmse = new ArrayList<Integer>();
+	private static double score_clock=0; 
+	private static double score_polygon=0; 
 
 	public static boolean isSpeakerCheck() {
 		return speakerCheck;
@@ -124,33 +125,36 @@ public final class User {
 		return answers_mmse.get(index);
 	}
 
-	public static void setAnswers(ArrayList<String> a) {
-		answers_mmse = a;
-	}
-
-	public static void addAnswer(String answer) {
+	public static void addAnswer_MMSE(String answer) {
 		answers_mmse.add(answer);
 	}
 
-	public static void displayInfo() {
-		System.out.println("User Info-----------------");
-		System.out.println("Name Surname: " + App.User.getNameSurname());
-		System.out.println("Age: " + App.User.getAge());
-		System.out.println("Gender: " + App.User.getGender());
-		System.out.println("Profession: " + App.User.getProfession());
-		System.out.println("Education: " + App.User.getEducation());
+	public static ArrayList<Integer> getScore_MMSE() {
+		return score_mmse;
 	}
 
-	public static ArrayList<Integer> getScore() {
-		return score;
+	public static void addScore_MMSE(int scr) {
+		score_mmse.add(scr);
 	}
 
-	public static void setScore(ArrayList<Integer> score) {
-		User.score = score;
+	
+	public static final double getScore_clock() {
+		return score_clock;
 	}
 
-	public static void addScore(int scr) {
-		score.add(scr);
+	
+	public static final void setScore_clock(double score_clock) {
+		User.score_clock = score_clock;
 	}
 
+	
+	public static final double getScore_polygon() {
+		return score_polygon;
+	}
+
+	
+	public static final void setScore_polygon(double score_polygon) {
+		User.score_polygon = score_polygon;
+	}
+	
 }

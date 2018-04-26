@@ -11,7 +11,7 @@ import ImageProcessing.Utils.Recognition;
 import javafx.scene.image.ImageView;
 
 public final class Polygon {
-	static int edges_score = 0;
+	static double score = 0;
 
 	// Evaluate the illiterate polygon which is a square
 	public static int evaluatePolygon_Illiterate(Mat frame, ImageView imageViewer) {
@@ -201,23 +201,26 @@ public final class Polygon {
 			double ratio = big * 20 / 100;
 
 			if (ratio >= Math.abs(edgeTwins[i][0] - edgeTwins[i][1])) {
-				edges_score++;
+				score++;
 			}
 		}
 
+		User.setScore_polygon(score);
+
 		// If the total score equals or bigger than 3
 		// then the polygon can be scored fully otherwise polygon drawing is not sufficent
-		if (edges_score >= 3) {
+		if (score >= 3) {
 			System.out.println("All edges were drawn correctly.");
 			System.out.println("Polygon drawing is correct.");
-			User.addAnswer("SATISFIED");
+			User.addAnswer_MMSE("SATISFIED");
 			return 1;
 		} else {
 			System.out.println("Polygon drawing is not sufficient.");
-			User.addAnswer("NOT SATISFIED");
+			User.addAnswer_MMSE("NOT SATISFIED");
 			return 0;
 
 		}
+
 	}
 
 	// Evaluate the literate polygon which is a pentagon
@@ -439,7 +442,7 @@ public final class Polygon {
 			double ratio = big * 20 / 100;
 
 			if (ratio >= Math.abs(edgeTwins[i][0] - edgeTwins[i][1])) {
-				edges_score++;
+				score++;
 			}
 		}
 
@@ -456,31 +459,33 @@ public final class Polygon {
 		double angle_between2 = line_angles[2] - line_angles[3];
 
 		if (angle_between1 > 80 && angle_between1 < 100 && angle_between2 > 80 && angle_between2 < 100)
-			edges_score += 5;
+			score += 5;
+
+		User.setScore_polygon(score);
 
 		// If the total score equals or bigger than 9,
 		// then the pentagon can be scored fully otherwise drawing is not sufficent
-		if (edges_score >= 9) {
+		if (score >= 9) {
 			System.out.println("All edges were drawn correctly.");
 			System.out.println("Two points were intersected.");
 			System.out.println("Polygon drawing is correct.");
-			User.addAnswer("SATISFIED");
+			User.addAnswer_MMSE("SATISFIED");
 			return 1;
 		} else {
 			System.out.println("Polygon drawing is not sufficient.");
-			User.addAnswer("NOT SATISFIED");
+			User.addAnswer_MMSE("NOT SATISFIED");
 			return 0;
 
 		}
 
 	}
 
-	public static final int getEdges_score() {
-		return edges_score;
+	public static final double getEdges_score() {
+		return score;
 	}
 
 	public static final void setEdges_score(int edges_score) {
-		Polygon.edges_score = edges_score;
+		Polygon.score = edges_score;
 	}
 
 }

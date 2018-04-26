@@ -16,7 +16,6 @@ import javax.swing.table.JTableHeader;
 import com.itextpdf.text.DocumentException;
 
 import App.User;
-import ImageProcessing.application.ImageRecognitionController;
 import UserInteractions.ExportToPDF;
 
 public class Results_Clock {
@@ -52,26 +51,26 @@ public class Results_Clock {
 
 		String[] columnNames = { "Clock Drawing Criteria", "Score" };
 		String[][] rowdata = {
-				{ "CLOCK FACE",""},
-				{ "",""},
+				{ "CLOCK FACE", "" },
+				{ "", "" },
 				{ "Clock face is presented", User.answers_clock.get(0) },
 				{ "Numbers and hands are presented", User.answers_clock.get(1) },
-				
-				{ "NUMBERS",""},
-				{ "",""},
+
+				{ "NUMBERS", "" },
+				{ "", "" },
 				{ "All numbers are presented", User.answers_clock.get(2) },
 				{ "Numbers are in correct spatial arrangements", User.answers_clock.get(3) },
-				
-				{ "CLOCK HANDS",""},
-				{ "",""},
+
+				{ "CLOCK HANDS", "" },
+				{ "", "" },
 				{ "Hour hand is in the correct place", User.answers_clock.get(4) },
 				{ "Minute hand is in the correct place", User.answers_clock.get(5) },
 				{ "Minute hand is longer than hour hand", User.answers_clock.get(6) },
 				{ "They are in correct form", User.answers_clock.get(7) },
-				
-				{ "",""},
-				{ "TOTAL POINT", ImageRecognitionController.CLOCK_SCORE+" out of 10" }};
-		
+
+				{ "", "" },
+				{ "TOTAL POINT", User.getScore_clock() + " out of 10" } };
+
 		JTable table_point = new JTable(rowdata, columnNames);
 		table_point.setCellSelectionEnabled(true);
 		table_point.setColumnSelectionAllowed(true);
@@ -83,9 +82,9 @@ public class Results_Clock {
 		frame.getContentPane().add(scrollPane);
 
 		JTableHeader Theader = table_point.getTableHeader();
-		Theader.setBackground(Color.GRAY); 
-		Theader.setForeground(Color.BLACK); 
-		Theader.setFont(new Font("Tahoma", Font.BOLD, 20)); 
+		Theader.setBackground(Color.GRAY);
+		Theader.setForeground(Color.BLACK);
+		Theader.setFont(new Font("Tahoma", Font.BOLD, 20));
 		table_point.setFont(new Font("Tahoma", Font.BOLD, 15));
 
 		JButton btn_export = new JButton("Export the PDF File");
@@ -103,18 +102,18 @@ public class Results_Clock {
 				}
 			}
 		});
-		
+
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
-		
+
 		JLabel lbl_clock = new JLabel("");
 		lbl_clock.setFont(new Font("Tahoma", Font.BOLD, 20));
 		lbl_clock.setIcon(new ImageIcon("Resources/Answers/user_clock.jpg"));
 		lbl_clock.setBounds(327, 199, 328, 279);
 		frame.getContentPane().add(lbl_clock);
-		
+
 		JButton btnBack = new JButton("Back");
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.setBounds(158, 598, 142, 54);
@@ -124,7 +123,7 @@ public class Results_Clock {
 				Results_MMSE.main(null);
 			}
 		});
-		
+
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
 		btnHome.setIcon(new ImageIcon("Resources/Images/home.png"));
