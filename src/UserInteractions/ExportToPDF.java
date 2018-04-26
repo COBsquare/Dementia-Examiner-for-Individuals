@@ -19,7 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import App.User;
-import UserInteractions.Interfaces.Results_MMSE;
+import UserInteractions.Examination.Results_MMSE;
 
 public class ExportToPDF {
 	public static final String DEST = System.getProperty("user.home") + "/Desktop" + "/DEfI-Report.pdf";

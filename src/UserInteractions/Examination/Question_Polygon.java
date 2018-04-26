@@ -1,4 +1,4 @@
-package UserInteractions.Interfaces;
+package UserInteractions.Examination;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -21,7 +21,9 @@ import javax.swing.border.LineBorder;
 
 import App.User;
 import ImageProcessing.application.ImageRecognitionController;
-import ImageProcessing.application.Main;
+import ImageProcessing.application.ImageRecognitionMain;
+import UserInteractions.Constants.EndTest;
+import UserInteractions.Constants.Welcome;
 
 public class Question_Polygon {
 
@@ -42,6 +44,8 @@ public class Question_Polygon {
 	}
 
 	public Question_Polygon() {
+		
+		User.setEducation("Literate");
 
 		if (App.User.getEducation().equals("Literate")) {
 			image_path = "Resources/Images/polygon_literate.png";
@@ -100,7 +104,7 @@ public class Question_Polygon {
 				if (User.getEducation().equals("Literate")) {
 					Question_Clock.main(null);
 				} else {
-					Finalized.main(null);
+					EndTest.main(null);
 				}
 			}
 		});
@@ -113,7 +117,7 @@ public class Question_Polygon {
 		frame.getRootPane().setDefaultButton(btn_camera);
 		btn_camera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main.main(null);
+				ImageRecognitionMain.main(null);
 				btn_Next.setVisible(true);
 			}
 

@@ -1,4 +1,4 @@
-package UserInteractions.Interfaces;
+package UserInteractions.Examination;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -20,6 +20,7 @@ import com.itextpdf.text.DocumentException;
 
 import App.User;
 import UserInteractions.ExportToPDF;
+import UserInteractions.Constants.Welcome;
 
 public class Results_MMSE {
 
@@ -96,9 +97,8 @@ public class Results_MMSE {
 			questions = User.questions_illiterate.clone();
 			size = User.questions_illiterate.length;
 		}
-		
-		System.out.println("SIZE:"+size);
 
+		System.out.println("SIZE:" + size);
 
 		String[][] MainRows = new String[size][size];
 		for (int i = 0; i < size; i++) {
@@ -137,9 +137,9 @@ public class Results_MMSE {
 		String[] EvalHeader = { "Evaluation" };
 		String[][] EvalRows = new String[size][size];
 
-		if ( User.evaluation_mmse.size() > 0) {
+		if (User.evaluation_mmse.size() > 0) {
 			for (int i = 0; i < size; i++) {
-				EvalRows[i][0] =User.evaluation_mmse.get(i);
+				EvalRows[i][0] = User.evaluation_mmse.get(i);
 			}
 		} else {
 			for (int i = 0; i < size; i++) {
@@ -164,11 +164,11 @@ public class Results_MMSE {
 
 		Theader_3.setFont(new Font("Tahome", Font.BOLD, 20));
 
-		JLabel lbl_score = new JLabel("Your Score: "+ User.getScore_mmse());
+		JLabel lbl_score = new JLabel("Your Score: " + User.getScore_mmse());
 		lbl_score.setFont(new Font("Tahoma", Font.BOLD, 30));
 		lbl_score.setBounds(996, 126, 275, 60);
 		frame.getContentPane().add(lbl_score);
-		
+
 		// TODO Resize button
 		JButton btnExport = new JButton("Export results to PDF");
 		btnExport.setFont(new Font("Tahoma", Font.PLAIN, 18));
@@ -181,7 +181,7 @@ public class Results_MMSE {
 				try {
 					ExportToPDF.main(null);
 					JOptionPane.showConfirmDialog(null, "Your report has been exported to your desktop", "Info",
-							JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+							JOptionPane.INFORMATION_MESSAGE);
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (DocumentException e) {

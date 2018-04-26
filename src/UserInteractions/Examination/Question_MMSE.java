@@ -1,4 +1,4 @@
-package UserInteractions.Interfaces;
+package UserInteractions.Examination;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 
 import SpeechRecognition.Evaluation;
 import SpeechRecognition.SpeechRecorder;
+import UserInteractions.Constants.Welcome;
 
 import java.awt.Font;
 
@@ -30,7 +31,7 @@ import javax.swing.border.LineBorder;
 
 import App.User;
 
-public class Question_Voiced {
+public class Question_MMSE {
 
 	private JFrame frame;
 	private JTextField textField;
@@ -46,7 +47,7 @@ public class Question_Voiced {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Question_Voiced window = new Question_Voiced();
+					Question_MMSE window = new Question_MMSE();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -55,7 +56,7 @@ public class Question_Voiced {
 		});
 	}
 
-	public Question_Voiced() {
+	public Question_MMSE() {
 
 		if (App.User.getEducation().equals("Literate")) {
 			question = User.orderLiterate[order];
@@ -111,22 +112,22 @@ public class Question_Voiced {
 				order++;
 				User.addAnswer_MMSE(userAnswer);
 				if (order < max) {
-					Question_Voiced.main(null);
+					Question_MMSE.main(null);
 				} else {
-					if(User.getEducation().equals("Literate")){
-							try {
-								Evaluation.evaluationLiterate();
-							} catch (IOException e1) {
-								e1.printStackTrace();
-							}
-					}else{
-							try {
-								Evaluation.evaluationIlliterate();
-							} catch (IOException e1) {
-								e1.printStackTrace();
-							}
-						}	
-					
+					if (User.getEducation().equals("Literate")) {
+						try {
+							Evaluation.evaluationLiterate();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
+					} else {
+						try {
+							Evaluation.evaluationIlliterate();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
+					}
+
 					Question_Polygon.main(null);
 				}
 			}
@@ -189,7 +190,8 @@ public class Question_Voiced {
 								"<html>No answer was given<br>Click on microphone button to record again</html>");
 					} else {
 						lbl_speechAnswer.setText(String.format(
-								"<html>Your answer:<br><font color='red'>%s</font><br>Click on microphone button to record again</html>", userAnswer));
+								"<html>Your answer:<br><font color='red'>%s</font><br>Click on microphone button to record again</html>",
+								userAnswer));
 					}
 				}
 
@@ -234,9 +236,9 @@ public class Question_Voiced {
 		frame.getContentPane().add(btn_clickbutton);
 		btn_clickbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-					User.addAnswer_MMSE("Pressed");
-					JOptionPane.showConfirmDialog(null, "Please press NEXT button to continue", "Info",
-							JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
+				User.addAnswer_MMSE("Pressed");
+				JOptionPane.showConfirmDialog(null, "Please press NEXT button to continue", "Info",
+						JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 
@@ -250,7 +252,7 @@ public class Question_Voiced {
 			lbl.setIcon(new ImageIcon("Resources/Images/chair.png"));
 			lbl.setVisible(true);
 		} else if (question == 13) {
-			lblNewLabel_4.setVisible(false);
+			lblPleaseClickThe.setVisible(false);
 			btn_clickbutton.setVisible(true);
 			btn_microphone.setVisible(false);
 			btn_Next.setVisible(true);

@@ -205,7 +205,6 @@ public final class Polygon {
 			}
 		}
 
-		User.setScore_polygon(score);
 
 		// If the total score equals or bigger than 3
 		// then the polygon can be scored fully otherwise polygon drawing is not sufficent
@@ -461,7 +460,6 @@ public final class Polygon {
 		if (angle_between1 > 80 && angle_between1 < 100 && angle_between2 > 80 && angle_between2 < 100)
 			score += 5;
 
-		User.setScore_polygon(score);
 
 		// If the total score equals or bigger than 9,
 		// then the pentagon can be scored fully otherwise drawing is not sufficent

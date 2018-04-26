@@ -1,6 +1,4 @@
 package SpeechRecognition;
-
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import javax.sound.sampled.AudioFileFormat;

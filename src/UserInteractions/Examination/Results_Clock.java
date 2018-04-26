@@ -1,4 +1,4 @@
-package UserInteractions.Interfaces;
+package UserInteractions.Examination;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.Font;
@@ -17,6 +18,7 @@ import com.itextpdf.text.DocumentException;
 
 import App.User;
 import UserInteractions.ExportToPDF;
+import UserInteractions.Constants.Welcome;
 
 public class Results_Clock {
 
@@ -95,6 +97,8 @@ public class Results_Clock {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					ExportToPDF.main(null);
+					JOptionPane.showConfirmDialog(null, "Your report has been exported to your desktop", "Info",
+							JOptionPane.INFORMATION_MESSAGE);
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (DocumentException e) {
@@ -111,7 +115,7 @@ public class Results_Clock {
 		// TODO Resize the image
 		JLabel lbl_clock = new JLabel("");
 		lbl_clock.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lbl_clock.setIcon(new ImageIcon(System.getProperty("user.home")+"/DEfI/user_clock.jpg"));
+		lbl_clock.setIcon(new ImageIcon(System.getProperty("user.home") + "/DEfI/user_clock.jpg"));
 		lbl_clock.setBounds(327, 199, 328, 279);
 		frame.getContentPane().add(lbl_clock);
 

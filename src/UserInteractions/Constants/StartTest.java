@@ -1,25 +1,31 @@
-package UserInteractions.Interfaces;
-
+package UserInteractions.Constants;
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Finalized {
+import UserInteractions.Examination.Question_MMSE;
+
+
+public class StartTest {
 
 	private JFrame frame;
 
+	/**
+	 * Launch the application.
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Finalized window = new Finalized();
+					StartTest window = new StartTest();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -28,10 +34,16 @@ public class Finalized {
 		});
 	}
 
-	public Finalized() {
+	/**
+	 * Create the application.
+	 */
+	public StartTest() {
 		initialize();
 	}
 
+	/**
+	 * Initialize the contents of the frame.
+	 */
 	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1367, 796);
@@ -42,35 +54,34 @@ public class Finalized {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JButton viewResultsButton = new JButton("View Results");
-		viewResultsButton.setForeground(Color.WHITE);
-		viewResultsButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		viewResultsButton.setBackground(Color.RED);
-		viewResultsButton.setBounds(612, 533, 173, 60);
-		frame.getContentPane().add(viewResultsButton);
-		frame.getRootPane().setDefaultButton(viewResultsButton);
-		viewResultsButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				
-				Results_MMSE.main(null);
-
-			}
-		});
-
-		JLabel lbl_complete = new JLabel("You have completed the test.");
-		lbl_complete.setFont(new Font("Serif", Font.BOLD, 30));
-		lbl_complete.setBounds(523, 380, 376, 76);
-		frame.getContentPane().add(lbl_complete);
-
 		JLabel lbl_logo = new JLabel("");
 		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lbl_logo.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lbl_logo);
 
-		JLabel lbl_tick = new JLabel("");
-		lbl_tick.setIcon(new ImageIcon("Resources/Images/tick.png"));
-		lbl_tick.setBounds(566, 168, 284, 171);
-		frame.getContentPane().add(lbl_tick);
+		JLabel lbl_ready = new JLabel("If you are ready, please click the start the test button.");
+		lbl_ready.setFont(new Font("Tahoma",Font.BOLD,30));
+		lbl_ready.setBounds(304, 418, 825, 75);
+		frame.getContentPane().add(lbl_ready);
+
+		JButton viewResultsButton = new JButton("START THE TEST");
+		viewResultsButton.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		viewResultsButton.addActionListener(new ActionListener() {
+			@SuppressWarnings("unused")
+			public void keyPressed(KeyEvent e) {
+			    if (e.getKeyCode()==KeyEvent.VK_ENTER){
+
+			    }
+
+			}
+			public void actionPerformed(ActionEvent arg0) {
+				 Question_MMSE.main(null);
+			}
+		});
+		viewResultsButton.setBackground(Color.GREEN);
+		viewResultsButton.setBounds(570, 534, 237, 60);
+		frame.getContentPane().add(viewResultsButton);
+		frame.getRootPane().setDefaultButton( viewResultsButton );
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -86,10 +97,16 @@ public class Finalized {
 		btnClose.setBounds(1281, 27, 60, 60);
 		btnClose.setIcon(new ImageIcon("Resources/Images/close.png"));
 		frame.getContentPane().add(btnClose);
+		
+		JLabel lbl_mmse = new JLabel("<html> This application includes Modified Mini-Mental State Examination test and clock-drawing <br/> test which are applied for seeking symptoms of dementia and its kind. Our application gives you to check your mental status by yourselves without any assistance </html>");
+		lbl_mmse.setFont(new Font("Tahoma", Font.ITALIC, 20));
+		lbl_mmse.setBounds(304, 267, 825, 126);
+		frame.getContentPane().add(lbl_mmse);
 		btnClose.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+
 				System.exit(0);
-			}
+				}
 		});
 	}
 

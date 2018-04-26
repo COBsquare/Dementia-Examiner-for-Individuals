@@ -1,4 +1,4 @@
-package UserInteractions.Interfaces;
+package UserInteractions.Information;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,13 +6,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+import UserInteractions.Constants.Welcome;
 
 import java.awt.Font;
-import java.awt.Color;
 
-public class Information_Warnings {
+public class Information_Name {
 
 	private JFrame frame;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -21,7 +24,7 @@ public class Information_Warnings {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Information_Warnings window = new Information_Warnings();
+					Information_Name window = new Information_Name();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -33,7 +36,7 @@ public class Information_Warnings {
 	/**
 	 * Create the application.
 	 */
-	public Information_Warnings() {
+	public Information_Name() {
 		initialize();
 	}
 
@@ -50,51 +53,63 @@ public class Information_Warnings {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-
+		
 
 		JLabel lbl_logo = new JLabel("");
 		lbl_logo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
 		lbl_logo.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lbl_logo);
 
+		textField = new JTextField();
+		textField.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		textField.setBounds(652, 438, 262, 46);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+
+
+
+		JLabel lbl_name = new JLabel("Name Surname");
+		lbl_name.setFont(new Font("Tahoma", Font.PLAIN, 30));
+		lbl_name.setBounds(375, 434, 302, 44);
+		frame.getContentPane().add(lbl_name);
 
 		JButton btnNext = new JButton("Next");
 		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnNext.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				TutorialScreen_voice.main(null);
+			public void actionPerformed(ActionEvent arg0) {	
+				App.User.setNameSurname(textField.getText());
+
+				
+				Information_Age.main(null);
+				
+				
 			}
 		});
 		btnNext.setBounds(1080, 598, 142, 54);
 		frame.getContentPane().add(btnNext);
 		frame.getRootPane().setDefaultButton( btnNext );
 
-		JLabel lbl_warning = new JLabel("Please take paper and pencil before starting the test.");
-		lbl_warning.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lbl_warning.setBounds(341, 305, 813, 46);
-		frame.getContentPane().add(lbl_warning);
+		JLabel lbl_info = new JLabel("This information is only for personalizing the document which is given at the end of the test.");
+		lbl_info.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lbl_info.setBounds(343, 253, 813, 46);
+		frame.getContentPane().add(lbl_info);
 
-		JLabel lbl_warning2 = new JLabel("It is suggested to use headphones during the test.");
-		lbl_warning2.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lbl_warning2.setBounds(363, 385, 813, 46);
-		frame.getContentPane().add(lbl_warning2);
-
+		JLabel lbl_info2 = new JLabel("If you do not want to personalize the document, you can pass without filling it.");
+		lbl_info2.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		lbl_info2.setBounds(375, 303, 707, 33);
+		frame.getContentPane().add(lbl_info2);
 
 		JButton btnBack = new JButton("Back");
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Information_Gender.main(null);
+				
+				TypeSelection.main(null);
+				
 			}
 		});
 		btnBack.setBounds(158, 598, 142, 54);
 		frame.getContentPane().add(btnBack);
-
-		JLabel lblWarnings = new JLabel("WARNINGS");
-		lblWarnings.setForeground(Color.RED);
-		lblWarnings.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 40));
-		lblWarnings.setBounds(575, 166, 247, 76);
-		frame.getContentPane().add(lblWarnings);
 
 		JButton btnHome = new JButton("");
 		btnHome.setBounds(1210, 27, 61, 60);
@@ -119,4 +134,6 @@ public class Information_Warnings {
 
 
 	}
+
+
 }

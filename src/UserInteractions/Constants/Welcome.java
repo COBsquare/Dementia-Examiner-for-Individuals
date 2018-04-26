@@ -1,9 +1,12 @@
-package UserInteractions.Interfaces;
+package UserInteractions.Constants;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import UserInteractions.Information.TypeSelection;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;

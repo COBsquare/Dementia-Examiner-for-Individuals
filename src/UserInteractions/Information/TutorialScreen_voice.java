@@ -1,4 +1,4 @@
-package UserInteractions.Interfaces;
+package UserInteractions.Information;
 
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
@@ -21,6 +21,8 @@ import javax.swing.JOptionPane;
 
 import SpeechRecognition.Evaluation;
 import SpeechRecognition.SpeechRecorder;
+import UserInteractions.Constants.Warnings;
+import UserInteractions.Constants.Welcome;
 import edu.cmu.sphinx.api.Configuration;
 import edu.cmu.sphinx.api.SpeechResult;
 import edu.cmu.sphinx.api.StreamSpeechRecognizer;
@@ -237,7 +239,7 @@ public class TutorialScreen_voice {
 		btnBack.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Information_Warnings.main(null);
+				Warnings.main(null);
 			}
 		});
 		btnBack.setBounds(158, 598, 142, 54);

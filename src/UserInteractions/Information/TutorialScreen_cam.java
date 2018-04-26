@@ -1,4 +1,4 @@
-package UserInteractions.Interfaces;
+package UserInteractions.Information;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +8,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import ImageProcessing.application.WebcamTestMain;
+import UserInteractions.Constants.StartTest;
+import UserInteractions.Constants.Welcome;
 
 import java.awt.Font;
 import java.awt.Color;

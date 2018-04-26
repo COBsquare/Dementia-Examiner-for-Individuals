@@ -1,4 +1,4 @@
-package UserInteractions.Interfaces;
+package UserInteractions.Information;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -9,6 +9,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+
+import UserInteractions.Constants.Welcome;
 
 import java.awt.Font;
 

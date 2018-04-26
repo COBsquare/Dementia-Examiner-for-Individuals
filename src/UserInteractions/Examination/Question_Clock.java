@@ -1,4 +1,4 @@
-package UserInteractions.Interfaces;
+package UserInteractions.Examination;
 
 import java.awt.Color;
 import java.awt.EventQueue;
@@ -21,7 +21,9 @@ import javax.swing.JLabel;
 import javax.swing.border.LineBorder;
 
 import ImageProcessing.application.ImageRecognitionController;
-import ImageProcessing.application.Main;
+import ImageProcessing.application.ImageRecognitionMain;
+import UserInteractions.Constants.EndTest;
+import UserInteractions.Constants.Welcome;
 
 public class Question_Clock {
 
@@ -84,7 +86,7 @@ public class Question_Clock {
 		frame.getRootPane().setDefaultButton(btn_Next);
 		btn_Next.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Finalized.main(null);
+				EndTest.main(null);
 			}
 		});
 
@@ -95,7 +97,7 @@ public class Question_Clock {
 		frame.getRootPane().setDefaultButton(btn_camera);
 		btn_camera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Main.main(null);
+				ImageRecognitionMain.main(null);
 				btn_Next.setVisible(true);
 			}
 
