@@ -22,7 +22,7 @@ import App.User;
 import UserInteractions.Interfaces.Results_MMSE;
 
 public class ExportToPDF {
-	public static final String DEST = System.getProperty("user.home") + "/Desktop"+ "/DEfI-Report.pdf";
+	public static final String DEST = System.getProperty("user.home") + "/Desktop" + "/DEfI-Report.pdf";
 
 	public static void main(String[] args) throws IOException, DocumentException {
 		File file = new File(DEST);
@@ -93,7 +93,7 @@ public class ExportToPDF {
 		table.setSpacingBefore(10);
 		table.setWidths(new int[] { 8, 8, 15 });
 		table.setWidthPercentage(100);
-		
+
 		// Setting column informations
 		table.getDefaultCell().setColspan(1);
 		table.addCell(new Paragraph("MMSE Score", font_boldTimes));
@@ -167,16 +167,14 @@ public class ExportToPDF {
 		for (int j = 0; j < cells3.length; j++) {
 			cells3[j].setBackgroundColor(new BaseColor(/* Red */127, /* Green */162, 211/* Blue */));
 		}
-		
+
 		// Getting answers
 		for (int i = 0; i < Results_MMSE.size; i++) {
-			table.addCell("question");
-			//table.addCell((i+1)+". "+Results.questions[i]);
-			table.addCell("answer");
-			//table.addCell(Results.answers[i]);
-			table.addCell("You got "+"2"+ "out of"+"2");
+			table.addCell((i+1)+". "+Results_MMSE.questions[i]);
+			table.addCell(Results_MMSE.answers[i]);
+			table.addCell(User.evaluation_mmse.get(i));
 		}
-		
+
 		document.add(table);
 		document.add(new Paragraph(" "));
 
@@ -185,7 +183,7 @@ public class ExportToPDF {
 		document.add(new Paragraph("Polygon Drawing:"));
 		document.add(new Paragraph(" "));
 
-		Image img3 = Image.getInstance(System.getProperty("user.home")+"/DEfI/user_poly.jpg");
+		Image img3 = Image.getInstance(System.getProperty("user.home") + "/DEfI/user_poly.jpg");
 		img3.scaleToFit(200f, 200f);
 		img3.setAlignment(Image.MIDDLE);
 		document.add(img3);
@@ -193,7 +191,7 @@ public class ExportToPDF {
 		// Setting the first table size and information's position
 		table = new PdfPTable(2);
 		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 10, 10});
+		table.setWidths(new int[] { 10, 10 });
 		table.setWidthPercentage(100);
 
 		// First table column names
@@ -210,64 +208,67 @@ public class ExportToPDF {
 		// Setting personal informations
 		table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 		table.addCell("All edges were drawn correctly");
-		table.addCell("");
+		table.addCell(User.evaluation_mmse.get(User.evaluation_mmse.size()-1));
 		table.addCell("Polygon drawing is correct");
-		table.addCell("");
-		table.addCell(User.answers_mmse.get(User.answers_mmse.size()-1));
+		table.addCell(User.evaluation_mmse.get(User.evaluation_mmse.size()-1));
 		document.add(table);
 		table.setSpacingBefore(5);
 
-		// Setting the second table size and information's position
-		// Adding second paragraph
-		document.add(new Paragraph(" "));
-		document.add(new Paragraph(" "));
-		document.add(new Paragraph("Clock Drawing:"));
+		// CLOCK --------------------------------------------------------------------------
+		if (User.getEducation().equals("Literate")) {
+			// Setting the second table size and information's position
+			// Adding second paragraph
+			document.add(new Paragraph(" "));
+			document.add(new Paragraph(" "));
+			document.add(new Paragraph("Clock Drawing:"));
 
-		Image img2 = Image.getInstance(System.getProperty("user.home")+"/DEfI/user_clock.jpg");
-		img2.scaleToFit(200f, 200f);
-		img2.setAlignment(Image.MIDDLE);
-		document.add(img2);
+			Image img2 = Image.getInstance(System.getProperty("user.home") + "/DEfI/user_clock.jpg");
+			img2.scaleToFit(200f, 200f);
+			img2.setAlignment(Image.MIDDLE);
+			document.add(img2);
 
-		table = new PdfPTable(2);
-		table.setSpacingBefore(10);
-		table.setWidths(new int[] { 10, 10});
-		table.setWidthPercentage(100);
+			table = new PdfPTable(2);
+			table.setSpacingBefore(10);
+			table.setWidths(new int[] { 10, 10 });
+			table.setWidthPercentage(100);
 
-		// Setting column informations
-		table.getDefaultCell().setColspan(1);
-		table.addCell(new Paragraph("Criteria", font_boldTimes));
-		table.addCell(new Paragraph("Evaluation", font_boldTimes));
+			// Setting column informations
+			table.getDefaultCell().setColspan(1);
+			table.addCell(new Paragraph("Criteria", font_boldTimes));
+			table.addCell(new Paragraph("Evaluation", font_boldTimes));
 
-		// Painting to first row as a header to gray
-		table.setHeaderRows(1);
-		PdfPCell[] cellsclock = table.getRow(0).getCells();
-		for (int j = 0; j < cellsclock.length; j++) {
-			cellsclock[j].setBackgroundColor(new BaseColor(/* Red */127, /* Green */162, 211/* Blue */));
+			// Painting to first row as a header to gray
+			table.setHeaderRows(1);
+			PdfPCell[] cellsclock = table.getRow(0).getCells();
+			for (int j = 0; j < cellsclock.length; j++) {
+				cellsclock[j].setBackgroundColor(new BaseColor(/* Red */127, /* Green */162, 211/* Blue */));
+			}
+
+			// Setting personal informations
+			table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
+			table.addCell("Clock face is presented");
+			table.addCell(User.answers_clock.get(0));
+			table.addCell("Numbers and hands are presented");
+			table.addCell(User.answers_clock.get(1));
+
+			table.addCell("All numbers are presented");
+			table.addCell(User.answers_clock.get(2));
+			table.addCell("Numbers are in correct spatial arrangements");
+			table.addCell(User.answers_clock.get(3));
+
+			table.addCell("Hour hand is in the correct place");
+			table.addCell(User.answers_clock.get(4));
+			table.addCell("Minute hand is in the correct place");
+			table.addCell(User.answers_clock.get(5));
+			table.addCell("Minute hand is longer than hour hand");
+			table.addCell(User.answers_clock.get(6));
+			table.addCell("They are in the correct form");
+			table.addCell(User.answers_clock.get(7));
+			document.add(table);
+			table.setSpacingBefore(5);
+
 		}
 
-		// Setting personal informations
-		table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
-		table.addCell("Clock face is presented");
-		table.addCell(User.answers_clock.get(0));
-		table.addCell("Numbers and hands are presented");
-		table.addCell(User.answers_clock.get(1));
-		
-		table.addCell("All numbers are presented");
-		table.addCell(User.answers_clock.get(2));
-		table.addCell("Numbers are in correct spatial arrangements");
-		table.addCell(User.answers_clock.get(3));
-	
-		table.addCell("Hour hand is in the correct place");
-		table.addCell(User.answers_clock.get(4));
-		table.addCell("Minute hand is in the correct place");
-		table.addCell(User.answers_clock.get(5));
-		table.addCell("Minute hand is longer than hour hand");
-		table.addCell(User.answers_clock.get(6));
-		table.addCell("They are in the correct form");
-		table.addCell(User.answers_clock.get(7));
-		document.add(table);
-		table.setSpacingBefore(5);
-		
 		document.close();
 
 	}

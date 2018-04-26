@@ -242,8 +242,8 @@ public class ImageRecognitionController {
 					JOptionPane.INFORMATION_MESSAGE);
 		}
 
-		//TODO Close the frame
-
+		stage.close();
+		
 	}
 
 }

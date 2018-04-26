@@ -32,7 +32,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="99.0" prefWidth="769.0">
                <children>
-                  <Button fx:id="save_image" alignment="TOP_CENTER" layoutX="327.0" layoutY="36.0" mnemonicParsing="false" onAction="#saveImage" text="Save and Continue">
+                  <Button fx:id="save_image" alignment="TOP_CENTER" layoutX="327.0" layoutY="36.0" mnemonicParsing="false" onAction="#saveImage" text="Save and Close">
                      <font>
                         <Font name="System Bold Italic" size="12.0" />
                      </font></Button>

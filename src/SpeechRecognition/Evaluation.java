@@ -69,17 +69,17 @@ public final class Evaluation {
 	private static String speechWords;
 	static int point = 0;
 
-	public void evaluationLiterate() throws IOException {
+	public static void evaluationLiterate() throws IOException {
 
-		for (int i = 1; i < User.orderLiterate.length; i++) {
+		for (int i = 0; i < User.orderLiterate.length; i++) {
 			evaluate(User.orderLiterate[i], i);
 		}
 
 		User.setScore_mmse(getScoreFromSpeech());
 	}
 
-	public void evaluationIlliterate() throws IOException {
-		for (int i = 1; i < User.orderIlliterate.length; i++) {
+	public static void evaluationIlliterate() throws IOException {
+		for (int i = 0; i < User.orderIlliterate.length; i++) {
 			evaluate(User.orderIlliterate[i], i);
 		}
 
@@ -87,6 +87,7 @@ public final class Evaluation {
 	}
 
 	public static void evaluate(int question, int order) throws IOException {
+		point = 0;
 
 		if (order != 13 || order != 14 || order != 15 || order != 16) {
 			speechWords = SpeechRecorder.getSavedAnswer(order);
@@ -141,15 +142,12 @@ public final class Evaluation {
 							System.out.println("You gained one point from question 3");
 							point = 1;
 							scoreFromSpeech++;
-						} else {
-							System.out.println("You wrong kiddo");
 						}
 					}
 
 				}
 			}
 			User.addEval(point + " out of 1");
-			System.out.println(" The result to question 3 is " + speechWords);
 		}
 
 		else if (question == 4) {
@@ -163,7 +161,6 @@ public final class Evaluation {
 				}
 			}
 			User.addEval(point + " out of 1");
-			System.out.println(" The result to question 4 is " + speechWords);
 		} else if (question == 5) {
 			for (int i = 1; i < 13; i++) {
 				if (month == i) {
@@ -175,7 +172,6 @@ public final class Evaluation {
 				}
 			}
 			User.addEval(point + " out of 1");
-			System.out.println(" The result to question 5 is " + speechWords);
 		}
 
 		else if (question == 6) {
@@ -185,7 +181,6 @@ public final class Evaluation {
 				scoreFromSpeech = scoreFromSpeech + 5;
 			}
 			User.addEval(point + " out of 5");
-			System.out.println(" The result to question 6 is " + speechWords);
 		}
 
 		else if (question == 7) {
@@ -205,7 +200,6 @@ public final class Evaluation {
 				}
 			}
 			User.addEval(point + " out of 3");
-			System.out.println(" The result to question 7 is " + speechWords);
 
 		}
 
@@ -217,7 +211,6 @@ public final class Evaluation {
 				scoreFromSpeech = scoreFromSpeech + 5;
 			}
 			User.addEval(point + " out of 5");
-			System.out.println(" The result to question 8 is " + speechWords);
 		}
 
 		else if (question == 9) {
@@ -238,7 +231,6 @@ public final class Evaluation {
 
 			}
 			User.addEval(point + " out of 3");
-			System.out.println(" The result to question 9 is " + speechWords);
 
 		}
 
@@ -261,7 +253,6 @@ public final class Evaluation {
 				scoreFromSpeech++;
 			}
 			User.addEval(point + " out of 1");
-			System.out.println(" The result to question 10 is " + speechWords);
 		} else if (question == 11) {
 			if (speechWords.equals("no ifs ands or buts")) {
 				System.out.println("You gained one point from question 11");
@@ -269,15 +260,13 @@ public final class Evaluation {
 				scoreFromSpeech++;
 			}
 			User.addEval(point + " out of 1");
-			System.out.println(" The result to question 11 is " + speechWords);
 		} else if (question == 12) {
 			if (speechWords.equals("paper")) {
-				System.out.println("You gained one point from question 11");
+				System.out.println("You gained one point from question 12");
 				point = 1;
 				scoreFromSpeech++;
 			}
 			User.addEval(point + " out of 1");
-			System.out.println(" The result to question 12 is " + speechWords);
 		} else if (question == 13) {
 			String temp = User.answers_mmse.get(order);
 			if (temp.equals("Pressed")) {
@@ -314,7 +303,6 @@ public final class Evaluation {
 				scoreFromSpeech = scoreFromSpeech + 5;
 			}
 			User.addEval(point + " out of 5");
-			System.out.println(" The result to question 20 is " + speechWords);
 		} else if (question == 19) {
 			if (speechWords.equals("i would have gone if he had gone")) {
 				System.out.println("You gained one point from question 21");
@@ -322,8 +310,10 @@ public final class Evaluation {
 				scoreFromSpeech++;
 			}
 			User.addEval(point + " out of 1");
-			System.out.println(" The result to question 21 is " + speechWords);
 		}
+
+		System.out.println(" The result to question " + question + " is " + speechWords);
+
 	}
 
 	public static void disableLogMessages() {

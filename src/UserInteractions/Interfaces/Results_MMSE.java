@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import java.awt.Font;
@@ -95,6 +96,9 @@ public class Results_MMSE {
 			questions = User.questions_illiterate.clone();
 			size = User.questions_illiterate.length;
 		}
+		
+		System.out.println("SIZE:"+size);
+
 
 		String[][] MainRows = new String[size][size];
 		for (int i = 0; i < size; i++) {
@@ -135,7 +139,7 @@ public class Results_MMSE {
 
 		if ( User.evaluation_mmse.size() > 0) {
 			for (int i = 0; i < size; i++) {
-				EvalRows[i][0] = (i + 1) + User.evaluation_mmse.get(i);
+				EvalRows[i][0] =User.evaluation_mmse.get(i);
 			}
 		} else {
 			for (int i = 0; i < size; i++) {
@@ -165,6 +169,7 @@ public class Results_MMSE {
 		lbl_score.setBounds(996, 126, 275, 60);
 		frame.getContentPane().add(lbl_score);
 		
+		// TODO Resize button
 		JButton btnExport = new JButton("Export results to PDF");
 		btnExport.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnExport.setBounds(1080, 598, 142, 54);
@@ -175,6 +180,8 @@ public class Results_MMSE {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					ExportToPDF.main(null);
+					JOptionPane.showConfirmDialog(null, "Your report has been exported to your desktop", "Info",
+							JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
 				} catch (IOException e) {
 					e.printStackTrace();
 				} catch (DocumentException e) {

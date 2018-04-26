@@ -14,6 +14,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import SpeechRecognition.Evaluation;
 import SpeechRecognition.SpeechRecorder;
 
 import java.awt.Font;
@@ -38,7 +41,6 @@ public class Question_Voiced {
 	int click;
 
 	private String userAnswer;
-	private String message = "click on microphone button to record again";
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -111,6 +113,20 @@ public class Question_Voiced {
 				if (order < max) {
 					Question_Voiced.main(null);
 				} else {
+					if(User.getEducation().equals("Literate")){
+							try {
+								Evaluation.evaluationLiterate();
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
+					}else{
+							try {
+								Evaluation.evaluationIlliterate();
+							} catch (IOException e1) {
+								e1.printStackTrace();
+							}
+						}	
+					
 					Question_Polygon.main(null);
 				}
 			}
@@ -170,10 +186,10 @@ public class Question_Voiced {
 
 					if (userAnswer.equals("")) {
 						lbl_speechAnswer.setText(
-								"<html>No answer was given, click on microphone button to record again</html>");
+								"<html>No answer was given<br>Click on microphone button to record again</html>");
 					} else {
 						lbl_speechAnswer.setText(String.format(
-								"<html>Your answer:<br><font color='red'>%s</font><br>%s</html>", userAnswer, message));
+								"<html>Your answer:<br><font color='red'>%s</font><br>Click on microphone button to record again</html>", userAnswer));
 					}
 				}
 
@@ -181,14 +197,14 @@ public class Question_Voiced {
 
 		});
 
-		JLabel lblNewLabel_4 = new JLabel("<html> Please click the play button for listening the question</html>");
+		JLabel lblNewLabel_4 = new JLabel("<html> Click the play button to listen the question</html>");
 		lblNewLabel_4.setForeground(new Color(204, 51, 0));
 		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		lblNewLabel_4.setBounds(421, 194, 203, 137);
 		frame.getContentPane().add(lblNewLabel_4);
 
 		JLabel lblPleaseClickThe = new JLabel(
-				"<html>Please click the microphone button for answering, and click again for recording answer</html>");
+				"<html>Click the microphone button to answer, and click again to save your answer</html>");
 		lblPleaseClickThe.setForeground(new Color(204, 51, 0));
 		lblPleaseClickThe.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 		lblPleaseClickThe.setBounds(757, 184, 215, 137);
@@ -218,8 +234,9 @@ public class Question_Voiced {
 		frame.getContentPane().add(btn_clickbutton);
 		btn_clickbutton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (!User.answers_mmse.get(User.answers_mmse.size() - 1).equals("Pressed"))
 					User.addAnswer_MMSE("Pressed");
+					JOptionPane.showConfirmDialog(null, "Please press NEXT button to continue", "Info",
+							JOptionPane.OK_OPTION, JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 

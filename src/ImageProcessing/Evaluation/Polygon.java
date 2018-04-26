@@ -212,11 +212,11 @@ public final class Polygon {
 		if (score >= 3) {
 			System.out.println("All edges were drawn correctly.");
 			System.out.println("Polygon drawing is correct.");
-			User.addAnswer_MMSE("SATISFIED");
+			User.addEval("SATISFIED");
 			return 1;
 		} else {
 			System.out.println("Polygon drawing is not sufficient.");
-			User.addAnswer_MMSE("NOT SATISFIED");
+			User.addEval("NOT SATISFIED");
 			return 0;
 
 		}
@@ -469,11 +469,11 @@ public final class Polygon {
 			System.out.println("All edges were drawn correctly.");
 			System.out.println("Two points were intersected.");
 			System.out.println("Polygon drawing is correct.");
-			User.addAnswer_MMSE("SATISFIED");
+			User.addEval("SATISFIED");
 			return 1;
 		} else {
 			System.out.println("Polygon drawing is not sufficient.");
-			User.addAnswer_MMSE("NOT SATISFIED");
+			User.addEval("NOT SATISFIED");
 			return 0;
 
 		}
