@@ -1,8 +1,8 @@
 package SpeechRecognition;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-
 import javax.sound.sampled.AudioFileFormat;
 
 import App.User;
@@ -30,7 +30,8 @@ public final class SpeechRecorder {
 		Utterance u = mic.getUtterance();
 
 		try {
-			u.save("Resources/Answers/" + questionName + ".wav", AudioFileFormat.Type.WAVE);
+			new File(System.getProperty("user.home")+"/DEfI").mkdirs();
+			u.save(System.getProperty("user.home")+"/DEfI/"+ questionName + ".wav", AudioFileFormat.Type.WAVE);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -44,7 +45,7 @@ public final class SpeechRecorder {
 		configuration.setGrammarName(question);
 		configuration.setUseGrammar(true);
 		StreamSpeechRecognizer recognizer = new StreamSpeechRecognizer(configuration);
-		recognizer.startRecognition(new FileInputStream("Resources/Answers/" + question + ".wav"));
+		recognizer.startRecognition(new FileInputStream(System.getProperty("user.home")+"/DEfI/" + question + ".wav"));
 		SpeechResult Result = recognizer.getResult();
 		String speechWords = Result.getHypothesis();
 
