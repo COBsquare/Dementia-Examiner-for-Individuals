@@ -98,8 +98,6 @@ public class Results_MMSE {
 			size = User.questions_illiterate.length;
 		}
 
-		System.out.println("SIZE:" + size);
-
 		String[][] MainRows = new String[size][size];
 		for (int i = 0; i < size; i++) {
 			MainRows[i][0] = (i + 1) + ". " + questions[i];
