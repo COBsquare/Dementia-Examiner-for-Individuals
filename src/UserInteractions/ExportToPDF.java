@@ -108,9 +108,9 @@ public class ExportToPDF {
 		}
 
 		// Setting column informations
-		table.addCell("");
-		table.addCell("get(number)");
-		table.addCell("get(number)");
+		table.addCell(Integer.toString(User.getScore_mmse()));
+		table.addCell(Double.toString(User.getScore_polygon()));
+		table.addCell(Double.toString(User.getScore_clock()));
 		document.add(table);
 		document.add(new Paragraph(" "));
 
@@ -185,7 +185,7 @@ public class ExportToPDF {
 		document.add(new Paragraph("Polygon Drawing:"));
 		document.add(new Paragraph(" "));
 
-		Image img3 = Image.getInstance("Resources/Answers/user_poly.jpg");
+		Image img3 = Image.getInstance(System.getProperty("user.home")+"/DEfI/user_poly.jpg");
 		img3.scaleToFit(200f, 200f);
 		img3.setAlignment(Image.MIDDLE);
 		document.add(img3);
@@ -223,7 +223,7 @@ public class ExportToPDF {
 		document.add(new Paragraph(" "));
 		document.add(new Paragraph("Clock Drawing:"));
 
-		Image img2 = Image.getInstance("Resources/Answers/user_clock.jpg");
+		Image img2 = Image.getInstance(System.getProperty("user.home")+"/DEfI/user_clock.jpg");
 		img2.scaleToFit(200f, 200f);
 		img2.setAlignment(Image.MIDDLE);
 		document.add(img2);

@@ -108,9 +108,10 @@ public class Results_Clock {
 		lblNewLabel.setBounds(59, 27, 307, 215);
 		frame.getContentPane().add(lblNewLabel);
 
+		// TODO Resize the image
 		JLabel lbl_clock = new JLabel("");
 		lbl_clock.setFont(new Font("Tahoma", Font.BOLD, 20));
-		lbl_clock.setIcon(new ImageIcon("Resources/Answers/user_clock.jpg"));
+		lbl_clock.setIcon(new ImageIcon(System.getProperty("user.home")+"/DEfI/user_clock.jpg"));
 		lbl_clock.setBounds(327, 199, 328, 279);
 		frame.getContentPane().add(lbl_clock);
 

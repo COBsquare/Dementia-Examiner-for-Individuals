@@ -30,7 +30,7 @@ public final class SpeechRecorder {
 		Utterance u = mic.getUtterance();
 
 		try {
-			new File(System.getProperty("user.home")+"/DEfI").mkdirs();
+			
 			u.save(System.getProperty("user.home")+"/DEfI/"+ questionName + ".wav", AudioFileFormat.Type.WAVE);
 		} catch (IOException e) {
 			e.printStackTrace();

@@ -18,7 +18,6 @@ import javax.swing.table.JTableHeader;
 import com.itextpdf.text.DocumentException;
 
 import App.User;
-import SpeechRecognition.Evaluation;
 import UserInteractions.ExportToPDF;
 
 public class Results_MMSE {
@@ -134,9 +133,9 @@ public class Results_MMSE {
 		String[] EvalHeader = { "Evaluation" };
 		String[][] EvalRows = new String[size][size];
 
-		if (Evaluation.scoring.size() > 0) {
+		if ( User.evaluation_mmse.size() > 0) {
 			for (int i = 0; i < size; i++) {
-				EvalRows[i][0] = (i + 1) + Evaluation.scoring.get(i);
+				EvalRows[i][0] = (i + 1) + User.evaluation_mmse.get(i);
 			}
 		} else {
 			for (int i = 0; i < size; i++) {
@@ -161,8 +160,7 @@ public class Results_MMSE {
 
 		Theader_3.setFont(new Font("Tahome", Font.BOLD, 20));
 
-		// TODO Test result
-		JLabel lbl_score = new JLabel("Your Score:");
+		JLabel lbl_score = new JLabel("Your Score: "+ User.getScore_mmse());
 		lbl_score.setFont(new Font("Tahoma", Font.BOLD, 30));
 		lbl_score.setBounds(996, 126, 275, 60);
 		frame.getContentPane().add(lbl_score);

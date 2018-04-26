@@ -180,10 +180,12 @@ public class TutorialScreen_voice {
 						e1.printStackTrace();
 					}
 					try {
-						recognizer.startRecognition(new FileInputStream("Resources/Answers/tutorial.wav"));
+						new File(System.getProperty("user.home")+"/DEfI").mkdirs();
+						recognizer.startRecognition(new FileInputStream(System.getProperty("user.home")+"/DEfI/tutorial.wav"));
 					} catch (FileNotFoundException e1) {
 						e1.printStackTrace();
 					}
+					
 					SpeechResult Result = recognizer.getResult();
 					String speechWords = Result.getHypothesis();
 					System.out.println(speechWords);

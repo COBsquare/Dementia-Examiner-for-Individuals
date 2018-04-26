@@ -57,10 +57,10 @@ public class Question_Voiced {
 
 		if (App.User.getEducation().equals("Literate")) {
 			question = User.orderLiterate[order];
-			max = User.orderLiterate.length - 1;
+			max = User.orderLiterate.length;
 		} else if (App.User.getEducation().equals("Illiterate")) {
 			question = User.orderIlliterate[order];
-			max = User.orderIlliterate.length - 1;
+			max = User.orderIlliterate.length;
 		}
 
 		initialize();
@@ -115,7 +115,7 @@ public class Question_Voiced {
 				}
 			}
 		});
-		
+
 		JLabel lbl_speechAnswer = new JLabel("Your speech answer is");
 		lbl_speechAnswer.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lbl_speechAnswer.setBounds(780, 590, 250, 100);
@@ -247,6 +247,8 @@ public class Question_Voiced {
 			lbl.setForeground(new Color(204, 51, 0));
 			lbl.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
 			lbl.setText("<html> Please do this calculation:<br>7 X 3</br>Type the answer down.</html>");
+			lbl.setVisible(true);
+
 			textField.setVisible(true);
 			App.User.addAnswer_MMSE(textField.getText());
 			btn_microphone.setVisible(false);
