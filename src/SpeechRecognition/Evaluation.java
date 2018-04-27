@@ -69,6 +69,7 @@ public final class Evaluation {
 	private static String speechWords;
 	static int point = 0;
 
+
 	public static void evaluationLiterate() throws IOException {
 
 		for (int i = 0; i < User.orderLiterate.length; i++) {
@@ -153,7 +154,7 @@ public final class Evaluation {
 		else if (question == 4) {
 			for (int i = 0; i < 7; i++) {
 				if (dayOfWeek == daysOfWeek[i]) {
-					if (speechWords.equals(daysOfWeek[i])) {
+					if (speechWords.equalsIgnoreCase((daysOfWeek[i]))) {
 						System.out.println("You gained one point from question 4");
 						point = 1;
 						scoreFromSpeech++;
@@ -297,7 +298,9 @@ public final class Evaluation {
 			User.addEval(point + " out of 1");
 		} else if (question == 18) {
 			if (speechWords.equals("sunday saturday friday thursday wednesday tuesday monday") || speechWords.equals(
-					"sunday saturday friday thursday wednesday tuesday monday sunday")) {
+					"sunday saturday friday thursday wednesday tuesday monday sunday") ||
+					speechWords.equals("sunday saturday friday tuesday wednesday tuesday monday") ||
+					speechWords.equals("sunday saturday friday thursday wednesday thursday monday")) {
 				point = 5;
 				System.out.println("You gained five points from question 20");
 				scoreFromSpeech = scoreFromSpeech + 5;
