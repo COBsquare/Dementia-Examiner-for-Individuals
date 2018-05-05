@@ -19,7 +19,7 @@ public final class ImageRecognitionMain extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 			this.primaryStage = primaryStage;
-			
+
 			this.primaryStage.setTitle("Dementia Examiner for Indiviuals");
 			this.primaryStage.setScene(scene);
 			this.primaryStage.show();
@@ -27,22 +27,17 @@ public final class ImageRecognitionMain extends Application {
 			ImageRecognitionController controller = loader.getController();
 			controller.setStage(this.primaryStage);
 			controller.init();
-			
-
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-	
 
 	public static void main(String[] args) {
 
 		System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 		launch(args);
 
-
 	}
-
 
 }

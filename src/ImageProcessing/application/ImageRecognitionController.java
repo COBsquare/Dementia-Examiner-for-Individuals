@@ -22,6 +22,7 @@ import ImageProcessing.Utils.Recognition;
 import ImageProcessing.Utils.Utils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
@@ -37,6 +38,8 @@ public class ImageRecognitionController {
 	private Button open_webcam;
 	@FXML
 	private Button save_image;
+	@FXML
+	private Label stageHeadline;
 
 	// Variables for image browser
 	private FileChooser fileChooser;
@@ -200,11 +203,6 @@ public class ImageRecognitionController {
 	// Keep current image and start processing
 	@FXML
 	protected void saveImage() throws IOException {
-		// Clear the console
-		for (int i = 0; i < 100; i++) {
-			System.out.println("");
-		}
-
 		if (image != null) {
 			try {
 				Imgproc.cvtColor(image, image, Imgproc.COLOR_BGR2GRAY);
@@ -215,13 +213,13 @@ public class ImageRecognitionController {
 			Mat frame_figure = Recognition.getFigure(image);
 			double score;
 
-			new File(System.getProperty("user.home") + "/DEfI").mkdirs();
-
 			if (drawingType == "Clock Drawing") {
 
 				Imgcodecs.imwrite(path + "user_clock.jpg", frame_figure);
 				score = Clock.evaluateClock(frame_figure, imageViewer);
 				User.setScore_clock(score);
+				
+				stage.close();
 
 			} else if (drawingType == "Literate Polygon") {
 
@@ -241,7 +239,13 @@ public class ImageRecognitionController {
 					JOptionPane.INFORMATION_MESSAGE);
 		}
 
-		stage.close();
+		if(User.getEducation().equals("Literate")){
+			stageHeadline.setText("Clock Drawing");
+			imageViewer.setVisible(false);
+			setDrawingType("Clock Drawing");
+		}else{
+			stage.close();
+		}
 
 	}
 

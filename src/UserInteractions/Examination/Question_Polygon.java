@@ -33,6 +33,7 @@ public class Question_Polygon {
 
 	private JFrame frame;
 	private String image_path;
+	private boolean literate = false;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -49,12 +50,12 @@ public class Question_Polygon {
 
 	public Question_Polygon() {
 
-		
-		if (App.User.getEducation().equals("Literate")) {
+		if (User.getEducation().equals("Literate")) {
 			image_path = "Resources/Images/polygon_literate.png";
 			ImageRecognitionController.setDrawingType("Literate Polygon");
+			literate = true;
 
-		} else if (App.User.getEducation().equals("Illiterate")) {
+		} else if (User.getEducation().equals("Illiterate")) {
 			image_path = "Resources/Images/polygon_illiterate.png";
 			ImageRecognitionController.setDrawingType("Illiterate Polygon");
 
@@ -74,12 +75,12 @@ public class Question_Polygon {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JButton btnReadTheQuestion = new JButton("");
-		btnReadTheQuestion.setIcon(new ImageIcon("Resources/Images/play.png"));
-		btnReadTheQuestion.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnReadTheQuestion.setBounds(269, 342, 169, 168);
-		frame.getContentPane().add(btnReadTheQuestion);
-		btnReadTheQuestion.addActionListener(new ActionListener() {
+		JButton btnPlay = new JButton("");
+		btnPlay.setIcon(new ImageIcon("Resources/Images/play.png"));
+		btnPlay.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnPlay.setBounds(269, 342, 169, 168);
+		frame.getContentPane().add(btnPlay);
+		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					File file = new File("Resources/Questions/" + Integer.toString(17) + ".wav");
@@ -96,13 +97,13 @@ public class Question_Polygon {
 			}
 		});
 
-		JButton btn_Next = new JButton("Next");
-		btn_Next.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btn_Next.setBounds(1080, 598, 142, 54);
-		btn_Next.setVisible(false);
-		frame.getContentPane().add(btn_Next);
-		frame.getRootPane().setDefaultButton(btn_Next);
-		btn_Next.addActionListener(new ActionListener() {
+		JButton btnNext = new JButton("Next");
+		btnNext.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnNext.setBounds(1080, 598, 142, 54);
+		btnNext.setVisible(false);
+		frame.getContentPane().add(btnNext);
+		frame.getRootPane().setDefaultButton(btnNext);
+		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (User.getEducation().equals("Literate")) {
 					Question_Clock.main(null);
@@ -112,57 +113,63 @@ public class Question_Polygon {
 			}
 		});
 
-		JButton btn_camera = new JButton("");
-		btn_camera.setIcon(new ImageIcon("Resources/Images/camera.png"));
-		btn_camera.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btn_camera.setBounds(595, 342, 169, 168);
-		frame.getContentPane().add(btn_camera);
-		frame.getRootPane().setDefaultButton(btn_camera);
-		btn_camera.addActionListener(new ActionListener() {
+		JButton btnCamera = new JButton("");
+		btnCamera.setIcon(new ImageIcon("Resources/Images/camera.png"));
+		btnCamera.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnCamera.setBounds(595, 342, 169, 168);
+		frame.getContentPane().add(btnCamera);
+		frame.getRootPane().setDefaultButton(btnCamera);
+		btnCamera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ImageRecognitionMain.main(null);
-				btn_Next.setVisible(true);
+				btnNext.setVisible(true);
 			}
 
 		});
 
-		JLabel lbl_polygon = new JLabel("");
-		lbl_polygon.setBounds(854, 285, 439, 243);
-		lbl_polygon.setVisible(true);
-		frame.getContentPane().add(lbl_polygon);
-		
+		JLabel imagelabel = new JLabel("");
+		imagelabel.setBounds(854, 285, 439, 243);
+		imagelabel.setVisible(true);
+		frame.getContentPane().add(imagelabel);
+
 		BufferedImage img = null;
 		try {
-		    img = ImageIO.read(new File(image_path));
+			img = ImageIO.read(new File(image_path));
 		} catch (IOException e) {
-		    e.printStackTrace();
+			e.printStackTrace();
 		}
-		Image dimg = img.getScaledInstance(lbl_polygon.getWidth(), lbl_polygon.getHeight(),
-				Image.SCALE_SMOOTH);
-		
+
+		Image dimg = img.getScaledInstance(imagelabel.getWidth(), imagelabel.getHeight(), Image.SCALE_SMOOTH);
+
 		ImageIcon imageIcon = new ImageIcon(dimg);
 
-		lbl_polygon.setIcon(imageIcon);
+		imagelabel.setIcon(imageIcon);
 
-		JLabel lblNewLabel_4 = new JLabel("<html> Please click the play button for listening the question</html>");
-		lblNewLabel_4.setForeground(new Color(204, 51, 0));
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		lblNewLabel_4.setBounds(269, 223, 211, 95);
-		frame.getContentPane().add(lblNewLabel_4);
+		JLabel textPlay = new JLabel("<html> Please click the play button for listening the question</html>");
+		textPlay.setForeground(new Color(204, 51, 0));
+		textPlay.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		textPlay.setBounds(269, 223, 211, 95);
+		frame.getContentPane().add(textPlay);
 
-		JLabel lblNewLabel_7 = new JLabel("  Polygon Drawing");
-		lblNewLabel_7.setForeground(SystemColor.activeCaptionText);
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblNewLabel_7.setBorder(new LineBorder(SystemColor.activeCaption, 2));
-		lblNewLabel_7.setBounds(364, 120, 251, 43);
-		frame.getContentPane().add(lblNewLabel_7);
-		lblNewLabel_7.setVisible(true);
+		JLabel textHead = new JLabel("  Polygon Drawing");
+		textHead.setForeground(SystemColor.activeCaptionText);
+		textHead.setFont(new Font("Tahoma", Font.BOLD, 24));
+		textHead.setBorder(new LineBorder(SystemColor.activeCaption, 2));
+		textHead.setBounds(364, 120, 251, 43);
+		frame.getContentPane().add(textHead);
 
-		JLabel lbl_camerawarning = new JLabel("<html>Please click the camera button for uploading the drawing</html>");
-		lbl_camerawarning.setForeground(new Color(204, 51, 0));
-		lbl_camerawarning.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		lbl_camerawarning.setBounds(594, 236, 203, 95);
-		frame.getContentPane().add(lbl_camerawarning);
+		JLabel textCamera = new JLabel("<html>Please click the camera button for uploading the drawing</html>");
+		textCamera.setForeground(new Color(204, 51, 0));
+		textCamera.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		textCamera.setBounds(594, 236, 203, 95);
+		frame.getContentPane().add(textCamera);
+
+		if (literate) {
+			btnNext.setVisible(true);
+			btnCamera.setVisible(false);
+			textCamera.setVisible(false);
+
+		}
 
 		JButton btnClose = new JButton("");
 		btnClose.setBounds(1281, 27, 60, 60);
@@ -184,10 +191,10 @@ public class Question_Polygon {
 			}
 		});
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lblNewLabel.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lblLogo.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lblLogo);
 
 	}
 

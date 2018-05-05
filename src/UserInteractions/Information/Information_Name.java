@@ -104,7 +104,7 @@ public class Information_Name {
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				
-				TypeSelection.main(null);
+				//TypeSelection.main(null);
 				
 			}
 		});

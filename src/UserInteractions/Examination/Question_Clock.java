@@ -43,7 +43,7 @@ public class Question_Clock {
 	}
 
 	public Question_Clock() {
-		ImageRecognitionController.setDrawingType("Clock Drawing");
+		ImageRecognitionController.setDrawingType("Literate Polygon");
 		initialize();
 	}
 
@@ -57,12 +57,12 @@ public class Question_Clock {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		JButton btnReadTheQuestion = new JButton("");
-		btnReadTheQuestion.setBounds(269, 342, 169, 168);
-		frame.getContentPane().add(btnReadTheQuestion);
-		btnReadTheQuestion.setIcon(new ImageIcon("Resources/Images/play.png"));
-		btnReadTheQuestion.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnReadTheQuestion.addActionListener(new ActionListener() {
+		JButton btnPlay = new JButton("");
+		btnPlay.setBounds(269, 342, 169, 168);
+		frame.getContentPane().add(btnPlay);
+		btnPlay.setIcon(new ImageIcon("Resources/Images/play.png"));
+		btnPlay.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnPlay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
 					File file = new File("Resources/Questions/20.wav");
@@ -79,61 +79,60 @@ public class Question_Clock {
 			}
 		});
 
-		JButton btn_Next = new JButton("Next");
-		btn_Next.setBounds(1080, 598, 142, 54);
-		btn_Next.setVisible(false);
-		frame.getContentPane().add(btn_Next);
-		frame.getRootPane().setDefaultButton(btn_Next);
-		btn_Next.addActionListener(new ActionListener() {
+		JButton btnNext = new JButton("Next");
+		btnNext.setBounds(1080, 598, 142, 54);
+		btnNext.setVisible(false);
+		frame.getContentPane().add(btnNext);
+		frame.getRootPane().setDefaultButton(btnNext);
+		btnNext.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				EndTest.main(null);
 			}
 		});
 
-		JButton btn_camera = new JButton("");
-		btn_camera.setIcon(new ImageIcon("Resources/Images/camera.png"));
-		btn_camera.setBounds(595, 342, 169, 168);
-		frame.getContentPane().add(btn_camera);
-		frame.getRootPane().setDefaultButton(btn_camera);
-		btn_camera.addActionListener(new ActionListener() {
+		JButton btnCamera = new JButton("");
+		btnCamera.setIcon(new ImageIcon("Resources/Images/camera.png"));
+		btnCamera.setBounds(595, 342, 169, 168);
+		frame.getContentPane().add(btnCamera);
+		frame.getRootPane().setDefaultButton(btnCamera);
+		btnCamera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				ImageRecognitionMain.main(null);
-				btn_Next.setVisible(true);
+				btnNext.setVisible(true);
 			}
 
 		});
 
-		JLabel lblNewLabel_7 = new JLabel("  Clock Drawing");
-		lblNewLabel_7.setForeground(SystemColor.activeCaptionText);
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 24));
-		lblNewLabel_7.setBorder(new LineBorder(SystemColor.activeCaption, 2));
-		lblNewLabel_7.setBounds(364, 120, 251, 43);
-		lblNewLabel_7.setVisible(true);
-		frame.getContentPane().add(lblNewLabel_7);
+		JLabel textHead = new JLabel("  Clock Drawing");
+		textHead.setForeground(SystemColor.activeCaptionText);
+		textHead.setFont(new Font("Tahoma", Font.BOLD, 24));
+		textHead.setBorder(new LineBorder(SystemColor.activeCaption, 2));
+		textHead.setBounds(364, 120, 251, 43);
+		textHead.setVisible(true);
+		frame.getContentPane().add(textHead);
 
-		JLabel lbl_image = new JLabel("");
-		lbl_image.setBounds(854, 285, 439, 243);
-		lbl_image.setVisible(true);
-		lbl_image.setFont(new Font("Tahoma", Font.ITALIC, 18));
-		frame.getContentPane().add(lbl_image);
-		lbl_image.setText("<html>The clock-drawing test is used for screening for cognitive impairment.</html>");
+		JLabel imagelabel = new JLabel("");
+		imagelabel.setBounds(854, 285, 439, 243);
+		imagelabel.setFont(new Font("Tahoma", Font.ITALIC, 18));
+		frame.getContentPane().add(imagelabel);
+		imagelabel.setText("<html>The clock-drawing test is used for screening for cognitive impairment.</html>");
 
-		JLabel lblNewLabel_4 = new JLabel("<html>Listen to question here!</html>");
-		lblNewLabel_4.setForeground(new Color(204, 51, 0));
-		lblNewLabel_4.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		lblNewLabel_4.setBounds(269, 223, 211, 95);
-		frame.getContentPane().add(lblNewLabel_4);
+		JLabel textPlay = new JLabel("<html>Listen to question here!</html>");
+		textPlay.setForeground(new Color(204, 51, 0));
+		textPlay.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		textPlay.setBounds(269, 223, 211, 95);
+		frame.getContentPane().add(textPlay);
 
-		JLabel lbl_camerawarning = new JLabel("<html>Click here to upload the drawing</html>");
-		lbl_camerawarning.setForeground(new Color(204, 51, 0));
-		lbl_camerawarning.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
-		lbl_camerawarning.setBounds(594, 236, 203, 95);
-		frame.getContentPane().add(lbl_camerawarning);
+		JLabel textCamera = new JLabel("<html>Click here to upload both polygon and clock drawings</html>");
+		textCamera.setForeground(new Color(204, 51, 0));
+		textCamera.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 20));
+		textCamera.setBounds(594, 236, 203, 95);
+		frame.getContentPane().add(textCamera);
 
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
-		lblNewLabel.setBounds(59, 27, 307, 215);
-		frame.getContentPane().add(lblNewLabel);
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setIcon(new ImageIcon("Resources/Images/kucuklogo.png"));
+		lblLogo.setBounds(59, 27, 307, 215);
+		frame.getContentPane().add(lblLogo);
 
 		JButton btnClose = new JButton("");
 		btnClose.setBounds(1281, 27, 60, 60);

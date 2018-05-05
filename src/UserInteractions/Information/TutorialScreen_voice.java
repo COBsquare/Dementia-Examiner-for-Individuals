@@ -21,6 +21,7 @@ import javax.swing.JOptionPane;
 
 import SpeechRecognition.Evaluation;
 import SpeechRecognition.SpeechRecorder;
+import UserInteractions.Constants.StartTest;
 import UserInteractions.Constants.Warnings;
 import UserInteractions.Constants.Welcome;
 import edu.cmu.sphinx.api.Configuration;
@@ -145,8 +146,7 @@ public class TutorialScreen_voice {
 		
 		btn_Next.addActionListener(new ActionListener() {		
 			public void actionPerformed(ActionEvent e) {
-				TutorialScreen_cam.main(null);
-
+				StartTest.main(null);
 			}
 		});
 
